@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spieltisch</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="aufstieg.css">
+</head>
+<body>
+<header id="kopf">
+  <div class="szene">
+    <h1 id="szene-titel">…</h1>
+    <div id="szene-untertitel"></div>
+  </div>
+  <div id="initiative" hidden>
+    <span id="ini-runde"></span>
+    <ol id="ini-liste"></ol>
+  </div>
+  <div id="sl-status" class="pill">…</div>
+</header>
+
+<main>
+  <section id="karte-bereich">
+    <canvas id="karte"></canvas>
+    <div id="keine-karte" hidden>Noch keine Karte aufgedeckt – lauscht dem Spielleiter.</div>
+    <div id="werkzeuge">
+      <button data-werkzeug="bewegen" class="aktiv" title="Charaktere ziehen, Karte verschieben">✥ Bewegen</button>
+      <button data-werkzeug="messen" title="Entfernung messen (auch: Umschalt + Ziehen)">📏 Messen</button>
+      <button data-werkzeug="zeigen" title="Auf ein Feld zeigen (auch: Rechtsklick)">☝ Zeigen</button>
+      <button data-werkzeug="aufdecken" class="nur-sl" title="Nebel aufdecken (Rechteck ziehen)">☀ Aufdecken</button>
+      <button data-werkzeug="verdecken" class="nur-sl" title="Nebel verdecken (Rechteck ziehen)">☁ Verdecken</button>
+      <span class="trenner"></span>
+      <button id="raster-umschalten" title="Raster ein/aus">#</button>
+      <button id="barrieren-umschalten" class="nur-sl" title="Erkannte Wände und Türen anzeigen (nur SL)">▦</button>
+      <button id="zoom-rein" title="Hineinzoomen">＋</button>
+      <button id="zoom-raus" title="Herauszoomen">－</button>
+      <button id="zentrieren" title="Auf die Gruppe zentrieren">◎</button>
+      <button id="raster-justieren" title="Raster feinjustieren">⚙</button>
+      <span id="koordinate"></span>
+    </div>
+    <div id="raster-panel" hidden>
+      <label>Feldgröße <input type="number" id="r-zelle" step="0.1"></label>
+      <label>Versatz X <input type="number" id="r-ox" step="0.5"></label>
+      <label>Versatz Y <input type="number" id="r-oy" step="0.5"></label>
+      <small>Nur Anzeige in diesem Browser. Der SL kann das Raster dauerhaft ändern.</small>
+    </div>
+    <div id="tooltip" hidden></div>
+    <div id="kontextmenue" hidden></div>
+    <div id="toast" hidden></div>
+  </section>
+
+  <aside id="seite">
+    <section id="zugleiste" hidden>
+      <div class="zug-kopf">
+        <span class="farbpunkt" id="zug-farbe"></span>
+        <div>
+          <small id="zug-runde"></small>
+          <strong id="zug-name"></strong>
+        </div>
+        <button id="zug-beenden" class="primaer">Zug beenden</button>
+      </div>
+      <div id="zug-aktionen"></div>
+      <div id="zug-hinweis" class="hinweis"></div>
+    </section>
+    <nav id="reiter">
+      <button data-reiter="erzaehlung" class="aktiv">Erzählung</button>
+      <button data-reiter="gruppe">Gruppe</button>
+      <button data-reiter="charaktere">Charaktere</button>
+      <button data-reiter="ausruestung">Ausrüstung</button>
+      <button data-reiter="unterlagen">Unterlagen</button>
+    </nav>
+
+    <div id="r-erzaehlung" class="reiter-inhalt aktiv">
+      <details id="stimme-einstellungen">
+        <summary>🔊 Erzählstimme</summary>
+        <div class="zeile">
+          <label>Stimme <select id="stimme-wahl"></select></label>
+          <label>Tempo <input type="range" id="stimme-tempo" min="0.6" max="1.4" step="0.05" value="0.95"></label>
+        </div>
+        <div class="zeile">
+          <label class="option"><input type="checkbox" id="stimme-auto"> Neue Erzählungen automatisch vorlesen</label>
+          <button type="button" id="stimme-stopp">■ Stopp</button>
+        </div>
+      </details>
+      <div id="protokoll"></div>
+      <form id="aktion-form">
+        <div class="zeile">
+          <label>als <select id="aktion-wer"></select></label>
+          <span class="hinweis">Rechtsklick auf die Karte fügt eine Koordinate ein</span>
+        </div>
+        <textarea id="aktion-text" rows="3" placeholder="Was tut ihr? (Strg+Enter zum Senden)"></textarea>
+        <div class="zeile">
+          <button type="submit" class="primaer">An den Spielleiter senden</button>
+        </div>
+      </form>
+      <div id="wuerfelleiste">
+        <div class="zeile">
+          <button data-w="1W4">W4</button><button data-w="1W6">W6</button><button data-w="1W8">W8</button>
+          <button data-w="1W10">W10</button><button data-w="1W12">W12</button><button data-w="1W20">W20</button>
+          <button data-w="1W100">W%</button>
+        </div>
+        <div class="zeile" id="gruppenprobe">
+          <label>Gruppenprobe <select id="gruppenprobe-art"></select></label>
+          <button type="button" id="gruppenprobe-los" class="primaer">🎲 Alle würfeln</button>
+        </div>
+        <div class="zeile" id="gruppenini" hidden>
+          <button type="button" id="gruppenini-los" class="primaer">🎲 Gruppenprobe Initiative</button>
+        </div>
+        <form id="wurf-form" class="zeile">
+          <input id="wurf-ausdruck" placeholder="z. B. 2W6+3" autocomplete="off">
+          <input id="wurf-grund" placeholder="wofür?" autocomplete="off">
+          <button type="submit">Würfeln</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="r-gruppe" class="reiter-inhalt">
+      <div id="gruppe-liste"></div>
+    </div>
+
+    <div id="r-charaktere" class="reiter-inhalt">
+      <div class="zeile">
+        <select id="char-auswahl"></select>
+        <button id="char-neu">Neu</button>
+      </div>
+      <form id="char-form"></form>
+    </div>
+    <div id="r-ausruestung" class="reiter-inhalt">
+      <h3>Gruppenkasse</h3>
+      <div id="kasse"></div>
+      <form id="kasse-form" class="zeile">
+        <select id="kasse-art"><option value="pp">PP</option><option value="gp" selected>GP</option><option value="sp">SP</option><option value="kp">KP</option></select>
+        <input id="kasse-betrag" type="number" step="1" placeholder="Betrag" required>
+        <input id="kasse-grund" type="text" placeholder="Grund (optional)">
+        <button type="submit" data-vz="1">Einzahlen</button>
+        <button type="submit" data-vz="-1">Auszahlen</button>
+      </form>
+      <div id="ausruestung-liste"></div>
+      <h3>Zauberbücher</h3>
+      <div id="zauberbuecher"></div>
+      <h3>Gegenstand hinzufügen</h3>
+      <form id="item-form" class="zeile">
+        <input id="item-name" type="text" placeholder="Name" required>
+        <input id="item-anzahl" type="number" min="1" value="1" style="width:4em">
+        <select id="item-traeger"></select>
+        <input id="item-ort" type="text" placeholder="Ort (Rucksack, Körper, …)" value="Rucksack">
+        <button type="submit">Hinzufügen</button>
+      </form>
+    </div>
+    <div id="r-unterlagen" class="reiter-inhalt">
+      <h3>Karten</h3>
+      <div id="unterlagen-karten" class="unterlagen-liste"></div>
+      <h3>Handouts</h3>
+      <div id="unterlagen-handouts"></div>
+      <h3>Gruppennotizen</h3>
+      <textarea id="gruppennotizen" rows="10" placeholder="Eigene Notizen der Gruppe: Namen, Hinweise, offene Fragen … (wird automatisch gespeichert)"></textarea>
+      <div class="hinweis" id="notizen-status"></div>
+    </div>
+  </aside>
+</main>
+
+<dialog id="betrachter">
+  <div class="betrachter-kopf">
+    <strong id="betrachter-titel"></strong>
+    <span class="hinweis">Mausrad: zoomen · Ziehen: verschieben</span>
+    <button id="betrachter-zu">Schließen</button>
+  </div>
+  <div class="betrachter-koerper">
+    <div id="betrachter-flaeche"><img id="betrachter-bild" alt="" draggable="false"></div>
+    <div id="betrachter-legende" hidden></div>
+  </div>
+</dialog>
+
+<dialog id="aufstieg-dialog">
+  <form method="dialog" id="aufstieg-form">
+    <h2 id="aufstieg-titel"></h2>
+    <label>Klasse für diese Stufe
+      <input id="a-klasse" autocomplete="off">
+      <small class="hinweis">Andere Klasse eintragen für Mehrklassen-Charaktere.</small>
+    </label>
+    <fieldset>
+      <legend>Trefferpunkte</legend>
+      <label class="option"><input type="radio" name="tpArt" value="wurf" checked> <span id="a-wurf"></span></label>
+      <label class="option"><input type="radio" name="tpArt" value="schnitt"> <span id="a-schnitt"></span></label>
+    </fieldset>
+    <fieldset>
+      <legend>Bonus der bevorzugten Klasse</legend>
+      <label class="option"><input type="radio" name="bevorzugt" value="tp" checked> +1 Trefferpunkt</label>
+      <label class="option"><input type="radio" name="bevorzugt" value="fertigkeit"> +1 Fertigkeitsrang</label>
+      <label class="option"><input type="radio" name="bevorzugt" value=""> keiner (nicht die bevorzugte Klasse)</label>
+    </fieldset>
+    <fieldset>
+      <legend>Deine Wahl</legend>
+      <ul id="a-faellig"></ul>
+      <textarea id="a-wuensche" rows="5" placeholder="z. B. Ränge: Wahrnehmung +1, Wissen (Arkanes) +1 · Talent: Waffenfokus (Kampfstab) · Neue Zauber: Schild, Farbenspiel"></textarea>
+    </fieldset>
+    <p class="hinweis">Trefferpunkte trägt das Tool sofort ein. GAB, Rettungswürfe, Klassenmerkmale und Zauberplätze trägt der Spielleiter nach dem Regelwerk ein.</p>
+    <div class="zeile">
+      <button value="abbrechen" formnovalidate>Abbrechen</button>
+      <button value="ok" class="primaer" id="a-ok">Aufsteigen</button>
+    </div>
+  </form>
+</dialog>
+
+<template id="tpl-karte-sc">
+  <article class="sc-karte">
+    <header>
+      <button class="einklappen" title="ein-/ausklappen">▾</button>
+      <span class="farbpunkt"></span>
+      <div><strong class="name"></strong><small class="klasse"></small></div>
+      <button class="platzieren"></button>
+    </header>
+    <div class="tp-zeile">
+      <div class="tp-balken"><div></div><span></span></div>
+      <input type="number" class="tp-betrag" value="1" min="1">
+      <button class="tp-minus" title="Schaden">−</button>
+      <button class="tp-plus" title="Heilung">+</button>
+    </div>
+    <div class="werte"></div>
+    <div class="wuerfe"></div>
+    <div class="zeile fertigkeit-zeile">
+      <select class="fertigkeit"></select>
+      <button class="fertigkeit-wurf">Probe</button>
+    </div>
+    <div class="zustaende"></div>
+    <div class="zeile"><select class="zustand-neu"><option value="">+ Zustand…</option></select></div>
+  </article>
+</template>
+
+<script src="aufstieg.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

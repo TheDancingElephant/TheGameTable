@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spieltisch – Kampagnen</title>
+<style>
+:root {
+  --bg: #15120e; --panel: #1f1a14; --panel-2: #29221a; --linie: #3d3226;
+  --text: #ece2cf; --text-2: #b3a48b; --gold: #d6a84b; --gold-2: #f0c96a;
+  --rot: #c8473a; --gruen: #5fae6b; --blau: #5a8fd8;
+  --schrift: "Segoe UI", system-ui, sans-serif; --zier: Georgia, "Palatino Linotype", serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--text); font: 14px/1.45 var(--schrift); display: flex; flex-direction: column; }
+button, input, select { font: inherit; color: inherit; }
+button { background: var(--panel-2); border: 1px solid var(--linie); border-radius: 6px; padding: 5px 11px; cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--gold); }
+button:disabled { opacity: .45; cursor: default; }
+button.haupt { background: var(--gold); color: #2b2116; border-color: var(--gold); font-weight: 600; }
+button.haupt:hover:not(:disabled) { background: var(--gold-2); }
+button.gefahr:hover:not(:disabled) { border-color: var(--rot); color: #f3b1a9; }
+input[type=text], input[type=number], select { background: var(--panel-2); border: 1px solid var(--linie); border-radius: 6px; padding: 6px 9px; width: 100%; }
+input:focus, select:focus { outline: none; border-color: var(--gold); }
+header { display: flex; align-items: center; gap: 14px; padding: 12px 20px; border-bottom: 1px solid var(--linie); background: var(--panel); }
+header h1 { font: 600 20px var(--zier); color: var(--gold); margin: 0; letter-spacing: .02em; }
+header .wurzel { color: var(--text-2); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
+header .wurzel button { padding: 1px 7px; font-size: 12px; margin-left: 6px; }
+main { flex: 1; overflow: auto; padding: 18px 20px 28px; }
+.raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 14px; }
+.karte { background: var(--panel); border: 1px solid var(--linie); border-radius: 10px; padding: 14px 15px 12px; display: flex; flex-direction: column; gap: 9px; }
+.karte.laeuft { border-color: #4b6a3f; }
+.kopf { display: flex; align-items: flex-start; gap: 10px; }
+.kopf h2 { font: 600 17px var(--zier); margin: 0; flex: 1; line-height: 1.25; }
+.kopf .ordner { display: block; font: 12px var(--schrift); color: var(--text-2); margin-top: 2px; }
+.status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 2px 9px; border-radius: 99px; background: var(--panel-2); white-space: nowrap; }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #6d6253; }
+.status.an { color: #b9e2b0; } .status.an::before { background: var(--gruen); box-shadow: 0 0 6px var(--gruen); }
+.marken { display: flex; flex-wrap: wrap; gap: 5px; font-size: 12px; color: var(--text-2); }
+.marke { border: 1px solid var(--linie); border-radius: 5px; padding: 0 6px; }
+.marke.gold { border-color: #7a6232; color: var(--gold-2); }
+.marke.rot { border-color: #7a3a32; color: #f3b1a9; }
+.tisch { background: var(--panel-2); border-radius: 7px; padding: 7px 10px; font-size: 13px; }
+.tisch .zeile { display: flex; justify-content: space-between; gap: 8px; }
+.tisch .offen { color: var(--gold-2); font-weight: 600; }
+.tisch .letztes { color: var(--text-2); font-size: 12px; margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.knoepfe { display: flex; flex-wrap: wrap; gap: 6px; }
+.knoepfe .klein { padding: 3px 9px; font-size: 12.5px; }
+.leer { color: var(--text-2); padding: 40px 0; text-align: center; }
+.dialog-hg { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 10; }
+.dialog { background: var(--panel); border: 1px solid var(--linie); border-radius: 12px; width: min(560px, 100%); max-height: 92vh; overflow: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+.dialog.breit { width: min(900px, 100%); }
+.dialog h3 { margin: 0; font: 600 18px var(--zier); color: var(--gold); }
+.feld { display: flex; flex-direction: column; gap: 4px; }
+.feld label { font-size: 12px; color: var(--text-2); }
+.reihe { display: flex; gap: 10px; } .reihe > * { flex: 1; }
+.pdfs { display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; }
+.pdfs .pdf { display: flex; gap: 6px; align-items: center; background: var(--panel-2); border-radius: 5px; padding: 3px 8px; }
+.pdfs .pdf span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pdfs .pdf button { padding: 0 6px; }
+.haken { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; }
+.haken small { color: var(--text-2); display: block; }
+.unten { display: flex; justify-content: flex-end; gap: 8px; }
+pre.log { background: #0e0c09; border: 1px solid var(--linie); border-radius: 7px; padding: 10px; font: 12px/1.4 Consolas, monospace; white-space: pre-wrap; max-height: 62vh; overflow: auto; margin: 0; }
+.ergebnis { white-space: pre-wrap; font-size: 13px; background: var(--panel-2); border-radius: 7px; padding: 9px 11px; }
+#toast { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); background: var(--panel-2); border: 1px solid var(--linie); border-radius: 8px; padding: 8px 14px; max-width: min(640px, 92vw); z-index: 20; box-shadow: 0 6px 24px rgba(0,0,0,.5); }
+#toast.fehler { border-color: var(--rot); color: #f3b1a9; }
+footer { display: flex; gap: 16px; align-items: center; padding: 8px 20px; border-top: 1px solid var(--linie); color: var(--text-2); font-size: 12px; background: var(--panel); }
+footer label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Spieltisch</h1>
+  <div class="wurzel" id="wurzel"></div>
+  <button class="haupt" id="neuKnopf">+ Neue Kampagne</button>
+</header>
+<main><div class="raster" id="liste"></div><div class="leer" id="leer" hidden>Noch keine Kampagnen in diesem Ordner.</div></main>
+<footer>
+  <label><input type="checkbox" id="stoppenHaken"> Von hier gestartete Server beim Schließen stoppen</label>
+  <span id="hinweis"></span>
+</footer>
+
+<div class="dialog-hg" id="neuDialog" hidden>
+  <form class="dialog" id="neuForm" autocomplete="off">
+    <h3>Neue Kampagne</h3>
+    <div class="feld"><label for="nName">Name</label><input type="text" id="nName" required placeholder="z. B. Das Erwachen der Runenherrscher"></div>
+    <div class="reihe">
+      <div class="feld"><label for="nOrdner">Ordnername (optional)</label><input type="text" id="nOrdner" placeholder="aus dem Namen"></div>
+      <div class="feld"><label for="nPort">Port (optional)</label><input type="number" id="nPort" min="1024" max="65535" placeholder="automatisch"></div>
+    </div>
+    <div class="feld"><label for="nTempo">EP-Tempo</label>
+      <select id="nTempo"><option value="langsam">langsam</option><option value="mittel" selected>mittel</option><option value="schnell">schnell</option></select></div>
+    <div class="feld"><label>Abenteuer-PDFs (werden nach Material/ kopiert, Text nach sl/quellen/)</label>
+      <div class="pdfs" id="pdfListe"></div>
+      <div class="reihe"><button type="button" id="pdfWaehlen" style="flex:0 0 auto">PDFs auswählen …</button>
+        <input type="text" id="pdfPfad" placeholder="oder Pfad einfügen und Enter"></div></div>
+    <label class="haken"><input type="checkbox" id="nSperre"><span>Datei-Sperre für den SL-Agenten anlegen
+      <small>.claude/settings.json: kein Bash, kein Read/Write im Kampagnenordner – nur die Spieltisch-Tools</small></span></label>
+    <div class="ergebnis" id="neuErgebnis" hidden></div>
+    <div class="unten"><button type="button" id="neuAbbrechen">Schließen</button><button class="haupt" id="neuAnlegen">Anlegen</button></div>
+  </form>
+</div>
+
+<div class="dialog-hg" id="logDialog" hidden>
+  <div class="dialog breit">
+    <h3 id="logTitel">Server-Protokoll</h3>
+    <pre class="log" id="logText"></pre>
+    <div class="unten"><button id="logNeu">Aktualisieren</button><button id="logZu">Schließen</button></div>
+  </div>
+</div>
+
+<div id="toast" hidden></div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let daten = null, beschaeftigt = {}, logOrdner = null, pdfs = [];
+
+async function api(pfad, koerper) {
+  const r = await fetch(pfad, koerper === undefined ? {} : {
+    method: "POST", headers: {"Content-Type": "application/json", "X-Zentrale": "1"}, body: JSON.stringify(koerper)});
+  const j = await r.json().catch(() => ({fehler: "Antwort unlesbar"}));
+  if (!r.ok) throw new Error(j.fehler || r.statusText);
+  return j;
+}
+let toastZeit;
+function toast(text, fehler) {
+  const t = $("toast"); t.textContent = text; t.className = fehler ? "fehler" : ""; t.hidden = false;
+  clearTimeout(toastZeit); toastZeit = setTimeout(() => t.hidden = true, fehler ? 7000 : 3500);
+}
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+function karte(k) {
+  const b = beschaeftigt[k.ordner];
+  const marken = [
+    `<span class="marke">Port ${esc(k.port)}</span>`,
+    k.mcp ? `<span class="marke gold">MCP</span>` : "",
+    k.sperre ? `<span class="marke gold">Sperre</span>` : "",
+    `<span class="marke">${k.charaktere} Charaktere</span>`,
+    `<span class="marke">${k.karten} Karten</span>`,
+    `<span class="marke">${k.quellen} Quellen</span>`,
+    k.portDoppelt ? `<span class="marke rot">Port doppelt!</span>` : "",
+    k.logFehler ? `<span class="marke rot">Fehler im Protokoll</span>` : "",
+    k.mcp && !k.pfadeOk ? `<span class="marke rot" title="Python-, Programm- oder Kampagnenpfad in .mcp.json stimmt nicht (Ordner verschoben, anderer Rechner?)">Pfade veraltet</span>` : "",
+  ].join("");
+  const tisch = k.laeuft ? `<div class="tisch">
+      <div class="zeile"><span>${esc(k.szene || "–")}</span><span>SL: ${esc(k.slStatus || "?")}</span></div>
+      ${k.offen ? `<div class="offen">${k.offen} unbeantwortete Spieleraktion${k.offen > 1 ? "en" : ""}</div>
+        <div class="letztes">${esc(k.letztes)}</div>` : ""}
+    </div>` : "";
+  return `<article class="karte${k.laeuft ? " laeuft" : ""}" data-ordner="${esc(k.ordner)}">
+    <div class="kopf"><h2>${esc(k.name)}<span class="ordner">${esc(k.ordner)}</span></h2>
+      <span class="status${k.laeuft ? " an" : ""}">${b ? esc(b) : k.laeuft ? (k.vonZentrale ? "läuft" : "läuft (extern)") : "aus"}</span></div>
+    <div class="marken">${marken}</div>
+    ${tisch}
+    <div class="knoepfe">
+      ${k.laeuft ? `<button class="gefahr" data-a="stoppen" ${b ? "disabled" : ""}>Stoppen</button>`
+                 : `<button class="haupt" data-a="starten" ${b || k.portDoppelt ? "disabled" : ""}>Starten</button>`}
+      <button data-a="spieler" ${k.laeuft ? "" : "disabled"}>Spieleransicht</button>
+      <button data-a="sl" ${k.laeuft ? "" : "disabled"}>SL-Ansicht</button>
+    </div>
+    <div class="knoepfe">
+      <button class="klein" data-a="browser" ${k.laeuft ? "" : "disabled"} title="Spieleransicht im normalen Browser">Im Browser</button>
+      <button class="klein" data-a="ordner">Ordner</button>
+      <button class="klein" data-a="material">Material</button>
+      <button class="klein" data-a="log">Protokoll</button>
+      ${k.mcp ? `<button class="klein${k.pfadeOk ? "" : " haupt"}" data-a="pfade" title=".mcp.json und .claude/launch.json mit den Pfaden dieses Rechners neu schreiben (nach Verschieben oder Umzug)">Pfade reparieren</button>`
+              : `<button class="klein" data-a="mcp" title=".mcp.json für den SL-Agenten anlegen">MCP einrichten</button>`}
+    </div></article>`;
+}
+
+async function laden() {
+  try {
+    daten = await api("/api/z/liste");
+    $("wurzel").innerHTML = `${esc(daten.wurzel)}${daten.fenster ? '<button id="wurzelKnopf">ändern</button>' : ""}`;
+    if ($("wurzelKnopf")) $("wurzelKnopf").onclick = async () => {
+      try { await api("/api/z/wurzel", {}); laden(); } catch (e) { toast(e.message, true); } };
+    $("stoppenHaken").checked = daten.beimBeendenStoppen;
+    $("liste").innerHTML = daten.kampagnen.map(karte).join("");
+    $("leer").hidden = daten.kampagnen.length > 0;
+    $("pdfWaehlen").hidden = !daten.fenster;
+  } catch (e) { $("hinweis").textContent = "Fehler: " + e.message; }
+}
+
+$("liste").addEventListener("click", async (ev) => {
+  const knopf = ev.target.closest("button[data-a]"); if (!knopf) return;
+  const ordner = knopf.closest(".karte").dataset.ordner, a = knopf.dataset.a;
+  try {
+    if (a === "starten" || a === "stoppen") {
+      beschaeftigt[ordner] = a === "starten" ? "startet …" : "stoppt …"; laden();
+      const r = await api(`/api/z/${a}`, {ordner}); toast(r.text);
+    } else if (a === "spieler" || a === "sl" || a === "browser") {
+      const r = await api("/api/z/oeffnen", {ordner, sl: a === "sl", browser: a === "browser"}); toast(r.text);
+    } else if (a === "ordner" || a === "material") {
+      await api("/api/z/ordner", {ordner, unter: a === "material" ? "Material" : ""});
+    } else if (a === "log") {
+      logOrdner = ordner; $("logTitel").textContent = "Server-Protokoll – " + ordner; await logLaden(); $("logDialog").hidden = false;
+    } else if (a === "mcp") {
+      const r = await api("/api/z/mcp", {ordner}); toast(r.text);
+    } else if (a === "pfade") {
+      const r = await api("/api/z/pfade", {ordner}); toast(r.text);
+    }
+  } catch (e) { toast(e.message, true); }
+  delete beschaeftigt[ordner]; laden();
+});
+
+async function logLaden() {
+  const r = await api("/api/z/protokoll?ordner=" + encodeURIComponent(logOrdner));
+  $("logText").textContent = r.text; $("logText").scrollTop = $("logText").scrollHeight;
+}
+$("logNeu").onclick = () => logLaden().catch((e) => toast(e.message, true));
+$("logZu").onclick = () => $("logDialog").hidden = true;
+
+function pdfsZeigen() {
+  $("pdfListe").innerHTML = pdfs.map((p, i) => `<div class="pdf"><span title="${esc(p)}">${esc(p)}</span><button type="button" data-i="${i}">✕</button></div>`).join("");
+}
+$("pdfListe").onclick = (ev) => { const i = ev.target.dataset.i; if (i !== undefined) { pdfs.splice(+i, 1); pdfsZeigen(); } };
+$("pdfWaehlen").onclick = async () => {
+  try { const r = await api("/api/z/dateien", {}); pdfs.push(...r.dateien.filter((p) => !pdfs.includes(p))); pdfsZeigen(); }
+  catch (e) { toast(e.message, true); }
+};
+$("pdfPfad").onkeydown = (ev) => {
+  if (ev.key !== "Enter") return; ev.preventDefault();
+  const p = $("pdfPfad").value.trim().replace(/^"|"$/g, ""); if (p && !pdfs.includes(p)) pdfs.push(p);
+  $("pdfPfad").value = ""; pdfsZeigen();
+};
+$("neuKnopf").onclick = () => {
+  $("neuForm").reset(); pdfs = []; pdfsZeigen(); $("neuErgebnis").hidden = true; $("neuAnlegen").disabled = false;
+  $("neuDialog").hidden = false; $("nName").focus();
+};
+$("neuAbbrechen").onclick = () => $("neuDialog").hidden = true;
+$("neuForm").onsubmit = async (ev) => {
+  ev.preventDefault();
+  const knopf = $("neuAnlegen"); knopf.disabled = true; knopf.textContent = "Lege an …";
+  try {
+    const r = await api("/api/z/neu", {name: $("nName").value.trim(), ordnerName: $("nOrdner").value.trim(),
+      port: +$("nPort").value || null, epTempo: $("nTempo").value, sperre: $("nSperre").checked, pdfs});
+    $("neuErgebnis").textContent = r.text; $("neuErgebnis").hidden = false; toast("Kampagne angelegt"); laden();
+  } catch (e) { toast(e.message, true); knopf.disabled = false; }
+  knopf.textContent = "Anlegen";
+};
+$("stoppenHaken").onchange = () => api("/api/z/einstellung", {beimBeendenStoppen: $("stoppenHaken").checked}).catch((e) => toast(e.message, true));
+document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") { $("neuDialog").hidden = true; $("logDialog").hidden = true; } });
+
+laden();
+setInterval(() => { if (!document.hidden) laden(); }, 3000);
+</script>
+</body>
+</html>

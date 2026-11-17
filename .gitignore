@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.pyc
+
+# Alte Sicherungen (ab jetzt ersetzt durch Git) und Sicherungskopien
+_sicherung-*/
+*.bak*
+*.orig
+*.patch
+
+# Rechnerspezifisches (enthält Pfade dieses Rechners)
+*.lnk
+zentrale.json
+python-pfad.txt
+desktop.ini
+Thumbs.db
+
+# Schlüssel und Geheimnisse
+schluessel.txt
+*.key
+.env
+
+# Logs, Bauergebnisse, Abruf-Caches
+*.log
+dist/
+regeln/cache/
+regeln/md/
+regeln/*.sqlite-wal
+regeln/*.sqlite-shm
+regeln/*.sqlite-journal
+.~lock*
+
+# Kampagnen gehören nicht ins Programm-Repo (liegen in eigenem Ordner)
+/Kampagnen/
+/kampagne.json
+/sl/
+/daten/charaktere/
+/daten/protokoll.jsonl
+
+# Editor/Agent
+.vscode/
+.idea/
+.claude/settings.local.json

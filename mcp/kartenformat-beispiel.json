@@ -1,0 +1,132 @@
+{
+ "format": "spieltisch-karte",
+ "version": 1,
+ "id": "imp-keller",
+ "name": "Keller der Mühle",
+ "felder": [
+  24,
+  16
+ ],
+ "hintergrund": "fels",
+ "raeume": [
+  {
+   "rechteck": [
+    2,
+    2,
+    9,
+    9
+   ],
+   "boden": "stein"
+  },
+  {
+   "rechteck": [
+    9,
+    5,
+    16,
+    6
+   ],
+   "boden": "stein"
+  },
+  {
+   "rechteck": [
+    15,
+    2,
+    22,
+    10
+   ],
+   "boden": "holz"
+  },
+  {
+   "vieleck": [
+    [
+     4,
+     9
+    ],
+    [
+     7,
+     9
+    ],
+    [
+     8,
+     13
+    ],
+    [
+     3,
+     13
+    ]
+   ],
+   "boden": "erde"
+  }
+ ],
+ "waende": [
+  [
+   [
+    18,
+    4
+   ],
+   [
+    18,
+    7
+   ]
+  ]
+ ],
+ "tueren": [
+  {
+   "id": "t1",
+   "von": [
+    9,
+    5
+   ],
+   "bis": [
+    9,
+    6
+   ],
+   "typ": "tuer"
+  },
+  {
+   "id": "g1",
+   "von": [
+    22,
+    5
+   ],
+   "bis": [
+    22,
+    6
+   ],
+   "typ": "geheimtuer"
+  },
+  {
+   "id": "f1",
+   "von": [
+    2,
+    4
+   ],
+   "bis": [
+    2,
+    6
+   ],
+   "typ": "fenster"
+  }
+ ],
+ "oeffnungen": [
+  {
+   "von": [
+    5,
+    9
+   ],
+   "bis": [
+    6,
+    9
+   ]
+  }
+ ],
+ "beschriftungen": [
+  {
+   "pos": [
+    16,
+    9.5
+   ],
+   "text": "Mühlstein"
+  }
+ ]
+}

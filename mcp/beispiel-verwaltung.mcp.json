@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "spieltisch-verwaltung": {
+      "type": "stdio",
+      "command": "<Pfad zu python.exe>",
+      "args": ["<Programmordner>/mcp_server.py", "--verwaltung", "<Kampagnen-Ordner>"]
+    }
+  }
+}

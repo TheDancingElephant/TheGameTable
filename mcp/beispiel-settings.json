@@ -1,0 +1,17 @@
+{
+  "enabledMcpjsonServers": ["spieltisch"],
+  "env": { "MCP_TOOL_TIMEOUT": "3700000" },
+  "permissions": {
+    "allow": ["mcp__spieltisch"],
+    "deny": [
+      "Bash",
+      "PowerShell",
+      "NotebookEdit",
+      "Read(//<laufwerk>/<Pfad zum Kampagnenordner>/**)",
+      "Edit(//<laufwerk>/<Pfad zum Kampagnenordner>/**)",
+      "Write(//<laufwerk>/<Pfad zum Kampagnenordner>/**)",
+      "Glob(//<laufwerk>/<Pfad zum Kampagnenordner>/**)",
+      "Grep(//<laufwerk>/<Pfad zum Kampagnenordner>/**)"
+    ]
+  }
+}
