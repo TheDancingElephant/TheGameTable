@@ -4,6 +4,7 @@
 > `<Kampagnenname>` ersetzen und den Abschnitt **„Kampagnenregeln“** mit den Besonderheiten der Kampagne füllen
 > (Hausregeln, Alternativregeln, EP-Empfänger, Gefolgsleute, automatische Würfe für bestimmte SC, Quellenhinweise).
 > Siehe auch [README.md](README.md) (technische Details) und [ANLEITUNG.md](ANLEITUNG.md) (Bedienung für Anwender).
+> Für Arbeiten **am Tool selbst** (nicht als SL): [ARCHITEKTUR.md](ARCHITEKTUR.md) und [STYLEGUIDE.md](STYLEGUIDE.md).
 
 # Spielleiter-Leitfaden: <Kampagnenname>
 

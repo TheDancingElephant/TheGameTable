@@ -7,6 +7,9 @@
 - Vorlagen: [mcp/beispiel.mcp.json](mcp/beispiel.mcp.json), [mcp/beispiel-settings.json](mcp/beispiel-settings.json),
   [mcp/beispiel-verwaltung.mcp.json](mcp/beispiel-verwaltung.mcp.json), [mcp/kartenformat-beispiel.json](mcp/kartenformat-beispiel.json)
 - Technische Details zu Server, `sl.py`, MCP, Kartenformat und Zentrale: die Abschnitte unten in dieser Datei.
+- Für Entwickler: [ARCHITEKTUR.md](ARCHITEKTUR.md) (Fachbereiche, Functional Core / Imperative Shell, Dateiformate,
+  Tests, Entwicklungsablauf, Glossar) und [STYLEGUIDE.md](STYLEGUIDE.md) (Schreibweise im Code).
+- Quellcode: https://github.com/TheDancingElephant/TheGameTable (Tests: `python -m unittest` oder `tests.bat`).
 
 Ein Tool, mehrere Kampagnen. Jede Kampagne ist ein Ordner mit `kampagne.json` (`{"name": "...", "port": 8777}`),
 darin `sl/` (Spielstand, Karten, Notizen, Quellen, Schlüssel) und `daten/` (Charaktere, Protokoll).
