@@ -242,3 +242,18 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   der Datenbank, daher funktioniert das auch ohne Cache (z. B. nach Installation aus dem ZIP). Erstaufbau ohne
   Datenbank: ca. 1300 Seiten, ca. 1,5 Stunden. Aktualisierung prüft ca. 520 Inhaltsseiten (ca. 20 Minuten).
 - Im ZIP (`paket_bauen.py`): `regeln/regeln.sqlite` + `regeln/LIZENZ-REGELN.txt` (nicht `regeln/cache`, `regeln/md`).
+
+## Lizenz und Rechtliches
+- **Programmcode:** Eine Lizenz für den Code ist noch nicht festgelegt. Bis dahin gilt: öffentlich einsehbar, alle
+  Rechte beim Autor (siehe Git-Historie). Eigene Arbeit sind auch Suchindex-Aufbau, Synonymliste und die
+  Spielmechanik-Datei `daten/zauber.json`.
+- **Regel- und Zaubertexte:** Open Game Content aus dem deutschen PRD (https://prd.5footstep.de) unter der Open Game
+  License 1.0a. Volltext der OGL und Abschnitt 15 (Urheberrechtsvermerke): `regeln/LIZENZ-REGELN.txt` (für
+  `regeln/regeln.sqlite`) und `daten/LIZENZ-ZAUBER.txt` (für `daten/zauber_prd.json`). Diese Dateien gehören zu jeder
+  Weitergabe (`paket_bauen.py` erzwingt das).
+- **Product Identity / Marken:** Der Spieltisch ist ein inoffizielles, kostenloses Fan-Werkzeug, *kompatibel mit dem
+  Pathfinder-Rollenspiel (1. Edition)*. Pathfinder ist eine Marke von Paizo Inc., die deutsche Übersetzung stammt von
+  Ulisses Spiele; das Tool ist von beiden weder veröffentlicht noch unterstützt. Eigennamen der Spielwelt (Orte,
+  Gottheiten, Figuren) sind kein Open Content und gehören nicht in Code, Vorlagen oder Beispiele; Kampagnendaten
+  liegen außerhalb des Repos.
+- Abruf der PRD-Seiten nur mit Pause (1 s) und lokalem Cache, siehe `regeln_abruf.py`.
