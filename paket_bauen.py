@@ -7,10 +7,13 @@ daten/ (Regeldaten: zauber.json, zauber_prd.json mit LIZENZ-ZAUBER.txt), regeln/
 regeln/LIZENZ-REGELN.txt (Regeldatenbank; ohne regeln/cache und regeln/md), vorlage/, ANLEITUNG.md/.pdf, AGENT.md, README.md, einrichten.bat, start.bat, zentrale.bat,
 python_finden.bat. Nicht enthalten: Kampagnen, _sicherung-*, __pycache__, *.bak*, Logs, Schlüssel, zentrale.json,
 python-pfad.txt, Verknüpfungen (*.lnk), dist/. Das Ergebnis wird auf Pfade/Namen dieses Rechners geprüft.
+
+    python paket_bauen.py --pruefen   nur prüfen (alle Dateien im Git-Repo bzw. im Paket), nichts bauen
 """
 import argparse
 import os
 import re
+import subprocess
 import sys
 import time
 import zipfile
@@ -72,6 +75,8 @@ def verdaechtig(dateien):
     rx = re.compile("|".join(sorted(muster)), re.I)
     funde = []
     for p in dateien:
+        if p.name == Path(__file__).name:  # enthält die Suchmuster selbst
+            continue
         if p.suffix.lower() == ".pdf":
             text = pdf_text(p)
         elif p.suffix.lower() in TEXT:
@@ -84,12 +89,31 @@ def verdaechtig(dateien):
     return funde
 
 
+def git_dateien():
+    """Alle Dateien, die Git einchecken würde (verfolgte + neue, nicht ignorierte); None ohne Git-Repo."""
+    if not (BASIS / ".git").exists():
+        return None
+    try:
+        r = subprocess.run(["git", "ls-files", "-co", "--exclude-standard", "-z"], cwd=BASIS, capture_output=True)
+    except OSError:
+        return None
+    if r.returncode:
+        return None
+    return [BASIS / n for n in r.stdout.decode("utf-8").split("\0") if n and (BASIS / n).is_file()]
+
+
 def main():
     ap = argparse.ArgumentParser(description="ZIP zum Weitergeben bauen")
     ap.add_argument("--ziel", default=str(BASIS / "dist"))
     ap.add_argument("--name", default="Spieltisch-" + time.strftime("%Y-%m-%d"))
     ap.add_argument("--trotzdem", action="store_true", help="auch bauen, wenn persönliche Pfade gefunden wurden")
+    ap.add_argument("--pruefen", action="store_true", help="nur auf Pfade/Namen dieses Rechners prüfen (Git-Dateien)")
     a = ap.parse_args()
+    if a.pruefen:
+        dateien = git_dateien() or sammeln()[0]
+        funde = verdaechtig(dateien)
+        print("\n".join(funde) if funde else f"ok: {len(dateien)} Dateien ohne Pfade/Namen dieses Rechners")
+        sys.exit(1 if funde else 0)
     dateien, fehlt = sammeln()
     if fehlt:
         print("Fehlt im Programmordner:", ", ".join(fehlt))
