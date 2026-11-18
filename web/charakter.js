@@ -3,6 +3,7 @@ import { aufstiegsAssistent } from "./aufstieg.js";
 import { $, $$, SL, api, esc, meldung, slBefehl } from "./grundlagen.js";
 import { faehigkeitBeschreibung, faehigkeitPruefen, faehigkeitStarten, zauberBeschreibung, zauberDb, zauberGradFuer, zauberListen, zauberOption, zauberPlaetze, zauberPrdZeilen, zauberPruefen, zauberStarten, zauberVorbereiten } from "./magie.js";
 import { amZug, imKampf, wuerfeln } from "./tisch.js";
+import { nachschlagenZeichen } from "./wissen.js";
 import { G } from "./zustand.js";
 
 // ------------------------------------------------------------------ Gruppe
@@ -188,6 +189,7 @@ function scKarte(c) {
       b.title = (e._d ? `${zauberBeschreibung(e._d)}\n${e._d.effekt || ""}${zauberPrdZeilen(e._d)}` : "Unbekannter Zauber – der SL wertet aus")
         + (p.ok ? "" : `\n⚠ ${p.text}`);
       b.onclick = () => zauberStarten(c, t, i);
+      b.append(nachschlagenZeichen("zauber", e._d?.name || e.name));
       box.append(b);
     });
     $(".fertigkeit-zeile", el).before(box);
@@ -230,6 +232,7 @@ ${f.effekt || ""}` + (p.ok ? "" : `
       b.textContent = z + " ✕";
       b.title = "Zustand entfernen";
       b.onclick = () => zustandUmschalten(t, z);
+      b.append(nachschlagenZeichen("zustand", z));
       zbox.append(b);
     }
     zsel.innerHTML += G.stand.zustaende.filter((z) => !(t.zustaende || []).includes(z)).map((z) => `<option>${esc(z)}</option>`).join("");

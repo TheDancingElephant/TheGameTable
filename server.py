@@ -392,6 +392,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self.antwort(404, {"fehler": "Zauber unbekannt"})
                 return self.antwort(200, {**(k or {}), "prdText": (z or {}).get("text")})
             return self.antwort(200, WI.katalog_liste(kx))
+        if u.path.startswith("/api/wissen/"):
+            return self._wissen(u.path, q)
         if u.path.startswith("/api/sl/") and not self.ist_sl(q):
             return self.antwort(403, {"fehler": "SL-Schlüssel fehlt"})
         if u.path == "/api/sl/ereignisse":
@@ -421,6 +423,32 @@ class Handler(BaseHTTPRequestHandler):
         if WEB.resolve() not in datei.parents or not datei.is_file():
             return self.antwort(404, {"fehler": "nicht gefunden"})
         return self.antwort(200, datei.read_bytes(), MIME.get(datei.suffix, "application/octet-stream"))
+
+    def _wissen(self, pfad, q):
+        """Nachschlagen (nur lesend, ohne Spielstand): Regeln, Zauber, Hausregeln für alle, Monster nur für den SL."""
+        a = {k: v[0] for k, v in q.items() if k != "sl"}
+        sl, haus, N = self.ist_sl(q), SL / "hausregeln.md", WI.nachschlagen
+        try:
+            if pfad == "/api/wissen/suche":
+                daten = N.suche(a.get("q", ""), a.get("art"), a.get("buch"), a.get("typ"), sl, haus,
+                                klasse=a.get("klasse"), grad=a.get("grad"), schule=a.get("schule"),
+                                quelle=a.get("quelle"), volltext=a.get("volltext") == "1", hg=a.get("hg"),
+                                monsterart=a.get("monsterart"))
+            elif pfad == "/api/wissen/eintrag":
+                daten = N.eintrag(a.get("art", "regel"), a.get("id"), a.get("name"), sl, haus)
+            elif pfad == "/api/wissen/inhalt":
+                daten = N.inhalt(a.get("seite"), sl)
+            elif pfad == "/api/wissen/filter":
+                daten = N.filter_listen(sl, haus)
+            else:
+                return self.antwort(404, {"fehler": "nicht gefunden"})
+        except WI.NurSL as e:
+            return self.antwort(403, {"fehler": str(e)})
+        except Fehler as e:
+            return self.antwort(404, {"fehler": str(e)})
+        except ValueError:  # z. B. grad=abc, seite=xyz
+            return self.antwort(400, {"fehler": "Ungültige Angabe"})
+        return self.antwort(200, daten)
 
     def do_POST(self):
         u = urlparse(self.path)

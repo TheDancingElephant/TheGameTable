@@ -1,6 +1,7 @@
 // Besitz: Gruppenkasse und Gegenstände (Reiter Ausrüstung).
 import { vz } from "./charakter.js";
 import { $, $$, api, esc } from "./grundlagen.js";
+import { nachschlagenZeichen } from "./wissen.js";
 import { G } from "./zustand.js";
 
 // ------------------------------------------------------------------ Ausrüstung
@@ -40,6 +41,8 @@ export function ausruestungZeichnen() {
         .map((z) => `<span class="buch-zauber${vorbereitet.has(z.name.toLowerCase()) ? " vorbereitet" : ""}" title="${vorbereitet.has(z.name.toLowerCase()) ? "vorbereitet" : "im Buch"}">${esc(z.name)}<button class="buch-weg" data-name="${esc(z.name)}" title="entfernen">✕</button></span>`).join("") + `</div></div>`).join("") +
       `<form class="buch-form zeile"><input class="buch-name" type="text" placeholder="Zauber eintragen" required><select class="buch-grad">${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((g) => `<option value="${g}">Grad ${g}</option>`).join("")}</select><button type="submit">Eintragen</button></form></details>`;
   }).join("") || `<div class="hinweis">Keine Zauberbücher.</div>`;
+  $$("#zauberbuecher .buch-zauber").forEach((sp) =>
+    sp.insertBefore(nachschlagenZeichen("zauber", sp.querySelector(".buch-weg").dataset.name), sp.querySelector(".buch-weg")));
   $$("#zauberbuecher details").forEach((d) => {
     const charId = d.dataset.char;
     d.querySelector(".buch-form").addEventListener("submit", async (e) => {

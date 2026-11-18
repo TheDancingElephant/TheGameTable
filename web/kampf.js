@@ -4,6 +4,7 @@ import { $, api, esc } from "./grundlagen.js";
 import { FARBE, meter, pfDistanz, zeigen } from "./karte.js";
 import { zauberPlaetze, zauberPruefen, zauberWirken } from "./magie.js";
 import { amZug, imKampf, kampfLaeuft } from "./tisch.js";
+import { nachschlagen } from "./wissen.js";
 import { G } from "./zustand.js";
 
 // ------------------------------------------------------------------ Zugleiste
@@ -177,7 +178,7 @@ export function angriffsMenue(ziel, sx, sy) {
       const wer = angreifer.length > 1 ? `${a.name}: ` : "";
       const plaetze = zauberPlaetze(e) ? ` (${zauberPlaetze(e).trim()})` : "";
       html += `<button data-zauberer="${esc(a.id)}" data-i="${i}" ${p.ok ? "" : "disabled"}>
-        <b>✦ ${esc(wer + e.name)}${plaetze}</b><span></span><small>${esc(p.text)}</small></button>`;
+        <b>✦ ${esc(wer + e.name)}${plaetze}<span class="nachschlagen-zeichen" data-nachschlagen="${esc(e.name)}" title="„${esc(e.name)}“ nachschlagen">?</span></b><span></span><small>${esc(p.text)}</small></button>`;
     }
   }
   html += `<hr><button data-zeigen><b>☝ Auf ${esc(ziel.name)} zeigen</b></button>`;
@@ -187,6 +188,8 @@ export function angriffsMenue(ziel, sx, sy) {
   m.style.left = Math.min(sx, bereich.width - m.offsetWidth - 8) + "px";
   m.style.top = Math.min(sy, bereich.height - m.offsetHeight - 8) + "px";
   m.onclick = async (ev) => {
+    const ns = ev.target.closest("[data-nachschlagen]");
+    if (ns) return nachschlagen("zauber", ns.dataset.nachschlagen);
     const b = ev.target.closest("button");
     if (!b || b.disabled) return;
     m.hidden = true;

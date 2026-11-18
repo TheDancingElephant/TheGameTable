@@ -593,7 +593,8 @@ TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "
 
 
 def suchen(frage, kategorie=None, buch=None, typ=None, max_treffer=5, datei=None):
-    """Liste von dicts (id, titel, pfad, typ, kapitel, url, schnipsel, punkte); datei=PRIVAT_DATEI: private PDFs."""
+    """Liste von dicts (id, titel, pfad, typ, kapitel, buch, url, schnipsel, zeichen, punkte, seite);
+    datei=PRIVAT_DATEI: private PDFs."""
     con = db(datei)
     if con is None:
         return []
@@ -653,7 +654,8 @@ def suchen(frage, kategorie=None, buch=None, typ=None, max_treffer=5, datei=None
             continue
         gesehen.add(schluessel)
         aus.append({"id": i, "titel": r["titel"], "pfad": r["pfad"], "typ": r["typ"], "kapitel": r["kapitel"],
-                    "buch": r["buch"], "url": r["url"], "schnipsel": sn, "zeichen": r["zeichen"], "punkte": round(p, 2)})
+                    "buch": r["buch"], "url": r["url"], "schnipsel": sn, "zeichen": r["zeichen"], "punkte": round(p, 2),
+                    "seite": r["seite_id"]})
         if len(aus) >= max_treffer:
             break
     return aus

@@ -1,10 +1,11 @@
-"""Wissen: Regelsuche (PRD + Hausregeln), Zaubersuche, Zauberkatalog über die API, MCP-Toolliste."""
+"""Wissen: Regelsuche (PRD + Hausregeln), Zaubersuche, Zauberkatalog über die API, Nachschlage-Seite, MCP-Toolliste."""
 import json
 import subprocess
 import sys
 import unittest
+from urllib.parse import urlencode
 
-from tests.hilfen import TOOL, Testkampagne
+from tests.hilfen import TOOL, HTTPFehler, Testkampagne
 
 
 class WissenTest(unittest.TestCase):
@@ -48,6 +49,77 @@ class WissenTest(unittest.TestCase):
         z = self.tk.http("/api/zauber?name=Leichte%20Wunden%20heilen")
         self.assertEqual(z["modus"], "heilung")
         self.assertTrue(z["prdText"])
+
+    # -- Nachschlage-Seite (/api/wissen/…)
+    def wissen(self, pfad, sl=False, **par):
+        return self.tk.http(f"/api/wissen/{pfad}?{urlencode(par)}", sl=sl)
+
+    def test_nachschlagen_suche_mit_hausregel_zuerst(self):
+        t = self.wissen("suche", q="Heldenpunkte")["treffer"]
+        self.assertEqual((t[0]["art"], t[0]["id"]), ("hausregel", "H1"))
+        h = self.wissen("eintrag", art="hausregel", id="H1")
+        self.assertIn("2 Heldenpunkte", h["abschnitte"][0]["text"])
+        t = self.wissen("suche", q="Ringkampf", art="regeln")["treffer"]
+        self.assertTrue(any(x["titel"].startswith("Ringkampf") and x["kuerzel"] == "GRW" for x in t))
+        self.assertTrue(all(x["art"] in ("regel", "hausregel") for x in t))
+
+    def test_nachschlagen_zauber_und_zustand(self):
+        z = self.wissen("eintrag", art="zauber", name="Hast")
+        self.assertIn(["Schule", "Verwandlung"], z["felder"])
+        self.assertIn("schneller", z["abschnitte"][0]["text"])
+        self.assertTrue(z["url"].startswith("https://prd.5footstep.de"))
+        liegend = self.wissen("eintrag", art="zustand", name="Liegend")
+        self.assertEqual(liegend["titel"], "Liegend")
+        self.assertIn("-4", liegend["abschnitte"][0]["text"])
+        with self.assertRaises(HTTPFehler) as f:
+            self.wissen("eintrag", art="zauber", name="Gibtsnichtzauber")
+        self.assertEqual(f.exception.code, 404)
+
+    def test_nachschlagen_zauberfilter_klasse_und_grad(self):
+        d = self.wissen("suche", art="zauber", klasse="Barde", grad="1")
+        self.assertGreater(d["gesamt"], 50)
+        self.assertTrue(all("Barde 1" in x["untertitel"] for x in d["treffer"]))
+        self.assertIn("hinweis", self.wissen("suche", art="zauber"))  # ohne Suchwort und Filter keine Liste
+
+    def test_nachschlagen_monster_nur_fuer_sl(self):
+        for par in ({"art": "monster", "q": "Golem"}, {"art": "monster", "hg": "10"}):
+            with self.assertRaises(HTTPFehler) as f:
+                self.wissen("suche", **par)
+            self.assertEqual(f.exception.code, 403)
+        with self.assertRaises(HTTPFehler) as f:
+            self.wissen("eintrag", art="monster", name="Lehmgolem")
+        self.assertEqual(f.exception.code, 403)
+        m = self.wissen("eintrag", sl=True, art="monster", name="Lehmgolem")
+        self.assertIn("HG 10", m["untertitel"])
+        self.assertTrue(any("10/Adamant" in (a["text"] or "") for a in m["abschnitte"]))
+        with self.assertRaises(HTTPFehler) as f:  # auch über die Abschnitts-ID nicht
+            self.wissen("eintrag", art="regel", id=m["id"])
+        self.assertEqual(f.exception.code, 403)
+        # Spieler: keine Monsterseiten in Suche und Inhalt, allgemeine Monsterregeln schon
+        t = self.wissen("suche", q="Golem")["treffer"]
+        self.assertFalse(any(x["art"] == "monster" or x["titel"].startswith("Golem") for x in t))
+        self.assertTrue(any(x["titel"] == "Golem" for x in self.wissen("suche", sl=True, q="Golem")["treffer"]))
+        self.assertTrue(self.wissen("suche", q="Regeneration")["treffer"])
+        mhb = {b["titel"]: [k["titel"] for k in b["kapitel"]] for b in self.wissen("inhalt")["buecher"]}["Monsterhandbuch"]
+        self.assertIn("Kreaturenarten", mhb)
+        self.assertNotIn("Golem", mhb)
+        self.assertNotIn("Monster nach HG", mhb)
+
+    def test_nachschlagen_filterlisten_und_seite(self):
+        f = self.wissen("filter")
+        self.assertFalse(f["sl"])
+        self.assertNotIn("monsterArten", f)
+        self.assertNotIn("monster", f["typen"])
+        self.assertIn("Liegend", f["zustaende"])
+        self.assertIn("Barde", f["zauberKlassen"])
+        self.assertTrue(f["hausregeln"])
+        fs = self.wissen("filter", sl=True)
+        self.assertTrue(fs["sl"])
+        self.assertIn("Konstrukt", fs["monsterArten"])
+        kampf = next(k for b in self.wissen("inhalt")["buecher"] for k in b["kapitel"] if k["titel"] == "Kampf")
+        s = self.wissen("inhalt", seite=kampf["id"])
+        self.assertTrue(any(a["titel"] == "Gelegenheitsangriffe" for a in s["abschnitte"]))
+        self.assertIn(b"Nachschlagen", self.tk.http("/nachschlagen.html", roh=True))
 
 
 class PDFIndexTest(unittest.TestCase):

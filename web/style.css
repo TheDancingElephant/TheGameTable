@@ -93,6 +93,11 @@ input:focus, select:focus, textarea:focus { outline: 1px solid var(--gold); bord
   background: var(--panel-2);
 }
 .pill.bereit { cursor: pointer; }
+.kopf-knopf {
+  border: 1px solid var(--linie); border-radius: 999px; padding: 4px 12px; font-size: 12px; white-space: nowrap;
+  background: var(--panel-2); color: var(--text); text-decoration: none;
+}
+.kopf-knopf:hover { border-color: var(--gold); color: var(--gold-2); }
 .pill.denkt { border-color: var(--gold); color: var(--gold-2); animation: puls 1.4s ease-in-out infinite; }
 .pill.wartet { border-color: var(--blau); color: #a9c6f0; }
 .pill.offline { border-color: var(--rot); color: #f0a69d; }
@@ -371,3 +376,10 @@ details.fs > summary { cursor: pointer; font-weight: 600; padding: .2rem 0; colo
 .sc-karte .einklappen { padding: 0 .4rem; background: none; border: 0; color: var(--gold-2, #e0c27a); font-size: 1rem; cursor: pointer; }
 .sc-karte.zu > :not(header):not(.tp-zeile) { display: none; }
 .werte .modus { color: #c9a227; }
+
+/* Spieltisch: „?“ in Zauber- und Zustandsknöpfen */
+.nachschlagen-zeichen {
+  display: inline-block; margin-left: 4px; width: 15px; height: 15px; line-height: 13px; text-align: center;
+  font-size: 10px; font-weight: 700; border: 1px solid currentColor; border-radius: 50%; opacity: .55; cursor: help;
+}
+.nachschlagen-zeichen:hover { opacity: 1; color: var(--gold-2); }

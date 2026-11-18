@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nachschlagen – Spieltisch</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="nachschlagen.css">
+</head>
+<body class="nachschlagen">
+<header id="ns-kopf">
+  <div class="ns-titel">
+    <h1>Nachschlagen</h1>
+    <a id="ns-zurueck" href="/">← Spieltisch</a>
+  </div>
+  <form id="ns-suche" autocomplete="off">
+    <input id="ns-q" type="search" placeholder="Regel, Zauber, Zustand, Talent …" aria-label="Suchbegriff">
+    <button type="submit" class="primaer">Suchen</button>
+  </form>
+  <nav id="ns-arten" aria-label="Bereich">
+    <button data-art="alle" class="aktiv">Alle</button>
+    <button data-art="regeln">Regeln</button>
+    <button data-art="zauber">Zauber</button>
+    <button data-art="monster" class="nur-sl">Monster</button>
+    <button data-art="inhalt">Inhalt</button>
+  </nav>
+  <div id="ns-filter" class="zeile"></div>
+</header>
+<main id="ns-main">
+  <section id="ns-liste" aria-label="Treffer"></section>
+  <article id="ns-lesen" aria-live="polite"></article>
+</main>
+<div id="toast" hidden></div>
+<script type="module" src="nachschlagen.js"></script>
+</body>
+</html>

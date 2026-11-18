@@ -4,6 +4,7 @@ import { charAuswahlFuellen, gruppeZeichnen, scToken } from "./charakter.js";
 import { $, $$, SL, api, esc, schlaf, slBefehl } from "./grundlagen.js";
 import { zugleisteZeichnen } from "./kampf.js";
 import { animieren, karteLaden, zeichnen } from "./karte.js";
+import { nachschlagenUrl } from "./wissen.js";
 import { G } from "./zustand.js";
 
 // ------------------------------------------------------------------ Server-Schleife
@@ -58,6 +59,8 @@ function statusPill(status) {
     offline: "Keine Verbindung zum Spieltisch",
   }[status] || status;
 }
+
+$("#nachschlagen-knopf").href = nachschlagenUrl();
 
 $("#sl-status").addEventListener("click", () => {
   if (SL || G.stand?.slStatus !== "bereit") return;

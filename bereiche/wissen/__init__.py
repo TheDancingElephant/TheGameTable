@@ -7,11 +7,13 @@ Module:
     regeln_abruf  Abruf/Aktualisierung der Regeln vom PRD (Kommandozeile: python regeln_abruf.py …)
     regeln_md     HTML → Markdown
     regeln_pdf    privater Index aus eigenen PDFs (regeln/privat.sqlite, nie weitergeben)
-Öffentlich: zauber_katalog, zauber_finden, prd_finden, grad_fuer, klasse_der_liste, katalog_liste.
+    nachschlagen  Suche, Einträge, Inhalt und Filterlisten für die Nachschlage-Seite (Monster nur für den SL)
+Öffentlich: zauber_katalog, zauber_finden, prd_finden, grad_fuer, klasse_der_liste, katalog_liste, nachschlagen, NurSL.
 """
 from pathlib import Path
 
-from . import zauber_db
+from . import nachschlagen, zauber_db
+from .nachschlagen import NurSL
 
 
 def mechanik_datei(kx):
@@ -40,5 +42,5 @@ grad_fuer = zauber_db.grad_fuer
 klasse_der_liste = zauber_db.klasse_der_liste
 ALIASE = zauber_db.ALIASE
 
-__all__ = ["ALIASE", "grad_fuer", "katalog_liste", "klasse_der_liste", "mechanik_datei", "prd_finden",
-           "zauber_db", "zauber_finden", "zauber_katalog"]
+__all__ = ["ALIASE", "NurSL", "grad_fuer", "katalog_liste", "klasse_der_liste", "mechanik_datei", "nachschlagen",
+           "prd_finden", "zauber_db", "zauber_finden", "zauber_katalog"]
