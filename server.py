@@ -1,35 +1,33 @@
-"""Spieltisch-Server (gemeinsames Tool für mehrere Kampagnen).
+"""Spieltisch-Server (gemeinsames Tool für mehrere Kampagnen) – die Shell.
 
 Start:            python server.py [--kampagne PFAD]   (Kampagnenordner mit kampagne.json)
 Spieler-Ansicht:  http://localhost:<Port aus kampagne.json>/
 SL-Ansicht:       http://localhost:<Port>/?sl=<Schlüssel aus sl/schluessel.txt>
 
-Der vollständige Spielstand liegt in sl/zustand.json. Die Spieler-API liefert
-nur, was die Charaktere wahrnehmen können; Kartenbilder werden serverseitig
-im Nebel maskiert, damit nichts Verborgenes im Browser landet.
+Der Server ist die einzige Stelle, die Spielstand (sl/zustand.json), Protokoll (daten/protokoll.jsonl),
+Charaktere und Barrieren schreibt. Die Spielregeln stehen in den Fachbereichen unter bereiche/ (siehe
+ARCHITEKTUR.md); hier liegen nur HTTP, Sperre, Laden/Speichern, Würfel/Uhr, Kartenbilder und die Zuordnung
+von Anfragen zu Fachfunktionen. Jede schreibende Anfrage läuft als Einheit: bei einem Fehler wird nichts
+gespeichert. Die Spieler-API liefert nur, was die Charaktere wahrnehmen können; Kartenbilder werden im
+Nebel maskiert, damit nichts Verborgenes im Browser landet.
 """
+import argparse
 import json
-import math
 import os
+import pickle
 import re
 import secrets
 import threading
 import time
-from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
-from pathlib import Path
-from urllib.parse import urlparse, parse_qs
-
-import argparse
-import contextlib
-import pickle
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import parse_qs, urlparse
 
 import kampagne
 import speicher
 from bereiche import REAKTIONEN, kern
-from bereiche.kern import Fehler
+from bereiche import besitz as BE, charakter as CH, kampf as KM, karte as KA, magie as MA, tisch as TI, wissen as WI
 from bereiche.karte import barrieren, karten
-from bereiche import charakter as CH, kampf as KM, karte as KA, magie as MA, reaktion, wissen as WI
-from bereiche.wissen import zauber_db as ZDB
+from bereiche.kern import Fehler
 
 _arg = argparse.ArgumentParser()
 _arg.add_argument("--kampagne", help="Kampagnenordner (mit kampagne.json)")
@@ -44,15 +42,12 @@ ZUSTAND = KAMP["zustand"]
 SCHLUESSEL = KAMP["schluessel"]
 PORT = KAMP["port"]
 
-
 for d in (SL, DATEN, CHARAKTERE, SL / "karten", SL / "notizen", SL / "quellen"):
     d.mkdir(parents=True, exist_ok=True)
 if not SCHLUESSEL.exists():
     SCHLUESSEL.write_text(secrets.token_urlsafe(12), encoding="utf-8")
 SL_KEY = SCHLUESSEL.read_text(encoding="utf-8").strip()
 
-
-# ---------------------------------------------------------------- Zustand
 
 def leerer_zustand():
     return {
@@ -68,16 +63,7 @@ def leerer_zustand():
     }
 
 
-_LOKAL = threading.local()
-
-
-def kx():
-    """Kontext des laufenden Befehls bzw. der laufenden Leseanfrage."""
-    k = getattr(_LOKAL, "kx", None)
-    if k is None:
-        raise RuntimeError("Kein Befehlskontext (SPIEL.ausfuehren / SPIEL.lesen)")
-    return k
-
+# ---------------------------------------------------------------- Spielstand, Befehle als Einheit, Kartenressourcen
 
 class Spiel:
     def __init__(self):
@@ -91,39 +77,26 @@ class Spiel:
         if self.log:
             self.z["naechsteLogId"] = max(self.z["naechsteLogId"], self.log[-1]["id"] + 1)
         self.bilder = {}      # karten-id -> numpy-Bild (Original)
-        self.waende = {}      # karten-id -> Wandraster (für Bewegungsprüfung)
+        self.waende = {}      # karten-id -> (Dateistempel, Wandraster für die Bewegungsprüfung)
         self.jpeg_cache = {}  # (karten-id, nebel-version, ganz) -> bytes
         self.barr_cache = {}  # karten-id -> [Dateistempel, Barrieren-Dict, (seg, seite)]
         self.masken = {}      # karten-id -> Bool-Maske des aufgedeckten Bereichs (Sichtpolygon-Modus)
         self.barr_offen = {}  # karten-id -> Barrieren, die der laufende Befehl ändert (geschrieben bei Erfolg)
 
-    # -- Befehle als Einheit
     def kontext(self):
         return kern.Kontext(self.z, self.log, speicher.Charakterspeicher(CHARAKTERE), KAMP, self, kern.zufall,
                             lambda: time.strftime("%H:%M"), REAKTIONEN)
 
-    @contextlib.contextmanager
-    def lesen(self):
-        """Leseanfrage: eigener Kontext, nichts wird gespeichert."""
-        alt = getattr(_LOKAL, "kx", None)
-        _LOKAL.kx = self.kontext()
-        try:
-            yield _LOKAL.kx
-        finally:
-            _LOKAL.kx = alt
-
     def ausfuehren(self, f, *args):
-        """Führt einen Befehl als Einheit aus (unter der Sperre): bei einem Fehler wird der Spielstand aus der
+        """Führt f(kx, *args) als Einheit aus (unter der Sperre): bei einem Fehler wird der Spielstand aus der
         Sicherung zurückgeholt und nichts geschrieben; sonst Protokoll, Charaktere, Barrieren, Spielstand speichern."""
         sicherung = pickle.dumps(self.z, pickle.HIGHEST_PROTOCOL)
         log_alt = list(self.log)
-        k = self.kontext()
-        alt = getattr(_LOKAL, "kx", None)
-        _LOKAL.kx = k
+        kx = self.kontext()
         self.barr_offen = {}
         try:
-            ergebnis = f(*args)
-            tot_abgleich(self.z)
+            ergebnis = f(kx, *args)
+            KM.tot_abgleich(self.z)  # Invariante: Gegner mit TP <= 0 sind tot
         except BaseException:
             self.z = pickle.loads(sicherung)
             self.log[:] = log_alt
@@ -131,41 +104,31 @@ class Spiel:
             self.barr_cache.clear()
             self.barr_offen = {}
             raise
-        finally:
-            _LOKAL.kx = alt
-        self.uebernehmen(k)
+        self.uebernehmen(kx)
         return ergebnis
 
-    def uebernehmen(self, k):
+    def uebernehmen(self, kx):
         for kid, daten in self.barr_offen.items():
             barrieren.speichern(SL, kid, daten)
             self.barr_cache.pop(kid, None)
         self.barr_offen = {}
-        k.chars.schreiben()
-        if k.log_neu_schreiben:
+        kx.chars.schreiben()
+        if kx.log_neu_schreiben:
             PROTOKOLL.write_text("".join(json.dumps(e, ensure_ascii=False) + "\n" for e in self.log), encoding="utf-8")
-        elif k.neue:
+        elif kx.neue:
             with PROTOKOLL.open("a", encoding="utf-8") as f:
-                for e in k.neue:
+                for e in kx.neue:
                     f.write(json.dumps(e, ensure_ascii=False) + "\n")
         self.z["version"] += 1
         self.speichern()
         self.lock.notify_all()
 
-    # -- Persistenz
     def speichern(self):
         tmp = ZUSTAND.with_suffix(".tmp")
         tmp.write_text(json.dumps(self.z, ensure_ascii=False, indent=1), encoding="utf-8")
         os.replace(tmp, ZUSTAND)
 
-    def eintragen(self, art, text, **extra):
-        return kx().protokoll(art, text, **extra)
-
-    # -- Karten
-    def karte(self, kid=None):
-        kid = kid or self.z["karteAktiv"]
-        return self.z["karten"].get(kid) if kid else None
-
+    # -- Kartenressourcen (kx.res)
     def bild(self, kid):
         if kid not in self.bilder:
             self.bilder[kid] = karten.bild_laden(str(SL / "karten" / self.z["karten"][kid]["datei"]))
@@ -182,6 +145,10 @@ class Spiel:
             self.waende[kid] = (stempel, karten.wandkarte(self.bild(kid)))
         return self.waende[kid][1]
 
+    def karte_neu_geladen(self, kid):
+        self.bilder.pop(kid, None)
+        self.waende.pop(kid, None)
+
     def karten_jpeg(self, kid, ganz):
         k = self.z["karten"][kid]
         schluessel = (kid, k.get("nebelVersion", 0), ganz)
@@ -190,13 +157,12 @@ class Spiel:
                 del self.jpeg_cache[alt]
             offen = [tuple(c) for c in k.get("aufgedeckt", [])]
             pm = None
-            if sichtmodus(k) and not ganz:
+            if KA.sichtmodus(k) and not ganz:
                 bild = self.bild(kid)
                 pm = barrieren.maske_in_pixel(self.maske(kid), bild.shape[1], bild.shape[0])
             self.jpeg_cache[schluessel] = karten.maskiert_jpeg(self.bild(kid), k, offen, ganz=ganz, pixelmaske=pm)
         return self.jpeg_cache[schluessel]
 
-    # -- Barrieren (Wände/Türen) und Aufdeck-Maske (Sichtpolygon-Modus), nur serverseitig
     def barr(self, kid, blockierend=False):
         """Barrieren-Dict der Karte (sl/barrieren/<kid>.json, bei Dateiänderung neu geladen); None, wenn es keines gibt.
         Mit blockierend=True stattdessen (seg, seite) der aktuell sichtblockierenden Strecken."""
@@ -217,7 +183,7 @@ class Spiel:
         self.barr_cache.pop(kid, None)
 
     def maske(self, kid):
-        """Aufdeck-Maske (Bool, MASKE_B px je Block); wird bei Bedarf aus dem Spielstand oder den aufgedeckten Feldern aufgebaut."""
+        """Aufdeck-Maske (Bool, MASKE_B px je Block), bei Bedarf aus dem Spielstand oder den Feldern aufgebaut."""
         if kid not in self.masken:
             k = self.z["karten"][kid]
             if k.get("nebelMaske"):
@@ -236,467 +202,123 @@ class Spiel:
     def maske_verwerfen(self, kid):
         self.masken.pop(kid, None)
 
-    def karte_neu_geladen(self, kid):
-        self.bilder.pop(kid, None)
-        self.waende.pop(kid, None)
-
-    def offen_set(self, k):
-        return KA.offen(k)
-
-    # -- Sicht für Spieler
-    def token_sichtbar(self, t, offen):
-        return KA.sichtbar(t, offen)
-
-    def taeuschung_fuer(self, t):
-        return KA.taeuschung_fuer(kx(), t)
-
-    def spieler_sicht(self):
-        z = self.z
-        k = self.karte()
-        offen = self.offen_set(k) if k else set()
-        tokens = []
-        faelschungen = {}  # tokenId -> angezeigter Name (für die Initiativliste)
-        for t in z["tokens"].values():
-            if k is None or t.get("karte") != z["karteAktiv"]:
-                continue
-            td = self.taeuschung_fuer(t)
-            if td is None:
-                if not self.token_sichtbar(t, offen):
-                    continue
-                o = {key: t.get(key) for key in ("id", "name", "art", "x", "y", "groesse", "farbe", "zustaende", "charId", "symbol", "reichweite")}
-            else:
-                if not td.get("sichtbar") and not self.token_sichtbar(t, offen):
-                    continue
-                o = {key: td.get(key, t.get(key)) for key in ("name", "x", "y", "groesse", "farbe", "symbol")}
-                o.update({key: t.get(key) for key in ("id", "art", "zustaende", "charId")})  # charId bleibt (Kartenlogik)
-                faelschungen[t["id"]] = o["name"]
-                if td.get("art") in ("sc", "gegner", "nsc"):
-                    o["art"] = td["art"]
-            if td is not None:
-                pass  # keine TP/Gesundheit der echten Gestalt preisgeben
-            elif t["art"] == "sc":
-                o["tp"], o["tpMax"] = t.get("tp"), t.get("tpMax")
-            else:
-                o["gesundheit"] = gesundheit_text(t)
-            tokens.append(o)
-        ini = dict(z["initiative"])
-        ini["eintraege"] = [
-            {"name": faelschungen.get(e.get("tokenId"), e["name"]), "wert": e["wert"], "tokenId": e.get("tokenId"), "aktuell": i == ini["index"]}
-            for i, e in enumerate(z["initiative"]["eintraege"])
-            if not e.get("verborgen")
-        ]
-        aktuell = z["initiative"]["eintraege"][ini["index"]] if z["initiative"]["eintraege"] else None
-        ini["amZug"] = (aktuell["name"] if aktuell and not aktuell.get("verborgen") else "???") if aktuell else None
-        karte = None
-        if k:
-            karte = {key: k[key] for key in ("id", "name", "w", "h", "zelle", "ox", "oy")}
-            karte["meterProFeld"] = k.get("meterProFeld", 1.5)
-            karte["nebelVersion"] = k.get("nebelVersion", 0)
-            karte["aufgedeckt"] = k.get("aufgedeckt", [])
-        return {
-            "version": z["version"],
-            "kampagne": KAMP["name"],
-            "szene": z["szene"],
-            "karte": karte,
-            "tokens": tokens,
-            "initiative": ini,
-            "zug": zug_info(),
-            "angriffAusserhalb": z.get("angriffAusserhalb", False),
-            "slStatus": z["slStatus"],
-            "protokoll": [e for e in self.log if not e.get("verborgen")][-300:],
-            "zustaende": ZUSTAENDE,
-            "unterlagen": self.unterlagen(),
-            "ausruestung": ausruestung(),
-        }
-
-    def unterlagen(self):
-        """Was die Spieler jederzeit nachschlagen dürfen: bekannte Karten, Handouts, Gruppennotizen."""
-        z = self.z
-        karten = [{"id": kid, "name": k["name"], "nebelVersion": k.get("nebelVersion", 0), "w": k["w"], "h": k["h"],
-                   "aktiv": kid == z["karteAktiv"], "legende": k.get("legende")}
-                  for kid, k in z["karten"].items() if k.get("bekannt") or kid == z["karteAktiv"]]
-        return {"karten": karten, "handouts": z.get("handouts", []), "notizen": z.get("gruppennotizen", "")}
-
-    def sl_sicht(self):
-        s = self.spieler_sicht()
-        z = self.z
-        k = self.karte()
-        s["tokens"] = [t for t in z["tokens"].values() if k and t.get("karte") == z["karteAktiv"]]
-        s["initiative"] = dict(z["initiative"])
-        s["protokoll"] = self.log[-300:]
-        s["karten"] = {kid: {"name": kk["name"]} for kid, kk in z["karten"].items()}
-        s["sl"] = True
-        return s
-
 
 SPIEL = Spiel()
 
 
-# ---------------------------------------------------------------- Übergang: Bereich Kampf (bereiche/kampf)
-ZUSTAENDE, UNFAEHIG, gesundheit_text, tot_abgleich = KM.ZUSTAENDE, KM.UNFAEHIG, KM.gesundheit_text, KM.tot_abgleich
+# ---------------------------------------------------------------- Zuordnung: Anfrage -> Fachfunktion
+
+def _sicht_alle(kx, b):
+    return {"aufgedeckt": KA.sicht(kx, list(kx.z["tokens"].values()), KA.aktive(kx, b.get("karte")), b.get("karte"))}
 
 
-def zug_info():
-    return KM.zug_info(kx())
+def _barrieren(kx, b):
+    return KA.barrieren_befehl(kx, b["op"], b)
 
 
-def darf_handeln(t):
-    KM.darf_handeln(kx(), t)
+def _aufstieg_sl(kx, b):
+    return CH.aufstieg_sl(kx, b["op"], b)
 
 
-# ---------------------------------------------------------------- Übergang: Bereich Karte (bereiche/karte)
-pf_distanz, token_felder, abstand = KA.pf_distanz, KA.token_felder, KA.abstand
-zellen_rechteck, zellen_kreis = KA.zellen_rechteck, KA.zellen_kreis
-reichweite_felder_t, sichtmodus, neue_id = KA.reichweite_felder, KA.sichtmodus, KA.neue_id
+SL_BEFEHLE = {
+    # Tisch
+    "erzaehle": lambda kx, b: TI.erzaehlen(kx, b["text"], b.get("titel")),
+    "eintrag-loeschen": lambda kx, b: TI.eintrag_loeschen(kx, b["id"]),
+    "notiz": lambda kx, b: TI.notiz(kx, b["text"]),
+    "status": lambda kx, b: TI.status(kx, b["status"]),
+    "szene": lambda kx, b: TI.szene(kx, b.get("titel", ""), b.get("untertitel", "")),
+    "handout": lambda kx, b: TI.handout(kx, b["id"], b["text"], b.get("titel")),
+    "handout-weg": lambda kx, b: TI.handout_weg(kx, b["id"]),
+    "wurf": lambda kx, b: TI.sl_wurf(kx, b["ausdruck"], b.get("grund", ""), b.get("wer", "SL"), b.get("verborgen", False)),
+    "verarbeitet": lambda kx, b: TI.verarbeitet(kx, b["bis"]),
+    # Karte
+    "karte-registrieren": lambda kx, b: KA.registrieren(kx, b["karte"]),
+    "karte-aktiv": lambda kx, b: KA.aktivieren(kx, b["id"]),
+    "karte-bekannt": KA.bekannt,
+    "raster": KA.raster,
+    "sicht": _sicht_alle,
+    "tuer": _barrieren,
+    "nebel-modus": KA.nebel_modus,
+    "aufdecken": lambda kx, b: KA.auf_zu(kx, "aufdecken", b),
+    "verdecken": lambda kx, b: KA.auf_zu(kx, "verdecken", b),
+    "abdecken": KA.abdecken,
+    "token-setzen": lambda kx, b: KA.setzen(kx, b["token"]),
+    "token-aendern": lambda kx, b: KA.aendern(kx, b["id"], b["werte"]),
+    "taeuschung": KA.taeuschung,
+    "token-entfernen": lambda kx, b: KA.entfernen(kx, b["id"]),
+    # Kampf
+    "bewegen": lambda kx, b: KM.sl_bewegen(kx, b["id"], b["x"], b["y"]),
+    "tp": lambda kx, b: KM.tp_sl(kx, b["id"], b["delta"]),
+    "zustand": lambda kx, b: KM.zustand_sl(kx, b["id"], b["name"], b.get("an", True)),
+    "initiative": KM.initiative_befehl,
+    "angriff": KM.sl_angriff,
+    "zug": lambda kx, b: KM.zug_aendern(kx, b["werte"]),
+    # Charakter
+    "ep": CH.ep_befehl,
+    "char-setzen": lambda kx, b: CH.char_setzen(kx, b["charId"], b["werte"]),
+    "modus": lambda kx, b: CH.modus_befehl(kx, "modus", b),
+    "modus-ende": lambda kx, b: CH.modus_befehl(kx, "modus-ende", b),
+    "modus-zeit": lambda kx, b: {"abgelaufen": CH.modi_zeit(kx, int(b["runden"]))},
+    "modi": lambda kx, b: {"zeilen": CH.modi_liste(kx)},
+    "aufstieg-fertig": _aufstieg_sl, "aufstieg-zurueck": _aufstieg_sl, "aufstieg-zeigen": _aufstieg_sl,
+    "aufstieg-abbrechen": _aufstieg_sl,
+    # Magie
+    "rast": lambda kx, b: MA.rast(kx, b.get("charId")),
+    "buch-add": lambda kx, b: MA.zauberbuch(kx, {**b, "op": "add"}),
+    "buch-weg": lambda kx, b: MA.zauberbuch(kx, {**b, "op": "weg"}),
+    # Besitz
+    "kasse": BE.aendern, "item-neu": BE.aendern, "item-aendern": BE.aendern, "item-weg": BE.aendern,
+}
 
 
-def token_finden(tid):
-    return KA.finden(kx(), tid)
-
-
-def auto_nebel_aktiv(k):
-    return KA.auto_nebel_aktiv(kx(), k)
-
-
-def nebel_sicht(tokens, k=None, kid=None):
-    return KA.sicht(kx(), tokens, k, kid)
-
-
-# ---------------------------------------------------------------- Übergang: Bereich Charakter (bereiche/charakter)
-MODI, AUF = CH.MODI, CH.AUF
-waffe_info, attr_mod = CH.waffe_info, CH.attr_mod
-
-
-def meter_pro_feld():
-    return CH.meter_pro_feld(kx())
-
-
-def wirksam(c):
-    return CH.wirksam(kx(), c)
-
-
-def sc_char(t):
-    return CH.von_token(kx(), t)
-
-
-def char_laden(cid):
-    return CH.laden(kx(), cid)
-
-
-def char_speichern(c):
-    CH.speichern(kx(), c)
-
-
-def char_tp_sync(t):
-    CH.tp_uebernehmen(kx(), t)
-
-
-def sc_token(cid):
-    return CH.sc_token(kx(), cid)
-
-
-def ep_info(c):
-    return CH.ep_info(kx(), c)
-
-
-# ---------------------------------------------------------------- Würfel
-
-def wuerfeln(ausdruck):
-    """'1W20+5', '2w6 + 1w4 - 1'. Gibt (summe, details, nat20/nat1-Info) zurück."""
-    return kern.wuerfeln(ausdruck, kx().w)
-
-
-# ---------------------------------------------------------------- Felder & Nebel
-
-
-# ---------------------------------------------------------------- Kampf: Waffen, Züge, Angriffe
-
-
-# ---------------------------------------------------------------- Erfahrung & Stufenaufstieg
-
-# Mittlere Aufstiegsgeschwindigkeit (PF1): EP, ab denen eine Stufe erreicht ist
-# Erfahrungspunkte je Stufe (PF1), Index = Stufe; Aufstiegsgeschwindigkeit je Kampagne (kampagne.json: "epTempo")
-# EP-Belohnung je Herausforderungsgrad
-
-# ---------------------------------------------------------------- Zauber
-
-
-# ---------------------------------------------------------------- Klassenfähigkeiten
-
-
-# ---------------------------------------------------------------- Befehle
-
-
-def sl_befehl(b):
-    """Alle Spielleiter-Aktionen. Rückgabe: dict für die Antwort."""
-    z = SPIEL.z
-    op = b.get("op")
-    if op == "erzaehle":
-        SPIEL.eintragen("sl", b["text"], titel=b.get("titel"))
-        z["slStatus"] = "bereit"
-    elif op == "eintrag-loeschen":
-        SPIEL.log[:] = [e for e in SPIEL.log if e["id"] != int(b["id"])]
-        kx().log_neu_schreiben = True
-    elif op == "notiz":  # nur SL, nicht im Spielerprotokoll
-        SPIEL.eintragen("sl-notiz", b["text"], verborgen=True)
-    elif op == "status":
-        z["slStatus"] = b["status"]
-    elif op == "szene":
-        z["szene"] = {"titel": b.get("titel", ""), "untertitel": b.get("untertitel", "")}
-        SPIEL.eintragen("system", f"Szene: {z['szene']['titel']}")
-    elif op == "karte-registrieren":
-        KA.registrieren(kx(), b["karte"])
-    elif op == "karte-aktiv":
-        KA.aktivieren(kx(), b["id"])
-    elif op == "karte-bekannt":  # Karte in den Unterlagen der Spieler anzeigen (oder wieder entfernen)
-        KA.bekannt(kx(), b)
-    elif op == "handout":  # Text-Handout anlegen oder ersetzen (gleiche id)
-        hs = z.setdefault("handouts", [])
-        h = {"id": b["id"], "titel": b.get("titel") or b["id"], "text": b["text"]}
-        alt = next((i for i, x in enumerate(hs) if x["id"] == b["id"]), None)
-        if alt is None:
-            hs.append(h)
-            SPIEL.eintragen("system", f"Neue Unterlage: {h['titel']}")
-        else:
-            hs[alt] = h
-    elif op == "handout-weg":
-        z["handouts"] = [x for x in z.get("handouts", []) if x["id"] != b["id"]]
-    elif op == "raster":
-        KA.raster(kx(), b)
-    elif op == "sicht":  # Sichtlinien-Aufdecken jetzt für alle SC auf der Karte (unabhängig vom Schalter)
-        return {"aufgedeckt": KA.sicht(kx(), list(z["tokens"].values()), KA.aktive(kx(), b.get("karte")), b.get("karte"))}
-    elif op.startswith("barriere") or op == "tuer":
-        return KA.barrieren_befehl(kx(), op, b)
-    elif op == "nebel-modus":  # stufenloser Sichtpolygon-Nebel (sicht) oder Feldraster (raster), pro Karte
-        KA.nebel_modus(kx(), b)
-    elif op in ("aufdecken", "verdecken"):
-        KA.auf_zu(kx(), op, b)
-    elif op in ("kasse", "item-neu", "item-aendern", "item-weg"):
-        return ausruestung_aendern(b)
-    elif op in ("buch-add", "buch-weg"):
-        return MA.zauberbuch(kx(), {**b, "op": "add" if op == "buch-add" else "weg"})
-    elif op == "abdecken":
-        KA.abdecken(kx(), b)
-    elif op == "token-setzen":
-        return KA.setzen(kx(), b["token"])
-    elif op == "token-aendern":
-        KA.aendern(kx(), b["id"], b["werte"])
-    elif op == "taeuschung":  # Illusionsansicht je SC (siehe README „Illusionen“)
-        return KA.taeuschung(kx(), b)
-    elif op == "token-entfernen":
-        KA.entfernen(kx(), b["id"])
-    elif op == "bewegen":
-        return KM.sl_bewegen(kx(), b["id"], b["x"], b["y"])
-    elif op == "tp":
-        KM.tp_sl(kx(), b["id"], b["delta"])
-    elif op == "zustand":
-        KM.zustand_sl(kx(), b["id"], b["name"], b.get("an", True))
-    elif op == "initiative":
-        KM.initiative_befehl(kx(), b)
-    elif op == "angriff":  # Angriff eines Gegners/NSC, ohne Regelprüfung (der SL entscheidet)
-        KM.sl_angriff(kx(), b)
-    elif op == "ep":  # Erfahrung vergeben: aus HG der Gegner oder fester Betrag, geteilt durch die Empfänger
-        return CH.ep_befehl(kx(), b)
-    elif op in ("aufstieg-fertig", "aufstieg-zurueck", "aufstieg-zeigen", "aufstieg-abbrechen"):
-        return CH.aufstieg_sl(kx(), op, b)
-    elif op == "char-setzen":  # einzelne Werte eines Charakters ändern, Pfad mit Punkten (z. B. rw.REF)
-        CH.char_setzen(kx(), b["charId"], b["werte"])
-    elif op == "rast":  # Zauberplätze zurücksetzen (alle oder ein Charakter)
-        MA.rast(kx(), b.get("charId"))
-    elif op == "zug":  # Aktionen des aktuellen Zuges anpassen
-        KM.zug_aendern(kx(), b["werte"])
-    elif op in ("modus", "modus-ende"):
-        return CH.modus_befehl(kx(), op, b)
-    elif op == "modus-zeit":
-        return {"abgelaufen": CH.modi_zeit(kx(), int(b["runden"]))}
-    elif op == "modi":
-        return {"zeilen": CH.modi_liste(kx())}
-    elif op == "wurf":
-        summe, detail, besonders = wuerfeln(b["ausdruck"])
-        verborgen = b.get("verborgen", False)
-        SPIEL.eintragen("wurf", b.get("grund", ""), wer=b.get("wer", "SL"), ausdruck=b["ausdruck"],
-                        ergebnis=summe, detail=detail, besonders=besonders, verborgen=verborgen)
-        return {"ergebnis": summe, "detail": detail, "besonders": besonders}
-    elif op == "verarbeitet":
-        z["letzteVerarbeitet"] = int(b["bis"])
-    else:
+def sl_befehl(kx, b):
+    """Ein Spielleiter-Befehl {"op": …}. Rückgabe: dict für die Antwort."""
+    op = b.get("op") or ""
+    f = SL_BEFEHLE.get(op) or (_barrieren if op.startswith("barriere") else None)
+    if f is None:
         raise Fehler(f"Unbekannter Befehl {op!r}")
-    return {}
+    return f(kx, b) or {}
 
 
-def weckende_ereignisse():
-    """Gibt es unverarbeitete Ereignisse, die den SL wecken (Spieleraktion, Zugende …)?"""
-    lv = SPIEL.z["letzteVerarbeitet"]
-    for e in reversed(SPIEL.log):
-        if e["id"] <= lv:
-            return False
-        if e.get("wecken", e["art"] == "spieler"):
-            return True
-    return False
+SPIELER_BEFEHLE = {
+    "/api/aktion": lambda kx, b: TI.spieler_aktion(kx, b.get("text"), b.get("wer")),
+    "/api/wurf": TI.spieler_wurf,
+    "/api/anstupsen": lambda kx, b: TI.anstupsen(kx),
+    "/api/zeigen": lambda kx, b: TI.zeigen(kx, b["x"], b["y"], b.get("wer")),
+    "/api/gruppennotizen": lambda kx, b: TI.gruppennotizen(kx, b.get("text", "")),
+    "/api/angriff": KM.sc_angriff,
+    "/api/sturmangriff": KM.sturmangriff,
+    "/api/zug-beenden": lambda kx, b: KM.zug_beenden(kx, b["id"]),
+    "/api/aktion-verbrauchen": lambda kx, b: KM.aktion_nutzen(kx, b["id"], b["aktion"], b.get("wofuer")),
+    "/api/bewegen": lambda kx, b: KM.bewegen_spieler(kx, b["id"], b["x"], b["y"]),
+    "/api/sc-tp": lambda kx, b: KM.tp_spieler(kx, b["id"], b["delta"]),
+    "/api/sc-zustand": lambda kx, b: KM.zustand_spieler(kx, b["id"], b["name"]),
+    "/api/sc-platzieren": lambda kx, b: KA.sc_platzieren(kx, b["charId"], b["x"], b["y"]),
+    "/api/sc-entfernen": lambda kx, b: KA.sc_entfernen(kx, b["charId"]),
+    "/api/zaubern": MA.wirken_spieler,
+    "/api/faehigkeit": MA.faehigkeit_spieler,
+    "/api/zauberbuch": MA.zauberbuch,
+    "/api/zauber-vorbereiten": MA.vorbereiten,
+    "/api/ausruestung": BE.aendern,
+    "/api/aufstieg-plan": lambda kx, b: CH.aufstieg_spieler(kx, "plan", b),
+    "/api/aufstieg-tp": lambda kx, b: CH.aufstieg_spieler(kx, "tp", b),
+    "/api/aufstieg-senden": lambda kx, b: CH.aufstieg_spieler(kx, "senden", b),
+    "/api/charakter": lambda kx, b: CH.charakter_speichern(kx, b, secrets.token_hex(3)),
+    "/api/charakter-loeschen": lambda kx, b: CH.charakter_loeschen(kx, b["id"]),
+}
 
 
-# ---------------------------------------------------------------- Modi (Hast, Größe, Reichweite …)
-
-
-def alle_charaktere():
-    liste = [wirksam(c) for c in kx().chars.alle()]
-    for c in liste:  # Fernkampf/Reichweite ergänzen, wo nicht angegeben
-        for a in c.get("angriffe", []):
-            info = waffe_info(a)
-            a.setdefault("fernkampf", info["fernkampf"])
-            if info["inkrement"] and not a.get("inkrement"):
-                a["inkrement"] = info["inkrement"]
-            a["beruehrung"] = info["beruehrung"]
-        MA.ansicht(kx(), c)  # berechnete Zauberwerte für die Oberfläche (werden nicht gespeichert)
-        c["_ep"] = ep_info(c)
-    return liste
-
-
-# ---------------------------------------------------------------- Ausrüstung / Gruppenkasse
-
-MUENZEN = ("kp", "sp", "gp", "pp")
-
-
-def ausruestung():
-    """Gruppenkasse und Gegenstände je Träger (Charakter-ID oder 'gruppe'); beim ersten Aufruf aus den Charakterbögen übernommen."""
-    z = SPIEL.z
-    a = z.get("ausruestung")
-    if a is None:
-        a = {"kasse": {m: 0 for m in MUENZEN}, "gegenstaende": [], "naechsteId": 1}
-        for c in alle_charaktere():
-            for zeile in (c.get("ausruestung") or "").splitlines():
-                zeile = zeile.strip()
-                if zeile:
-                    a["gegenstaende"].append({"id": a["naechsteId"], "name": zeile, "anzahl": 1, "traeger": c["id"], "ort": "dabei", "notiz": ""})
-                    a["naechsteId"] += 1
-        z["ausruestung"] = a
-    return a
-
-
-def ausruestung_aendern(b):
-    """Spieler und SL: kasse (delta oder setzen), item-neu, item-aendern, item-weg."""
-    a = ausruestung()
-    op = b.get("op")
-    if op == "kasse":
-        for m in MUENZEN:
-            if m in (b.get("delta") or {}):
-                neu = a["kasse"][m] + int(b["delta"][m])
-                if neu < 0:
-                    raise Fehler(f"Nicht genug {m.upper()} in der Kasse")
-                a["kasse"][m] = neu
-            if m in (b.get("setzen") or {}):
-                a["kasse"][m] = max(0, int(b["setzen"][m]))
-        teile = ", ".join(f"{int(v):+d} {m}" for m, v in (b.get("delta") or {}).items() if int(v))
-        SPIEL.eintragen("system", f"Gruppenkasse: {teile or 'geändert'} ({b.get('grund') or 'ohne Grund'})")
-    elif op == "item-neu":
-        name = (b.get("name") or "").strip()
-        if not name:
-            raise Fehler("Name fehlt")
-        i = a["naechsteId"]
-        a["naechsteId"] += 1
-        a["gegenstaende"].append({"id": i, "name": name[:120], "anzahl": max(1, int(b.get("anzahl") or 1)),
-                                  "traeger": b.get("traeger") or "gruppe", "ort": (b.get("ort") or "dabei")[:40],
-                                  "notiz": (b.get("notiz") or "")[:300]})
-        return {"id": i}
-    elif op in ("item-aendern", "item-weg"):
-        it = next((x for x in a["gegenstaende"] if x["id"] == int(b["id"])), None)
-        if it is None:
-            raise Fehler("Gegenstand nicht gefunden")
-        if op == "item-weg":
-            a["gegenstaende"].remove(it)
-        else:
-            for k in ("name", "traeger", "ort", "notiz"):
-                if k in b:
-                    it[k] = str(b[k])[:300]
-            if "anzahl" in b:
-                it["anzahl"] = max(1, int(b["anzahl"]))
-    else:
-        raise Fehler("Unbekannte Ausrüstungsaktion")
-    return {}
-
-
-def post_befehl(pfad, b):
+def post_befehl(kx, pfad, b):
     """Alle schreibenden Anfragen (läuft in SPIEL.ausfuehren)."""
     if pfad == "/api/sl/befehl":
         ergebnis = {}
         for befehl in (b if isinstance(b, list) else [b]):
-            ergebnis = sl_befehl(befehl)
+            ergebnis = sl_befehl(kx, befehl)
         return ergebnis
-    if pfad == "/api/charakter":
-        return CH.charakter_speichern(kx(), b, secrets.token_hex(3))
-    if pfad == "/api/charakter-loeschen":
-        CH.charakter_loeschen(kx(), b["id"])
-        return {}
-    return spieler_befehl(pfad, b)
-
-
-def spieler_befehl(pfad, b):
-    z = SPIEL.z
-    if pfad == "/api/ausruestung":
-        return ausruestung_aendern(b)
-    if pfad == "/api/zauberbuch":
-        return MA.zauberbuch(kx(), b)
-    if pfad == "/api/zauber-vorbereiten":
-        return MA.vorbereiten(kx(), b)
-    if pfad == "/api/aktion":
-        text = b.get("text", "").strip()
-        if not text:
-            raise Fehler("Leere Aktion")
-        # Im laufenden Kampf sind Ansagen Teil des Zuges; der SL liest sie am Zugende
-        im_zug = z["initiative"].get("aktiv") and z["initiative"].get("phase") == "laeuft"
-        SPIEL.eintragen("spieler", text, wer=b.get("wer") or "Gruppe", wecken=not im_zug)
-        if not im_zug:
-            z["slStatus"] = "wartet"
-    elif pfad == "/api/wurf":
-        ini = z["initiative"]
-        if b.get("initiative") and ini["aktiv"] and any(e["name"] == b.get("wer") for e in ini["eintraege"]):
-            raise Fehler(f"{b.get('wer')} hat schon Initiative gewürfelt")
-        summe, detail, besonders = wuerfeln(b["ausdruck"])
-        # Proben außerhalb eines Kampfes wecken den SL (der Nachlauf von `warte` sammelt mehrere Würfe ein)
-        wecken = not ini.get("aktiv")
-        e = SPIEL.eintragen("wurf", b.get("grund", ""), wer=b.get("wer") or "Gruppe", ausdruck=b["ausdruck"],
-                            ergebnis=summe, detail=detail, besonders=besonders, wecken=wecken)
-        if wecken:
-            z["slStatus"] = "wartet"
-        if b.get("initiative") and ini["aktiv"]:
-            KM.wurf_initiative(kx(), b.get("wer"), b.get("charId"), summe)
-        return {"ergebnis": summe, "detail": detail, "besonders": besonders, "id": e["id"]}
-    elif pfad == "/api/angriff":
-        KM.sc_angriff(kx(), b)
-    elif pfad == "/api/sturmangriff":
-        KM.sturmangriff(kx(), b)
-    elif pfad == "/api/zaubern":
-        MA.wirken_spieler(kx(), b)
-    elif pfad == "/api/faehigkeit":
-        MA.faehigkeit_spieler(kx(), b)
-    elif pfad in ("/api/aufstieg-plan", "/api/aufstieg-tp", "/api/aufstieg-senden"):
-        return CH.aufstieg_spieler(kx(), pfad.rsplit("-", 1)[-1], b)
-    elif pfad == "/api/zug-beenden":
-        KM.zug_beenden(kx(), b["id"])
-    elif pfad == "/api/aktion-verbrauchen":
-        KM.aktion_nutzen(kx(), b["id"], b["aktion"], b.get("wofuer"))
-    elif pfad == "/api/bewegen":
-        KM.bewegen_spieler(kx(), b["id"], b["x"], b["y"])
-    elif pfad == "/api/anstupsen":  # Spieler bitten den Spielleiter, zu handeln (weckt `sl.py warte`)
-        SPIEL.eintragen("system", "Die Spieler bitten den Spielleiter zu handeln.", wecken=True)
-        if z["slStatus"] == "bereit":
-            z["slStatus"] = "wartet"
-    elif pfad == "/api/zeigen":
-        SPIEL.eintragen("zeigen", f"{b.get('wer') or 'Gruppe'} zeigt auf Feld ({b['x']},{b['y']})",
-                        wer=b.get("wer") or "Gruppe", feld=[b["x"], b["y"]])
-    elif pfad == "/api/sc-tp":
-        KM.tp_spieler(kx(), b["id"], b["delta"])
-    elif pfad == "/api/sc-zustand":
-        KM.zustand_spieler(kx(), b["id"], b["name"])
-    elif pfad == "/api/sc-platzieren":
-        KA.sc_platzieren(kx(), b["charId"], b["x"], b["y"])
-    elif pfad == "/api/gruppennotizen":
-        z["gruppennotizen"] = str(b.get("text", ""))[:50000]
-    elif pfad == "/api/sc-entfernen":
-        KA.sc_entfernen(kx(), b["charId"])
-    else:
+    f = SPIELER_BEFEHLE.get(pfad)
+    if f is None:
         raise Fehler("Unbekannter Pfad")
-    return {}
+    return f(kx, b) or {}
 
 
 # ---------------------------------------------------------------- HTTP
@@ -734,75 +356,71 @@ class Handler(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         q = parse_qs(u.query)
         try:
-            with SPIEL.lesen():
-                return self._get(u, q)
+            return self._get(u, q)
         except Exception as e:  # noqa: BLE001
             return self.antwort(500, {"fehler": str(e)})
 
     def _get(self, u, q):
-        if True:
-            if u.path == "/api/stand":
-                sl = self.ist_sl(q)
-                seit = int(q.get("seit", ["0"])[0])
-                with SPIEL.lock:
-                    ende = time.time() + 25
-                    while SPIEL.z["version"] <= seit and time.time() < ende:
-                        SPIEL.lock.wait(ende - time.time())
-                    daten = SPIEL.sl_sicht() if sl else SPIEL.spieler_sicht()
-                return self.antwort(200, daten)
-            m = re.fullmatch(r"/api/karte/([\w-]+)\.jpg", u.path)
-            if m:
-                with SPIEL.lock:
-                    kid = m.group(1)
-                    if kid not in SPIEL.z["karten"]:
-                        return self.antwort(404, {"fehler": "Karte unbekannt"})
-                    if kid != SPIEL.z["karteAktiv"] and not SPIEL.z["karten"][kid].get("bekannt") and not self.ist_sl(q):
-                        return self.antwort(403, {"fehler": "Karte nicht aktiv"})
-                    daten = SPIEL.karten_jpeg(kid, ganz=self.ist_sl(q) and q.get("ganz", ["1"])[0] == "1")
-                return self.antwort(200, daten, "image/jpeg")
-            if u.path == "/api/charaktere":
-                return self.antwort(200, alle_charaktere())
-            if u.path == "/api/zauber":
-                if q.get("name"):  # ein Zauber mit vollständigem PRD-Text
-                    z = ZDB.prd_finden(q["name"][0])
-                    k = WI.zauber_finden(kx(), q["name"][0])
-                    if not z and not k:
-                        return self.antwort(404, {"fehler": "Zauber unbekannt"})
-                    return self.antwort(200, {**(k or {}), "prdText": (z or {}).get("text")})
-                return self.antwort(200, WI.katalog_liste(kx()))
-            if u.path == "/api/sl/ereignisse":
-                if not self.ist_sl(q):
-                    return self.antwort(403, {"fehler": "SL-Schlüssel fehlt"})
-                seit = int(q.get("seit", ["0"])[0])
-                warten = min(float(q.get("warten", ["0"])[0] or 0), 120)  # Long-Poll für `warte` (Sekunden)
-                with SPIEL.lock:
-                    ende = time.time() + warten
-                    while warten > 0 and not weckende_ereignisse() and time.time() < ende:
-                        SPIEL.lock.wait(ende - time.time())
-                    return self.antwort(200, {"eintraege": [e for e in SPIEL.log if e["id"] > seit],
-                                              "letzteVerarbeitet": SPIEL.z["letzteVerarbeitet"],
-                                              "slStatus": SPIEL.z["slStatus"]})
-            if u.path == "/api/sl/barrieren":  # nur SL: erkannte Wände/Türen der Karte (für die SL-Ansicht)
-                if not self.ist_sl(q):
-                    return self.antwort(403, {"fehler": "SL-Schlüssel fehlt"})
-                with SPIEL.lock:
-                    kid = q.get("karte", [SPIEL.z["karteAktiv"]])[0]
-                    d = SPIEL.barr(kid)
-                    if d is None:
-                        return self.antwort(200, {"waende": [], "extra": []})
-                    return self.antwort(200, {"waende": [[round(v) for v in s] for s in barrieren.aktive_waende(d).tolist()],
-                                              "extra": d["extra"]})
-            if u.path == "/api/sl/zustand":
-                if not self.ist_sl(q):
-                    return self.antwort(403, {"fehler": "SL-Schlüssel fehlt"})
-                with SPIEL.lock:
-                    return self.antwort(200, SPIEL.z)
-            # statische Dateien
-            pfad = "index.html" if u.path in ("/", "") else u.path.lstrip("/")
-            datei = (WEB / pfad).resolve()
-            if WEB.resolve() not in datei.parents or not datei.is_file():
-                return self.antwort(404, {"fehler": "nicht gefunden"})
-            return self.antwort(200, datei.read_bytes(), MIME.get(datei.suffix, "application/octet-stream"))
+        if u.path == "/api/stand":
+            sl = self.ist_sl(q)
+            seit = int(q.get("seit", ["0"])[0])
+            with SPIEL.lock:
+                ende = time.time() + 25
+                while SPIEL.z["version"] <= seit and time.time() < ende:
+                    SPIEL.lock.wait(ende - time.time())
+                kx = SPIEL.kontext()
+                return self.antwort(200, TI.sl_sicht(kx) if sl else TI.spieler_sicht(kx))
+        m = re.fullmatch(r"/api/karte/([\w-]+)\.jpg", u.path)
+        if m:
+            with SPIEL.lock:
+                kid = m.group(1)
+                if kid not in SPIEL.z["karten"]:
+                    return self.antwort(404, {"fehler": "Karte unbekannt"})
+                if kid != SPIEL.z["karteAktiv"] and not SPIEL.z["karten"][kid].get("bekannt") and not self.ist_sl(q):
+                    return self.antwort(403, {"fehler": "Karte nicht aktiv"})
+                daten = SPIEL.karten_jpeg(kid, ganz=self.ist_sl(q) and q.get("ganz", ["1"])[0] == "1")
+            return self.antwort(200, daten, "image/jpeg")
+        if u.path == "/api/charaktere":
+            with SPIEL.lock:
+                return self.antwort(200, TI.charaktere_ansicht(SPIEL.kontext()))
+        if u.path == "/api/zauber":
+            kx = SPIEL.kontext()
+            if q.get("name"):  # ein Zauber mit vollständigem PRD-Text
+                z = WI.prd_finden(q["name"][0])
+                k = WI.zauber_finden(kx, q["name"][0])
+                if not z and not k:
+                    return self.antwort(404, {"fehler": "Zauber unbekannt"})
+                return self.antwort(200, {**(k or {}), "prdText": (z or {}).get("text")})
+            return self.antwort(200, WI.katalog_liste(kx))
+        if u.path.startswith("/api/sl/") and not self.ist_sl(q):
+            return self.antwort(403, {"fehler": "SL-Schlüssel fehlt"})
+        if u.path == "/api/sl/ereignisse":
+            seit = int(q.get("seit", ["0"])[0])
+            warten = min(float(q.get("warten", ["0"])[0] or 0), 120)  # Long-Poll für `warte` (Sekunden)
+            with SPIEL.lock:
+                ende = time.time() + warten
+                while warten > 0 and not TI.weckende_ereignisse(SPIEL.kontext()) and time.time() < ende:
+                    SPIEL.lock.wait(ende - time.time())
+                return self.antwort(200, {"eintraege": [e for e in SPIEL.log if e["id"] > seit],
+                                          "letzteVerarbeitet": SPIEL.z["letzteVerarbeitet"],
+                                          "slStatus": SPIEL.z["slStatus"]})
+        if u.path == "/api/sl/barrieren":  # nur SL: erkannte Wände/Türen der Karte (für die SL-Ansicht)
+            with SPIEL.lock:
+                kid = q.get("karte", [SPIEL.z["karteAktiv"]])[0]
+                d = SPIEL.barr(kid)
+                if d is None:
+                    return self.antwort(200, {"waende": [], "extra": []})
+                return self.antwort(200, {"waende": [[round(v) for v in s] for s in barrieren.aktive_waende(d).tolist()],
+                                          "extra": d["extra"]})
+        if u.path == "/api/sl/zustand":
+            with SPIEL.lock:
+                return self.antwort(200, SPIEL.z)
+        # statische Dateien
+        pfad = "index.html" if u.path in ("/", "") else u.path.lstrip("/")
+        datei = (WEB / pfad).resolve()
+        if WEB.resolve() not in datei.parents or not datei.is_file():
+            return self.antwort(404, {"fehler": "nicht gefunden"})
+        return self.antwort(200, datei.read_bytes(), MIME.get(datei.suffix, "application/octet-stream"))
 
     def do_POST(self):
         u = urlparse(self.path)

@@ -196,6 +196,25 @@ class AngriffTest(unittest.TestCase):
         a, _ = letzter_angriff(self.tk, seit)
         self.assertEqual(a["ergebnis"], w20(a) + 5 - 4)
 
+    def test_sturmangriff(self):
+        self.tk.st.zieh(self.brak, 1, 5)
+        self.tk.st.ini("start")
+        self.tk.st.ini("eintrag", name="Brak", wert=20, token=self.brak)
+        self.tk.st.ini("eintrag", name="Ork", wert=5, token=self.ork)
+        self.tk.st.ini("los")
+        seit = self.tk.letzte_id()
+        self.tk.spieler("/api/sturmangriff", {"id": self.brak, "ziel": self.ork, "angriff": 0})
+        t = self.tk.z()["tokens"][self.brak]
+        self.assertEqual(max(abs(t["x"] - 6), abs(t["y"] - 5)), 1)  # neben dem Ork gelandet
+        a, _ = letzter_angriff(self.tk, seit)
+        self.assertIn("+2 Sturmangriff", a["detail"])
+        zug = self.tk.stand()["zug"]
+        self.assertFalse(zug["standardFrei"] or zug["bewegungFrei"])
+        with self.assertRaises(FEHLER):  # Vollangriff nur mit Anspringen
+            self.tk.st.zug({"standard": False, "bewegung": False, "bewegt": 0})
+            self.tk.st.zieh(self.brak, 1, 5)
+            self.tk.spieler("/api/sturmangriff", {"id": self.brak, "ziel": self.ork, "angriff": 2})
+
     def test_nahkampf_ausser_reichweite(self):
         self.tk.st.zieh(self.brak, 1, 1)
         with self.assertRaises(HTTPFehler) as f:
