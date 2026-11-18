@@ -128,6 +128,7 @@ den SL-Agenten das Abenteuer vorbereiten lassen (Notizen, Karten).
   - „Der Spielleiter schreibt …“ – bitte warten.
 - **Links:** die Karte mit Werkzeugleiste.
 - **Rechts:** Reiter *Erzählung, Gruppe, Charaktere, Ausrüstung, Unterlagen*.
+- **📖 Nachschlagen** (oben rechts): Regeln, Zauber und Zustände in einem eigenen Tab nachlesen (siehe unten).
 
 ### Karte
 | Werkzeug | Bedienung |
@@ -156,9 +157,10 @@ Pro Charakter eine Karte:
 - **Trefferpunkte**: Betrag eingeben, **−** für Schaden, **+** für Heilung.
 - **Werte und Würfe**: Angriffe, Rettungswürfe usw. per Klick würfeln.
 - **Probe**: Fertigkeit wählen → **Probe**.
-- **Zustände**: „+ Zustand…“ (Liegend, Wankend …); anklicken zum Entfernen.
+- **Zustände**: „+ Zustand…“ (Liegend, Wankend …); anklicken zum Entfernen, **?** zeigt die Regel.
 - **Zauber** und **★ Fähigkeiten** (z. B. Klassenfähigkeiten): antippen, dann bei Bedarf das Ziel auf der Karte
-  anklicken. Ausgegraute Knöpfe sind gerade nicht möglich (Grund im Tooltip).
+  anklicken. Ausgegraute Knöpfe sind gerade nicht möglich (Grund im Tooltip). Das kleine **?** im Zauberknopf
+  schlägt den Zauber nach.
 - **Auf Karte setzen**: Figur auf ein Feld der aktuellen Karte stellen.
 - **⬆ Stufenaufstieg**: erscheint, sobald genug Erfahrung da ist (siehe unten).
 
@@ -187,6 +189,15 @@ Klasse für die Stufe, Trefferpunkte (würfeln oder Durchschnitt), Bonus der bev
 ### Unterlagen (Reiter „Unterlagen“)
 Bekannte **Karten** (zum Nachschauen), **Handouts** des Spielleiters und **Gruppennotizen** (werden automatisch
 gespeichert und sind für alle Spieler gleich).
+
+### Nachschlagen (📖 oben rechts)
+Öffnet in einem eigenen Tab das Regelwerk (Grundregelwerk, Expertenregeln, allgemeine Monsterregeln), alle Zauber und
+die Hausregeln eurer Kampagne:
+- **Suchfeld**: Begriff eingeben (z. B. „Ringkampf“, „Gelegenheitsangriff verlassen“, „Hast“). Hausregeln stehen oben.
+- **Bereiche**: *Alle, Regeln, Zauber, Inhalt*. Unter *Zauber* ohne Suchwort z. B. Klasse „Barde“ und Grad 1 wählen –
+  dann erscheinen alle passenden Zauber. *Inhalt* zeigt die Kapitel der Bücher zum Blättern.
+- Im Text sind kursive Zauber- und Zustandsnamen anklickbar; „im PRD öffnen“ führt zur Originalseite.
+- Monster und ihre Werte sieht nur der Spielleiter.
 
 ---
 

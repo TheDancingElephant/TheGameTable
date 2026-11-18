@@ -68,6 +68,8 @@ SC-Token heißen `sc-<charakter-id>`. Koordinaten sind Felder (x nach rechts, y 
 - Hausregeln stehen in `sl/hausregeln.md` (eine Überschrift je Regel); `regel_suchen` durchsucht sie automatisch mit
   und zeigt Treffer als `[H<n>] HAUSREGEL` ganz oben. Neue Hausregeln trägt der Nutzer dort ein (Vorlage im Programm
   unter `vorlage/sl/hausregeln.md`).
+- Spieler können Regeln, Zauber, Zustände und Hausregeln selbst im Spieltisch nachlesen (Knopf **📖 Nachschlagen**,
+  Seite `/nachschlagen.html`; Monster sieht dort nur der SL). Bei Regelfragen der Spieler darf man darauf verweisen.
 - (kampagnenspezifisch ergänzen: Hausregeln, Alternativregeln, EP-Empfänger, Gefolgsleute, Besonderheiten einzelner SC,
   Startpunkt, Quellen)
 

@@ -36,7 +36,8 @@ Neue Kampagne: Zentrale „+ Neue Kampagne“ oder MCP `kampagne_neu` (Gerüst a
   `charakter` (inkl. `modi.py`, `aufstieg.py`), `magie`, `besitz`, `wissen` (Zauber-/Regeldatenbank), `kampagne`;
   `bereiche/kern.py` (Fehler, Würfel, Kontext), `speicher.py` (Charakterdateien).
 - `web/` – Oberfläche als ES-Module: `app.js` (Einstieg), `grundlagen.js`, `zustand.js`, `tisch.js`, `kampf.js`,
-  `karte.js`, `magie.js`, `charakter.js`, `besitz.js`, `aufstieg.js`.
+  `karte.js`, `magie.js`, `charakter.js`, `besitz.js`, `aufstieg.js`, `wissen.js` (Verweise aufs Nachschlagen);
+  eigene Seite `nachschlagen.html` mit `nachschlagen.js`, `markdown.js`, `nachschlagen.css`.
 - `tests/` – Testsammlung (`python -m unittest`), `tests/demo_kampagne.py` für Oberflächentests.
 
 ## Installation, Pfade, Paket
@@ -268,6 +269,27 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   Datenbank: ca. 1900 Seiten, ca. 2,5 Stunden. Aktualisierung prüft ca. 730 Inhaltsseiten (ca. 30 Minuten).
 - Im ZIP (`paket_bauen.py`): `regeln/regeln.sqlite` + `regeln/LIZENZ-REGELN.txt` (nicht `regeln/cache`, `regeln/md`,
   `regeln/privat.sqlite`).
+
+## Nachschlagen im Browser (`/nachschlagen.html`)
+
+Eigene Seite für Spieler und SL, ohne Kommandozeile: Knopf **📖 Nachschlagen** oben rechts im Spieltisch öffnet sie in
+einem eigenen Tab (immer demselben). Mit SL-Schlüssel (`?sl=…`, wird vom Spieltisch mitgegeben) ist es die SL-Ansicht.
+- **Suche** über Regeldatenbank, Zauber (Name) und Hausregeln der Kampagne (Hausregeln oben, grün markiert, mit Vorrang);
+  Bereiche *Alle · Regeln · Zauber · Monster (nur SL) · Inhalt*. Filter: Regeln nach Buch und Typ; Zauber nach Klasse,
+  Grad, Schule, Quelle, „auch im Text“ (ohne Suchwort = Liste, z. B. alle Barde-1-Zauber); Monster nach HG und Kreaturart.
+- **Leseansicht** mit Unterabschnitten, Tabellen, Pfad (Buch › Seite › Abschnitt), passenden Hausregeln und Link ins
+  PRD. Kursiv gesetzte Zauber- und Zustandsnamen im Text sind Verweise. **Inhalt** zeigt die Kapitel der Bücher.
+- Adresse enthält Suche und Eintrag (`?q=Ringkampf&e=regel:3702`, `?e=zauber:Hast`, `?e=zustand:Liegend`) – Zurück/Vor
+  und Lesezeichen funktionieren.
+- **Verweise aus dem Spieltisch:** kleines **?** in Zauberknöpfen (Charakterkarte, Angriffsmenü), im Zauberbuch
+  (Reiter Ausrüstung) und an Zuständen der Charakterkarte; der Knopf selbst wirkt weiter wie bisher.
+- **Spoilerschutz:** Monster sind nur für den SL. Ohne Schlüssel liefern `/api/wissen/*` keine Seiten des
+  Monsterhandbuchs mit Werteblock und keine Monsterlisten (Index, Begegnungstabellen, Monster nach HG/Gelände) – auch
+  nicht über Suche, Abschnitts-ID oder Inhalt (403). Allgemeine Monsterregeln, Kreaturenarten, Monster-Talente usw.
+  sind öffentlich. Liste der gesperrten Listen-Seiten: `nachschlagen.SL_SEITEN`.
+- API (nur lesend, GET): `/api/wissen/suche?q=&art=alle|regeln|zauber|monster&buch=&typ=&klasse=&grad=&schule=&quelle=&volltext=1&hg=&monsterart=`,
+  `/api/wissen/eintrag?art=regel|monster|zauber|hausregel|zustand|talent|fertigkeit&id=|name=`,
+  `/api/wissen/inhalt[?seite=ID]`, `/api/wissen/filter`. Code: `bereiche/wissen/nachschlagen.py`.
 
 ## Lizenz und Rechtliches
 - **Programmcode und Dokumentation:** MIT-Lizenz (siehe [LICENSE](LICENSE)), © 2026 TheDancingElephant.

@@ -155,8 +155,10 @@ ES-Module ohne Build-Schritt, je Bereich ein Modul: `grundlagen.js` (SL-Modus, `
 `zustand.js` (gemeinsamer Zustand `G`: Stand vom Server, Charaktere, Werkzeug, Auswahl …; Kartenansicht),
 `tisch.js` (Server-Schleife, Kopf, Protokoll, Erzählstimme, Würfel, Reiter, Unterlagen), `kampf.js` (Zugleiste,
 Angriffsmenü), `karte.js` (Zeichnen, Maus, Werkzeuge), `magie.js` (Zauber/Fähigkeiten wirken, Vorbereiten),
-`charakter.js` (Charakterkarten, Editor), `besitz.js` (Ausrüstung), `aufstieg.js` (Aufstiegsassistent);
-`app.js` lädt alles und startet die Schleife. Veränderliche Werte, die mehrere Module brauchen, stehen in `G`
+`charakter.js` (Charakterkarten, Editor), `besitz.js` (Ausrüstung), `aufstieg.js` (Aufstiegsassistent),
+`wissen.js` (Verweise auf die Nachschlage-Seite); `app.js` lädt alles und startet die Schleife. Die Nachschlage-Seite
+`nachschlagen.html` ist eine eigene Seite mit eigenem Einstieg `nachschlagen.js` (nutzt nur `grundlagen.js` und
+`markdown.js`, nicht den Spielstand). Veränderliche Werte, die mehrere Module brauchen, stehen in `G`
 (Importe sind schreibgeschützt). Prüfung: `tests/demo_kampagne.py` anlegen, Server starten, im Browser durchspielen.
 
 ## 6. Dateiformate (Kampagnenordner)
@@ -183,6 +185,9 @@ Neue Felder: optional, mit Standardwert beim Lesen; nie ein bestehendes Feld umd
   statt echter Gestalt.
 - `/api/karte/<id>.jpg` maskiert serverseitig (Nebel als Pixelmaske), ganze Karte nur mit Schlüssel.
 - `/api/sl/*` verlangt den Schlüssel. Der SL-Agent bekommt Spoiler nur über MCP-Tools, nie über den Browser.
+- `/api/wissen/*` (Nachschlagen, nur lesend): Regeln, Zauber, Hausregeln für alle; Monster (Seiten des Monsterhandbuchs
+  mit Werteblock, Monsterlisten) nur mit Schlüssel, sonst 403 – in Suche, Eintrag und Inhalt
+  (`bereiche/wissen/nachschlagen.py`, `gesperrte_seiten`).
 
 ## 8. Tests
 
@@ -220,6 +225,7 @@ eingebettetes Python.
 | 2026-11 | Regeln als SQLite-FTS5 mit deutschem Stemmer, ohne Vektorsuche |
 | 2026-11 | Kein eingebettetes Python im Paket; `einrichten.bat` sucht/installiert Python |
 | 2026-11-17 | Git (GitHub `TheGameTable`) statt Sicherungsordner; Umbau zum modularen Monolithen nach Fachbereichen mit Functional Core / Imperative Shell |
+| 2026-11-18 | Nachschlagen als eigene Seite (eigener Tab statt Reiter, volle Breite); Monster nur für den SL; Markdown im Browser mit eigenem kleinen Renderer (kein Fremdcode) |
 
 ## 12. Stand des Umbaus
 
