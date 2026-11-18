@@ -28,7 +28,7 @@ import speicher
 from bereiche import REAKTIONEN, kern
 from bereiche.kern import Fehler
 from bereiche.karte import barrieren, karten
-from bereiche import charakter as CH, karte as KA, reaktion
+from bereiche import charakter as CH, kampf as KM, karte as KA, reaktion
 import zauber_db as ZDB
 
 _arg = argparse.ArgumentParser()
@@ -44,12 +44,6 @@ ZUSTAND = KAMP["zustand"]
 SCHLUESSEL = KAMP["schluessel"]
 PORT = KAMP["port"]
 
-ZUSTAENDE = [
-    "Auf dem falschen Fuß", "Benommen", "Betäubt", "Bewusstlos", "Blind", "Entkräftet",
-    "Erschöpft", "Erschüttert", "Fasziniert", "Festgehalten", "Gelähmt", "Geblendet",
-    "Hilflos", "Im Ringkampf", "In Panik", "Kränkelnd", "Liegend", "Sterbend", "Stabil",
-    "Taub", "Tot", "Übelkeit", "Unsichtbar", "Verängstigt", "Verstrickt", "Verwirrt", "Wankend",
-]
 
 for d in (SL, DATEN, CHARAKTERE, SL / "karten", SL / "notizen", SL / "quellen"):
     d.mkdir(parents=True, exist_ok=True)
@@ -338,6 +332,34 @@ class Spiel:
 SPIEL = Spiel()
 
 
+# ---------------------------------------------------------------- Übergang: Bereich Kampf (bereiche/kampf)
+ZUSTAENDE, UNFAEHIG, gesundheit_text, tot_abgleich = KM.ZUSTAENDE, KM.UNFAEHIG, KM.gesundheit_text, KM.tot_abgleich
+
+
+def zug_info():
+    return KM.zug_info(kx())
+
+
+def darf_handeln(t):
+    KM.darf_handeln(kx(), t)
+
+
+def flankiert(a, ziel):
+    return KM.flankiert(kx(), a, ziel)
+
+
+def angriff_aufloesen(*args):
+    return KM.aufloesen(kx(), *args)
+
+
+def rettungswurf_aufloesen(t, ziel, d, titel, verdeckt=False):
+    KM.rettungswurf(kx(), t, ziel, d, titel, verdeckt)
+
+
+def rettungswurf_bonus(ziel, rw):
+    return KM.rettungswurf_bonus(kx(), ziel, rw)
+
+
 # ---------------------------------------------------------------- Übergang: Bereich Karte (bereiche/karte)
 pf_distanz, token_felder, abstand = KA.pf_distanz, KA.token_felder, KA.abstand
 zellen_rechteck, zellen_kreis = KA.zellen_rechteck, KA.zellen_kreis
@@ -354,11 +376,6 @@ def auto_nebel_aktiv(k):
 
 def nebel_sicht(tokens, k=None, kid=None):
     return KA.sicht(kx(), tokens, k, kid)
-
-
-@reaktion("token_entfernt")
-def _aus_initiative(k, token_id):
-    ini_entfernen(k.z["initiative"], lambda e: e.get("tokenId") == token_id)
 
 
 # ---------------------------------------------------------------- Übergang: Bereich Charakter (bereiche/charakter)
@@ -398,21 +415,6 @@ def ep_info(c):
     return CH.ep_info(kx(), c)
 
 
-def gesundheit_text(t):
-    if t.get("tpMax") in (None, 0):
-        return None
-    if t.get("tp", 0) <= 0:
-        return "kampfunfähig"
-    q = t["tp"] / t["tpMax"]
-    if q >= 1:
-        return "unverletzt"
-    if q > 0.5:
-        return "leicht verletzt"
-    if q > 0.25:
-        return "schwer verletzt"
-    return "dem Tode nah"
-
-
 # ---------------------------------------------------------------- Würfel
 
 def wuerfeln(ausdruck):
@@ -424,232 +426,6 @@ def wuerfeln(ausdruck):
 
 
 # ---------------------------------------------------------------- Kampf: Waffen, Züge, Angriffe
-
-UNFAEHIG = ("Bewusstlos", "Sterbend", "Hilflos", "Gelähmt", "Betäubt")
-
-
-def krit_info(krit):
-    k = (krit or "").replace(" ", "").lower()
-    m = re.search(r"(\d+)-20", k)
-    m2 = re.search(r"[x×](\d)", k)
-    return (int(m.group(1)) if m else 20), (int(m2.group(1)) if m2 else 2)
-
-
-def tempo_felder(t):
-    c = sc_char(t) or {}
-    k = SPIEL.karte()
-    return int((c.get("bewegung") or 9) // ((k or {}).get("meterProFeld", 1.5)))
-
-
-def bewegungsbedarf(felder, tempo):
-    """Wie viele Bewegungsaktionen kostet eine Strecke? 1 Feld = 1,5-m-Schritt (kostet keine)."""
-    if felder <= 1:
-        return 0
-    return 1 if felder <= tempo else 2 if felder <= 2 * tempo else 3
-
-
-def zug_info():
-    z = SPIEL.z
-    zug = z.get("zug")
-    if not zug or not z["initiative"].get("aktiv"):
-        return None
-    t = z["tokens"].get(zug.get("tokenId") or "")
-    eintrag = next((e for e in z["initiative"]["eintraege"] if e["name"] == zug["name"]), {})
-    info = {"tokenId": zug.get("tokenId"), "name": "???" if eintrag.get("verborgen") else zug["name"],
-            "art": t["art"] if t else "gegner"}
-    if t and t["art"] == "sc":
-        tempo = tempo_felder(t)
-        n = bewegungsbedarf(zug["bewegt"], tempo) + (1 if zug["bewegung"] else 0)
-        aktionen = (0 if zug["bewegung"] else 1) + (0 if zug["standard"] else 1)
-        grenze = max(tempo * aktionen, 1 if zug["bewegt"] == 0 else 0)
-        info.update({
-            "standardFrei": not zug["standard"] and n <= 1,
-            "bewegungFrei": n == 0,
-            "schnellFrei": not zug["schnell"],
-            "tempo": tempo, "bewegt": zug["bewegt"], "restFelder": max(0, grenze - zug["bewegt"]),
-        })
-    return info
-
-
-def zug_starten():
-    z = SPIEL.z
-    ini = z["initiative"]
-    if not ini["eintraege"]:
-        z["zug"] = None
-        return
-    e = ini["eintraege"][ini["index"]]
-    z["zug"] = {"tokenId": e.get("tokenId"), "name": e["name"], "bewegt": 0,
-                "standard": False, "bewegung": False, "schnell": False}
-    SPIEL.eintragen("system", f"Runde {ini['runde']}: {'Ein unbekannter Gegner' if e.get('verborgen') else e['name']} ist am Zug")
-
-
-def tot_abgleich(z):
-    """Gegner/NSC: Zustand „Tot“ automatisch setzen (TP <= 0) bzw. wieder entfernen (TP > 0).
-    Nur automatisch gesetzte Markierungen (Feld totAuto) werden wieder entfernt; von Hand gesetztes „Tot“ bleibt.
-    SC bleiben unberührt (Sterbend/Bewusstlos)."""
-    for t in z["tokens"].values():
-        if t.get("art") not in ("gegner", "nsc") or t.get("tp") is None:
-            continue
-        zs = t.setdefault("zustaende", [])
-        if t["tp"] <= 0 and "Tot" not in zs:
-            zs.append("Tot")
-            t["totAuto"] = True
-        elif t["tp"] > 0 and "Tot" in zs and t.get("totAuto"):
-            zs.remove("Tot")
-            del t["totAuto"]
-        elif t["tp"] > 0 and "Tot" not in zs:
-            t.pop("totAuto", None)
-
-
-def ist_tot(z, eintrag):
-    t = z["tokens"].get(eintrag.get("tokenId") or "")
-    return bool(t and t.get("art") in ("gegner", "nsc") and "Tot" in t.get("zustaende", []))
-
-
-def ini_weiter():
-    z = SPIEL.z
-    ini = z["initiative"]
-    if not ini["eintraege"]:
-        return
-    tot_abgleich(z)
-    n = len(ini["eintraege"])
-    for _ in range(n):  # tote Gegner/NSC überspringen (höchstens eine volle Runde)
-        ini["index"] += 1
-        if ini["index"] >= n:
-            ini["index"] = 0
-            ini["runde"] += 1
-            kx().ereignis("runde_vorbei", runden=1)
-        if not ist_tot(z, ini["eintraege"][ini["index"]]):
-            break
-    zug_starten()
-
-
-def darf_handeln(t):
-    """Im Kampf darf nur der aktive Charakter handeln – und nur, wenn der SL nicht gerade dran ist."""
-    z = SPIEL.z
-    ini = z["initiative"]
-    if not ini.get("aktiv"):
-        return
-    if ini.get("phase") != "laeuft":
-        raise Fehler("Erst Initiative würfeln – der Kampf beginnt gleich")
-    if z["slStatus"] != "bereit":
-        raise Fehler("Der Spielleiter ist gerade am Zug – bitte warten")
-    zug = z.get("zug") or {}
-    if zug.get("tokenId") != t["id"]:
-        raise Fehler(f"{t['name']} ist nicht am Zug")
-
-
-def flankiert(angreifer, ziel):
-    """Verbündeter steht auf der gegenüberliegenden Seite des Ziels (vereinfacht für mittelgroße Ziele)."""
-    if ziel.get("groesse", 1) != 1 or abstand(angreifer, ziel) > 1:
-        return False
-    gegenueber = (2 * ziel["x"] - angreifer["x"], 2 * ziel["y"] - angreifer["y"])
-    for t in SPIEL.z["tokens"].values():
-        if (t is not angreifer and t["art"] == angreifer["art"] and t.get("karte") == ziel.get("karte")
-                and gegenueber in token_felder(t) and not set(t.get("zustaende", [])) & set(UNFAEHIG)):
-            return True
-    return False
-
-
-def ziel_rk(ziel, beruehrung):
-    zs = ziel.get("zustaende", [])
-    if ziel["art"] == "sc":
-        rk = (sc_char(ziel) or {}).get("rk", {})
-        normal, ber, ff = rk.get("normal"), rk.get("beruehrung"), rk.get("adff")
-    else:
-        normal, ber, ff = ziel.get("rk"), ziel.get("rkBeruehrung"), ziel.get("rkAdff")
-    if beruehrung:
-        return ber if ber is not None else normal
-    if ("Auf dem falschen Fuß" in zs or set(zs) & set(UNFAEHIG)) and ff is not None:
-        return ff
-    return normal
-
-
-def angriff_aufloesen(wer, ziel, waffe, bonus, schaden, krit, beruehrung, nahkampf, mods):
-    """Würfelt einen Angriff gegen die (verdeckte) RK, inkl. Kritischem Treffer, und zieht Schaden ab."""
-    zs = ziel.get("zustaende", [])
-    if "Liegend" in zs:
-        mods.append(("Ziel liegt", 4 if nahkampf else -4))
-    if nahkampf and set(zs) & set(UNFAEHIG):
-        mods.append(("Ziel hilflos", 4))
-    summe_mods = sum(v for _, v in mods)
-    rk = ziel_rk(ziel, beruehrung)
-    d20 = kx().w(20)
-    gesamt = d20 + bonus + summe_mods
-    detail = f"1W20[{d20}] {bonus:+d}" + "".join(f" {v:+d} {t}" for t, v in mods)
-    titel = f"{wer} greift {ziel['name']} an ({waffe})"
-    besonders = "nat20" if d20 == 20 else "nat1" if d20 == 1 else None
-    if rk is None:  # keine RK hinterlegt: der SL wertet aus
-        SPIEL.eintragen("angriff", titel, wer=wer, ergebnis=gesamt, detail=detail, besonders=besonders,
-                        treffer=None, schadenAusdruck=schaden, wecken=True)
-        SPIEL.z["slStatus"] = "wartet"
-        return None
-    treffer = d20 == 20 or (d20 != 1 and gesamt >= rk)
-    bereich, mult = krit_info(krit)
-    kritisch, bestaetigung = False, None
-    if treffer and d20 >= bereich:
-        b20 = kx().w(20)
-        bsum = b20 + bonus + summe_mods
-        kritisch = b20 == 20 or (b20 != 1 and bsum >= rk)
-        bestaetigung = f"Bestätigung 1W20[{b20}] = {bsum}"
-    schaden_summe, sdetail = None, []
-    if treffer and schaden:
-        schaden_summe = 0
-        for _ in range(mult if kritisch else 1):
-            s, d, _ = wuerfeln(schaden)
-            schaden_summe += s
-            sdetail.append(d)
-        schaden_summe = max(1, schaden_summe)
-        if ziel.get("tp") is not None:
-            ziel["tp"] -= schaden_summe
-            if ziel["art"] == "sc":
-                char_tp_sync(ziel)
-    SPIEL.eintragen("angriff", titel, wer=wer, ergebnis=gesamt, detail=detail, besonders=besonders,
-                    treffer=treffer, kritisch=kritisch, bestaetigung=bestaetigung, schaden=schaden_summe,
-                    schadenDetail=" + ".join(sdetail), zielId=ziel["id"])
-    SPIEL.eintragen("sl-notiz", f"{titel}: {gesamt} gegen RK {rk} → {'Treffer' if treffer else 'daneben'}"
-                    f"{', kritisch' if kritisch else ''}; {ziel['name']} TP {ziel.get('tp')}/{ziel.get('tpMax')}",
-                    verborgen=True)
-    return treffer
-
-
-def sturmangriff_feld(t, ziel):
-    """Landefeld für einen Sturmangriff: angrenzend ans Ziel, mindestens 2 Felder (3 m) und höchstens das
-    Doppelte der Bewegungsrate entfernt, auf freiem, aufgedecktem Boden, ohne Umweg. Gibt (x, y, weg) zurück."""
-    k = SPIEL.karte()
-    offen = SPIEL.offen_set(k)
-    tempo = tempo_felder(t)
-    g = t.get("groesse", 1)
-    start = (t["x"], t["y"])
-    wand = k.get("waendeSperren") and t.get("karte", SPIEL.z["karteAktiv"]) == SPIEL.z["karteAktiv"]
-    belegt = {f for s in SPIEL.z["tokens"].values() if s is not t and s.get("karte") == t.get("karte")
-              for f in token_felder(s)}
-    besser = None
-    gz = ziel.get("groesse", 1)
-    for x in range(ziel["x"] - g, ziel["x"] + gz + 1):
-        for y in range(ziel["y"] - g, ziel["y"] + gz + 1):
-            probe = {"x": x, "y": y, "groesse": g}
-            felder = token_felder(probe)
-            if abstand(probe, ziel) > 1 or any(f in belegt for f in felder):
-                continue
-            if abstand(probe, ziel) == 0 or any(f not in offen for f in felder):
-                continue
-            luft = pf_distanz(start[0], start[1], x, y)
-            if luft < 2 or luft > 2 * tempo:
-                continue
-            weg = luft
-            if wand:
-                weg = karten.weg_felder(SPIEL.wand(SPIEL.z["karteAktiv"]), k, start, (x, y), erlaubt=offen)
-                if weg is None or weg > luft * 1.25 + 1:
-                    continue
-            if weg > 2 * tempo:
-                continue
-            if besser is None or (weg, luft) < (besser[2], besser[3]):
-                besser = (x, y, weg, luft)
-    if besser is None:
-        raise Fehler("Sturmangriff nicht möglich: kein freies Feld neben dem Ziel in gerader Linie, mindestens 3 m und höchstens "
-                     f"{2 * tempo * 1.5:g} m entfernt")
-    return besser[0], besser[1], besser[2]
 
 
 # ---------------------------------------------------------------- Erfahrung & Stufenaufstieg
@@ -664,8 +440,6 @@ ZAUBER_DATEI = DATEN / "zauber.json" if (DATEN / "zauber.json").exists() else BA
 ATTRIBUT_NACH_KLASSE = [("kleriker", "WE"), ("druide", "WE"), ("waldläufer", "WE"), ("inquisitor", "WE"), ("schamane", "WE"),
                         ("hexenmeister", "CH"), ("barde", "CH"), ("paladin", "CH"), ("orakel", "CH"), ("skalde", "CH")]
 FORMEL_RE = re.compile(r"\{([^{}]+)\}")
-RW_NAMEN = {"REF": "Reflex", "WIL": "Willen", "ZAEH": "Zähigkeit"}
-
 
 def zauber_db():
     """name (klein) -> Katalogeintrag: alle PRD-Zauber (daten/zauber_prd.json), Mechanik aus zauber.json darüber."""
@@ -740,12 +514,6 @@ def beruehrungsbonus(c, fern):
     return int(c.get("gab") or 0) + attr_mod(attr.get("GE" if fern else "ST"))
 
 
-def rettungswurf_bonus(ziel, rw):
-    if ziel["art"] == "sc":
-        return (sc_char(ziel) or {}).get("rw", {}).get(rw)
-    return ziel.get({"REF": "ref", "WIL": "wil", "ZAEH": "zaeh"}[rw])
-
-
 def _spontan_quelle(c, eintrag):
     """Für spontanes Zaubern (z. B. Wunden verursachen): ein vorbereiteter Zauber gleichen Grades
     mit freiem Platz, der kein Domänenzauber ist."""
@@ -794,39 +562,6 @@ def zauber_aktion_frei(d):
     if d["aktion"] == "voll":
         return info["standardFrei"] and info["bewegungFrei"]
     return info["standardFrei"]
-
-
-def rettungswurf_aufloesen(t, ziel, d, titel, verdeckt=False):
-    """Rettungswurf des Ziels gegen den SG, dann Schaden (ggf. halbiert) und Zustand."""
-    z = SPIEL.z
-    rw = d["rettungswurf"]
-    bonus = rettungswurf_bonus(ziel, rw)
-    if bonus is None:  # Rettungswurf des Gegners unbekannt: der SL entscheidet
-        SPIEL.eintragen("zauber", titel, wer=t["name"], ergebnisText=f"{RW_NAMEN[rw]}-Wurf gegen SG {d['sg']}",
-                        detail=f"{d.get('schaden') or ''} {d.get('effekt', '')}".strip(), wecken=True)
-        z["slStatus"] = "wartet"
-        return
-    w = kx().w(20)
-    gelungen = w == 20 or (w != 1 and w + int(bonus) >= d["sg"])
-    schaden = None
-    if d.get("schaden"):
-        schaden, _, _ = wuerfeln(d["schaden"])
-        if gelungen:
-            schaden = schaden // 2 if d.get("beiErfolg") == "halb" else 0
-        if schaden and ziel.get("tp") is not None:
-            ziel["tp"] -= schaden
-            if ziel["art"] == "sc":
-                char_tp_sync(ziel)
-    zustand = d.get("zustandBeiErfolg") if gelungen else d.get("zustand")
-    if zustand and zustand not in ziel.setdefault("zustaende", []):
-        ziel["zustaende"].append(zustand)
-    ergebnis = ("widersteht" if gelungen else "erliegt dem Zauber") + (f" – {zustand}" if zustand else "") \
-        + (f" – {schaden} Schaden" if schaden else "")
-    rw_text = f"{RW_NAMEN[rw]}-Wurf 1W20[{w}]{int(bonus):+d} = {w + int(bonus)}. {d.get('effekt', '')}"
-    SPIEL.eintragen("zauber", titel, wer=t["name"], ergebnisText=f"{ziel['name']} {ergebnis}",
-                    detail="" if verdeckt else rw_text)
-    SPIEL.eintragen("sl-notiz", f"{titel}: SG {d['sg']}, {ziel['name']}: {rw_text}" if verdeckt
-                    else f"{titel}: SG {d['sg']}, Wurf {w + int(bonus)}", verborgen=True)
 
 
 def zauber_wirken(t, c, index, ziel=None, feld=None):
@@ -1101,65 +836,15 @@ def sl_befehl(b):
     elif op == "token-entfernen":
         KA.entfernen(kx(), b["id"])
     elif op == "bewegen":
-        t = token_finden(b["id"])
-        bedroht = []
-        if t["art"] != "sc" and z["initiative"].get("aktiv"):  # Gelegenheitsangriff möglich? (nur Hinweis)
-            bedroht = [s["name"] for s in z["tokens"].values()
-                       if s["art"] == "sc" and s.get("karte") == t.get("karte") and abstand(s, t) <= 1
-                       and not set(s.get("zustaende", [])) & set(UNFAEHIG)]
-        KA.bewegen(kx(), t, b["x"], b["y"])
-        if bedroht:
-            return {"warnung": f"Gelegenheitsangriff möglich für: {', '.join(bedroht)} ({t['name']} verließ ein bedrohtes Feld)"}
+        return KM.sl_bewegen(kx(), b["id"], b["x"], b["y"])
     elif op == "tp":
-        t = token_finden(b["id"])
-        t["tp"] = t.get("tp", 0) + int(b["delta"])
-        if t["art"] == "sc" and t.get("charId"):
-            char_tp_sync(t)
+        KM.tp_sl(kx(), b["id"], b["delta"])
     elif op == "zustand":
-        t = token_finden(b["id"])
-        zs = t.setdefault("zustaende", [])
-        if b.get("an", True) and b["name"] not in zs:
-            zs.append(b["name"])
-        elif not b.get("an", True) and b["name"] in zs:
-            zs.remove(b["name"])
+        KM.zustand_sl(kx(), b["id"], b["name"], b.get("an", True))
     elif op == "initiative":
-        ini = z["initiative"]
-        aktion = b["aktion"]
-        if aktion == "start":
-            ini.update({"aktiv": True, "phase": "wuerfeln", "runde": 0, "index": 0, "eintraege": []})
-            z["zug"] = None
-            z["angriffAusserhalb"] = False
-            SPIEL.eintragen("system", "Kampf! Würfelt Initiative.")
-        elif aktion == "los":  # alle haben gewürfelt: erster Zug beginnt
-            ini_sortieren(ini)
-            ini.update({"phase": "laeuft", "runde": 1, "index": 0})
-            zug_starten()
-        elif aktion == "eintrag":
-            ini_entfernen(ini, lambda e: e["name"] == b["name"])
-            wert = float(b["wert"])
-            ini["eintraege"].append({"name": b["name"], "wert": int(wert) if wert.is_integer() else wert, "tokenId": b.get("tokenId"),
-                                     "verborgen": b.get("verborgen", False)})
-            ini_sortieren(ini)
-        elif aktion == "entfernen":
-            ini_entfernen(ini, lambda e: e["name"] == b["name"])
-        elif aktion == "aufdecken":
-            for e in ini["eintraege"]:
-                if e["name"] == b["name"]:
-                    e["verborgen"] = False
-        elif aktion == "weiter":
-            ini_weiter()
-        elif aktion == "ende":
-            ini.update({"aktiv": False, "phase": None, "runde": 0, "index": 0, "eintraege": []})
-            z["zug"] = None
-            z["angriffAusserhalb"] = False
-            SPIEL.eintragen("system", "Der Kampf ist vorbei.")
+        KM.initiative_befehl(kx(), b)
     elif op == "angriff":  # Angriff eines Gegners/NSC, ohne Regelprüfung (der SL entscheidet)
-        a = token_finden(b["angreifer"])
-        ziel = token_finden(b["ziel"])
-        angriff_aufloesen(a["name"], ziel, b.get("waffe", "Angriff"), int(b["bonus"]), b.get("schaden"),
-                          b.get("krit"), b.get("beruehrung", False), not b.get("fernkampf", False),
-                          [(t, int(v)) for t, v in b.get("mods", [])]
-                          + (MODI.token_angriff_mods(a, b.get("fernkampf", False)) if KAMP.get("modi", True) and not a.get("charId") else []))
+        KM.sl_angriff(kx(), b)
     elif op == "ep":  # Erfahrung vergeben: aus HG der Gegner oder fester Betrag, geteilt durch die Empfänger
         return CH.ep_befehl(kx(), b)
     elif op in ("aufstieg-fertig", "aufstieg-zurueck", "aufstieg-zeigen", "aufstieg-abbrechen"):
@@ -1179,10 +864,7 @@ def sl_befehl(b):
         kx().ereignis("zeit_vergeht", runden=4800)  # 8 Stunden: Modi mit kürzerer Dauer enden
         SPIEL.eintragen("system", "Nach der Rast sind die Zauberplätze wieder frei.")
     elif op == "zug":  # Aktionen des aktuellen Zuges anpassen
-        if not z.get("zug"):
-            raise Fehler("Kein Zug aktiv")
-        for key, wert in b["werte"].items():
-            z["zug"][key] = wert
+        KM.zug_aendern(kx(), b["werte"])
     elif op in ("modus", "modus-ende"):
         return CH.modus_befehl(kx(), op, b)
     elif op == "modus-zeit":
@@ -1214,28 +896,6 @@ def weckende_ereignisse():
 
 
 # ---------------------------------------------------------------- Modi (Hast, Größe, Reichweite …)
-
-
-def ini_entfernen(ini, entfernen):
-    """Entfernt Initiative-Einträge, ohne den Zeiger auf den aktuellen Zug zu verschieben:
-    wer vor dem aktuellen Eintrag entfernt wird, lässt den Index mitwandern."""
-    idx = ini.get("index", 0)
-    neu, neuer_index, gesetzt = [], 0, False
-    for i, e in enumerate(ini["eintraege"]):
-        if entfernen(e):
-            continue
-        if i >= idx and not gesetzt:
-            neuer_index, gesetzt = len(neu), True
-        neu.append(e)
-    ini["eintraege"] = neu
-    ini["index"] = neuer_index if gesetzt else 0
-
-
-def ini_sortieren(ini):
-    aktuell = ini["eintraege"][ini["index"]]["name"] if ini["eintraege"] and ini["index"] < len(ini["eintraege"]) else None
-    ini["eintraege"].sort(key=lambda e: -float(e["wert"]))
-    if aktuell and ini.get("phase") == "laeuft":
-        ini["index"] = next(i for i, e in enumerate(ini["eintraege"]) if e["name"] == aktuell)
 
 
 def alle_charaktere():
@@ -1419,152 +1079,12 @@ def spieler_befehl(pfad, b):
         if wecken:
             z["slStatus"] = "wartet"
         if b.get("initiative") and ini["aktiv"]:
-            t = sc_token(b.get("charId")) if b.get("charId") else None
-            sl_befehl({"op": "initiative", "aktion": "eintrag", "name": b.get("wer"), "wert": summe,
-                       "tokenId": t["id"] if t else None})
-            namen = {e["name"] for e in ini["eintraege"]}
-            fehlend = [t["name"] for t in z["tokens"].values()
-                       if t["art"] == "sc" and t.get("karte") == z["karteAktiv"] and t["name"] not in namen]
-            if ini.get("phase") == "wuerfeln" and not fehlend:
-                SPIEL.eintragen("zugende", "Alle Charaktere haben Initiative gewürfelt.", wecken=True)
-                z["slStatus"] = "wartet"
+            KM.wurf_initiative(kx(), b.get("wer"), b.get("charId"), summe)
         return {"ergebnis": summe, "detail": detail, "besonders": besonders, "id": e["id"]}
     elif pfad == "/api/angriff":
-        t = token_finden(b["id"])
-        ziel = token_finden(b["ziel"])
-        if t["art"] != "sc" or ziel["art"] == "sc":
-            raise Fehler("Angreifen können nur eure Charaktere – und zwar Gegner")
-        k = SPIEL.karte()
-        if not SPIEL.token_sichtbar(ziel, SPIEL.offen_set(k)):
-            raise Fehler("Ziel nicht sichtbar")
-        ini = z["initiative"]
-        c = sc_char(t) or {}
-        a = c.get("angriffe", [])[int(b["angriff"])]
-        serie = a.get("serie")
-        if ini.get("aktiv"):
-            darf_handeln(t)
-            zi = zug_info()
-            if serie:
-                if not (zi["standardFrei"] and zi["bewegungFrei"]) or z["zug"]["bewegt"] > 1:
-                    raise Fehler("Ein Vollangriff braucht Standard- und Bewegungsaktion (nur ein 1,5-m-Schritt davor erlaubt)")
-            elif not zi["standardFrei"]:
-                raise Fehler("Keine Standard-Aktion mehr frei")
-        elif z.get("angriffAusserhalb"):
-            raise Fehler("Der Kampf beginnt – wartet auf den Spielleiter")
-        if set(t.get("zustaende", [])) & set(UNFAEHIG):
-            raise Fehler(f"{t['name']} kann nicht handeln")
-        info = waffe_info(a)
-        d = abstand(t, ziel)
-        mods = []
-        if info["fernkampf"]:
-            n = max(1, math.ceil(d * k.get("meterProFeld", 1.5) / info["inkrement"]))
-            if n > 10:
-                raise Fehler(f"{ziel['name']} ist außer Reichweite")
-            if n > 1:
-                mods.append(("Entfernung", -2 * (n - 1)))
-            nahkampf_gegner = [s for s in z["tokens"].values() if s["art"] == "sc" and s is not t
-                               and s.get("karte") == ziel.get("karte") and abstand(s, ziel) <= 1]
-            if nahkampf_gegner:
-                mods.append(("in den Nahkampf", -4))
-        else:
-            if d > reichweite_felder_t(t):
-                raise Fehler(f"{ziel['name']} steht nicht neben {t['name']}" if reichweite_felder_t(t) == 1
-                             else f"{ziel['name']} ist außerhalb der Reichweite von {t['name']} ({reichweite_felder_t(t) * meter_pro_feld():g} m)")
-            if flankiert(t, ziel):
-                mods.append(("Flankieren", 2))
-        betaeubend = a.get("betaeubend")
-        # Serie: Zahl (nur Bonus) oder {"bonus", "schaden", "name"} je Angriff
-        eintraege = [x if isinstance(x, dict) else {"bonus": int(x)} for x in serie] if serie else [{"bonus": int(a.get("bonus") or 0)}]
-        boni = [int(e["bonus"]) for e in eintraege]
-        # Betäubender Schlag je Angriff: am Eintrag der Serie ("betaeubend": SG oder false), sonst Wert der Waffe
-        stuns = [e["betaeubend"] if "betaeubend" in e else betaeubend for e in eintraege]
-        anzahl = sum(1 for x in stuns if x)
-        if anzahl:
-            pool = c.setdefault("betaeubendPool", {"max": 5, "verbraucht": 0})
-            if pool["max"] - pool["verbraucht"] < anzahl:
-                raise Fehler(f"Betäubender Schlag: nur noch {pool['max'] - pool['verbraucht']} Anwendung(en) heute, "
-                             f"dieser Angriff braucht {anzahl}")
-            pool["verbraucht"] += anzahl
-            char_speichern(c)
-        for i, bonus in enumerate(boni):
-            name = eintraege[i].get("name") or (a.get("name", "Angriff") + (f" ({i + 1}. Schlag)" if serie else ""))
-            if stuns[i]:
-                name += " · Betäubender Schlag"
-            treffer = angriff_aufloesen(t["name"], ziel, name, bonus, eintraege[i].get("schaden") or a.get("schaden"),
-                                        a.get("krit"), info["beruehrung"], not info["fernkampf"], list(mods))
-            if stuns[i] and treffer:
-                sg = int(stuns[i])
-                bonus_rw = rettungswurf_bonus(ziel, "ZAEH")
-                if bonus_rw is None:
-                    SPIEL.eintragen("sl-notiz", f"Betäubender Schlag trifft {ziel['name']}: ZÄH SG {sg}, der SL wertet aus",
-                                    verborgen=True, wecken=True)
-                    z["slStatus"] = "wartet"
-                else:
-                    w20 = kx().w(20)
-                    erg = w20 + int(bonus_rw)
-                    geschafft = erg >= sg
-                    SPIEL.eintragen("zauber", f"{ziel['name']}: Zähigkeitswurf gegen Betäubenden Schlag (SG {sg})",
-                                    wer=ziel["name"], ergebnis=erg, ergebnisText="widersteht" if geschafft else "betäubt",
-                                    detail=f"1W20[{w20}] {int(bonus_rw):+d} gegen SG {sg}")
-                    if not geschafft:
-                        zs = ziel.setdefault("zustaende", [])
-                        for zn in ("Betäubt", "Erschöpft"):
-                            if zn not in zs:
-                                zs.append(zn)
-        if ini.get("aktiv"):
-            z["zug"]["standard"] = True
-            if serie:
-                z["zug"]["bewegung"] = True
-        else:
-            z["angriffAusserhalb"] = True
-            SPIEL.eintragen("zugende", f"{t['name']} greift überraschend an – der Kampf beginnt!", wecken=True)
-            z["slStatus"] = "wartet"
+        KM.sc_angriff(kx(), b)
     elif pfad == "/api/sturmangriff":
-        t = token_finden(b["id"])
-        ziel = token_finden(b["ziel"])
-        if t["art"] != "sc" or ziel["art"] == "sc":
-            raise Fehler("Angreifen können nur eure Charaktere – und zwar Gegner")
-        k = SPIEL.karte()
-        if not SPIEL.token_sichtbar(ziel, SPIEL.offen_set(k)):
-            raise Fehler("Ziel nicht sichtbar")
-        ini = z["initiative"]
-        if not ini.get("aktiv"):
-            raise Fehler("Einen Sturmangriff gibt es nur im Kampf")
-        darf_handeln(t)
-        info = zug_info()
-        if not (info["standardFrei"] and info["bewegungFrei"]) or z["zug"]["bewegt"] > 0:
-            raise Fehler("Für den Sturmangriff werden Standard- und Bewegungsaktion gebraucht (volle Aktion, vorher nicht bewegt)")
-        if set(t.get("zustaende", [])) & set(UNFAEHIG):
-            raise Fehler(f"{t['name']} kann nicht handeln")
-        c = sc_char(t) or {}
-        a = c.get("angriffe", [])[int(b["angriff"])]
-        winfo = waffe_info(a)
-        anspringen = "anspringen" in json.dumps({k: c.get(k) for k in ("talente", "faehigkeiten", "notizen")}, ensure_ascii=False).lower()
-        if a.get("betaeubend"):
-            raise Fehler("Für den Sturmangriff bitte den Einzelschlag ohne Betäubenden Schlag wählen")
-        if a.get("serie") and not anspringen:
-            raise Fehler("Ein Vollangriff beim Sturmangriff geht nur mit Anspringen (Pounce)")
-        if winfo["fernkampf"] or winfo["beruehrung"]:
-            raise Fehler("Ein Sturmangriff geht nur mit einer Nahkampfwaffe")
-        x, y, weg = sturmangriff_feld(t, ziel)
-        alt = (t["x"], t["y"])
-        t["x"], t["y"] = x, y
-        z["zug"]["bewegt"] = weg
-        z["zug"]["bewegung"] = True
-        meter = weg * (k.get("meterProFeld", 1.5) if k else 1.5)
-        SPIEL.eintragen("bewegung", f"{t['name']} stürmt {weg} Felder ({meter:g} m) nach ({x},{y}) – Sturmangriff auf {ziel['name']}",
-                        wer=t["name"], von=list(alt), nach=[x, y])
-        mods = [("Sturmangriff", 2)]
-        if flankiert(t, ziel):
-            mods.append(("Flankieren", 2))
-        serie = a.get("serie")
-        eintraege = [x if isinstance(x, dict) else {"bonus": int(x)} for x in serie] if serie else [{"bonus": int(a.get("bonus") or 0)}]
-        for i, e in enumerate(eintraege):
-            name = e.get("name") or (a.get("name", "Angriff") + (f" ({i + 1}. Angriff)" if serie else ""))
-            angriff_aufloesen(t["name"], ziel, f"{name} · Sturmangriff" + (" (Anspringen)" if serie else ""), int(e["bonus"]),
-                              e.get("schaden") or a.get("schaden"), a.get("krit"), False, True, list(mods))
-        z["zug"]["standard"] = True
-        SPIEL.eintragen("system", f"{t['name']}: Sturmangriff – RK −2 bis zum nächsten Zug")
+        KM.sturmangriff(kx(), b)
     elif pfad == "/api/zaubern":
         t = token_finden(b["id"])
         if t["art"] != "sc":
@@ -1586,53 +1106,11 @@ def spieler_befehl(pfad, b):
     elif pfad in ("/api/aufstieg-plan", "/api/aufstieg-tp", "/api/aufstieg-senden"):
         return CH.aufstieg_spieler(kx(), pfad.rsplit("-", 1)[-1], b)
     elif pfad == "/api/zug-beenden":
-        t = token_finden(b["id"])
-        darf_handeln(t)
-        if not z["initiative"].get("aktiv"):
-            raise Fehler("Kein Kampf")
-        SPIEL.eintragen("zugende", f"{t['name']} beendet den Zug.", wer=t["name"], wecken=True)
-        ini_weiter()
-        z["slStatus"] = "wartet"
+        KM.zug_beenden(kx(), b["id"])
     elif pfad == "/api/aktion-verbrauchen":
-        t = token_finden(b["id"])
-        darf_handeln(t)
-        if not z["initiative"].get("aktiv"):
-            raise Fehler("Kein Kampf")
-        aktion = b["aktion"]
-        info = zug_info()
-        frei = {"standard": info["standardFrei"], "bewegung": info["bewegungFrei"], "schnell": info["schnellFrei"]}
-        if not frei.get(aktion):
-            raise Fehler("Diese Aktion ist schon verbraucht")
-        z["zug"][aktion] = True
-        name = {"standard": "Standard-Aktion", "bewegung": "Bewegungsaktion", "schnell": "Schnelle Aktion"}[aktion]
-        SPIEL.eintragen("system", f"{t['name']} nutzt die {name}{': ' + b['wofuer'] if b.get('wofuer') else ''}")
+        KM.aktion_nutzen(kx(), b["id"], b["aktion"], b.get("wofuer"))
     elif pfad == "/api/bewegen":
-        t = token_finden(b["id"])
-        if t["art"] != "sc":
-            raise Fehler("Nur eigene Charaktere können bewegt werden")
-        alt = (t["x"], t["y"])
-        felder = pf_distanz(*alt, int(b["x"]), int(b["y"]))
-        k = SPIEL.karte()
-        if k and k.get("waendeSperren") and t.get("karte", z["karteAktiv"]) == z["karteAktiv"]:
-            weg = karten.weg_felder(SPIEL.wand(z["karteAktiv"]), k, alt, (int(b["x"]), int(b["y"])), erlaubt=SPIEL.offen_set(k))
-            if weg is None or weg > felder * 1.5 + 2:
-                raise Fehler("Dort geht es nicht direkt hin: eine Wand oder unerforschtes Gebiet ist im Weg. Zieht Schritt für Schritt um die Ecke.")
-            felder = max(felder, weg)
-        if z["initiative"].get("aktiv"):
-            darf_handeln(t)
-            info = zug_info()
-            if felder > info["restFelder"]:
-                raise Fehler(f"Zu weit: {t['name']} kann noch {info['restFelder']} Felder gehen")
-            z["zug"]["bewegt"] += felder
-        KA.bewegen(kx(), t, b["x"], b["y"])
-        k = SPIEL.karte()
-        meter = felder * (k.get("meterProFeld", 1.5) if k else 1.5)
-        # Außerhalb eines Kampfes weckt Bewegung den SL (der Nachlauf von `warte` sammelt mehrere Züge ein)
-        wecken = not z["initiative"].get("aktiv")
-        SPIEL.eintragen("bewegung", f"{t['name']} bewegt sich {felder} Felder ({meter:g} m) nach ({t['x']},{t['y']})",
-                        wer=t["name"], von=list(alt), nach=[t["x"], t["y"]], wecken=wecken)
-        if wecken:
-            z["slStatus"] = "wartet"
+        KM.bewegen_spieler(kx(), b["id"], b["x"], b["y"])
     elif pfad == "/api/anstupsen":  # Spieler bitten den Spielleiter, zu handeln (weckt `sl.py warte`)
         SPIEL.eintragen("system", "Die Spieler bitten den Spielleiter zu handeln.", wecken=True)
         if z["slStatus"] == "bereit":
@@ -1641,23 +1119,9 @@ def spieler_befehl(pfad, b):
         SPIEL.eintragen("zeigen", f"{b.get('wer') or 'Gruppe'} zeigt auf Feld ({b['x']},{b['y']})",
                         wer=b.get("wer") or "Gruppe", feld=[b["x"], b["y"]])
     elif pfad == "/api/sc-tp":
-        t = token_finden(b["id"])
-        if t["art"] != "sc":
-            raise Fehler("Nur eigene Charaktere")
-        t["tp"] = t.get("tp", 0) + int(b["delta"])
-        if t.get("tpMax") is not None:
-            t["tp"] = min(t["tp"], t["tpMax"])  # Heilung nicht über das Maximum
-        char_tp_sync(t)
-        SPIEL.eintragen("system", f"{t['name']}: TP {'+' if int(b['delta']) >= 0 else ''}{b['delta']} → {t['tp']}/{t.get('tpMax')}")
+        KM.tp_spieler(kx(), b["id"], b["delta"])
     elif pfad == "/api/sc-zustand":
-        t = token_finden(b["id"])
-        if t["art"] != "sc":
-            raise Fehler("Nur eigene Charaktere")
-        zs = t.setdefault("zustaende", [])
-        if b["name"] in zs:
-            zs.remove(b["name"])
-        else:
-            zs.append(b["name"])
+        KM.zustand_spieler(kx(), b["id"], b["name"])
     elif pfad == "/api/sc-platzieren":
         KA.sc_platzieren(kx(), b["charId"], b["x"], b["y"])
     elif pfad == "/api/gruppennotizen":

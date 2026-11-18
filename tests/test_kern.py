@@ -59,5 +59,46 @@ class KernTest(unittest.TestCase):
         self.assertEqual(r["aufstieg"]["tp"], {"plus": 9, "text": "1W10[7] +2 KO"})
 
 
+class KampfKernTest(unittest.TestCase):
+    def setUp(self):
+        from bereiche import kampf as KM
+        self.KM = KM
+        z = leerer_stand()
+        z["tokens"] = {
+            "sc-brak": {"id": "sc-brak", "art": "sc", "charId": "brak", "name": "Brak", "x": 1, "y": 1, "tp": 30,
+                        "tpMax": 30, "zustaende": []},
+            "g1": {"id": "g1", "art": "gegner", "name": "Ork", "x": 2, "y": 1, "tp": 20, "tpMax": 20, "rk": 15,
+                   "zustaende": []},
+        }
+        self.z = z
+
+    def test_kritischer_treffer_doppelter_schaden(self):
+        kx = kontext("brak", z=self.z, wuerfel=[19, 12, 5, 6])  # Angriff 19 (Bedrohung), Bestätigung 12, Schaden 5 + 6
+        t = self.KM.aufloesen(kx, "Brak", self.z["tokens"]["g1"], "Langschwert", 7, "1W8+3", "19-20/x2", False, True, [])
+        self.assertTrue(t)
+        e = kx.neue[0]
+        self.assertTrue(e["kritisch"])
+        self.assertEqual(e["schaden"], 5 + 3 + 6 + 3)
+        self.assertEqual(self.z["tokens"]["g1"]["tp"], 20 - 17)
+
+    def test_natuerliche_eins_verfehlt_immer(self):
+        kx = kontext("brak", z=self.z, wuerfel=[1])
+        self.assertFalse(self.KM.aufloesen(kx, "Brak", self.z["tokens"]["g1"], "Schwert", 30, "1W8", None, False, True, []))
+
+    def test_liegendes_ziel(self):
+        self.z["tokens"]["g1"]["zustaende"] = ["Liegend"]
+        kx = kontext("brak", z=self.z, wuerfel=[4])
+        self.assertTrue(self.KM.aufloesen(kx, "Brak", self.z["tokens"]["g1"], "Schwert", 7, None, None, False, True, []))
+        self.assertIn("+4 Ziel liegt", kx.neue[0]["detail"])
+
+    def test_tot_abgleich(self):
+        self.z["tokens"]["g1"]["tp"] = 0
+        self.KM.tot_abgleich(self.z)
+        self.assertIn("Tot", self.z["tokens"]["g1"]["zustaende"])
+        self.z["tokens"]["g1"]["tp"] = 3
+        self.KM.tot_abgleich(self.z)
+        self.assertNotIn("Tot", self.z["tokens"]["g1"]["zustaende"])
+
+
 if __name__ == "__main__":
     unittest.main()
