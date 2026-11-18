@@ -42,7 +42,7 @@ body.nachschlagen { overflow: hidden; }
 
 details.buch { margin-bottom: 6px; }
 details.buch summary { padding: 4px 6px; font-weight: 600; cursor: pointer; }
-details.buch summary a { color: var(--gold-2); text-decoration: none; }
+details.buch summary a, details.buch summary span { color: var(--gold-2); text-decoration: none; }
 a.kapitel { display: block; padding: 3px 8px 3px 22px; color: var(--text); text-decoration: none; border-radius: 6px; }
 a.kapitel:hover, a.kapitel.aktiv { background: var(--panel-2); color: var(--gold-2); }
 
@@ -87,4 +87,31 @@ footer.quelle { margin-top: 28px; padding-top: 8px; border-top: 1px solid var(--
   body.liest #ns-liste { display: none; }
   body:not(.liest) #ns-lesen { display: none; }
   .ns-zur-liste { display: inline-block; }
+}
+
+/* Tabellen (Grids) für Talente und Zauber: volle Breite, Volltext rechts daneben */
+body.tabelle #ns-main { grid-template-columns: 1fr; }
+body.tabelle.liest #ns-main { grid-template-columns: minmax(0, 1fr) minmax(340px, 42%); }
+body.tabelle:not(.liest) #ns-lesen { display: none; }
+body.tabelle #ns-liste { padding: 0; overflow: auto; }
+body.tabelle #ns-liste .anzahl { padding: 8px 12px; position: sticky; left: 0; }
+body.tabelle .ns-zur-liste { display: inline-block; float: right; }
+.grid table { border-collapse: collapse; font-size: 13px; min-width: 100%; }
+.grid th {
+  position: sticky; top: 0; z-index: 1; background: var(--panel-2); color: var(--gold-2); text-align: left;
+  padding: 6px 8px; border-bottom: 1px solid var(--linie); white-space: nowrap; cursor: pointer; user-select: none;
+}
+.grid th:hover { color: var(--text); }
+.grid td { padding: 5px 8px; border-bottom: 1px solid var(--linie); vertical-align: top; max-width: 200px; }
+.grid td.lang { max-width: 380px; min-width: 220px; }
+.grid td.lang div { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: #d8ccb5; }
+.grid td.zahl { text-align: center; }
+.grid td.name { white-space: nowrap; font-weight: 600; }
+.grid td.name a { color: var(--gold-2); text-decoration: none; }
+.grid tbody tr { cursor: pointer; }
+.grid tbody tr:hover td { background: var(--panel); }
+.grid tbody tr.aktiv td { background: var(--panel-2); }
+.grid tbody tr.aktiv td.name { box-shadow: inset 3px 0 0 var(--gold); }
+@media (max-width: 760px) {
+  body.tabelle.liest #ns-main { grid-template-columns: 1fr; }
 }

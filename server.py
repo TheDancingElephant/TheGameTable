@@ -440,6 +440,11 @@ class Handler(BaseHTTPRequestHandler):
                 daten = N.inhalt(a.get("seite"), sl)
             elif pfad == "/api/wissen/filter":
                 daten = N.filter_listen(sl, haus)
+            elif pfad == "/api/wissen/talente":
+                daten = N.talente_tabelle(sl)
+            elif pfad == "/api/wissen/zauber":
+                daten = N.zauber_tabelle(a.get("q"), a.get("klasse"), a.get("grad"), a.get("schule"), a.get("quelle"),
+                                         a.get("volltext") == "1")
             else:
                 return self.antwort(404, {"fehler": "nicht gefunden"})
         except WI.NurSL as e:

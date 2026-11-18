@@ -1,14 +1,25 @@
-// Nachschlage-Seite: Suche und Leseansicht für Regeln (PRD), Zauber, Monster (nur SL) und Hausregeln.
+// Nachschlage-Seite: Suche und Leseansicht für Regeln (PRD), Zauber, Monster (nur SL) und Hausregeln;
+// Talente und Zauber zusätzlich als sortierbare Tabellen (Grids), Klick öffnet den Volltext rechts daneben.
 // Zustand steht in der Adresse (?q=…&art=…&e=zauber:Hast), damit Zurück/Vor und Lesezeichen funktionieren.
 import { $, $$, SL, api, esc } from "./grundlagen.js";
 import { hervorheben, mdHtml } from "./markdown.js";
 
-const ARTEN = ["alle", "regeln", "zauber", "monster", "inhalt"];
-const FILTER = ["buch", "typ", "klasse", "grad", "schule", "quelle", "volltext", "hg", "monsterart"];
+const ARTEN = ["alle", "regeln", "talente", "zauber", "monster", "inhalt"];
+const TABELLEN = ["talente", "zauber"];  // Bereiche mit Grid statt Trefferliste
+const FILTER = ["buch", "typ", "klasse", "grad", "schule", "quelle", "volltext", "hg", "monsterart", "talentart", "sort"];
 const TYP_NAMEN = { falle: "Falle", fertigkeit: "Fertigkeit", gegenstand: "Gegenstand", klasse: "Klasse",
   klassenmerkmal: "Klassenmerkmal", monster: "Monster", prestigeklasse: "Prestigeklasse", regel: "Regel",
   tabelle: "Tabelle", talent: "Talent", volk: "Volk", zustand: "Zustand" };
-const N = { filter: null, zauber: new Map(), zustaende: new Map(), suchNr: 0 };
+const N = { filter: null, zauber: new Map(), zustaende: new Map(), suchNr: 0, talente: null, zauberTabelle: new Map() };
+// Spalten der Grids: [Feld, Überschrift, Art] – Art „zahl“ sortiert numerisch, „lang“ = gekürzter Fließtext
+const SPALTEN = {
+  talente: [["name", "Name"], ["arten", "Art"], ["voraussetzungen", "Voraussetzungen", "lang"], ["vorteil", "Vorteil", "lang"],
+    ["kuerzel", "Buch"]],
+  zauber: [["name", "Name"], ["schule", "Schule"], ["grad", "Grad", "zahl"], ["zeitaufwand", "Zeitaufwand"],
+    ["reichweite", "Reichweite"], ["wirkungsdauer", "Wirkungsdauer"], ["rettungswurf", "RW"], ["zauberresistenz", "ZR"],
+    ["kurz", "Kurzbeschreibung", "lang"], ["quelle", "Quelle"]],
+};
+const STANDARD_SORT = { talente: "name", zauber: "grad" };
 
 // ------------------------------------------------------------------ Adresse <-> Zustand
 function lesenAdresse() {
@@ -51,6 +62,8 @@ function filterZeichnen(s) {
       + `<label><input type="checkbox" id="f-volltext"${s.volltext ? " checked" : ""}> auch im Text</label>`;
   } else if (s.art === "monster") {
     h = wahl("f-hg", "HG", f.monsterHg || [], s.hg) + wahl("f-monsterart", "Art", f.monsterArten || [], s.monsterart);
+  } else if (s.art === "talente" && N.talente) {
+    h = wahl("f-talentart", "Art", N.talente.arten, s.talentart) + wahl("f-buch", "Buch", N.talente.buecher, s.buch);
   }
   const box = $("#ns-filter");
   box.innerHTML = h;
@@ -100,9 +113,72 @@ async function listeZeichnen(s) {
 async function inhaltZeichnen(s) {
   const d = await api("/api/wissen/inhalt").catch(() => null);
   if (!d) return;
+  // „Monster“ fasst alle Monsterhandbücher zusammen (ohne eigene Buchseite; SL: Verweis auf die Monster-Liste)
   $("#ns-liste").innerHTML = `<div class="anzahl">Inhalt</div>` + d.buecher.map((b) =>
-    `<details class="buch"${!b.titel.startsWith("Monsterhandbuch") ? " open" : ""}><summary><a href="${esc(adresse({ ...s, e: `seite:${b.id}` }))}" data-e="seite:${b.id}">${esc(b.titel)}</a></summary>
+    `<details class="buch" open><summary>${b.id ? `<a href="${esc(adresse({ ...s, e: `seite:${b.id}` }))}" data-e="seite:${b.id}">${esc(b.titel)}</a>` : `<span>${esc(b.titel)}</span>`}</summary>
+    ${b.monsterTabelle ? `<a class="kapitel" href="${esc(adresse({ art: "monster" }))}">Alle Monster (nach HG und Art) →</a>` : ""}
     ${b.kapitel.map((k) => `<a class="kapitel${s.e === `seite:${k.id}` ? " aktiv" : ""}" href="${esc(adresse({ ...s, e: `seite:${k.id}` }))}" data-e="seite:${k.id}">${esc(k.titel)}</a>`).join("")}</details>`).join("");
+}
+
+// ------------------------------------------------------------------ Tabellen (Grids) für Talente und Zauber
+async function tabellenDaten(s) {
+  if (s.art === "talente") {
+    N.talente ||= await api("/api/wissen/talente");
+    const q = s.q.toLowerCase();
+    return N.talente.zeilen.filter((z) => (!s.talentart || z.arten.includes(s.talentart)) && (!s.buch || z.buch === s.buch)
+      && (!q || `${z.name} ${z.voraussetzungen} ${z.vorteil}`.toLowerCase().includes(q)))
+      .map((z) => ({ ...z, arten: z.arten.join(", "), _e: `regel:${z.id}` }));
+  }
+  const p = new URLSearchParams();
+  for (const f of ["q", "klasse", "grad", "schule", "quelle", "volltext"]) if (s[f]) p.set(f, s[f]);
+  const schl = p.toString();
+  if (!N.zauberTabelle.has(schl)) N.zauberTabelle.set(schl, (await api("/api/wissen/zauber?" + schl)).zeilen);
+  return N.zauberTabelle.get(schl).map((z) => ({ ...z, _e: `zauber:${z.name}` }));
+}
+
+function sortieren(zeilen, s) {
+  const sort = s.sort || STANDARD_SORT[s.art];
+  const ab = sort.startsWith("-");
+  const feld = sort.replace(/^-/, "");
+  const zahl = SPALTEN[s.art].find(([f]) => f === feld)?.[2] === "zahl";
+  const vgl = (a, b) => (zahl ? (a[feld] ?? 99) - (b[feld] ?? 99) : String(a[feld] ?? "").localeCompare(String(b[feld] ?? ""), "de"));
+  return zeilen.sort((a, b) => (ab ? -vgl(a, b) : vgl(a, b)) || a.name.localeCompare(b.name, "de"));  // Name immer A–Z
+}
+
+async function tabelleZeichnen(s) {
+  const liste = $("#ns-liste");
+  const nr = ++N.suchNr;
+  if (!liste.querySelector("table")) liste.innerHTML = `<div class="hinweis">Lade …</div>`;
+  let zeilen;
+  try {
+    zeilen = sortieren(await tabellenDaten(s), s);
+  } catch {
+    liste.innerHTML = `<div class="hinweis">Tabelle konnte nicht geladen werden.</div>`;
+    return;
+  }
+  if (nr !== N.suchNr) return;
+  filterZeichnen(s);  // Filterlisten der Talente kommen erst mit den Daten
+  const sort = s.sort || STANDARD_SORT[s.art];
+  const kopf = SPALTEN[s.art].map(([f, titel]) => {
+    const t = f === "grad" && s.klasse ? `Grad (${s.klasse})` : titel;
+    const pfeil = sort === f ? " ▲" : sort === "-" + f ? " ▼" : "";
+    return `<th data-sort="${f}" title="Sortieren nach ${esc(t)}">${esc(t)}${pfeil}</th>`;
+  }).join("");
+  const zelle = (z, [f, , art]) => {
+    const v = z[f] ?? "";
+    if (f === "name") return `<td class="name"><a href="${esc(adresse({ ...s, e: z._e }))}" data-e="${esc(z._e)}">${esc(v)}</a></td>`;
+    const titel = f === "grad" && z.grade ? z.grade : art === "lang" ? v : "";
+    return `<td class="${art || ""}"${titel ? ` title="${esc(titel)}"` : ""}>${art === "lang" ? `<div>${esc(v)}</div>` : esc(v)}</td>`;
+  };
+  const was = s.art === "talente" ? "Talente" : "Zauber";
+  liste.innerHTML = `<div class="anzahl">${zeilen.length} ${was}${s.q ? ` mit „${esc(s.q)}“` : ""} · Spaltenkopf anklicken zum Sortieren</div>`
+    + `<div class="grid"><table><thead><tr>${kopf}</tr></thead><tbody>`
+    + zeilen.map((z) => `<tr data-e="${esc(z._e)}"${s.e === z._e ? ` class="aktiv"` : ""}>${SPALTEN[s.art].map((sp) => zelle(z, sp)).join("")}</tr>`).join("")
+    + `</tbody></table></div>` + (zeilen.length ? "" : `<div class="hinweis">Nichts gefunden – Filter oder Suchwort ändern.</div>`);
+  $$("th[data-sort]", liste).forEach((th) => (th.onclick = () => {
+    const f = th.dataset.sort;
+    setzen({ sort: sort === f ? "-" + f : f });
+  }));
 }
 
 // ------------------------------------------------------------------ Leseansicht
@@ -163,8 +239,8 @@ async function seiteHtml(id, s) {
 function startHtml(s) {
   const f = N.filter;
   return `<h2>Regeln, Zauber${f.sl ? ", Monster" : ""} nachschlagen</h2>
-    <p>Suche oben im ganzen Regelwerk (Grundregelwerk, Expertenregeln${f.sl ? ", Monsterhandbücher" : ""}), in den Zaubern${f.hausregeln ? " und in den Hausregeln dieser Kampagne" : ""}.
-    Unter <b>Zauber</b> lassen sich alle Zauber einer Klasse und eines Grades auflisten${f.sl ? ", unter <b>Monster</b> alle Monster nach HG und Art" : ""}; <b>Inhalt</b> zeigt die Kapitel der Bücher.</p>
+    <p>Suche oben im ganzen Regelwerk (Grundregelwerk, Expertenregeln, Abenteurerkompendium, Monster), in den Zaubern${f.hausregeln ? " und in den Hausregeln dieser Kampagne" : ""}.
+    <b>Talente</b> und <b>Zauber</b> zeigen sortierbare Tabellen (Zauber z. B. nach Klasse und Grad gefiltert)${f.sl ? ", unter <b>Monster</b> alle Monster nach HG und Art" : ""}; <b>Inhalt</b> zeigt die Kapitel der Bücher.</p>
     ${f.zustaende.length ? `<h3>Zustände</h3><div class="unterseiten">${f.zustaende.map((z) => link(`zustand:${z}`, z, s)).join("")}</div>` : ""}
     ${f.datenbank ? "" : `<p class="hinweis">Die Regeldatenbank fehlt (regeln/regeln.sqlite); nur Zauber sind verfügbar.</p>`}
     <footer class="quelle">Texte aus dem deutschen Pathfinder-PRD (prd.5footstep.de), Open Game Content (OGL 1.0a)${f.stand ? ` · Stand ${esc(f.stand)}` : ""}</footer>`;
@@ -200,7 +276,7 @@ async function lesenZeichnen(s) {
   }
   const zurueck = document.createElement("button");
   zurueck.className = "ns-zur-liste";
-  zurueck.textContent = "← Treffer";
+  zurueck.textContent = TABELLEN.includes(s.art) ? "✕ schließen" : "← Treffer";
   zurueck.onclick = () => setzen({ e: "" }, { push: true, suchen: false });
   el.prepend(zurueck);
 }
@@ -208,8 +284,9 @@ async function lesenZeichnen(s) {
 // ------------------------------------------------------------------ Ablauf
 function zeigen(s, suchen = true) {
   $("#ns-q").value = s.q;
+  document.body.classList.toggle("tabelle", TABELLEN.includes(s.art));
   filterZeichnen(s);
-  if (suchen) listeZeichnen(s);
+  if (suchen) (TABELLEN.includes(s.art) ? tabelleZeichnen : listeZeichnen)(s);
   else $$("#ns-liste [data-e]").forEach((a) => a.classList.toggle("aktiv", a.dataset.e === s.e));
   lesenZeichnen(s);
 }
@@ -221,14 +298,15 @@ $("#ns-q").addEventListener("input", () => {
     const s = lesenAdresse();
     const q = $("#ns-q").value.trim();
     if (q === s.q) return;
-    setzen({ q, art: s.art === "inhalt" ? "alle" : s.art, e: q ? "" : s.e });
+    setzen({ q, art: s.art === "inhalt" ? "alle" : s.art, e: q && !TABELLEN.includes(s.art) ? "" : s.e });
   }, 350);
 });
 $("#ns-suche").addEventListener("submit", (ev) => {
   ev.preventDefault();
   clearTimeout(tippen);
   const s = lesenAdresse();
-  setzen({ q: $("#ns-q").value.trim(), art: s.art === "inhalt" ? "alle" : s.art, e: "" }, { push: true });
+  setzen({ q: $("#ns-q").value.trim(), art: s.art === "inhalt" ? "alle" : s.art,
+    e: TABELLEN.includes(s.art) ? s.e : "" }, { push: true });
 });
 $("#ns-arten").addEventListener("click", (ev) => {
   const b = ev.target.closest("button[data-art]");
@@ -238,7 +316,7 @@ $("#ns-arten").addEventListener("click", (ev) => {
   setzen(neu, { push: true });
 });
 document.addEventListener("click", (ev) => {
-  const a = ev.target.closest("a[data-e]");
+  const a = ev.target.closest("a[data-e], tr[data-e]");  // Zeilen der Grids sind ganz anklickbar
   if (!a || ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button !== 0) return;
   ev.preventDefault();
   setzen({ e: a.dataset.e }, { push: true, suchen: false });

@@ -105,10 +105,22 @@ class WissenTest(unittest.TestCase):
             x["titel"].startswith("Gug") for x in self.wissen("suche", q="Gug")["treffer"]))
         self.assertTrue(any(x["titel"] == "Golem" for x in self.wissen("suche", sl=True, q="Golem")["treffer"]))
         self.assertTrue(self.wissen("suche", q="Regeneration")["treffer"])
-        mhb = {b["titel"]: [k["titel"] for k in b["kapitel"]] for b in self.wissen("inhalt")["buecher"]}["Monsterhandbuch"]
+        buecher = {b["titel"]: b for b in self.wissen("inhalt")["buecher"]}
+        mhb = [k["titel"] for k in buecher["Monster"]["kapitel"]]  # alle Monsterhandbücher als ein Bereich
+        self.assertFalse(any(t.startswith("Monsterhandbuch") for t in buecher))
+        self.assertFalse(buecher["Monster"]["monsterTabelle"])
         self.assertIn("Kreaturenarten", mhb)
         self.assertNotIn("Golem", mhb)
         self.assertNotIn("Monster nach HG", mhb)
+        # SL: auch im Inhalt keine einzelnen Monster (die stehen in der Monster-Liste), aber der Verweis darauf
+        sl_monster = {b["titel"]: b for b in self.wissen("inhalt", sl=True)["buecher"]}["Monster"]
+        self.assertTrue(sl_monster["monsterTabelle"])
+        self.assertNotIn("Golem", [k["titel"] for k in sl_monster["kapitel"]])
+        # Buchfilter: „Monster“ statt einzelner Bände, trifft alle Monsterhandbücher
+        self.assertIn("Monster", self.wissen("filter")["buecher"])
+        self.assertNotIn("Monsterhandbuch II", self.wissen("filter")["buecher"])
+        t = self.wissen("suche", sl=True, q="Gug", buch="Monster")["treffer"]
+        self.assertTrue(t and all(x["buch"].startswith("Monsterhandbuch") for x in t))
 
     def test_nachschlagen_filterlisten_und_seite(self):
         f = self.wissen("filter")
@@ -125,6 +137,29 @@ class WissenTest(unittest.TestCase):
         s = self.wissen("inhalt", seite=kampf["id"])
         self.assertTrue(any(a["titel"] == "Gelegenheitsangriffe" for a in s["abschnitte"]))
         self.assertIn(b"Nachschlagen", self.tk.http("/nachschlagen.html", roh=True))
+
+    def test_nachschlagen_talent_tabelle(self):
+        t = self.wissen("talente")
+        self.assertGreater(len(t["zeilen"]), 300)
+        self.assertIn("Kampf", t["arten"])
+        self.assertIn("Allgemein", t["arten"])  # Talente ohne Art
+        bw = next(z for z in t["zeilen"] if z["name"] == "Beweglichkeit")
+        self.assertIn("Ausweichen", bw["voraussetzungen"])
+        self.assertIn("Kampf", bw["arten"])
+        self.assertEqual(bw["kuerzel"], "GRW")
+        self.assertIn("Beweglichkeit", self.wissen("eintrag", art="regel", id=bw["id"])["titel"])  # Klick → Volltext
+
+    def test_nachschlagen_zauber_tabelle(self):
+        t = self.wissen("zauber", klasse="Magier", grad="3")
+        fb = next(z for z in t["zeilen"] if z["name"] == "Feuerball")
+        self.assertEqual(fb["grad"], 3)
+        self.assertEqual(fb["schule"], "Hervorrufung [Feuer]")
+        self.assertTrue(fb["reichweite"].startswith("Lang"))
+        self.assertTrue(fb["rettungswurf"] and fb["zauberresistenz"] and fb["wirkungsdauer"] and fb["kurz"])
+        self.assertTrue(all(z["grad"] == 3 for z in t["zeilen"]))
+        self.assertEqual(t["gesamt"], len(t["zeilen"]))
+        self.assertGreater(self.wissen("zauber")["gesamt"], 1500)  # ohne Filter alle Zauber
+        self.assertEqual([z["name"] for z in self.wissen("zauber", q="Feuerball")["zeilen"]][0], "Feuerball")
 
 
 class PDFIndexTest(unittest.TestCase):

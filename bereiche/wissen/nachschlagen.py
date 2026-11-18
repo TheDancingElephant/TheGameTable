@@ -53,6 +53,11 @@ def gesperrte_seiten():
     return _gesperrt[id(con)]
 
 
+def ist_monsterbuch(buch):
+    """Monsterhandbuch, Monsterhandbuch II … (auf der Seite zusammen als „Monster“)."""
+    return (buch or "").startswith("Monsterhandbuch")
+
+
 def _sichtbar(seite_id, sl):
     return sl or seite_id not in gesperrte_seiten()
 
@@ -273,8 +278,11 @@ def eintrag(art, id_=None, name=None, sl=False, hausregeln=None):
 def suche(frage="", art="alle", buch=None, typ=None, sl=False, hausregeln=None, klasse=None, grad=None, schule=None,
           quelle=None, volltext=False, hg=None, monsterart=None):
     """Treffer für die Liste: Hausregeln zuerst, dann Zauber (Name), dann Regeln (Volltext). art alle | regeln |
-    zauber | monster. Zauber und Monster lassen sich ohne Suchwort nur mit Filtern auflisten."""
+    zauber | monster. Zauber und Monster lassen sich ohne Suchwort nur mit Filtern auflisten. buch „Monster“ = alle
+    Monsterhandbücher."""
     frage = (frage or "").strip()
+    if buch == "Monster":
+        buch = "Monsterhandbuch"  # regeln_db.suchen vergleicht mit LIKE, trifft also alle Bände
     art = art or "alle"
     if art == "monster" and not sl:
         raise NurSL("Monster sind nur für den Spielleiter sichtbar.")
@@ -331,7 +339,19 @@ def inhalt(seite_id=None, sl=False):
         buecher = con.execute("SELECT id, titel, pfad, buch FROM seiten WHERE rolle='inhalt' AND "
                               "length(pfad) - length(replace(pfad, '/', '')) = 1").fetchall()
         buecher = sorted(buecher, key=lambda r: regeln_db.BUCH_RANG.get(r["buch"], 9))
-        return {"buecher": [{"id": b["id"], "titel": b["titel"], "kapitel": unterseiten(b["pfad"])} for b in buecher]}
+        aus = [{"id": b["id"], "titel": b["titel"], "kapitel": unterseiten(b["pfad"])} for b in buecher
+               if not ist_monsterbuch(b["buch"])]
+        baende = [b for b in buecher if ist_monsterbuch(b["buch"])]
+        if baende:  # alle Monsterhandbücher als ein Bereich „Monster“: allgemeine Kapitel, ohne einzelne Monster
+            monster = {r[0] for r in con.execute("SELECT DISTINCT seite_id FROM abschnitte WHERE typ = 'monster'")}
+            kapitel = []
+            for b in baende:
+                zusatz = "" if b is baende[0] else f" ({_kuerzel(b['buch'])})"
+                kapitel += [{"id": k["id"], "titel": k["titel"] + zusatz} for k in unterseiten(b["pfad"])
+                            if k["id"] not in monster]
+            aus.append({"id": None, "titel": "Monster", "kapitel": kapitel, "monsterTabelle": bool(sl),
+                        "baende": [{"id": b["id"], "titel": b["titel"]} for b in baende]})
+        return {"buecher": aus}
     s = con.execute("SELECT * FROM seiten WHERE id=?", (int(seite_id),)).fetchone()
     if not s or s["rolle"] != "inhalt":
         raise Fehler("Seite nicht gefunden")
@@ -355,7 +375,8 @@ def filter_listen(sl=False, hausregeln=None):
     con = regeln_db.db()
     zs = zauber_db.prd_liste()
     aus = {"sl": bool(sl), "datenbank": con is not None,
-           "buecher": list(regeln_db.BUCH_KURZ),
+           "buecher": [b for b in regeln_db.BUCH_KURZ if not ist_monsterbuch(b)]  # Monsterhandbücher zusammen
+                      + (["Monster"] if any(map(ist_monsterbuch, regeln_db.BUCH_KURZ)) else []),
            "typen": [], "zustaende": [], "zauberKlassen": sorted({k for z in zs for k in z.get("klassen") or {}}),
            "zauberSchulen": sorted({z["schule"] for z in zs if z.get("schule")}),
            "zauberQuellen": sorted({z["quelle"] for z in zs if z.get("quelle")}),
@@ -370,3 +391,40 @@ def filter_listen(sl=False, hausregeln=None):
             aus["monsterArten"] = sorted({kreaturart(r[0]) for r in con.execute("SELECT art FROM monster")} - {""})
             aus["monsterHg"] = [r[0] for r in con.execute("SELECT hg FROM monster GROUP BY hg ORDER BY min(hg_wert)")]
     return aus
+
+
+# ---------------------------------------------------------------- Tabellen (Grids) für Talente und Zauber
+
+def talente_tabelle(sl=False):
+    """Alle Talente als Zeilen: Name, Arten (Kampf, Metamagie …; ohne Angabe „Allgemein“), Voraussetzungen, Vorteil,
+    Buch. Gefiltert und sortiert wird im Browser (wenige hundert Zeilen)."""
+    con = regeln_db.db()
+    if con is None:
+        raise Fehler(regeln_db.FEHLT)
+    gesperrt = set() if sl else gesperrte_seiten()
+    zeilen = []
+    for r in con.execute("SELECT t.abschnitt_id AS id, t.name, t.arten, t.voraussetzungen, t.vorteil, a.buch, "
+                         "a.seite_id FROM talente t JOIN abschnitte a ON a.id = t.abschnitt_id ORDER BY t.name"):
+        if r["seite_id"] in gesperrt:
+            continue
+        arten = [x.strip() for x in (r["arten"] or "").split(",") if x.strip()] or ["Allgemein"]
+        zeilen.append({"id": r["id"], "name": r["name"], "arten": arten,
+                       "voraussetzungen": (r["voraussetzungen"] or "").strip().rstrip(".") or "–",
+                       "vorteil": r["vorteil"] or "", "buch": r["buch"], "kuerzel": _kuerzel(r["buch"])})
+    return {"zeilen": zeilen, "arten": sorted({a for z in zeilen for a in z["arten"]}),
+            "buecher": sorted({z["buch"] for z in zeilen}, key=lambda b: regeln_db.BUCH_RANG.get(b, 9))}
+
+
+def zauber_tabelle(text=None, klasse=None, grad=None, schule=None, quelle=None, volltext=False):
+    """Zauber als Zeilen mit den Spalten des Grids (Schule, Grad, Zeitaufwand, Reichweite, Wirkungsdauer, RW, ZR,
+    Kurzbeschreibung, Quelle); Filter wie zauber_filtern. grad = Grad der gewählten Klasse, sonst der niedrigste."""
+    zeilen = []
+    for z in zauber_filtern(text, klasse, grad, schule, quelle, volltext):
+        kl = z.get("klassen") or {}
+        zeilen.append({"name": z["name"], "schule": _zauber_schule(z),
+                       "grad": kl.get(klasse) if klasse in kl else min(kl.values(), default=z.get("grad") or 0),
+                       "grade": _zauber_grade(z, klasse), "zeitaufwand": z.get("zeitaufwand") or "",
+                       "reichweite": z.get("reichweite") or "", "wirkungsdauer": z.get("wirkungsdauer") or "",
+                       "rettungswurf": z.get("rettungswurf") or "", "zauberresistenz": z.get("zauberresistenz") or "",
+                       "kurz": z.get("kurz") or "", "quelle": z.get("quelle") or ""})
+    return {"zeilen": zeilen, "gesamt": len(zeilen)}
