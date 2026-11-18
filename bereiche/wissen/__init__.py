@@ -1,4 +1,5 @@
-"""Bereich Wissen (nur lesend): Regeldatenbank aus dem PRD (Grundregelwerk, Expertenregeln, Monsterhandbuch I–II, Abenteurerkompendium), Hausregeln der
+"""Bereich Wissen (nur lesend): Regeldatenbank aus dem PRD (Grundregelwerk, Expertenregeln, Monsterhandbuch I–II, Abenteurerkompendium,
+Ausbauregeln: Magie und II: Kampf), Hausregeln der
 Kampagne, Zauberkatalog (PRD + Spielmechanik aus daten/zauber.json).
 
 Module:

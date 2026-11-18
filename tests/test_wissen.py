@@ -100,7 +100,8 @@ class WissenTest(unittest.TestCase):
         self.assertEqual(f.exception.code, 403)
         # Spieler: keine Monsterseiten in Suche und Inhalt, allgemeine Monsterregeln schon
         t = self.wissen("suche", q="Golem")["treffer"]
-        self.assertFalse(any(x["art"] == "monster" or x["titel"].startswith("Golem") for x in t))
+        self.assertFalse(any(x["art"] == "monster" or x["titel"] == "Golem" or x["titel"].startswith("Golem,")
+                             for x in t))  # „Golemkonstrukteur“ (Regel aus Ausbauregeln: Magie) darf erscheinen
         self.assertFalse(self.wissen("suche", q="Gug")["treffer"] and any(  # Monsterhandbuch II ebenso
             x["titel"].startswith("Gug") for x in self.wissen("suche", q="Gug")["treffer"]))
         self.assertTrue(any(x["titel"] == "Golem" for x in self.wissen("suche", sl=True, q="Golem")["treffer"]))
