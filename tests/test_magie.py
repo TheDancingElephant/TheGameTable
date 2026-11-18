@@ -74,6 +74,29 @@ class MagieTest(unittest.TestCase):
         with self.assertRaises(FEHLER):
             self.zaubern(self.mira, "mira", "Leichte Wunden heilen", ziel=gid)
 
+    def test_faehigkeiten(self):
+        g1 = self.tk.gegner("Zombie", 8, 5, tp=30, wil=0)
+        g2 = self.tk.gegner("Fernes Skelett", 19, 14, tp=30, wil=0)
+        self.tk.st.ini("start")
+        self.tk.st.ini("eintrag", name="Mira", wert=20, token=self.mira)
+        self.tk.st.ini("los")
+        seit = self.tk.letzte_id()
+        self.tk.spieler("/api/faehigkeit", {"id": self.mira, "index": 0})
+        lg = self.tk.log(seit)
+        self.assertIn("1 Ziel(e) im Umkreis von 9 m", [e.get("ergebnisText") for e in lg if e["art"] == "zauber"][0])
+        self.assertLess(self.tk.z()["tokens"][g1]["tp"], 30)
+        self.assertEqual(self.tk.z()["tokens"][g2]["tp"], 30)
+        self.assertFalse(self.tk.stand()["zug"]["standardFrei"])
+        self.tk.spieler("/api/faehigkeit", {"id": self.mira, "index": 1})  # schnelle Aktion
+        with self.assertRaises(FEHLER):
+            self.tk.spieler("/api/faehigkeit", {"id": self.mira, "index": 2, "ziel": self.brak})  # Standard verbraucht
+
+    def test_faehigkeit_heilung_ausserhalb_des_kampfes(self):
+        self.tk.st.tp(self.brak, -5)
+        self.tk.spieler("/api/faehigkeit", {"id": self.mira, "index": 2, "ziel": self.brak})
+        self.assertGreater(self.tk.z()["tokens"][self.brak]["tp"], 25)
+        self.assertEqual(self.tk.stand()["slStatus"], "wartet")
+
     def test_zauberbuch(self):
         self.tk.st.buch("lied", ["Schlaf", "Federfall"], grad=1)
         self.tk.st.buch("lied", ["Schlaf"], grad=1)

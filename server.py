@@ -28,7 +28,7 @@ import speicher
 from bereiche import REAKTIONEN, kern
 from bereiche.kern import Fehler
 from bereiche.karte import barrieren, karten
-from bereiche import charakter as CH, kampf as KM, karte as KA, reaktion
+from bereiche import charakter as CH, kampf as KM, karte as KA, magie as MA, reaktion, wissen as WI
 from bereiche.wissen import zauber_db as ZDB
 
 _arg = argparse.ArgumentParser()
@@ -344,22 +344,6 @@ def darf_handeln(t):
     KM.darf_handeln(kx(), t)
 
 
-def flankiert(a, ziel):
-    return KM.flankiert(kx(), a, ziel)
-
-
-def angriff_aufloesen(*args):
-    return KM.aufloesen(kx(), *args)
-
-
-def rettungswurf_aufloesen(t, ziel, d, titel, verdeckt=False):
-    KM.rettungswurf(kx(), t, ziel, d, titel, verdeckt)
-
-
-def rettungswurf_bonus(ziel, rw):
-    return KM.rettungswurf_bonus(kx(), ziel, rw)
-
-
 # ---------------------------------------------------------------- Übergang: Bereich Karte (bereiche/karte)
 pf_distanz, token_felder, abstand = KA.pf_distanz, KA.token_felder, KA.abstand
 zellen_rechteck, zellen_kreis = KA.zellen_rechteck, KA.zellen_kreis
@@ -436,342 +420,8 @@ def wuerfeln(ausdruck):
 
 # ---------------------------------------------------------------- Zauber
 
-ZAUBER_DATEI = DATEN / "zauber.json" if (DATEN / "zauber.json").exists() else BASIS / "daten" / "zauber.json"
-ATTRIBUT_NACH_KLASSE = [("kleriker", "WE"), ("druide", "WE"), ("waldläufer", "WE"), ("inquisitor", "WE"), ("schamane", "WE"),
-                        ("hexenmeister", "CH"), ("barde", "CH"), ("paladin", "CH"), ("orakel", "CH"), ("skalde", "CH")]
-FORMEL_RE = re.compile(r"\{([^{}]+)\}")
-
-def zauber_db():
-    """name (klein) -> Katalogeintrag: alle PRD-Zauber (daten/zauber_prd.json), Mechanik aus zauber.json darüber."""
-    return ZDB.katalog(ZAUBER_DATEI)
-
-
-def zauber_katalog_liste():
-    """Für /api/zauber: jeder Zauber einmal (ohne alte Alias-Namen und ohne PRD-Details), nach Grad und Name."""
-    erg = [{k: v for k, v in z.items() if k != "prd"} for z in zauber_db().values() if not z.get("aliasVon")]
-    return sorted(erg, key=lambda d: (d.get("grad") or 0, d["name"]))
-
-
-def zauberstufe(c):
-    if c.get("zauberstufe"):
-        return int(c["zauberstufe"])
-    m = re.search(r"\d+", c.get("klasse") or "")
-    return int(m.group()) if m else 1
-
-
-def zauberattribut(c):
-    if c.get("zauberattribut"):
-        return c["zauberattribut"]
-    klasse = (c.get("klasse") or "").lower()
-    return next((a for k, a in ATTRIBUT_NACH_KLASSE if k in klasse), "IN")
-
-
-def formel(text, stufe):
-    """Ersetzt {…} durch das Ergebnis (nur Zahlen, stufe, min, max, Grundrechenarten)."""
-    def ersetzen(m):
-        ausdruck = m.group(1)
-        if not re.fullmatch(r"[\d\s+\-*/(),stufeminax]+", ausdruck):
-            raise Fehler(f"Ungültige Formel {ausdruck!r}")
-        return str(int(eval(ausdruck, {"__builtins__": {}}, {"stufe": stufe, "min": min, "max": max})))
-    return FORMEL_RE.sub(ersetzen, str(text)) if text is not None else None
-
-
-def zauber_reichweite(r, stufe):
-    """Reichweite in Metern; 'beruehrung' = angrenzend, 'selbst' = 0."""
-    if isinstance(r, (int, float)):
-        return float(r)
-    return {"nah": 7.5 + 1.5 * (stufe // 2), "mittel": 30 + 3 * stufe, "fern": 120 + 12 * stufe,
-            "beruehrung": 1.5, "selbst": 0}.get(r, 7.5)
-
-
-def zauber_def(c, eintrag):
-    """Vollständige Zauberdaten: Datenbank + Angaben am Charakter, Formeln ausgerechnet."""
-    d = dict(ZDB.katalog_finden(zauber_db(), eintrag.get("name")) or {"modus": "sl", "ziel": "keins", "reichweite": "nah"})
-    if eintrag.get("grad") in (None, "") and d.get("klassen"):  # Grad passend zur Klasse des Charakters
-        g = ZDB.grad_fuer(d, ZDB.zauberklasse(c))
-        if g is not None:
-            d["grad"] = g
-    d.update({k: v for k, v in eintrag.items() if k not in ("verbraucht",) and v not in (None, "")})
-    stufe = zauberstufe(c)
-    for k in ("schaden", "effekt", "rkBonus"):
-        if k in d:
-            d[k] = formel(d[k], stufe)
-    d["reichweiteM"] = zauber_reichweite(d.get("reichweite", "nah"), stufe)
-    fokus = (c.get("zauberfokus") or {}).get(d.get("schule"), 0)  # Zauberfokus/Mächtiger Zauberfokus: SG-Bonus je Schule
-    d["sg"] = 10 + int(d.get("grad") or 0) + attr_mod((c.get("attribute") or {}).get(zauberattribut(c))) + int(fokus or 0)
-    d["stufe"] = stufe
-    d.setdefault("aktion", "standard")
-    return d
-
-
-def beruehrungsbonus(c, fern):
-    """Bonus für Berührungsangriffe: Eintrag aus der Angriffsliste, sonst GAB + GE/ST."""
-    for a in c.get("angriffe", []):
-        n = (a.get("name") or "").lower()
-        if ("berührungslos" in n) == fern and "berührung" in n:
-            return int(a.get("bonus") or 0)
-    attr = c.get("attribute") or {}
-    return int(c.get("gab") or 0) + attr_mod(attr.get("GE" if fern else "ST"))
-
-
-def _spontan_quelle(c, eintrag):
-    """Für spontanes Zaubern (z. B. Wunden verursachen): ein vorbereiteter Zauber gleichen Grades
-    mit freiem Platz, der kein Domänenzauber ist."""
-    for e in c.get("zauberliste", []):
-        if (e is not eintrag and not e.get("spontan") and not e.get("domaene") and e.get("grad") == eintrag.get("grad")
-                and e.get("proTag") not in (None, "") and int(e.get("verbraucht") or 0) < int(e["proTag"])):
-            return e
-    return None
-
-
-def zauber_frei(c, eintrag):
-    """Wie oft der Zauber heute noch gewirkt werden kann (None = beliebig oft)."""
-    if eintrag.get("spontan"):
-        return sum(int(e["proTag"]) - int(e.get("verbraucht") or 0) for e in c.get("zauberliste", [])
-                   if not e.get("spontan") and not e.get("domaene") and e.get("grad") == eintrag.get("grad")
-                   and e.get("proTag") not in (None, ""))
-    if eintrag.get("pool"):
-        p = (c.get("zauberpools") or {}).get(eintrag["pool"], {})
-        return max(0, int(p.get("max") or 0) - int(p.get("verbraucht") or 0))
-    if eintrag.get("proTag") in (None, ""):
-        return None
-    return max(0, int(eintrag["proTag"]) - int(eintrag.get("verbraucht") or 0))
-
-
-def zauberplatz_verbrauchen(c, eintrag):
-    """Verbraucht den passenden Platz; Rückgabe: Hinweistext für das Protokoll."""
-    if zauber_frei(c, eintrag) == 0:
-        raise Fehler(f"{eintrag['name']}: heute keine Zauberplätze mehr")
-    if eintrag.get("spontan"):
-        quelle = _spontan_quelle(c, eintrag)
-        quelle["verbraucht"] = int(quelle.get("verbraucht") or 0) + 1
-        return f" (spontan anstelle von {quelle['name']})"
-    if eintrag.get("pool"):
-        p = c["zauberpools"][eintrag["pool"]]
-        p["verbraucht"] = int(p.get("verbraucht") or 0) + 1
-        return ""
-    if eintrag.get("proTag") not in (None, ""):
-        eintrag["verbraucht"] = int(eintrag.get("verbraucht") or 0) + 1
-    return ""
-
-
-def zauber_aktion_frei(d):
-    info = zug_info()
-    if d["aktion"] == "schnell":
-        return info["schnellFrei"]
-    if d["aktion"] == "voll":
-        return info["standardFrei"] and info["bewegungFrei"]
-    return info["standardFrei"]
-
-
-def zauber_wirken(t, c, index, ziel=None, feld=None):
-    z = SPIEL.z
-    liste = c.get("zauberliste") or []
-    if not 0 <= index < len(liste):
-        raise Fehler("Zauber nicht gefunden")
-    eintrag = liste[index]
-    d = zauber_def(c, eintrag)
-    ini = z["initiative"]
-    if ini.get("aktiv"):
-        darf_handeln(t)
-        if not zauber_aktion_frei(d):
-            raise Fehler("Dafür ist keine passende Aktion mehr frei")
-    if set(t.get("zustaende", [])) & set(UNFAEHIG):
-        raise Fehler(f"{t['name']} kann nicht zaubern")
-    if zauber_frei(c, eintrag) == 0:
-        raise Fehler(f"{d['name']}: heute keine Zauberplätze mehr")
-
-    # Ziel prüfen
-    zielart = d.get("ziel", "keins")
-    if not ini.get("aktiv") and z.get("angriffAusserhalb") and zielart in ("gegner", "feld"):
-        raise Fehler("Der Kampf beginnt – wartet auf den Spielleiter")
-    if zielart == "selbst":
-        ziel = t
-    if zielart in ("gegner", "verbuendet"):
-        if ziel is None:
-            raise Fehler("Bitte ein Ziel wählen")
-        if zielart == "gegner" and ziel["art"] == "sc":
-            raise Fehler("Dieser Zauber richtet sich gegen Gegner")
-        if not SPIEL.token_sichtbar(ziel, SPIEL.offen_set(SPIEL.karte())):
-            raise Fehler("Ziel nicht sichtbar")
-        d_felder = abstand(t, ziel)
-        if d.get("reichweite") == "beruehrung":
-            if d_felder > reichweite_felder_t(t):
-                raise Fehler(f"{ziel['name']} ist nicht in Berührungsreichweite")
-        elif d_felder * SPIEL.karte().get("meterProFeld", 1.5) > d["reichweiteM"]:
-            raise Fehler(f"{ziel['name']} ist außer Reichweite ({d['reichweiteM']:g} m)")
-    if zielart == "feld" and feld is None:
-        raise Fehler("Bitte ein Zielfeld wählen")
-
-    # Platz und Aktion verbrauchen
-    hinweis = zauberplatz_verbrauchen(c, eintrag)
-    char_speichern(c)
-    if ini.get("aktiv"):
-        zug = z["zug"]
-        if d["aktion"] == "schnell":
-            zug["schnell"] = True
-        else:
-            zug["standard"] = True
-            if d["aktion"] == "voll":
-                zug["bewegung"] = True
-
-    wo = f" auf {ziel['name']}" if ziel is not None and ziel is not t else f" auf Feld ({feld[0]},{feld[1]})" if feld else ""
-    titel = f"{t['name']} wirkt {d['name']}{wo}{hinweis}"
-    modus = d.get("modus", "sl")
-    wecken = False
-    if modus in ("angriff-fern", "angriff-nah"):
-        fern = modus == "angriff-fern"
-        mods = []
-        if fern and any(s["art"] == "sc" and s is not t and abstand(s, ziel) <= 1 for s in z["tokens"].values()
-                        if s.get("karte") == ziel.get("karte")):
-            mods.append(("in den Nahkampf", -4))
-        if not fern and flankiert(t, ziel):
-            mods.append(("Flankieren", 2))
-        mit_rw = bool(d.get("rettungswurf"))  # z. B. Wunden verursachen: Berührung trifft, Wille halbiert
-        treffer = angriff_aufloesen(t["name"], ziel, f"✦ {d['name']}{hinweis}", beruehrungsbonus(c, fern),
-                                    None if mit_rw else d.get("schaden"), "x2", True, not fern, mods)
-        if mit_rw and treffer:
-            rettungswurf_aufloesen(t, ziel, d, titel)
-    elif modus == "automatisch":
-        s, detail, _ = wuerfeln(d["schaden"])
-        if ziel.get("tp") is not None:
-            ziel["tp"] -= s
-        SPIEL.eintragen("zauber", titel, wer=t["name"], ergebnis=s, ergebnisText=f"{s} Schaden ({d.get('art', '')})",
-                        detail=f"{d['schaden']}: {detail} – trifft automatisch")
-    elif modus == "rettungswurf":
-        rettungswurf_aufloesen(t, ziel, d, titel)
-    elif modus == "heilung":
-        s, detail, _ = wuerfeln(d["schaden"])
-        if ziel.get("tp") is not None:
-            ziel["tp"] = min(ziel["tp"] + s, ziel.get("tpMax") or ziel["tp"] + s)
-            if ziel["art"] == "sc":
-                char_tp_sync(ziel)
-        SPIEL.eintragen("zauber", titel, wer=t["name"], ergebnis=s, ergebnisText=f"heilt {s} TP", detail=f"{d['schaden']}: {detail}")
-    else:  # effekt oder sl
-        if ziel is not None:
-            if d.get("entferntZustand") in ziel.get("zustaende", []):
-                ziel["zustaende"].remove(d["entferntZustand"])
-            if d.get("setztZustand") and d["setztZustand"] not in ziel.setdefault("zustaende", []):
-                ziel["zustaende"].append(d["setztZustand"])
-        wecken = modus == "sl" and not ini.get("aktiv")
-        SPIEL.eintragen("zauber", titel, wer=t["name"],
-                        ergebnisText="der Spielleiter wertet aus" if modus == "sl" else "wirkt",
-                        detail=d.get("effekt", ""), feld=list(feld) if feld else None, wecken=wecken)
-        if wecken:
-            z["slStatus"] = "wartet"
-
-    # Offensiver Zauber außerhalb des Kampfes: der Kampf beginnt
-    if not ini.get("aktiv") and zielart in ("gegner", "feld") and modus != "effekt":
-        z["angriffAusserhalb"] = True
-        SPIEL.eintragen("zugende", f"{t['name']} zaubert überraschend – der Kampf beginnt!", wecken=True)
-        z["slStatus"] = "wartet"
-    elif not ini.get("aktiv") and not wecken:
-        SPIEL.eintragen("zugende", f"{t['name']} hat gezaubert.", wecken=True)
-        z["slStatus"] = "wartet"
-
 
 # ---------------------------------------------------------------- Klassenfähigkeiten
-
-def faehigkeit_def(c, e):
-    """Fähigkeit aus dem Charakter; Standard-SG 10 + ½ Stufe + Attribut kann am Eintrag mit 'sg' überschrieben werden."""
-    d = dict(e)
-    d.setdefault("aktion", "keine")
-    d.setdefault("modus", "sl")
-    d.setdefault("ziel", "keins")
-    return d
-
-
-def faehigkeit_aktion_frei(d):
-    if d["aktion"] == "keine":
-        return True
-    info = zug_info()
-    return {"schnell": info["schnellFrei"], "bewegung": info["bewegungFrei"]}.get(d["aktion"], info["standardFrei"])
-
-
-def bereich_ziele(t, radius_m):
-    k = SPIEL.karte()
-    m = k.get("meterProFeld", 1.5)
-    return [s for s in SPIEL.z["tokens"].values()
-            if s["art"] != "sc" and s.get("karte") == t.get("karte") and abstand(t, s) * m <= radius_m]
-
-
-def faehigkeit_wirken(t, c, index, ziel=None):
-    z = SPIEL.z
-    liste = c.get("faehigkeitenListe") or []
-    if not 0 <= index < len(liste):
-        raise Fehler("Fähigkeit nicht gefunden")
-    d = faehigkeit_def(c, liste[index])
-    ini = z["initiative"]
-    offensiv = d["modus"] == "bereich" or d["ziel"] == "gegner"
-    if ini.get("aktiv"):
-        darf_handeln(t)
-        if not faehigkeit_aktion_frei(d):
-            raise Fehler("Dafür ist keine passende Aktion mehr frei")
-    elif offensiv and z.get("angriffAusserhalb"):
-        raise Fehler("Der Kampf beginnt – wartet auf den Spielleiter")
-    if set(t.get("zustaende", [])) & set(UNFAEHIG):
-        raise Fehler(f"{t['name']} kann nicht handeln")
-    if d["ziel"] in ("gegner", "verbuendet"):
-        if ziel is None:
-            raise Fehler("Bitte ein Ziel wählen")
-        if d["ziel"] == "gegner" and ziel["art"] == "sc":
-            raise Fehler("Diese Fähigkeit richtet sich gegen Gegner")
-        if not SPIEL.token_sichtbar(ziel, SPIEL.offen_set(SPIEL.karte())):
-            raise Fehler("Ziel nicht sichtbar")
-        if d.get("reichweite", "beruehrung") == "beruehrung":
-            if abstand(t, ziel) > reichweite_felder_t(t):
-                raise Fehler(f"{ziel['name']} ist nicht in Berührungsreichweite")
-        elif abstand(t, ziel) * SPIEL.karte().get("meterProFeld", 1.5) > float(d["reichweite"]):
-            raise Fehler(f"{ziel['name']} ist außer Reichweite ({d['reichweite']} m)")
-
-    if ini.get("aktiv") and d["aktion"] != "keine":
-        zug = z["zug"]
-        zug[{"schnell": "schnell", "bewegung": "bewegung"}.get(d["aktion"], "standard")] = True
-
-    wo = f" auf {ziel['name']}" if ziel is not None and ziel is not t else ""
-    titel = f"{t['name']} nutzt {d['name']}{wo}"
-    wecken = False
-    if d["modus"] == "bereich":
-        ziele = bereich_ziele(t, float(d["radius"]))
-        sg = int(d["sg"]) if d.get("sg") is not None else 10
-        dd = {**d, "sg": sg}
-        sichtbar = [s for s in ziele if SPIEL.token_sichtbar(s, SPIEL.offen_set(SPIEL.karte()))]
-        SPIEL.eintragen("zauber", titel, wer=t["name"], ergebnisText=f"{len(ziele)} Ziel(e) im Umkreis von {d['radius']:g} m"
-                        if sichtbar or not ziele else "Umkreis wird ausgewertet",
-                        detail=d.get("effekt", ""))
-        for s in ziele:
-            if d.get("untotHeilt") and s.get("untot"):
-                h, detail, _ = wuerfeln(d["schaden"])
-                if s.get("tp") is not None:
-                    s["tp"] = min(s["tp"] + h, s.get("tpMax") or s["tp"] + h)
-                SPIEL.eintragen("sl-notiz", f"{titel}: {s['name']} (Untot) heilt {h} TP ({detail})", verborgen=True)
-                if s in sichtbar:
-                    SPIEL.eintragen("zauber", f"{s['name']} wird gestärkt", wer=t["name"])
-            else:
-                rettungswurf_aufloesen(t, s, dd, f"{titel} → {s['name']}", verdeckt=True)
-        if not ziele:
-            SPIEL.eintragen("sl-notiz", f"{titel}: niemand im Umkreis", verborgen=True)
-    elif d["modus"] == "heilung":
-        s, detail, _ = wuerfeln(d["schaden"])
-        if ziel.get("tp") is not None:
-            ziel["tp"] = min(ziel["tp"] + s, ziel.get("tpMax") or ziel["tp"] + s)
-            if ziel["art"] == "sc":
-                char_tp_sync(ziel)
-        SPIEL.eintragen("zauber", titel, wer=t["name"], ergebnis=s, ergebnisText=f"heilt {s} TP", detail=f"{d['schaden']}: {detail}")
-    elif d["modus"] == "wurf":
-        s, detail, _ = wuerfeln(d["wurf"])
-        SPIEL.eintragen("zauber", titel, wer=t["name"], ergebnis=s, ergebnisText=f"{d['wurf']} = {s}",
-                        detail=f"{detail}. {d.get('effekt', '')}")
-    else:  # sl: der Spielleiter wertet aus
-        wecken = not ini.get("aktiv")
-        SPIEL.eintragen("zauber", titel, wer=t["name"], ergebnisText="der Spielleiter wertet aus",
-                        detail=d.get("effekt", ""), wecken=wecken)
-        if wecken:
-            z["slStatus"] = "wartet"
-
-    if not ini.get("aktiv") and not wecken:
-        SPIEL.eintragen("zugende", f"{t['name']} hat {d['name']} genutzt.", wecken=True)
-        z["slStatus"] = "wartet"
 
 
 # ---------------------------------------------------------------- Befehle
@@ -824,7 +474,7 @@ def sl_befehl(b):
     elif op in ("kasse", "item-neu", "item-aendern", "item-weg"):
         return ausruestung_aendern(b)
     elif op in ("buch-add", "buch-weg"):
-        return zauberbuch_aendern({**b, "op": "add" if op == "buch-add" else "weg"})
+        return MA.zauberbuch(kx(), {**b, "op": "add" if op == "buch-add" else "weg"})
     elif op == "abdecken":
         KA.abdecken(kx(), b)
     elif op == "token-setzen":
@@ -852,17 +502,7 @@ def sl_befehl(b):
     elif op == "char-setzen":  # einzelne Werte eines Charakters ändern, Pfad mit Punkten (z. B. rw.REF)
         CH.char_setzen(kx(), b["charId"], b["werte"])
     elif op == "rast":  # Zauberplätze zurücksetzen (alle oder ein Charakter)
-        for c in alle_charaktere():
-            if b.get("charId") in (None, c["id"]):
-                for e in c.get("zauberliste", []):
-                    e["verbraucht"] = 0
-                for p in (c.get("zauberpools") or {}).values():
-                    p["verbraucht"] = 0
-                if c.get("betaeubendPool"):
-                    c["betaeubendPool"]["verbraucht"] = 0
-                char_speichern(c)
-        kx().ereignis("zeit_vergeht", runden=4800)  # 8 Stunden: Modi mit kürzerer Dauer enden
-        SPIEL.eintragen("system", "Nach der Rast sind die Zauberplätze wieder frei.")
+        MA.rast(kx(), b.get("charId"))
     elif op == "zug":  # Aktionen des aktuellen Zuges anpassen
         KM.zug_aendern(kx(), b["werte"])
     elif op in ("modus", "modus-ende"):
@@ -907,19 +547,8 @@ def alle_charaktere():
             if info["inkrement"] and not a.get("inkrement"):
                 a["inkrement"] = info["inkrement"]
             a["beruehrung"] = info["beruehrung"]
-        for e in c.get("zauberliste", []):  # berechnete Werte für die Oberfläche (werden nicht gespeichert)
-            try:
-                d = zauber_def(c, e)
-            except Fehler:
-                continue
-            d["beruehrungsbonus"] = beruehrungsbonus(c, d.get("modus") == "angriff-fern")
-            d["frei"] = zauber_frei(c, e)
-            if e.get("pool"):
-                d["poolMax"] = (c.get("zauberpools") or {}).get(e["pool"], {}).get("max")
-            e["_d"] = d
+        MA.ansicht(kx(), c)  # berechnete Zauberwerte für die Oberfläche (werden nicht gespeichert)
         c["_ep"] = ep_info(c)
-        c["_zauberKlasse"] = ZDB.zauberklasse(c)  # Zauberliste (Feld oder aus der Klasse erraten)
-        c["_vorbereiten"] = ZDB.kann_vorbereiten(c)  # Knopf „Zauber vorbereiten“ zeigen
     return liste
 
 
@@ -986,55 +615,6 @@ def ausruestung_aendern(b):
     return {}
 
 
-def _zauberliste_stand(c):
-    return json.dumps([{k: v for k, v in e.items() if k != "_d"} for e in c.get("zauberliste") or []], sort_keys=True)
-
-
-def zauber_vorbereiten(b):
-    """Zauber neu vorbereiten (nach der Rast). op "plan": Plätze und Auswahl; op "speichern": namen je Platz."""
-    c = char_laden(b["charId"])
-    if SPIEL.z["initiative"].get("aktiv"):
-        raise Fehler("Zauber erst nach dem Kampf vorbereiten")
-    liste = c.get("zauberliste") or []
-    if b.get("op") == "plan":
-        buch = c.get("zauberbuch") or []
-        return {"klasse": ZDB.zauberklasse(c), "plaetze": ZDB.plaetze(liste), "stand": _zauberliste_stand(c),
-                "aliase": ZDB.ALIASE,
-                "buch": [{"name": e["name"], "grad": e["grad"]} for e in buch] if buch else None}
-    if b.get("stand") != _zauberliste_stand(c):
-        raise Fehler("Die Zauberliste wurde inzwischen geändert – bitte den Dialog neu öffnen")
-    try:
-        neu = ZDB.neu_vorbereiten(liste, b.get("namen") or [])
-    except ValueError as e:
-        raise Fehler(str(e)) from None
-    alt = {e["name"].lower() for e in liste}
-    dazu = sorted({e["name"] for e in neu if e["name"].lower() not in alt})
-    c["zauberliste"] = neu
-    char_speichern(c)
-    SPIEL.eintragen("system", f"{c['name']} bereitet die Zauber neu vor"
-                    + (f" (neu: {', '.join(dazu)})" if dazu else " (unverändert)" if neu == liste else "") + ".")
-    return {}
-
-
-def zauberbuch_aendern(b):
-    """Zauberbuch eines Charakters: Einträge {name, grad} hinzufügen ('add') oder entfernen ('weg')."""
-    c = char_laden(b["charId"])
-    buch = c.setdefault("zauberbuch", [])
-    name = (b.get("name") or "").strip()
-    if not name:
-        raise Fehler("Zaubername fehlt")
-    if b.get("op") == "weg":
-        c["zauberbuch"] = [e for e in buch if e["name"].lower() != name.lower()]
-    else:
-        grad = int(b.get("grad", 0))
-        if not 0 <= grad <= 9:
-            raise Fehler("Grad muss zwischen 0 und 9 liegen")
-        if not any(e["name"].lower() == name.lower() for e in buch):
-            buch.append({"name": name[:80], "grad": grad})
-    char_speichern(c)
-    return {}
-
-
 def post_befehl(pfad, b):
     """Alle schreibenden Anfragen (läuft in SPIEL.ausfuehren)."""
     if pfad == "/api/sl/befehl":
@@ -1055,9 +635,9 @@ def spieler_befehl(pfad, b):
     if pfad == "/api/ausruestung":
         return ausruestung_aendern(b)
     if pfad == "/api/zauberbuch":
-        return zauberbuch_aendern(b)
+        return MA.zauberbuch(kx(), b)
     if pfad == "/api/zauber-vorbereiten":
-        return zauber_vorbereiten(b)
+        return MA.vorbereiten(kx(), b)
     if pfad == "/api/aktion":
         text = b.get("text", "").strip()
         if not text:
@@ -1086,23 +666,9 @@ def spieler_befehl(pfad, b):
     elif pfad == "/api/sturmangriff":
         KM.sturmangriff(kx(), b)
     elif pfad == "/api/zaubern":
-        t = token_finden(b["id"])
-        if t["art"] != "sc":
-            raise Fehler("Nur eure Charaktere zaubern")
-        c = sc_char(t)
-        if not c:
-            raise Fehler("Charakter nicht gefunden")
-        ziel = token_finden(b["ziel"]) if b.get("ziel") else None
-        zauber_wirken(t, c, int(b["zauber"]), ziel, tuple(b["feld"]) if b.get("feld") else None)
+        MA.wirken_spieler(kx(), b)
     elif pfad == "/api/faehigkeit":
-        t = token_finden(b["id"])
-        if t["art"] != "sc":
-            raise Fehler("Nur eure Charaktere handeln")
-        c = sc_char(t)
-        if not c:
-            raise Fehler("Charakter nicht gefunden")
-        ziel = token_finden(b["ziel"]) if b.get("ziel") else None
-        faehigkeit_wirken(t, c, int(b["index"]), ziel)
+        MA.faehigkeit_spieler(kx(), b)
     elif pfad in ("/api/aufstieg-plan", "/api/aufstieg-tp", "/api/aufstieg-senden"):
         return CH.aufstieg_spieler(kx(), pfad.rsplit("-", 1)[-1], b)
     elif pfad == "/api/zug-beenden":
@@ -1199,11 +765,11 @@ class Handler(BaseHTTPRequestHandler):
             if u.path == "/api/zauber":
                 if q.get("name"):  # ein Zauber mit vollständigem PRD-Text
                     z = ZDB.prd_finden(q["name"][0])
-                    k = ZDB.katalog_finden(zauber_db(), q["name"][0])
+                    k = WI.zauber_finden(kx(), q["name"][0])
                     if not z and not k:
                         return self.antwort(404, {"fehler": "Zauber unbekannt"})
                     return self.antwort(200, {**(k or {}), "prdText": (z or {}).get("text")})
-                return self.antwort(200, zauber_katalog_liste())
+                return self.antwort(200, WI.katalog_liste(kx()))
             if u.path == "/api/sl/ereignisse":
                 if not self.ist_sl(q):
                     return self.antwort(403, {"fehler": "SL-Schlüssel fehlt"})

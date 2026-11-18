@@ -5,22 +5,99 @@
  "stufe": 3,
  "volk": "Zwerg",
  "farbe": "#7a3ad5",
- "attribute": {"ST": 12, "GE": 10, "KO": 14, "IN": 10, "WE": 16, "CH": 12},
- "tp": {"max": 24, "aktuell": 20},
- "rk": {"normal": 17, "beruehrung": 10, "adff": 17},
+ "attribute": {
+  "ST": 12,
+  "GE": 10,
+  "KO": 14,
+  "IN": 10,
+  "WE": 16,
+  "CH": 12
+ },
+ "tp": {
+  "max": 24,
+  "aktuell": 20
+ },
+ "rk": {
+  "normal": 17,
+  "beruehrung": 10,
+  "adff": 17
+ },
  "ini": 0,
  "gab": 2,
- "rw": {"REF": 1, "WIL": 6, "ZAEH": 5},
+ "rw": {
+  "REF": 1,
+  "WIL": 6,
+  "ZAEH": 5
+ },
  "bewegung": 6,
- "angriffe": [{"name": "Streitkolben", "bonus": 3, "schaden": "1W8+1", "krit": "x2"}],
- "fertigkeiten": [{"name": "Wahrnehmung", "bonus": 3, "klasse": false}],
+ "angriffe": [
+  {
+   "name": "Streitkolben",
+   "bonus": 3,
+   "schaden": "1W8+1",
+   "krit": "x2"
+  }
+ ],
+ "fertigkeiten": [
+  {
+   "name": "Wahrnehmung",
+   "bonus": 3,
+   "klasse": false
+  }
+ ],
  "talente": "Wundertätiger",
  "faehigkeiten": "Dunkelsicht 18 m",
  "zauberliste": [
-  {"name": "Segen", "grad": 1, "proTag": 2, "verbraucht": 0},
-  {"name": "Göttliche Gunst", "grad": 1, "proTag": 1, "verbraucht": 0},
-  {"name": "Schild des Glaubens", "grad": 1, "proTag": 1, "verbraucht": 0, "domaene": true},
-  {"name": "Leichte Wunden heilen", "grad": 1, "spontan": true}
+  {
+   "name": "Segen",
+   "grad": 1,
+   "proTag": 2,
+   "verbraucht": 0
+  },
+  {
+   "name": "Göttliche Gunst",
+   "grad": 1,
+   "proTag": 1,
+   "verbraucht": 0
+  },
+  {
+   "name": "Schild des Glaubens",
+   "grad": 1,
+   "proTag": 1,
+   "verbraucht": 0,
+   "domaene": true
+  },
+  {
+   "name": "Leichte Wunden heilen",
+   "grad": 1,
+   "spontan": true
+  }
  ],
- "ep": 5000
+ "ep": 5000,
+ "faehigkeitenListe": [
+  {
+   "name": "Energie fokussieren",
+   "modus": "bereich",
+   "radius": 9,
+   "rettungswurf": "WIL",
+   "sg": 12,
+   "schaden": "2W6",
+   "beiErfolg": "halb",
+   "aktion": "standard",
+   "effekt": "2W6 Schaden für Untote, WIL halbiert"
+  },
+  {
+   "name": "Glückswurf",
+   "modus": "wurf",
+   "wurf": "1W20",
+   "aktion": "schnell"
+  },
+  {
+   "name": "Segnende Hand",
+   "modus": "heilung",
+   "ziel": "verbuendet",
+   "schaden": "1W6",
+   "aktion": "standard"
+  }
+ ]
 }
