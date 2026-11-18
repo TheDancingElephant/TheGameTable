@@ -66,7 +66,7 @@ benutzen **nur diese** (keine Unterstrich-Namen, keine Untermodule eines fremden
 | **Charakter** | Werte, Attributsmodifikatoren, Fertigkeiten, Modi (Buffs), wirksame Werte, EP, Stufenaufstieg | `daten/charaktere/*.json`; Token-`modi` | `bereiche/charakter` |
 | **Magie** | Zauberplätze, Zauberpools (z. B. Barde), spontanes Zaubern, Domänen, Vorbereiten, Zauberbuch, Zauber wirken, Klassenfähigkeiten | Charakterfelder `zauberliste`, `zauberpools`, `zauberbuch`, `faehigkeitenListe` | `bereiche/magie` |
 | **Besitz** | Gruppenkasse, Gegenstände, Beute, Träger/Ort | `ausruestung` | `bereiche/besitz` |
-| **Wissen** | Regeldatenbank (PRD), Zauberkatalog (PRD + Mechanik), Hausregeln; **nur lesend** | `regeln/`, `daten/zauber*.json`, `sl/hausregeln.md` | `bereiche/wissen` |
+| **Wissen** | Regeldatenbank (PRD), privater PDF-Index (eigene Bücher, nie weitergeben), Zauberkatalog (PRD + Mechanik), Hausregeln; **nur lesend** | `regeln/` (`regeln.sqlite`, `privat.sqlite`), `daten/zauber*.json`, `sl/hausregeln.md` | `bereiche/wissen` |
 | **Kampagne** | Kampagnenordner, Pfade, Vorlage, neue Kampagne, Pfadreparatur, Zentrale | `kampagne.json`, `.mcp.json`, `.claude/` | `bereiche/kampagne` |
 
 Abhängigkeiten zwischen Bereichen laufen nur in eine Richtung:

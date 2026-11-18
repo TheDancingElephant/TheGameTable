@@ -42,6 +42,8 @@ BUECHER = {
     "Expertenregeln": {"start": "/Expertenregeln",
                        "ohne": ["/Expertenregeln/Zauber", "/Expertenregeln/Zauberlisten"]},
     "Monsterhandbuch": {"start": "/Monsterhandbuch", "ohne": []},
+    "Abenteurerkompendium": {"start": "/Abenteurerkompendium",
+                             "ohne": ["/Abenteurerkompendium/Zauber", "/Abenteurerkompendium/Zauberlisten"]},
 }
 KAPITEL_NAMEN = {"Auf-Gehts": "Auf geht's", "WeitereRegeln": "Zusätzliche Regeln", "Spielleiten": "Spielleitung",
                  "Magische-Gegenstände": "Magische Gegenstände", "NSC-erschaffen": "NSC erschaffen",
@@ -323,8 +325,17 @@ def aufbauen(pruefen=False, meldung=print, db_datei=None, max_seiten=6000):
 def main():
     import sys
     befehl = sys.argv[1] if len(sys.argv) > 1 else "aufbauen"
+    if befehl == "pdf":  # privater PDF-Index: pdf ORDNER|DATEI … [--ohne MUSTER …]
+        from . import regeln_pdf
+        rest = sys.argv[2:]
+        ohne = rest[rest.index("--ohne") + 1:] if "--ohne" in rest else []
+        quellen = rest[:rest.index("--ohne")] if "--ohne" in rest else rest
+        neu = "--neu" in quellen
+        quellen = [q for q in quellen if q != "--neu"]
+        regeln_pdf.einlesen(quellen or None, ohne, neu=neu)  # meldet selbst
+        return
     if befehl not in ("aufbauen", "aktualisieren", "index"):
-        sys.exit("python regeln_abruf.py aufbauen | aktualisieren | index   (aufbauen/aktualisieren rufen das PRD ab)")
+        sys.exit("python regeln_abruf.py aufbauen | aktualisieren | index | pdf ORDNER [--ohne MUSTER]")
     if befehl == "index":
         c = regeln_db.verbinden(schreiben=True)
         c.executescript(regeln_db.SCHEMA)

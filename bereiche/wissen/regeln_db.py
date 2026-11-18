@@ -21,6 +21,8 @@ from pathlib import Path
 
 BASIS = Path(__file__).resolve().parents[2]  # Programmordner
 DB_DATEI = BASIS / "regeln" / "regeln.sqlite"
+# Privater Index aus eigenen (gekauften) PDFs – nie ins Repo/ZIP, siehe regeln_pdf.py
+PRIVAT_DATEI = BASIS / "regeln" / "privat.sqlite"
 HOST = "https://prd.5footstep.de"
 SCHEMA_VERSION = 1
 
@@ -468,20 +470,28 @@ def index_neu_bauen(con):
 _tls = threading.local()
 
 
-def db():
-    """Lesende Verbindung, neu bei geänderter Datei."""
-    if not DB_DATEI.exists():
+def db(datei=None):
+    """Lesende Verbindung (Standard: PRD-Datenbank; datei=PRIVAT_DATEI: privater PDF-Index), neu bei Änderung."""
+    datei = Path(datei or DB_DATEI)
+    if not datei.exists():
         return None
-    mt = DB_DATEI.stat().st_mtime
-    c = getattr(_tls, "c", None)  # je Thread eine Verbindung (MCP ruft Tools in eigenen Threads auf)
+    mt = datei.stat().st_mtime
+    alle = getattr(_tls, "c", None)  # je Thread und Datei eine Verbindung (MCP ruft Tools in eigenen Threads auf)
+    if not isinstance(alle, dict):
+        alle = _tls.c = {}
+    c = alle.get(str(datei))
     if c is None or c[0] != mt:
         if c is not None:
             try:
                 c[1].close()
             except Exception:
                 pass
-        c = _tls.c = (mt, verbinden())
+        c = alle[str(datei)] = (mt, verbinden(datei))
     return c[1]
+
+
+def _praefix(datei):
+    return "P" if datei and Path(datei) == PRIVAT_DATEI else ""
 
 
 def _fts_ausdruck(gruppen, und=True):
@@ -574,17 +584,17 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
 
 
 # Bücher: Kürzel für die Ausgabe, Rang bei gleichnamigen Einträgen (Grundregelwerk zuerst)
-BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch": "MHB"}
-BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2}
+BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch": "MHB", "Abenteurerkompendium": "AK"}
+BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",
                "fertigkeit": "fertigkeit", "fertigkeiten": "fertigkeit", "klasse": "klasse"}
 
 
-def suchen(frage, kategorie=None, buch=None, typ=None, max_treffer=5):
-    """Liste von dicts (id, titel, pfad, typ, kapitel, url, schnipsel, punkte)."""
-    con = db()
+def suchen(frage, kategorie=None, buch=None, typ=None, max_treffer=5, datei=None):
+    """Liste von dicts (id, titel, pfad, typ, kapitel, url, schnipsel, punkte); datei=PRIVAT_DATEI: private PDFs."""
+    con = db(datei)
     if con is None:
         return []
     gruppen, stamme = anfrage_gruppen(frage)
@@ -668,15 +678,15 @@ def zauber_hinweis(frage):
     return namen[:3]
 
 
-def abschnitt(id_):
-    con = db()
+def abschnitt(id_, datei=None):
+    con = db(datei)
     return con.execute("SELECT * FROM abschnitte WHERE id=?", (int(id_),)).fetchone() if con else None
 
 
-def unterabschnitte(id_, tiefe=6):
+def unterabschnitte(id_, tiefe=6, datei=None):
     """Alle Nachfahren in Dokumentreihenfolge."""
-    con = db()
-    a = abschnitt(id_)
+    con = db(datei)
+    a = abschnitt(id_, datei)
     if not a:
         return []
     rows = con.execute("SELECT * FROM abschnitte WHERE seite_id=? AND nr>? ORDER BY nr", (a["seite_id"], a["nr"]))
@@ -796,6 +806,9 @@ FEHLT = ("Regeldatenbank fehlt (regeln/regeln.sqlite). Aufbauen mit `sl.py regel
 
 
 def _quelle(r):
+    if (r["url"] or "").startswith("pdf:"):
+        seite = r["url"].partition("#")[2]
+        return f"Quelle: eigenes PDF „{r['buch']}“{', ' + seite if seite else ''} (privat, nicht weitergeben)"
     return f"Quelle: PRD {r['buch']} › {r['kapitel']} – {r['url']}"
 
 
@@ -824,19 +837,27 @@ def suche_text(frage, kategorie=None, buch=None, typ=None, max_treffer=5, hausre
         typ_ = f" ({art})" if art else ""
         pf = f" — {t['pfad']}" if t["pfad"] else ""
         teile.append(f"[{t['id']}] {t['titel']}{typ_}{pf}\n    {t['schnipsel']}\n    {t['url']}")
-    if not treffer:
+    privat = suchen(frage, kategorie, buch, typ, 3, PRIVAT_DATEI) if PRIVAT_DATEI.exists() else []
+    if privat:
+        teile.append("Private PDFs (eigene Bücher, nicht weitergeben):")
+        for t in privat:
+            seite = t["url"].partition("#")[2]
+            teile.append(f"[P{t['id']}] {t['titel']} — {t['buch']}{', ' + seite if seite else ''}"
+                         f"{' (' + t['typ'] + ')' if t['typ'] != 'regel' else ''}\n    {t['schnipsel']}")
+    if not treffer and not privat:
         teile.append("Keine Treffer in der Regeldatenbank (andere Begriffe/Synonyme versuchen; erst dann Websuche).")
     else:
         teile.append("Volltext: regel_lesen(eintrag=ID)")
     return "\n".join(teile)
 
 
-def _abschnitt_text(r, ab=0, max_zeichen=4000, unter=True):
+def _abschnitt_text(r, ab=0, max_zeichen=4000, unter=True, datei=None):
+    vor = _praefix(datei)
     kopf = f"## {r['titel']}" + (f"  ({r['pfad']})" if r["pfad"] else "") + f"\n{_quelle(r)}\n"
     text = r["text"] or ""
-    subs = unterabschnitte(r["id"]) if unter else []
+    subs = unterabschnitte(r["id"], datei=datei) if unter else []
     for s in subs:
-        text += ("\n\n" if text else "") + "#" * min(6, s["stufe"] + 1) + f" {s['titel']} [{s['id']}]\n\n" + s["text"]
+        text += ("\n\n" if text else "") + "#" * min(6, s["stufe"] + 1) + f" {s['titel']} [{vor}{s['id']}]\n\n" + s["text"]
     text = text.strip()
     if ab:
         text = text[ab:]
@@ -845,7 +866,7 @@ def _abschnitt_text(r, ab=0, max_zeichen=4000, unter=True):
         if schnitt < max_zeichen // 2:
             schnitt = max_zeichen
         rest = len(text) - schnitt
-        text = text[:schnitt] + (f"\n\n… gekürzt ({rest} Zeichen fehlen). Weiter: regel_lesen(eintrag={r['id']}, "
+        text = text[:schnitt] + (f"\n\n… gekürzt ({rest} Zeichen fehlen). Weiter: regel_lesen(eintrag={vor}{r['id']}, "
                                  f"ab={ab + schnitt}) oder einen Unterabschnitt [ID] lesen.")
     return kopf + "\n" + text
 
@@ -871,9 +892,14 @@ def lesen_text(eintrag=None, seite=None, abschnitt=None, ab=0, max_zeichen=4000,
             return f"Hausregel {e} nicht gefunden."
         a = treffer[0]
         return f"## HAUSREGEL: {' › '.join(a['pfad'][1:] + [a['titel']])}\n(Hausregel dieser Kampagne, hat Vorrang)\n\n{a['text']}"
+    mz = int(max_zeichen or 4000)
+    if re.fullmatch(r"[Pp]\d+", e):  # Eintrag aus dem privaten PDF-Index
+        r = globals()["abschnitt"](int(e[1:]), PRIVAT_DATEI)
+        if not r:
+            return f"Eintrag {e} nicht gefunden (privater PDF-Index)."
+        return _abschnitt_text(r, int(ab or 0), mz, datei=PRIVAT_DATEI)
     if con is None:
         return FEHLT
-    mz = int(max_zeichen or 4000)
     if e.isdigit():
         r = globals()["abschnitt"](int(e))  # Parameter „abschnitt“ verdeckt die Funktion
         if not r:
@@ -994,5 +1020,11 @@ def info_text():
         return FEHLT
     n = {r[0]: r[1] for r in con.execute("SELECT typ, count(*) FROM abschnitte GROUP BY typ")}
     s = con.execute("SELECT count(*) FROM seiten WHERE rolle='inhalt'").fetchone()[0]
-    return (f"Regeldatenbank: {m.get('buecher')} · {s} Seiten · {sum(n.values())} Einträge "
-            f"({', '.join(f'{k} {v}' for k, v in sorted(n.items()))}) · Stand {m.get('gebaut')}\n{m.get('lizenz')}")
+    aus = (f"Regeldatenbank: {m.get('buecher')} · {s} Seiten · {sum(n.values())} Einträge "
+           f"({', '.join(f'{k} {v}' for k, v in sorted(n.items()))}) · Stand {m.get('gebaut')}\n{m.get('lizenz')}")
+    pc = db(PRIVAT_DATEI)
+    if pc is not None:
+        buecher = [r[0] for r in pc.execute("SELECT titel FROM seiten WHERE rolle='inhalt' ORDER BY titel")]
+        k = pc.execute("SELECT count(*) FROM abschnitte").fetchone()[0]
+        aus += f"\nPrivater PDF-Index (nicht weitergeben): {len(buecher)} Bücher, {k} Einträge – {', '.join(buecher)}"
+    return aus

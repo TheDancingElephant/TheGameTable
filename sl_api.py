@@ -868,6 +868,15 @@ class Spieltisch:
         """Talent / Zustand / Fertigkeit nachschlagen (ohne Namen: Liste)."""
         return regeln_db.schnell_text(art, name, voraussetzung, kategorie, self.hausregeln_datei)
 
+    def regeln_pdf(self, quellen=None, ohne=(), meldung=None):
+        """Privaten PDF-Index (eigene Regel-/Weltbücher, regeln/privat.sqlite) anlegen/aktualisieren.
+        Ohne quellen: dieselben Ordner wie beim letzten Mal, nur geänderte PDFs werden neu gelesen."""
+        from bereiche.wissen import regeln_pdf
+        try:
+            return regeln_pdf.einlesen(quellen or None, ohne or (), meldung or (lambda t: None))
+        except (ValueError, OSError, RuntimeError) as e:
+            raise SLFehler(f"PDF-Index: {e}") from None
+
     def monster_info(self, name=None, hg=None, art=None):
         """Monster-Werteblock aus dem Monsterhandbuch (PRD); ohne Namen: Liste nach HG/Art."""
         return regeln_db.monster_text(name, hg, art)

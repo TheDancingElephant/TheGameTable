@@ -6,6 +6,7 @@ Module:
     regeln_db     Regelsuche (SQLite FTS5, regeln/regeln.sqlite), Hausregeln (sl/hausregeln.md)
     regeln_abruf  Abruf/Aktualisierung der Regeln vom PRD (Kommandozeile: python regeln_abruf.py …)
     regeln_md     HTML → Markdown
+    regeln_pdf    privater Index aus eigenen PDFs (regeln/privat.sqlite, nie weitergeben)
 Öffentlich: zauber_katalog, zauber_finden, prd_finden, grad_fuer, klasse_der_liste, katalog_liste.
 """
 from pathlib import Path

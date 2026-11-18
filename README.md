@@ -236,6 +236,14 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   Begegnungstabellen. Markierung „MHB“. Schnellabfrage: MCP `monster_info` (name | hg, art) bzw.
   `sl.py regel --monster Lehmgolem` · `sl.py regel --monster --hg 3 --art Untoter`. Fallen aus dem Grundregelwerk
   haben den Typ `falle`. Monsterhandbuch II–V sind (noch) nicht enthalten.
+- **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
+  das PRD enthält das Buch nur teilweise). Markierung „AK“.
+- **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index
+  `regeln/privat.sqlite` (`bereiche/wissen/regeln_pdf.py`), **nicht** im Git-Repo (.gitignore) und **nicht** im ZIP.
+  Aufbau: `sl.py regeln-pdf "<Ordner>" [--ohne Muster …]` (MCP `regeln_pdf`), ca. 1 Minute je PDF; erneut ohne
+  Ordner = nur geänderte PDFs. Gliederung nach Lesezeichen des PDFs und Überschriften, Werteblöcke („… HG 4“) als
+  eigene Einträge, lange Abschnitte je Seite fortgesetzt. `regel_suchen` zeigt bis zu 3 Treffer unter „Private PDFs“
+  mit Buch und PDF-Seite; Volltext mit `regel_lesen(eintrag="P123")`.
 - Weitere Bücher: Eintrag in `regeln_abruf.BUECHER` (+ Kürzel in `regeln_db.BUCH_KURZ`), dann `python regeln_abruf.py aufbauen`.
 
 - Dateien (in `bereiche/wissen/`): `regeln_md.py` (HTML → Markdown), `regeln_abruf.py` (Abruf mit 1 s Pause, Cache
@@ -258,7 +266,8 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   Dauer ca. 10–15 Minuten (ca. 300 Seiten, 1 s Pause). `--nur-index` baut nur Index/Markdown aus der Datenbank neu. Der Seiteninhalt steht in
   der Datenbank, daher funktioniert das auch ohne Cache (z. B. nach Installation aus dem ZIP). Erstaufbau ohne
   Datenbank: ca. 1900 Seiten, ca. 2,5 Stunden. Aktualisierung prüft ca. 730 Inhaltsseiten (ca. 30 Minuten).
-- Im ZIP (`paket_bauen.py`): `regeln/regeln.sqlite` + `regeln/LIZENZ-REGELN.txt` (nicht `regeln/cache`, `regeln/md`).
+- Im ZIP (`paket_bauen.py`): `regeln/regeln.sqlite` + `regeln/LIZENZ-REGELN.txt` (nicht `regeln/cache`, `regeln/md`,
+  `regeln/privat.sqlite`).
 
 ## Lizenz und Rechtliches
 - **Programmcode und Dokumentation:** MIT-Lizenz (siehe [LICENSE](LICENSE)), © 2026 TheDancingElephant.

@@ -671,6 +671,15 @@ def t_fertigkeit_info(a):
     return ST.regel_schnell("fertigkeit", a.get("name"))
 
 
+@tool("regeln_pdf", "Privaten PDF-Index aus eigenen (gekauften) Regel- und Weltbüchern anlegen oder aktualisieren "
+      "(regeln/privat.sqlite, nie weitergeben). Treffer erscheinen bei regel_suchen unter „Private PDFs“ (IDs P<n>). "
+      "Ohne quellen: dieselben Ordner wie zuletzt, nur geänderte PDFs (dauert je PDF ca. 1 Minute).",
+      {"quellen": L("Ordner oder PDF-Dateien"), "ohne": L("Dateinamen-Teile, die übersprungen werden")},
+      gruppe="Regeln")
+def t_regeln_pdf(a):
+    return ST.regeln_pdf(a.get("quellen"), a.get("ohne") or ())
+
+
 @tool("monster_info", "Monster-Werteblock aus dem Monsterhandbuch (PRD): HG, EP, Art, RK, TP, Rettungswürfe, Angriffe, "
       "Spielwerte, Besondere Fähigkeiten, Beschreibung. IMMER statt Werten aus dem Gedächtnis. Ohne name: Liste, "
       "filterbar nach hg (z. B. 3, 1/2) und art (z. B. Untoter, Konstrukt, Drache).",

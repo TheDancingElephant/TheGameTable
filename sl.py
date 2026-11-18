@@ -254,6 +254,10 @@ def cmd_regel(a):
     print(ST.regel_suchen(text, a.kategorie, a.buch, a.typ, a.max))
 
 
+def cmd_regeln_pdf(a):
+    print(ST.regeln_pdf(a.quellen, a.ohne, meldung=lambda t: print(t, flush=True)))
+
+
 def cmd_regeln_aktualisieren(a):
     print(ST.regeln_aktualisieren(a.nur_index, meldung=lambda t: print(t, flush=True)))
 
@@ -445,6 +449,9 @@ def main():
     p.add_argument("--monster", action="store_true", help="Monster-Werteblock (mit --hg/--art: Liste)")
     p.add_argument("--hg", help="Herausforderungsgrad für --monster, z. B. 3 oder 1/2")
     p.set_defaults(f=cmd_regel)
+    p = sp.add_parser("regeln-pdf", help="Privaten PDF-Index aus eigenen Regel-/Weltbüchern bauen: regeln-pdf ORDNER [--ohne MUSTER …]; ohne Ordner: Aktualisierung (nicht weitergeben, nicht im ZIP)")
+    p.add_argument("quellen", nargs="*"); p.add_argument("--ohne", nargs="*", default=[])
+    p.set_defaults(f=cmd_regeln_pdf)
     p = sp.add_parser("regeln-aktualisieren", help="Regeldatenbank aus dem PRD aktualisieren (nur Änderungen, ETag)")
     p.add_argument("--nur-index", action="store_true", help="nur Index/Markdown aus der Datenbank neu (ohne Netz)")
     p.set_defaults(f=cmd_regeln_aktualisieren)

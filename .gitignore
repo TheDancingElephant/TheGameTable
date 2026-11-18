@@ -25,6 +25,8 @@ schluessel.txt
 dist/
 regeln/cache/
 regeln/md/
+# Privater PDF-Index aus gekauften Büchern (nie einchecken/weitergeben)
+regeln/privat.sqlite
 regeln/*.sqlite-wal
 regeln/*.sqlite-shm
 regeln/*.sqlite-journal

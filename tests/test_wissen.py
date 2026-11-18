@@ -50,6 +50,39 @@ class WissenTest(unittest.TestCase):
         self.assertTrue(z["prdText"])
 
 
+class PDFIndexTest(unittest.TestCase):
+    """Privater PDF-Index: kleines Test-PDF mit Lesezeichen einlesen und durchsuchen (eigene Datei, nicht privat.sqlite)."""
+
+    def test_pdf_einlesen_und_suchen(self):
+        import tempfile
+        from pathlib import Path
+
+        import pymupdf
+
+        from bereiche.wissen import regeln_db, regeln_pdf
+        with tempfile.TemporaryDirectory() as tmp:
+            pdf = Path(tmp) / "Testbuch.pdf"
+            doc = pymupdf.open()
+            for i, (titel, text) in enumerate([("Die Drachenküste", "Am Rand der Drachenküste liegt Feuerhafen. " * 30),
+                                                ("Der Glutberg", "Der Glutberg speit jedes Jahr Asche. " * 30)]):
+                seite = doc.new_page()
+                seite.insert_text((72, 72), titel, fontsize=18)
+                seite.insert_textbox(pymupdf.Rect(72, 100, 520, 760), text, fontsize=9)
+            doc.set_toc([[1, "Die Drachenküste", 1], [1, "Der Glutberg", 2]])
+            doc.save(pdf)
+            doc.close()
+            ziel = Path(tmp) / "privat.sqlite"
+            bericht = regeln_pdf.einlesen([tmp], ziel=ziel, meldung=lambda t: None)
+            self.assertIn("1 PDFs", bericht)
+            treffer = regeln_db.suchen("Glutberg Asche", datei=ziel)
+            self.assertTrue(treffer)
+            self.assertEqual(treffer[0]["titel"], "Der Glutberg")
+            self.assertTrue(treffer[0]["url"].startswith("pdf:Testbuch.pdf#S. 2"))
+            # unverändertes PDF wird beim zweiten Lauf nicht neu gelesen
+            self.assertIn("unverändert 1", regeln_pdf.einlesen(None, ziel=ziel, meldung=lambda t: None))
+            regeln_db.db(ziel).close()
+
+
 class MCPTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -73,7 +106,7 @@ class MCPTest(unittest.TestCase):
         self.assertEqual(len(namen), len(set(namen)))
         self.assertGreaterEqual(len(namen), 80)
         for n in ("stand", "erzaehle", "warte", "angriff", "ini", "modus", "zauber_info", "regel_suchen", "kasse",
-                  "monster_info"):
+                  "monster_info", "regeln_pdf"):
             self.assertIn(n, namen)
 
 
