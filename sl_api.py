@@ -22,8 +22,7 @@ BASIS = Path(__file__).resolve().parent
 if str(BASIS) not in sys.path:
     sys.path.insert(0, str(BASIS))
 import kampagne  # noqa: E402
-import zauber_db  # noqa: E402
-import regeln_db  # noqa: E402
+from bereiche.wissen import regeln_db, zauber_db  # noqa: E402
 
 
 class SLFehler(Exception):
@@ -871,7 +870,7 @@ class Spieltisch:
 
     def regeln_aktualisieren(self, nur_index=False, meldung=None):
         """Regeldatenbank aus dem PRD aktualisieren (nur geänderte/neue Seiten per ETag), danach Index neu."""
-        import regeln_abruf
+        from bereiche.wissen import regeln_abruf
         log = []
 
         def m(t):

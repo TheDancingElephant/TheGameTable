@@ -15,7 +15,7 @@ verwendet Inhalte gemäß der OGL und der Paizo Community Use Policy; sie ist ni
 veröffentlicht, unterstützt oder genehmigt. Die Weitergabe darf nicht gegen Entgelt erfolgen. Product Identity
 (Eigennamen, Orte, Gottheiten usw., siehe unten) ist nicht Open Content.
 
-Programmcode (regeln_db.py, regeln_abruf.py, regeln_md.py), Suchindex-Aufbau und Synonymliste sind eigene Arbeit.
+Programmcode (bereiche/wissen/regeln_db.py, regeln_abruf.py, regeln_md.py), Suchindex-Aufbau und Synonymliste sind eigene Arbeit.
 Hausregeln (sl/hausregeln.md in den Kampagnen) gehören nicht zur Datenbank.
 
 -----------------------------------------------------------------------------

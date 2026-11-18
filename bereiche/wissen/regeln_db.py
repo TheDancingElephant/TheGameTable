@@ -19,7 +19,7 @@ import sqlite3
 import threading
 from pathlib import Path
 
-BASIS = Path(__file__).resolve().parent
+BASIS = Path(__file__).resolve().parents[2]  # Programmordner
 DB_DATEI = BASIS / "regeln" / "regeln.sqlite"
 HOST = "https://prd.5footstep.de"
 SCHEMA_VERSION = 1
@@ -615,7 +615,7 @@ def suchen(frage, kategorie=None, buch=None, typ=None, max_treffer=5):
 def zauber_hinweis(frage):
     """Zaubernamen in der Frage erkennen -> Hinweis auf die Zauberdatenbank (zauber_info)."""
     try:
-        import zauber_db
+        from bereiche.wissen import zauber_db
     except ImportError:
         return []
     ws = re.findall(r"[A-Za-zÄÖÜäöüß]+", frage or "")

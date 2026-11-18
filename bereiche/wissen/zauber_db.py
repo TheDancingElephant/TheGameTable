@@ -11,7 +11,7 @@ import json
 import re
 from pathlib import Path
 
-BASIS = Path(__file__).resolve().parent
+BASIS = Path(__file__).resolve().parents[2]  # Programmordner
 PRD_DATEI = BASIS / "daten" / "zauber_prd.json"
 
 # Namen aus der alten Mechanik-Datei, die im PRD anders heißen

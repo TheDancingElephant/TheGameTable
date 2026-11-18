@@ -27,8 +27,9 @@ ORDNER = ["web", "mcp", "daten", "vorlage", "bereiche"]
 # Regeldatenbank: nur Datenbank + Lizenz (Cache und Markdown-Ausgabe entstehen auf dem Zielrechner bei Bedarf)
 REGELN = ["regeln/regeln.sqlite", "regeln/LIZENZ-REGELN.txt"]
 # Ohne diese Dateien wird nicht gebaut (die PRD-Daten dürfen nur mit Lizenztext weitergegeben werden)
-PFLICHT = ["zauber_db.py", "daten/zauber.json", "daten/zauber_prd.json", "daten/LIZENZ-ZAUBER.txt",
-           "regeln_db.py", "regeln_abruf.py", "regeln_md.py"] + REGELN
+PFLICHT = ["bereiche/wissen/zauber_db.py", "daten/zauber.json", "daten/zauber_prd.json", "daten/LIZENZ-ZAUBER.txt",
+           "bereiche/wissen/regeln_db.py", "bereiche/wissen/regeln_abruf.py", "bereiche/wissen/regeln_md.py",
+           "regeln_abruf.py"] + REGELN
 OHNE_PY = {"paket_bauen.py", "anleitung_pdf.py"}
 AUSSCHLUSS = [r"(^|/)__pycache__/", r"(^|/)_sicherung", r"\.bak", r"\.log$", r"\.lnk$", r"(^|/)Thumbs\.db$",
               r"(^|/)desktop\.ini$", r"(^|/)schluessel\.txt$", r"(^|/)zentrale\.json$", r"(^|/)python-pfad\.txt$",

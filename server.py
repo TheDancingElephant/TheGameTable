@@ -29,7 +29,7 @@ from bereiche import REAKTIONEN, kern
 from bereiche.kern import Fehler
 from bereiche.karte import barrieren, karten
 from bereiche import charakter as CH, kampf as KM, karte as KA, reaktion
-import zauber_db as ZDB
+from bereiche.wissen import zauber_db as ZDB
 
 _arg = argparse.ArgumentParser()
 _arg.add_argument("--kampagne", help="Kampagnenordner (mit kampagne.json)")

@@ -953,7 +953,7 @@ def main():
     from bereiche.karte import barrieren  # noqa: F401
     import import_charaktere  # noqa: F401
     from bereiche.karte import kartenformat  # noqa: F401
-    import regeln_abruf  # noqa: F401  (sqlite3, hashlib, ssl)
+    from bereiche.wissen import regeln_abruf  # noqa: F401  (sqlite3, hashlib, ssl)
     if VERWALTUNG:
         print(f"spieltisch-mcp: Verwaltung {WURZEL}", file=sys.stderr)
     else:
