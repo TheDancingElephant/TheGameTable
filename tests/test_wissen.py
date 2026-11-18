@@ -23,6 +23,9 @@ class WissenTest(unittest.TestCase):
         t = self.tk.st.regel_suchen("Gelegenheitsangriff Bewegung verlassen")
         self.assertIn("Gelegenheitsangriff", t)
         self.assertIn("Beweglichkeit", self.tk.st.regel_schnell("talent", "Beweglichkeit"))
+        # Ausbauregeln III: Völker (Volkstalente) und IV: Kampagnen
+        self.assertIn("Ausbauregeln III: Völker", self.tk.st.regel_schnell("talent", "Elfisches Kampftraining"))
+        self.assertIn("Kampagnenwesenszug", self.tk.st.regel_suchen("Kampagnenwesenszug"))
 
     def test_monster_info(self):
         t = self.tk.st.monster_info("Lehmgolem")

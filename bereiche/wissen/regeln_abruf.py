@@ -47,6 +47,9 @@ BUECHER = {
                             "ohne": ["/Ausbauregeln-Magie/Zauber", "/Ausbauregeln-Magie/Zauberlisten"]},
     "Ausbauregeln II: Kampf": {"start": "/Ausbauregeln-II-Kampf",
                                "ohne": ["/Ausbauregeln-II-Kampf/Zauber", "/Ausbauregeln-II-Kampf/Zauberlisten"]},
+    "Ausbauregeln III: Völker": {"start": "/Ausbauregeln-III-Völker", 
+                                 "ohne": ["/Ausbauregeln-III-Völker/Zauber", "/Ausbauregeln-III-Völker/Zauberlisten"]},
+    "Ausbauregeln IV: Kampagnen": {"start": "/Ausbauregeln-IV-Kampagnen", "ohne": []},
     "Abenteurerkompendium": {"start": "/Abenteurerkompendium",
                              "ohne": ["/Abenteurerkompendium/Zauber", "/Abenteurerkompendium/Zauberlisten"]},
 }

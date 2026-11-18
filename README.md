@@ -240,6 +240,10 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
 - **Ausbauregeln: Magie** (Kampfmagus, Magie meistern, Worte der Macht, Zauberkundige, Talente; Kürzel „ARM“) und
   **Ausbauregeln II: Kampf** (Ninja, Samurai, Schütze, Archetypen, Kampf meistern, Kampfkunststile, Fahrzeuge,
   Regelvarianten, Talente, Ausrüstung; Kürzel „ARK“), jeweils ohne Zauber/Zauberlisten.
+- **Ausbauregeln III: Völker** (Grund-, ungewöhnliche und seltene Völker mit alternativen Volksmerkmalen,
+  Volkstalenten und -archetypen, Völkerbaukasten, Alter/Größe/Gewicht; Kürzel „ARV“, ohne Zauberlisten) und
+  **Ausbauregeln IV: Kampagnen** (Charakterhintergrund, Zwischen den Abenteuern, Kampagnensysteme,
+  Königreiche und Krieg; Kürzel „ARKa“).
 - **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
   das PRD enthält das Buch nur teilweise). Markierung „AK“.
 - **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index

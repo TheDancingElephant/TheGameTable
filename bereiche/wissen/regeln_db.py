@@ -321,6 +321,8 @@ MONSTER_KOPF = re.compile(r"^(.+?)\s+HG\s+(\d+(?:/\d+)?)\s*$")
 
 # Klassen, die in einem Buch als eigenes Kapitel stehen (Ausbauregeln: Magie / II: Kampf)
 KLASSEN_KAPITEL = ("Kampfmagus", "Ninja", "Samurai", "Schütze")
+# Ausbauregeln III: Völker – je Volk eine Seite unter diesen Kapiteln
+VOLK_KAPITEL = ("Grundvölker", "Ungewöhnliche Völker", "Seltene Völker")
 
 
 def typ_bestimmen(kapitel, a, seiten_titel=""):
@@ -339,6 +341,8 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
         return "monster" if "**TP**" in (a.get("text") or "") else "falle"
     if kapitel == "Talente" and "Talentbeschreibungen" in pf:
         return "talent"
+    if kapitel == "Talente" and "Neue Talente" in a["pfad"] and re.search(r"\*\*(Vorteil|Voraussetzung)", a.get("text") or ""):
+        return "talent"  # Ausbauregeln III: Völker (nach Volk gruppiert)
     if "Zustände" in a["pfad"] and kapitel == "Anhang":
         return "zustand"
     if kapitel == "Fertigkeiten" and seitenkopf:
@@ -347,6 +351,8 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
         return "klasse"
     if kapitel == "Prestigeklassen" and seitenkopf:
         return "prestigeklasse"
+    if kapitel in VOLK_KAPITEL and seitenkopf:
+        return "volk"
     if kapitel == "Völker" and (seitenkopf or (a["stufe"] == 2 and a.get("seiten_ebene") == 1 and not a["pfad"]
                                               and t not in ("Völker", "Grundvölker"))):
         return "volk"
@@ -591,9 +597,11 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
 
 # Bücher: Kürzel für die Ausgabe, Rang bei gleichnamigen Einträgen (Grundregelwerk zuerst)
 BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch": "MHB", "Abenteurerkompendium": "AK",
-             "Monsterhandbuch II": "MHB2", "Ausbauregeln: Magie": "ARM", "Ausbauregeln II: Kampf": "ARK"}
+             "Monsterhandbuch II": "MHB2", "Ausbauregeln: Magie": "ARM", "Ausbauregeln II: Kampf": "ARK",
+             "Ausbauregeln III: Völker": "ARV", "Ausbauregeln IV: Kampagnen": "ARKa"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
-             "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6}
+             "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
+             "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",
