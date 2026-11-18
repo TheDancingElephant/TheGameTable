@@ -1,11 +1,14 @@
-"use strict";
+// Stufenaufstiegs-Assistent: TP -> Fertigkeiten -> Talent/Attribut -> Zauber -> Zusammenfassung.
+import { $, api, esc, meldung } from "./grundlagen.js";
+import { zauberGradFuer, zauberOption } from "./magie.js";
+
 // Stufenaufstiegs-Assistent: TP -> Fertigkeiten -> Talent/Attribut -> Zauber -> Zusammenfassung.
 // Benötigt app.js (api, esc, $, meldung). Regeln und Prüfungen liegen serverseitig (aufstieg.py).
 
 const AUF_SCHRITTE = ["Trefferpunkte", "Fertigkeiten", "Talent & Attribut", "Zauber", "Zusammenfassung"];
 let aufZauberKatalog = null;
 
-async function aufstiegsAssistent(c) {
+export async function aufstiegsAssistent(c) {
   const dlg = document.createElement("dialog");
   dlg.id = "aufstieg-assistent";
   document.body.append(dlg);

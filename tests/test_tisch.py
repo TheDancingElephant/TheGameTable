@@ -72,6 +72,20 @@ class TischTest(unittest.TestCase):
             self.tk.sl(op="gibtsnicht")
         self.assertEqual(f.exception.code, 400)
 
+    def test_oberflaeche_es_module_werden_ausgeliefert(self):
+        import re
+        html = self.tk.http("/", roh=True).decode("utf-8")
+        self.assertIn('<script type="module" src="app.js"></script>', html)
+        offen, gesehen = ["app.js"], set()
+        while offen:  # allen relativen Importen folgen
+            datei = offen.pop()
+            if datei in gesehen:
+                continue
+            gesehen.add(datei)
+            js = self.tk.http("/" + datei, roh=True).decode("utf-8")
+            offen += re.findall(r'^import (?:[^"]*from )?"\./([\w-]+\.js)";', js, re.M)
+        self.assertGreaterEqual(len(gesehen), 10)
+
     def test_fehler_nimmt_den_ganzen_befehl_zurueck(self):
         vorher = self.tk.z()
         n = len(self.tk.log())
