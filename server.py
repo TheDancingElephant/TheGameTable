@@ -11,7 +11,6 @@ im Nebel maskiert, damit nichts Verborgenes im Browser landet.
 import json
 import math
 import os
-import random
 import re
 import secrets
 import threading
@@ -21,8 +20,13 @@ from pathlib import Path
 from urllib.parse import urlparse, parse_qs
 
 import argparse
+import contextlib
+import pickle
 
 import kampagne
+import speicher
+from bereiche import REAKTIONEN, kern
+from bereiche.kern import Fehler
 import barrieren
 import karten
 import modi as MODI
@@ -71,6 +75,17 @@ def leerer_zustand():
     }
 
 
+_LOKAL = threading.local()
+
+
+def kx():
+    """Kontext des laufenden Befehls bzw. der laufenden Leseanfrage."""
+    k = getattr(_LOKAL, "kx", None)
+    if k is None:
+        raise RuntimeError("Kein Befehlskontext (SPIEL.ausfuehren / SPIEL.lesen)")
+    return k
+
+
 class Spiel:
     def __init__(self):
         self.lock = threading.Condition()
@@ -87,6 +102,62 @@ class Spiel:
         self.jpeg_cache = {}  # (karten-id, nebel-version, ganz) -> bytes
         self.barr_cache = {}  # karten-id -> [Dateistempel, Barrieren-Dict, (seg, seite)]
         self.masken = {}      # karten-id -> Bool-Maske des aufgedeckten Bereichs (Sichtpolygon-Modus)
+        self.barr_offen = {}  # karten-id -> Barrieren, die der laufende Befehl ändert (geschrieben bei Erfolg)
+
+    # -- Befehle als Einheit
+    def kontext(self):
+        return kern.Kontext(self.z, self.log, speicher.Charakterspeicher(CHARAKTERE), KAMP, self, kern.zufall,
+                            lambda: time.strftime("%H:%M"), REAKTIONEN)
+
+    @contextlib.contextmanager
+    def lesen(self):
+        """Leseanfrage: eigener Kontext, nichts wird gespeichert."""
+        alt = getattr(_LOKAL, "kx", None)
+        _LOKAL.kx = self.kontext()
+        try:
+            yield _LOKAL.kx
+        finally:
+            _LOKAL.kx = alt
+
+    def ausfuehren(self, f, *args):
+        """Führt einen Befehl als Einheit aus (unter der Sperre): bei einem Fehler wird der Spielstand aus der
+        Sicherung zurückgeholt und nichts geschrieben; sonst Protokoll, Charaktere, Barrieren, Spielstand speichern."""
+        sicherung = pickle.dumps(self.z, pickle.HIGHEST_PROTOCOL)
+        log_alt = list(self.log)
+        k = self.kontext()
+        alt = getattr(_LOKAL, "kx", None)
+        _LOKAL.kx = k
+        self.barr_offen = {}
+        try:
+            ergebnis = f(*args)
+            tot_abgleich(self.z)
+        except BaseException:
+            self.z = pickle.loads(sicherung)
+            self.log[:] = log_alt
+            self.masken.clear()
+            self.barr_cache.clear()
+            self.barr_offen = {}
+            raise
+        finally:
+            _LOKAL.kx = alt
+        self.uebernehmen(k)
+        return ergebnis
+
+    def uebernehmen(self, k):
+        for kid, daten in self.barr_offen.items():
+            barrieren.speichern(SL, kid, daten)
+            self.barr_cache.pop(kid, None)
+        self.barr_offen = {}
+        k.chars.schreiben()
+        if k.log_neu_schreiben:
+            PROTOKOLL.write_text("".join(json.dumps(e, ensure_ascii=False) + "\n" for e in self.log), encoding="utf-8")
+        elif k.neue:
+            with PROTOKOLL.open("a", encoding="utf-8") as f:
+                for e in k.neue:
+                    f.write(json.dumps(e, ensure_ascii=False) + "\n")
+        self.z["version"] += 1
+        self.speichern()
+        self.lock.notify_all()
 
     # -- Persistenz
     def speichern(self):
@@ -94,19 +165,8 @@ class Spiel:
         tmp.write_text(json.dumps(self.z, ensure_ascii=False, indent=1), encoding="utf-8")
         os.replace(tmp, ZUSTAND)
 
-    def geaendert(self):
-        tot_abgleich(self.z)
-        self.z["version"] += 1
-        self.speichern()
-        self.lock.notify_all()
-
     def eintragen(self, art, text, **extra):
-        e = {"id": self.z["naechsteLogId"], "zeit": time.strftime("%H:%M"), "art": art, "text": text, **extra}
-        self.z["naechsteLogId"] += 1
-        self.log.append(e)
-        with PROTOKOLL.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(e, ensure_ascii=False) + "\n")
-        return e
+        return kx().protokoll(art, text, **extra)
 
     # -- Karten
     def karte(self, kid=None):
@@ -147,6 +207,9 @@ class Spiel:
     def barr(self, kid, blockierend=False):
         """Barrieren-Dict der Karte (sl/barrieren/<kid>.json, bei Dateiänderung neu geladen); None, wenn es keines gibt.
         Mit blockierend=True stattdessen (seg, seite) der aktuell sichtblockierenden Strecken."""
+        if kid in self.barr_offen:
+            d = self.barr_offen[kid]
+            return barrieren.blockierend(d) if blockierend else d
         p = barrieren.pfad(SL, kid)
         stempel = p.stat().st_mtime if p.exists() else None
         c = self.barr_cache.get(kid)
@@ -157,7 +220,7 @@ class Spiel:
         return c[2] if blockierend else c[1]
 
     def barr_speichern(self, kid, daten):
-        barrieren.speichern(SL, kid, daten)
+        self.barr_offen[kid] = daten
         self.barr_cache.pop(kid, None)
 
     def maske(self, kid):
@@ -307,31 +370,11 @@ def gesundheit_text(t):
 
 # ---------------------------------------------------------------- Würfel
 
-WURF_RE = re.compile(r"([+-]?)\s*(?:(\d*)\s*[wWdD]\s*(\d+)|(\d+))")
-
-
 def wuerfeln(ausdruck):
     """'1W20+5', '2w6 + 1w4 - 1'. Gibt (summe, details, nat20/nat1-Info) zurück."""
-    a = ausdruck.replace(" ", "")
-    if not a or not re.fullmatch(r"([+-]?(\d*[wWdD]\d+|\d+))+", a):
-        raise ValueError(f"Unverständlicher Wurf: {ausdruck!r}")
-    summe, teile, besonders = 0, [], None
-    for vz, anz, seiten, zahl in WURF_RE.findall(a):
-        faktor = -1 if vz == "-" else 1
-        if seiten:
-            n, s = int(anz or 1), int(seiten)
-            if n > 100 or s > 1000:
-                raise ValueError("Zu viele Würfel")
-            w = [random.randint(1, s) for _ in range(n)]
-            summe += faktor * sum(w)
-            teile.append(f"{'-' if faktor < 0 else '+'}{n}W{s}[{','.join(map(str, w))}]")
-            if s == 20 and n == 1:
-                besonders = "nat20" if w[0] == 20 else "nat1" if w[0] == 1 else besonders
-        else:
-            summe += faktor * int(zahl)
-            teile.append(f"{'-' if faktor < 0 else '+'}{zahl}")
-    detail = " ".join(teile).lstrip("+")
-    return summe, detail, besonders
+    return kern.wuerfeln(ausdruck, kx().w)
+
+
 
 
 # ---------------------------------------------------------------- Felder & Nebel
@@ -552,7 +595,7 @@ def angriff_aufloesen(wer, ziel, waffe, bonus, schaden, krit, beruehrung, nahkam
         mods.append(("Ziel hilflos", 4))
     summe_mods = sum(v for _, v in mods)
     rk = ziel_rk(ziel, beruehrung)
-    d20 = random.randint(1, 20)
+    d20 = kx().w(20)
     gesamt = d20 + bonus + summe_mods
     detail = f"1W20[{d20}] {bonus:+d}" + "".join(f" {v:+d} {t}" for t, v in mods)
     titel = f"{wer} greift {ziel['name']} an ({waffe})"
@@ -566,7 +609,7 @@ def angriff_aufloesen(wer, ziel, waffe, bonus, schaden, krit, beruehrung, nahkam
     bereich, mult = krit_info(krit)
     kritisch, bestaetigung = False, None
     if treffer and d20 >= bereich:
-        b20 = random.randint(1, 20)
+        b20 = kx().w(20)
         bsum = b20 + bonus + summe_mods
         kritisch = b20 == 20 or (b20 != 1 and bsum >= rk)
         bestaetigung = f"Bestätigung 1W20[{b20}] = {bsum}"
@@ -849,7 +892,7 @@ def rettungswurf_aufloesen(t, ziel, d, titel, verdeckt=False):
                         detail=f"{d.get('schaden') or ''} {d.get('effekt', '')}".strip(), wecken=True)
         z["slStatus"] = "wartet"
         return
-    w = random.randint(1, 20)
+    w = kx().w(20)
     gelungen = w == 20 or (w != 1 and w + int(bonus) >= d["sg"])
     schaden = None
     if d.get("schaden"):
@@ -1083,10 +1126,6 @@ def faehigkeit_wirken(t, c, index, ziel=None):
 
 
 # ---------------------------------------------------------------- Befehle
-
-class Fehler(Exception):
-    pass
-
 
 def token_finden(tid):
     t = SPIEL.z["tokens"].get(tid)
@@ -1369,8 +1408,8 @@ def sl_befehl(b):
         SPIEL.eintragen("sl", b["text"], titel=b.get("titel"))
         z["slStatus"] = "bereit"
     elif op == "eintrag-loeschen":
-        SPIEL.log = [e for e in SPIEL.log if e["id"] != int(b["id"])]
-        PROTOKOLL.write_text("".join(json.dumps(e, ensure_ascii=False) + "\n" for e in SPIEL.log), encoding="utf-8")
+        SPIEL.log[:] = [e for e in SPIEL.log if e["id"] != int(b["id"])]
+        kx().log_neu_schreiben = True
     elif op == "notiz":  # nur SL, nicht im Spielerprotokoll
         SPIEL.eintragen("sl-notiz", b["text"], verborgen=True)
     elif op == "status":
@@ -1676,7 +1715,7 @@ def pfad_setzen(o, pfad, wert):
 def modi_ziel(kennung):
     """Ziel eines Modus: ('char', Charakterdaten roh) oder ('token', Token ohne Charakterdatei)."""
     t = SPIEL.z["tokens"].get(kennung)
-    if t is None and (CHARAKTERE / f"{kennung}.json").exists():
+    if t is None and kx().chars.existiert(kennung):
         return "char", char_laden(kennung)
     if t is None:
         t = token_finden(kennung)
@@ -1762,8 +1801,7 @@ def modi_zeit(runden):
     if not KAMP.get("modi", True):
         return []
     aus_liste = []
-    for p in sorted(CHARAKTERE.glob("*.json")):
-        c = json.loads(p.read_text(encoding="utf-8"))
+    for c in kx().chars.alle():
         if not MODI.aktive(c):
             continue
         c["modi"], aus = MODI.zeit(c["modi"], runden)
@@ -1814,8 +1852,7 @@ def modi_befehl(op, b):
 
 def modi_liste():
     zeilen = []
-    for p in sorted(CHARAKTERE.glob("*.json")):
-        c = json.loads(p.read_text(encoding="utf-8"))
+    for c in kx().chars.alle():
         for m in MODI.aktive(c):
             zeilen.append(f"{c['name']}: {m['name']} – {MODI.wirkung_text(m['wirkung'])}; {MODI.dauer_text(m)}")
     for t in SPIEL.z["tokens"].values():
@@ -1848,10 +1885,7 @@ def ini_sortieren(ini):
 
 
 def char_laden(cid):
-    p = CHARAKTERE / f"{cid}.json"
-    if not p.exists():
-        raise Fehler(f"Charakter {cid!r} nicht gefunden")
-    return json.loads(p.read_text(encoding="utf-8"))
+    return kx().chars.laden(cid)
 
 
 def char_speichern(c):
@@ -1860,8 +1894,7 @@ def char_speichern(c):
         e.pop("_d", None)
     for k in ("_ep", "_zauberKlasse", "_vorbereiten"):
         c.pop(k, None)
-    p = CHARAKTERE / f"{c['id']}.json"
-    p.write_text(json.dumps(c, ensure_ascii=False, indent=1), encoding="utf-8")
+    kx().chars.speichern(c)
 
 
 def char_tp_sync(t):
@@ -1874,7 +1907,7 @@ def char_tp_sync(t):
 
 
 def alle_charaktere():
-    liste = [wirksam(json.loads(p.read_text(encoding="utf-8"))) for p in sorted(CHARAKTERE.glob("*.json"))]
+    liste = [wirksam(c) for c in kx().chars.alle()]
     for c in liste:  # Fernkampf/Reichweite ergänzen, wo nicht angegeben
         for a in c.get("angriffe", []):
             info = waffe_info(a)
@@ -2049,7 +2082,7 @@ def aufstieg_spieler(pfad, b):
             raise Fehler("Der Aufstieg liegt schon beim Spielleiter")
         if not auf.get("tp"):  # nur einmal: Ergebnis bleibt, auch wenn der Dialog neu geöffnet wird
             plus, text = AUF.tp_wurf(p["tw"], p["koMod"], "wurf" if b.get("art") == "wurf" else "schnitt",
-                                     lambda tw: random.randint(1, tw))
+                                     kx().w)
             auf["tp"] = {"plus": plus, "text": text}
             auf["klasse"] = p["klasse"]
             auf["vorlage"] = p["vorlage"] or ""
@@ -2125,6 +2158,33 @@ def aufstieg_sl(op, b):
     char_speichern(c)
     SPIEL.eintragen("system", f"⬆ {c['name']} ist jetzt Stufe {c['stufe']} ({c.get('klasse')}).")
     return {}
+
+
+def post_befehl(pfad, b):
+    """Alle schreibenden Anfragen (läuft in SPIEL.ausfuehren)."""
+    if pfad == "/api/sl/befehl":
+        ergebnis = {}
+        for befehl in (b if isinstance(b, list) else [b]):
+            ergebnis = sl_befehl(befehl)
+        return ergebnis
+    if pfad == "/api/charakter":
+        c = b
+        if not c.get("name"):
+            raise Fehler("Name fehlt")
+        c["id"] = c.get("id") or re.sub(r"[^a-z0-9]+", "-", c["name"].lower()).strip("-") or secrets.token_hex(3)
+        char_speichern(c)
+        t = sc_token(c["id"])
+        if t:
+            t.update({"name": c["name"], "farbe": c.get("farbe", t.get("farbe")),
+                      "tpMax": c.get("tp", {}).get("max"), "tp": c.get("tp", {}).get("aktuell")})
+        return c
+    if pfad == "/api/charakter-loeschen":
+        kx().chars.loeschen(b["id"])
+        t = sc_token(b["id"])
+        if t:
+            del SPIEL.z["tokens"][t["id"]]
+        return {}
+    return spieler_befehl(pfad, b)
 
 
 def spieler_befehl(pfad, b):
@@ -2237,7 +2297,7 @@ def spieler_befehl(pfad, b):
                                     verborgen=True, wecken=True)
                     z["slStatus"] = "wartet"
                 else:
-                    w20 = random.randint(1, 20)
+                    w20 = kx().w(20)
                     erg = w20 + int(bonus_rw)
                     geschafft = erg >= sg
                     SPIEL.eintragen("zauber", f"{ziel['name']}: Zähigkeitswurf gegen Betäubenden Schlag (SG {sg})",
@@ -2455,6 +2515,13 @@ class Handler(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         q = parse_qs(u.query)
         try:
+            with SPIEL.lesen():
+                return self._get(u, q)
+        except Exception as e:  # noqa: BLE001
+            return self.antwort(500, {"fehler": str(e)})
+
+    def _get(self, u, q):
+        if True:
             if u.path == "/api/stand":
                 sl = self.ist_sl(q)
                 seit = int(q.get("seit", ["0"])[0])
@@ -2517,47 +2584,17 @@ class Handler(BaseHTTPRequestHandler):
             if WEB.resolve() not in datei.parents or not datei.is_file():
                 return self.antwort(404, {"fehler": "nicht gefunden"})
             return self.antwort(200, datei.read_bytes(), MIME.get(datei.suffix, "application/octet-stream"))
-        except Exception as e:  # noqa: BLE001
-            return self.antwort(500, {"fehler": str(e)})
 
     def do_POST(self):
         u = urlparse(self.path)
         q = parse_qs(u.query)
         try:
             b = self.koerper()
+            if u.path.startswith("/api/sl/") and not self.ist_sl(q):
+                return self.antwort(403, {"fehler": "SL-Schlüssel fehlt"})
             with SPIEL.lock:
-                if u.path == "/api/sl/befehl":
-                    if not self.ist_sl(q):
-                        return self.antwort(403, {"fehler": "SL-Schlüssel fehlt"})
-                    ergebnis = {}
-                    for befehl in (b if isinstance(b, list) else [b]):
-                        ergebnis = sl_befehl(befehl)
-                    SPIEL.geaendert()
-                    return self.antwort(200, ergebnis)
-                if u.path == "/api/charakter":
-                    c = b
-                    if not c.get("name"):
-                        raise Fehler("Name fehlt")
-                    c["id"] = c.get("id") or re.sub(r"[^a-z0-9]+", "-", c["name"].lower()).strip("-") or secrets.token_hex(3)
-                    char_speichern(c)
-                    t = sc_token(c["id"])
-                    if t:
-                        t.update({"name": c["name"], "farbe": c.get("farbe", t.get("farbe")),
-                                  "tpMax": c.get("tp", {}).get("max"), "tp": c.get("tp", {}).get("aktuell")})
-                    SPIEL.geaendert()
-                    return self.antwort(200, c)
-                if u.path == "/api/charakter-loeschen":
-                    p = CHARAKTERE / f"{b['id']}.json"
-                    if p.exists():
-                        p.unlink()
-                    t = sc_token(b["id"])
-                    if t:
-                        del SPIEL.z["tokens"][t["id"]]
-                    SPIEL.geaendert()
-                    return self.antwort(200, {})
-                ergebnis = spieler_befehl(u.path, b)
-                SPIEL.geaendert()
-                return self.antwort(200, ergebnis)
+                ergebnis = SPIEL.ausfuehren(post_befehl, u.path, b)
+            return self.antwort(200, ergebnis)
         except KeyError as e:
             return self.antwort(400, {"fehler": f"Angabe fehlt oder unbekannt: {e}"})
         except (Fehler, ValueError) as e:

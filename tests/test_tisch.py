@@ -72,6 +72,20 @@ class TischTest(unittest.TestCase):
             self.tk.sl(op="gibtsnicht")
         self.assertEqual(f.exception.code, 400)
 
+    def test_fehler_nimmt_den_ganzen_befehl_zurueck(self):
+        vorher = self.tk.z()
+        n = len(self.tk.log())
+        with self.assertRaises(FEHLER):
+            self.tk.http("/api/sl/befehl", [{"op": "token-setzen", "token": {"name": "Geist", "x": 1, "y": 1, "id": "g99"}},
+                                            {"op": "notiz", "text": "halb"}, {"op": "gibtsnicht"}], sl=True)
+        nachher = self.tk.z()
+        self.assertNotIn("g99", nachher["tokens"])
+        self.assertEqual(nachher["naechsteLogId"], vorher["naechsteLogId"])
+        self.assertEqual(len(self.tk.log()), n)
+        self.tk.neu_starten()  # auch auf der Platte nichts Halbes
+        self.assertNotIn("g99", self.tk.z()["tokens"])
+        self.assertEqual(len(self.tk.log()), n)
+
     def test_gruppennotizen_und_anstupsen(self):
         self.tk.spieler("/api/gruppennotizen", {"text": "Schlüssel im Brunnen"})
         self.assertEqual(self.tk.stand()["unterlagen"]["notizen"], "Schlüssel im Brunnen")
