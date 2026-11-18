@@ -50,6 +50,12 @@ BUECHER = {
     "Ausbauregeln III: Völker": {"start": "/Ausbauregeln-III-Völker", 
                                  "ohne": ["/Ausbauregeln-III-Völker/Zauber", "/Ausbauregeln-III-Völker/Zauberlisten"]},
     "Ausbauregeln IV: Kampagnen": {"start": "/Ausbauregeln-IV-Kampagnen", "ohne": []},
+    "Ausbauregeln V: Legenden": {"start": "/Ausbauregeln-V-Legenden",
+                                 "ohne": ["/Ausbauregeln-V-Legenden/Zauber", "/Ausbauregeln-V-Legenden/Zauberlisten"]},
+    "Ausbauregeln VI: Klassen": {"start": "/Ausbauregeln-VI-Klassen",
+                                 "ohne": ["/Ausbauregeln-VI-Klassen/Zauber", "/Ausbauregeln-VI-Klassen/Zauberlisten"]},
+    "Ausbauregeln VII: Okkultes": {"start": "/Ausbauregeln-VII-Okkultes",
+                                   "ohne": ["/Ausbauregeln-VII-Okkultes/Zauber", "/Ausbauregeln-VII-Okkultes/Zauberlisten"]},
     "Abenteurerkompendium": {"start": "/Abenteurerkompendium",
                              "ohne": ["/Abenteurerkompendium/Zauber", "/Abenteurerkompendium/Zauberlisten"]},
 }

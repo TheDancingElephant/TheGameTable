@@ -152,7 +152,7 @@ SYNONYME = {
     "pinned": ["festgehalten"], "blinded": ["blind"], "dazzled": ["geblendet"], "deafened": ["taub"],
     "confused": ["verwirrt"], "disabled": ["kampfunfähig"], "dying": ["sterbend"], "stable": ["stabilisiert"],
     "energy drain": ["negative stufen"], "ability damage": ["attributsschaden"], "swarm": ["schwarm"],
-    "readied": ["vorbereiten"], "delay": ["abwarten"], "verzögern": ["abwarten", "verzögern"],
+    "readied": ["vorbereiten"], "delay": ["abwarten"], "burn": ["zehrung"], "mythic": ["legendär"], "verzögern": ["abwarten", "verzögern"],
     "tragkraft": ["traglast", "tragkraft"], "belastung": ["traglast", "belastung"], "aid another": ["jemand anderem helfen"],
     "take 10": ["10 nehmen"], "take 20": ["20 nehmen"], "spell resistance": ["zauberresistenz"],
     "concentration": ["konzentration"], "defensiv zaubern": ["defensiv zaubern", "konzentration"],
@@ -313,10 +313,11 @@ def _feld(text, name):
 
 
 TALENTART_KLAMMER = re.compile(r"\s*\(((?:Kampf|Metamagie|Metamagisch|Erschaffung|Gegenstandserschaffung|Kritischer[- ]Treffer"
-                               r"|Gemeinschaft|Gemeinschaftstalent|Stil|Leistung|Gruppe)(?:\s*,\s*[^)]+)?)\s*\)\s*$")
+                               r"|Gemeinschaft|Gemeinschaftstalent|Stil|Leistung|Gruppe|Legende)(?:\s*,\s*[^)]+)?)\s*\)\s*$")
 
 
-MONSTER_KOPF = re.compile(r"^(.+?)\s+HG\s+(\d+(?:/\d+)?)\s*$")
+# „Name HG 5“, legendär „Name HG 9 (LG 3)“ (Ausbauregeln V: Legenden)
+MONSTER_KOPF = re.compile(r"^(.+?)\s+HG\s+(\d+(?:/\d+)?)(?:\s*\(LG\s*(\d+)\))?\s*$")
 
 
 # Klassen, die in einem Buch als eigenes Kapitel stehen (Ausbauregeln: Magie / II: Kampf)
@@ -341,8 +342,9 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
         return "monster" if "**TP**" in (a.get("text") or "") else "falle"
     if kapitel == "Talente" and "Talentbeschreibungen" in pf:
         return "talent"
-    if kapitel == "Talente" and "Neue Talente" in a["pfad"] and re.search(r"\*\*(Vorteil|Voraussetzung)", a.get("text") or ""):
-        return "talent"  # Ausbauregeln III: Völker (nach Volk gruppiert)
+    if kapitel in ("Talente", "Legendäre Talente") and a["pfad"] and "Talentarten" not in a["pfad"] \
+            and re.search(r"\*\*(Vorteil|Voraussetzung)", a.get("text") or ""):
+        return "talent"  # Ausbauregeln III–VII: nach Volk gruppiert bzw. ohne Überschrift „Talentbeschreibungen“
     if "Zustände" in a["pfad"] and kapitel == "Anhang":
         return "zustand"
     if kapitel == "Fertigkeiten" and seitenkopf:
@@ -442,7 +444,9 @@ def index_neu_bauen(con):
             typ = typ_bestimmen(s["kapitel"], a, s["titel"])
             mk = MONSTER_KOPF.match(a["titel"]) if typ in ("monster", "falle") else None
             if mk:
-                a["titel"] = f"{mk.group(1).strip()} (HG {mk.group(2)})"
+                a["titel"] = f"{mk.group(1).strip()} (HG {mk.group(2)}" + (f", LG {mk.group(3)})" if mk.group(3) else ")")
+            if typ == "klasse" and a["titel"].isupper():  # Ausbauregeln VI: „ATTENTÄTER“ -> Seitentitel
+                a["titel"] = s["titel"]
             url = alias_url.get(a["anker"]) or (s["url"] + ("#" + a["anker"] if a["anker"] else ""))
             eltern = ids[a["eltern"]] if a["eltern"] is not None else None
             cur.execute("INSERT INTO abschnitte VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",
@@ -598,10 +602,12 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
 # Bücher: Kürzel für die Ausgabe, Rang bei gleichnamigen Einträgen (Grundregelwerk zuerst)
 BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch": "MHB", "Abenteurerkompendium": "AK",
              "Monsterhandbuch II": "MHB2", "Ausbauregeln: Magie": "ARM", "Ausbauregeln II: Kampf": "ARK",
-             "Ausbauregeln III: Völker": "ARV", "Ausbauregeln IV: Kampagnen": "ARKa"}
+             "Ausbauregeln III: Völker": "ARV", "Ausbauregeln IV: Kampagnen": "ARKa",
+             "Ausbauregeln V: Legenden": "ARL", "Ausbauregeln VI: Klassen": "ARKl", "Ausbauregeln VII: Okkultes": "ARO"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
              "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
-             "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8}
+             "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8,
+             "Ausbauregeln V: Legenden": 9, "Ausbauregeln VI: Klassen": 10, "Ausbauregeln VII: Okkultes": 11}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",

@@ -26,6 +26,11 @@ class WissenTest(unittest.TestCase):
         # Ausbauregeln III: Völker (Volkstalente) und IV: Kampagnen
         self.assertIn("Ausbauregeln III: Völker", self.tk.st.regel_schnell("talent", "Elfisches Kampftraining"))
         self.assertIn("Kampagnenwesenszug", self.tk.st.regel_suchen("Kampagnenwesenszug"))
+        # Ausbauregeln V–VII: legendäre Talente, Hybrid- und okkulte Klassen, legendäre Monster (HG/LG)
+        self.assertIn("Ausbauregeln V: Legenden", self.tk.st.regel_schnell("talent", "Alkoholische Lebenskraft"))
+        self.assertIn("Ausbauregeln VI: Klassen", self.tk.st.regel_schnell("talent", "Amateurdraufgänger"))
+        self.assertIn("Zehrung", self.tk.st.regel_suchen("Kinetiker burn"))
+        self.assertIn("LG 3", self.tk.st.monster_info("Legendärer Aboleth"))
 
     def test_monster_info(self):
         t = self.tk.st.monster_info("Lehmgolem")
@@ -107,6 +112,11 @@ class WissenTest(unittest.TestCase):
                              for x in t))  # „Golemkonstrukteur“ (Regel aus Ausbauregeln: Magie) darf erscheinen
         self.assertFalse(self.wissen("suche", q="Gug")["treffer"] and any(  # Monsterhandbuch II ebenso
             x["titel"].startswith("Gug") for x in self.wissen("suche", q="Gug")["treffer"]))
+        self.assertFalse(any(x["titel"].startswith("Legendärer Aboleth")  # legendäre Monster (Ausbauregeln V)
+                             or "Legendäre Monster" in (x.get("untertitel") or "")
+                             for x in self.wissen("suche", q="Legendärer Aboleth")["treffer"]))
+        self.assertTrue(any(x["titel"].startswith("Legendärer Aboleth")
+                            for x in self.wissen("suche", sl=True, q="Legendärer Aboleth")["treffer"]))
         self.assertTrue(any(x["titel"] == "Golem" for x in self.wissen("suche", sl=True, q="Golem")["treffer"]))
         self.assertTrue(self.wissen("suche", q="Regeneration")["treffer"])
         buecher = {b["titel"]: b for b in self.wissen("inhalt")["buecher"]}

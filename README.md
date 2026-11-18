@@ -244,6 +244,11 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   Volkstalenten und -archetypen, Völkerbaukasten, Alter/Größe/Gewicht; Kürzel „ARV“, ohne Zauberlisten) und
   **Ausbauregeln IV: Kampagnen** (Charakterhintergrund, Zwischen den Abenteuern, Kampagnensysteme,
   Königreiche und Krieg; Kürzel „ARKa“).
+- **Ausbauregeln V: Legenden** (legendäre Pfade, Talente, Gegenstände, legendäre Monster, Spielleitung; Kürzel
+  „ARL“), **Ausbauregeln VI: Klassen** (zehn Hybridklassen, Archetypen, Talente, Ausrüstung, Klassen entwickeln;
+  „ARKl“) und **Ausbauregeln VII: Okkultes** (sechs okkulte Klassen, Archetypen, Talente, Mentale Magie, okkulte
+  Regeln/Belohnungen/Kampagnen; „ARO“), jeweils ohne Zauber/Zauberlisten. Legendäre Monster sind wie die
+  Monsterhandbücher nur für den SL.
 - **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
   das PRD enthält das Buch nur teilweise). Markierung „AK“.
 - **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index

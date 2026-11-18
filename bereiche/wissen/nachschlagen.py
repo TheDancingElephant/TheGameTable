@@ -45,7 +45,8 @@ def gesperrte_seiten():
     if id(con) not in _gesperrt:  # db() baut die Verbindung neu, wenn sich die Datei ändert
         ids = {r[0] for r in con.execute(
             "SELECT DISTINCT s.id FROM seiten s JOIN abschnitte a ON a.seite_id = s.id "
-            "WHERE s.buch LIKE 'Monsterhandbuch%' AND a.typ = 'monster'")}  # alle Monsterhandbücher
+            "WHERE a.typ = 'monster' AND (s.buch LIKE 'Monsterhandbuch%' "
+            "OR a.kapitel = 'Legendäre Monster')")}  # + legendäre Monster; Spuke sichtbar wie Fallen
         ids |= {r[0] for r in con.execute("SELECT id FROM seiten WHERE pfad IN (%s)" % ",".join("?" * len(SL_SEITEN)),
                                           sorted(SL_SEITEN))}
         _gesperrt.clear()
