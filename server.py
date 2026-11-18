@@ -29,7 +29,7 @@ from bereiche import REAKTIONEN, kern
 from bereiche.kern import Fehler
 import barrieren
 import karten
-import modi as MODI
+from bereiche import charakter as CH, reaktion
 import zauber_db as ZDB
 
 _arg = argparse.ArgumentParser()
@@ -353,6 +353,54 @@ class Spiel:
 SPIEL = Spiel()
 
 
+# ---------------------------------------------------------------- Übergang: Bereich Charakter (bereiche/charakter)
+MODI, AUF = CH.MODI, CH.AUF
+waffe_info, attr_mod = CH.waffe_info, CH.attr_mod
+
+
+def meter_pro_feld():
+    return CH.meter_pro_feld(kx())
+
+
+def wirksam(c):
+    return CH.wirksam(kx(), c)
+
+
+def sc_char(t):
+    return CH.von_token(kx(), t)
+
+
+def char_laden(cid):
+    return CH.laden(kx(), cid)
+
+
+def char_speichern(c):
+    CH.speichern(kx(), c)
+
+
+def char_tp_sync(t):
+    CH.tp_uebernehmen(kx(), t)
+
+
+def sc_token(cid):
+    return CH.sc_token(kx(), cid)
+
+
+def ep_info(c):
+    return CH.ep_info(kx(), c)
+
+
+@reaktion("charakter_modi")
+def _modi_tokens(k, cid, eff):
+    hinweise = [h for t in k.z["tokens"].values() if t.get("charId") == cid if (h := modi_token_sync(t, eff))]
+    return "; ".join(hinweise) or None
+
+
+@reaktion("token_groesse")
+def _token_groesse(k, token, groesse):
+    return token_umgroessern(token, groesse)
+
+
 def gesundheit_text(t):
     if t.get("tpMax") in (None, 0):
         return None
@@ -373,8 +421,6 @@ def gesundheit_text(t):
 def wuerfeln(ausdruck):
     """'1W20+5', '2w6 + 1w4 - 1'. Gibt (summe, details, nat20/nat1-Info) zurück."""
     return kern.wuerfeln(ausdruck, kx().w)
-
-
 
 
 # ---------------------------------------------------------------- Felder & Nebel
@@ -406,21 +452,7 @@ def abstand(t1, t2):
 
 # ---------------------------------------------------------------- Kampf: Waffen, Züge, Angriffe
 
-FERN_RE = re.compile(r"bogen|armbrust|schleuder|blasrohr|wurf|berührungslos|strahl", re.I)
-INKREMENTE = [("langbogen", 30), ("kurzbogen", 18), ("schwere armbrust", 36), ("armbrust", 24),
-              ("schleuder", 15), ("blasrohr", 6), ("wurfspeer", 9), ("wurfaxt", 3), ("dolch", 3),
-              ("berührungslos", 9)]
 UNFAEHIG = ("Bewusstlos", "Sterbend", "Hilflos", "Gelähmt", "Betäubt")
-
-
-def waffe_info(a):
-    """Fernkampf? Grundreichweite (m)? Berührungsangriff? – aus Angaben oder Waffenname."""
-    name = (a.get("name") or "").lower()
-    fern = a.get("fernkampf")
-    if fern is None:
-        fern = bool(FERN_RE.search(name))
-    ink = a.get("inkrement") or (next((m for n, m in INKREMENTE if n in name), 9) if fern else None)
-    return {"fernkampf": fern, "inkrement": ink, "beruehrung": "berührung" in name}
 
 
 def krit_info(krit):
@@ -428,27 +460,6 @@ def krit_info(krit):
     m = re.search(r"(\d+)-20", k)
     m2 = re.search(r"[x×](\d)", k)
     return (int(m.group(1)) if m else 20), (int(m2.group(1)) if m2 else 2)
-
-
-def meter_pro_feld():
-    try:
-        return (SPIEL.karte() or {}).get("meterProFeld", 1.5)
-    except Exception:
-        return 1.5
-
-
-def wirksam(c):
-    """Charakter mit angewendeten Modi (Hast, Größe …); unverändert, wenn Modi in der Kampagne abgeschaltet sind."""
-    if c is None or not KAMP.get("modi", True):
-        return c
-    return MODI.char_wirksam(c, lambda a: waffe_info(a)["fernkampf"], meter_pro_feld())
-
-
-def sc_char(t):
-    try:
-        return wirksam(char_laden(t["charId"])) if t.get("charId") else None
-    except Fehler:
-        return None
 
 
 def reichweite_felder_t(t):
@@ -539,7 +550,7 @@ def ini_weiter():
         if ini["index"] >= n:
             ini["index"] = 0
             ini["runde"] += 1
-            modi_zeit(1)
+            kx().ereignis("runde_vorbei", runden=1)
         if not ist_tot(z, ini["eintraege"][ini["index"]]):
             break
     zug_starten()
@@ -677,68 +688,7 @@ def sturmangriff_feld(t, ziel):
 
 # Mittlere Aufstiegsgeschwindigkeit (PF1): EP, ab denen eine Stufe erreicht ist
 # Erfahrungspunkte je Stufe (PF1), Index = Stufe; Aufstiegsgeschwindigkeit je Kampagne (kampagne.json: "epTempo")
-EP_TABELLEN = {
-    "langsam": [0, 0, 3000, 7500, 14000, 23000, 35000, 53000, 77000, 115000, 160000, 235000, 330000, 475000,
-                665000, 955000, 1350000, 1900000, 2700000, 3850000, 5350000],
-    "mittel": [0, 0, 2000, 5000, 9000, 15000, 23000, 35000, 51000, 75000, 105000, 155000, 220000, 315000,
-               445000, 635000, 890000, 1300000, 1800000, 2550000, 3600000],
-    "schnell": [0, 0, 1300, 3300, 6000, 10000, 15000, 23000, 34000, 50000, 71000, 105000, 145000, 210000,
-                295000, 425000, 600000, 850000, 1200000, 1700000, 2400000],
-}
-EP_MITTEL = EP_TABELLEN.get(KAMP.get("epTempo", "mittel"), EP_TABELLEN["mittel"])  # Name bleibt, Tabelle je Kampagne
 # EP-Belohnung je Herausforderungsgrad
-HG_EP = {"1/8": 50, "1/6": 65, "1/4": 100, "1/3": 135, "1/2": 200, "1": 400, "2": 600, "3": 800, "4": 1200,
-         "5": 1600, "6": 2400, "7": 3200, "8": 4800, "9": 6400, "10": 9600, "11": 12800, "12": 19200,
-         "13": 25600, "14": 38400, "15": 51200, "16": 76800, "17": 102400, "18": 153600, "19": 204800, "20": 307200}
-TREFFERWUERFEL = [("barbar", 12), ("kämpfer", 10), ("paladin", 10), ("waldläufer", 10), ("gestaltwandler", 10),
-                  ("schwertkämpfer", 10), ("kavalier", 10), ("antipaladin", 10), ("magus", 8), ("kleriker", 8),
-                  ("druide", 8), ("schurke", 8), ("barde", 8), ("mönch", 8), ("alchemist", 8), ("inquisitor", 8),
-                  ("orakel", 8), ("hexenjäger", 8), ("ninja", 8), ("schamane", 8), ("skalde", 8), ("investigator", 8),
-                  ("magier", 6), ("hexenmeister", 6), ("hexe", 6), ("arkanist", 6)]
-
-
-FERTIGKEITSPUNKTE = [("schurke", 8), ("ninja", 8), ("investigator", 6), ("barde", 6), ("waldläufer", 6), ("inquisitor", 6),
-                     ("skalde", 4), ("gestaltwandler", 4), ("barbar", 4), ("druide", 4), ("mönch", 4), ("alchemist", 4),
-                     ("orakel", 4), ("schwertkämpfer", 4), ("kavalier", 4), ("hexenjäger", 4)]
-
-
-def stufe_von(c):
-    if c.get("stufe"):
-        return int(c["stufe"])
-    zahlen = re.findall(r"\d+", c.get("klasse") or "")  # Mehrklassig: "Mönch 5 Schurke 3" = Stufe 8
-    return sum(int(z) for z in zahlen) if zahlen else 1
-
-
-def trefferwuerfel(klasse):
-    k = (klasse or "").lower()
-    return next((w for n, w in TREFFERWUERFEL if n in k), 8)
-
-
-def ep_info(c):
-    stufe = stufe_von(c)
-    ep = int(c.get("ep") or 0)
-    naechste = EP_MITTEL[stufe + 1] if stufe + 1 < len(EP_MITTEL) else None
-    return {"stufe": stufe, "ep": ep, "naechste": naechste, "basis": EP_MITTEL[stufe] if stufe < len(EP_MITTEL) else 0,
-            "aufstiegMoeglich": naechste is not None and ep >= naechste and not c.get("aufstieg"),
-            "tw": trefferwuerfel(c.get("klasse")),
-            "fertigkeitspunkte": next((p for n, p in FERTIGKEITSPUNKTE if n in (c.get("klasse") or "").lower()), 2),
-            "koMod": attr_mod((c.get("attribute") or {}).get("KO")),
-            "inMod": attr_mod((c.get("attribute") or {}).get("IN"))}
-
-
-def ep_vergeben(char_ids, je, grund):
-    for c in alle_charaktere():
-        if c["id"] not in char_ids:
-            continue
-        vorher = ep_info(c)["aufstiegMoeglich"]
-        c["ep"] = int(c.get("ep") or 0) + je
-        info = ep_info(c)
-        char_speichern(c)
-        if info["aufstiegMoeglich"] and not vorher:
-            SPIEL.eintragen("system", f"⬆ {c['name']} kann auf Stufe {info['stufe'] + 1} aufsteigen!")
-    namen = ", ".join(c["name"] for c in alle_charaktere() if c["id"] in char_ids)
-    SPIEL.eintragen("ep", f"{grund}: {je} EP für {namen}", ep=je, grund=grund)
-
 
 # ---------------------------------------------------------------- Zauber
 
@@ -758,10 +708,6 @@ def zauber_katalog_liste():
     """Für /api/zauber: jeder Zauber einmal (ohne alte Alias-Namen und ohne PRD-Details), nach Grad und Name."""
     erg = [{k: v for k, v in z.items() if k != "prd"} for z in zauber_db().values() if not z.get("aliasVon")]
     return sorted(erg, key=lambda d: (d.get("grad") or 0, d["name"]))
-
-
-def attr_mod(wert):
-    return 0 if wert is None else (int(wert) - 10) // 2
 
 
 def zauberstufe(c):
@@ -1614,34 +1560,11 @@ def sl_befehl(b):
                           [(t, int(v)) for t, v in b.get("mods", [])]
                           + (MODI.token_angriff_mods(a, b.get("fernkampf", False)) if KAMP.get("modi", True) and not a.get("charId") else []))
     elif op == "ep":  # Erfahrung vergeben: aus HG der Gegner oder fester Betrag, geteilt durch die Empfänger
-        empfaenger = b.get("an") or [t["charId"] for t in z["tokens"].values()
-                                     if t["art"] == "sc" and t.get("karte") == z["karteAktiv"] and t.get("charId")]
-        if not empfaenger:
-            raise Fehler("Keine Empfänger")
-        gesamt = int(b.get("ep") or 0)
-        hg_liste = list(b.get("hg") or [])
-        for tid in b.get("gegner") or []:
-            t = token_finden(tid)
-            if t.get("hg") is None:
-                raise Fehler(f"{t['name']} hat keinen HG")
-            hg_liste.append(str(t["hg"]))
-        for hg in hg_liste:
-            if str(hg) not in HG_EP:
-                raise Fehler(f"Unbekannter HG {hg}")
-            gesamt += HG_EP[str(hg)]
-        je = gesamt // len(empfaenger)
-        ep_vergeben(set(empfaenger), je, b.get("grund") or "Erfahrung")
-        return {"je": je, "gesamt": gesamt}
+        return CH.ep_befehl(kx(), b)
     elif op in ("aufstieg-fertig", "aufstieg-zurueck", "aufstieg-zeigen", "aufstieg-abbrechen"):
-        return aufstieg_sl(op, b)
+        return CH.aufstieg_sl(kx(), op, b)
     elif op == "char-setzen":  # einzelne Werte eines Charakters ändern, Pfad mit Punkten (z. B. rw.REF)
-        c = char_laden(b["charId"])
-        for pfad, wert in b["werte"].items():
-            pfad_setzen(c, pfad, wert)
-        char_speichern(c)
-        t = sc_token(c["id"])
-        if t:
-            t.update({"name": c["name"], "tpMax": c.get("tp", {}).get("max"), "tp": c.get("tp", {}).get("aktuell")})
+        CH.char_setzen(kx(), b["charId"], b["werte"])
     elif op == "rast":  # Zauberplätze zurücksetzen (alle oder ein Charakter)
         for c in alle_charaktere():
             if b.get("charId") in (None, c["id"]):
@@ -1652,7 +1575,7 @@ def sl_befehl(b):
                 if c.get("betaeubendPool"):
                     c["betaeubendPool"]["verbraucht"] = 0
                 char_speichern(c)
-        modi_zeit(4800)  # 8 Stunden: Modi mit kürzerer Dauer enden
+        kx().ereignis("zeit_vergeht", runden=4800)  # 8 Stunden: Modi mit kürzerer Dauer enden
         SPIEL.eintragen("system", "Nach der Rast sind die Zauberplätze wieder frei.")
     elif op == "zug":  # Aktionen des aktuellen Zuges anpassen
         if not z.get("zug"):
@@ -1660,11 +1583,11 @@ def sl_befehl(b):
         for key, wert in b["werte"].items():
             z["zug"][key] = wert
     elif op in ("modus", "modus-ende"):
-        return modi_befehl(op, b)
+        return CH.modus_befehl(kx(), op, b)
     elif op == "modus-zeit":
-        return {"abgelaufen": modi_zeit(int(b["runden"]))}
+        return {"abgelaufen": CH.modi_zeit(kx(), int(b["runden"]))}
     elif op == "modi":
-        return {"zeilen": modi_liste()}
+        return {"zeilen": CH.modi_liste(kx())}
     elif op == "wurf":
         summe, detail, besonders = wuerfeln(b["ausdruck"])
         verborgen = b.get("verborgen", False)
@@ -1689,39 +1612,7 @@ def weckende_ereignisse():
     return False
 
 
-def pfad_setzen(o, pfad, wert):
-    """Setzt einen Wert über einen Punktpfad; Zahlen im Pfad indizieren Listen (z. B. zauberliste.23.verbraucht)."""
-    teile = pfad.split(".")
-    for k in teile[:-1]:
-        if isinstance(o, list):
-            try:
-                o = o[int(k)]
-            except (ValueError, IndexError):
-                raise Fehler(f"Pfad {pfad!r}: Listenindex {k!r} ungültig")
-        else:
-            o = o.setdefault(k, {})
-    letzter = teile[-1]
-    if isinstance(o, list):
-        try:
-            o[int(letzter)] = wert
-        except (ValueError, IndexError):
-            raise Fehler(f"Pfad {pfad!r}: Listenindex {letzter!r} ungültig")
-    else:
-        o[letzter] = wert
-
-
 # ---------------------------------------------------------------- Modi (Hast, Größe, Reichweite …)
-
-def modi_ziel(kennung):
-    """Ziel eines Modus: ('char', Charakterdaten roh) oder ('token', Token ohne Charakterdatei)."""
-    t = SPIEL.z["tokens"].get(kennung)
-    if t is None and kx().chars.existiert(kennung):
-        return "char", char_laden(kennung)
-    if t is None:
-        t = token_finden(kennung)
-    if t.get("charId"):
-        return "char", char_laden(t["charId"])
-    return "token", t
 
 
 def token_umgroessern(t, g):
@@ -1766,102 +1657,6 @@ def modi_token_sync(t, c):
     return hinweis
 
 
-def modi_syncen(art, obj):
-    """Nach einer Änderung der Modi: Datei speichern, Tokens aktualisieren. Gibt Hinweise zurück."""
-    hinweise = []
-    if art == "char":
-        char_speichern(obj)
-        eff = wirksam(char_laden(obj["id"]))
-        for t in SPIEL.z["tokens"].values():
-            if t.get("charId") == obj["id"]:
-                h = modi_token_sync(t, eff)
-                if h:
-                    hinweise.append(h)
-    else:
-        vorher = obj.get("groesse", 1)
-        MODI.token_anwenden(obj, meter_pro_feld())
-        neu = obj.get("groesse", 1)
-        if neu != vorher:
-            obj["groesse"] = vorher
-            h = token_umgroessern(obj, neu)
-            if h:
-                hinweise.append(h)
-    return hinweise
-
-
-def modi_log(obj, text):
-    if obj.get("art") != "gegner" and obj.get("sichtbar", True):
-        SPIEL.eintragen("system", text)
-    else:
-        SPIEL.eintragen("sl-notiz", text, verborgen=True)
-
-
-def modi_zeit(runden):
-    """Zieht Runden von allen Modi ab (Kampfrunde = 1, Rast = 4800 usw.) und meldet Abgelaufenes."""
-    if not KAMP.get("modi", True):
-        return []
-    aus_liste = []
-    for c in kx().chars.alle():
-        if not MODI.aktive(c):
-            continue
-        c["modi"], aus = MODI.zeit(c["modi"], runden)
-        modi_syncen("char", c)
-        aus_liste += [({"name": c["name"], "art": "sc"}, n) for n in aus]
-    for t in list(SPIEL.z["tokens"].values()):
-        if not t.get("charId") and MODI.aktive(t):
-            t["modi"], aus = MODI.zeit(t["modi"], runden)
-            modi_syncen("token", t)
-            aus_liste += [(t, n) for n in aus]
-    for o, n in aus_liste:
-        modi_log(o, f"{o['name']}: {n} endet.")
-    return [f"{o['name']}: {n}" for o, n in aus_liste]
-
-
-def modi_befehl(op, b):
-    art, obj = modi_ziel(b["ziel"])
-    name = (b.get("name") or "").strip()
-    tok = obj if art == "token" else (sc_token(obj["id"]) or {"art": "sc"})
-    if op == "modus":
-        if not name:
-            raise Fehler("Name des Modus fehlt")
-        wirk = MODI.vorlage(name)
-        try:
-            wirk.update(MODI.wirkung_pruefen(b.get("wirkung") or {}))
-            if b.get("groesse") is not None:
-                wirk["groesse"] = int(b["groesse"])
-        except ValueError as e:
-            raise Fehler(str(e))
-        if not wirk:
-            raise Fehler(f"{name!r} ist keine bekannte Vorlage – Wirkung angeben (--wirkung rk=1 …)")
-        rest = b.get("runden")
-        obj["modi"] = MODI.setzen(list(obj.get("modi") or []), name, wirk, None if rest is None else int(rest), b.get("quelle", ""))
-        hinweise = modi_syncen(art, obj)
-        modus = obj["modi"][-1]
-        modi_log(tok, f"{obj['name']}: {name} ({MODI.wirkung_text(wirk)}; {MODI.dauer_text(modus)})")
-        return {"text": f"{obj['name']}: {name} aktiv – {MODI.wirkung_text(wirk)}; {MODI.dauer_text(modus)}", "hinweise": hinweise}
-    if op == "modus-ende":
-        neu, gefunden = MODI.entfernen(list(obj.get("modi") or []), name)
-        if not gefunden:
-            raise Fehler(f"{obj['name']} hat keinen Modus {name!r}")
-        obj["modi"] = neu
-        hinweise = modi_syncen(art, obj)
-        modi_log(tok, f"{obj['name']}: {name} endet.")
-        return {"text": f"{obj['name']}: {name} beendet", "hinweise": hinweise}
-    raise Fehler("Unbekannter Modus-Befehl")
-
-
-def modi_liste():
-    zeilen = []
-    for c in kx().chars.alle():
-        for m in MODI.aktive(c):
-            zeilen.append(f"{c['name']}: {m['name']} – {MODI.wirkung_text(m['wirkung'])}; {MODI.dauer_text(m)}")
-    for t in SPIEL.z["tokens"].values():
-        if not t.get("charId"):
-            for m in MODI.aktive(t):
-                zeilen.append(f"{t['name']} ({t['id']}): {m['name']} – {MODI.wirkung_text(m['wirkung'])}; {MODI.dauer_text(m)}")
-    return zeilen
-
-
 def ini_entfernen(ini, entfernen):
     """Entfernt Initiative-Einträge, ohne den Zeiger auf den aktuellen Zug zu verschieben:
     wer vor dem aktuellen Eintrag entfernt wird, lässt den Index mitwandern."""
@@ -1882,28 +1677,6 @@ def ini_sortieren(ini):
     ini["eintraege"].sort(key=lambda e: -float(e["wert"]))
     if aktuell and ini.get("phase") == "laeuft":
         ini["index"] = next(i for i, e in enumerate(ini["eintraege"]) if e["name"] == aktuell)
-
-
-def char_laden(cid):
-    return kx().chars.laden(cid)
-
-
-def char_speichern(c):
-    c = MODI.speicherbar(c)  # abgeleitete Modus-Werte nie auf die Platte schreiben
-    for e in c.get("zauberliste", []):
-        e.pop("_d", None)
-    for k in ("_ep", "_zauberKlasse", "_vorbereiten"):
-        c.pop(k, None)
-    kx().chars.speichern(c)
-
-
-def char_tp_sync(t):
-    try:
-        c = char_laden(t["charId"])
-    except Fehler:
-        return
-    c.setdefault("tp", {})["aktuell"] = t["tp"]
-    char_speichern(c)
 
 
 def alle_charaktere():
@@ -1929,13 +1702,6 @@ def alle_charaktere():
         c["_zauberKlasse"] = ZDB.zauberklasse(c)  # Zauberliste (Feld oder aus der Klasse erraten)
         c["_vorbereiten"] = ZDB.kann_vorbereiten(c)  # Knopf „Zauber vorbereiten“ zeigen
     return liste
-
-
-def sc_token(cid):
-    for t in SPIEL.z["tokens"].values():
-        if t.get("charId") == cid and t["art"] == "sc":
-            return t
-    return None
 
 
 # ---------------------------------------------------------------- Ausrüstung / Gruppenkasse
@@ -2050,116 +1816,6 @@ def zauberbuch_aendern(b):
     return {}
 
 
-import aufstieg as AUF  # noqa: E402  (Stufenaufstiegs-Assistent)
-
-
-def aufstieg_laden(b):
-    """Charakter für den Assistenten holen und Voraussetzungen prüfen."""
-    c = char_laden(b["charId"])
-    info = ep_info(c)
-    if SPIEL.z["initiative"].get("aktiv"):
-        raise Fehler("Stufenaufstiege erst nach dem Kampf")
-    if c.get("aufstieg") or info["aufstiegMoeglich"]:
-        return c, info
-    raise Fehler(f"{c['name']} hat noch nicht genug Erfahrung")
-
-
-def aufstieg_spieler(pfad, b):
-    c, info = aufstieg_laden(b)
-    auf = c.get("aufstieg")
-    if auf is None:
-        auf = {"zielStufe": info["stufe"] + 1, "status": "entwurf"}
-    if auf.get("status") == "freigegeben":
-        raise Fehler("Dieser Aufstieg ist schon abgeschlossen")
-    klasse = (b.get("klasse") or auf.get("klasse") or "").strip() or None
-    vorlage = b["vorlage"] if "vorlage" in b else auf.get("vorlage")
-    vorlagen = b["vorlagen"] if "vorlagen" in b else auf.get("vorlagen")
-    p = AUF.plan(c, auf["zielStufe"], klasse, vorlage, vorlagen)
-    if pfad == "/api/aufstieg-plan":
-        return {"plan": p, "aufstieg": auf, "tpWuerfelbar": not auf.get("tp")}
-    if pfad == "/api/aufstieg-tp":
-        if auf.get("status") == "eingereicht":
-            raise Fehler("Der Aufstieg liegt schon beim Spielleiter")
-        if not auf.get("tp"):  # nur einmal: Ergebnis bleibt, auch wenn der Dialog neu geöffnet wird
-            plus, text = AUF.tp_wurf(p["tw"], p["koMod"], "wurf" if b.get("art") == "wurf" else "schnitt",
-                                     kx().w)
-            auf["tp"] = {"plus": plus, "text": text}
-            auf["klasse"] = p["klasse"]
-            auf["vorlage"] = p["vorlage"] or ""
-            auf["vorlagen"] = p["vorlagenMap"]
-            SPIEL.eintragen("system", f"{c['name']} bestimmt die Trefferpunkte für Stufe {auf['zielStufe']}: +{plus} ({text}).")
-        c["aufstieg"] = auf
-        char_speichern(c)
-        return {"aufstieg": auf}
-    # senden
-    if auf.get("status") == "eingereicht":
-        raise Fehler("Der Aufstieg liegt schon beim Spielleiter")
-    antrag = b.get("antrag") or {}
-    fehler, warn = AUF.pruefen(c, p, antrag, auf.get("tp"))
-    if fehler:
-        raise Fehler("Nicht abschickbar: " + " · ".join(fehler))
-    auf.update({"status": "eingereicht", "antrag": antrag, "klasse": p["klasse"], "vorlage": p["vorlage"] or "", "vorlagen": p["vorlagenMap"], "warnungen": warn, "kommentar": ""})
-    c["aufstieg"] = auf
-    char_speichern(c)
-    z = AUF.zusammenfassung(c, p, antrag, auf["tp"])
-    SPIEL.eintragen("aufstieg", f"{c['name']} steigt auf: {p['klasse']} (Stufe {auf['zielStufe']})", wer=c["name"],
-                    detail=" · ".join(z[1:]) + (f" · Hinweise: {'; '.join(warn)}" if warn else ""),
-                    wuensche="Antrag wartet auf Freigabe (sl.py aufstieg-fertig " + c["id"] + ")", wecken=True)
-    SPIEL.z["slStatus"] = "wartet"
-    return {}
-
-
-def aufstieg_sl(op, b):
-    c = char_laden(b["charId"])
-    auf = c.get("aufstieg")
-    if not auf:
-        raise Fehler("Kein Aufstieg offen")
-    if op == "aufstieg-abbrechen":
-        c.pop("aufstieg")
-        char_speichern(c)
-        return {}
-    p = AUF.plan(c, auf["zielStufe"], auf.get("klasse"), auf.get("vorlage", ""), auf.get("vorlagen"))
-    antrag = auf.get("antrag")
-    if op == "aufstieg-zeigen":
-        if not antrag:
-            return {"text": f"Aufstieg auf Stufe {auf['zielStufe']}: Status {auf.get('status')}, noch kein Antrag."}
-        f, w = AUF.pruefen(c, p, antrag, auf.get("tp"))
-        return {"text": "\n".join(AUF.zusammenfassung(c, p, antrag, auf["tp"])
-                                  + [f"FEHLER: {x}" for x in f] + [f"Hinweis: {x}" for x in w])}
-    if op == "aufstieg-zurueck":
-        if not antrag:
-            raise Fehler("Kein Antrag eingereicht")
-        auf["status"] = "entwurf"
-        auf["kommentar"] = b.get("grund") or ""
-        char_speichern(c)
-        SPIEL.eintragen("system", f"Der Spielleiter gibt den Aufstieg von {c['name']} zurück: {auf['kommentar'] or 'bitte überarbeiten'}")
-        return {}
-    # aufstieg-fertig
-    if antrag and auf.get("status") == "eingereicht":
-        f, w = AUF.pruefen(c, p, antrag, auf.get("tp"))
-        if f:
-            raise Fehler("Antrag fehlerhaft: " + " · ".join(f))
-        c.pop("aufstieg")
-        AUF.anwenden(c, p, antrag, auf["tp"])
-        if b.get("klasse"):
-            c["klasse"] = b["klasse"]
-        char_speichern(c)
-        t = sc_token(c["id"])
-        if t:
-            t.update({"name": c["name"], "tpMax": c["tp"]["max"], "tp": c["tp"]["aktuell"]})
-        SPIEL.eintragen("system", f"⬆ {c['name']} ist jetzt Stufe {c['stufe']} ({c.get('klasse')}).")
-        return {}
-    if auf.get("status") == "entwurf" and not b.get("erzwingen"):
-        raise Fehler("Der Spieler hat den Aufstieg noch nicht abgeschickt (mit --erzwingen trotzdem abschließen)")
-    c.pop("aufstieg")  # alter Ablauf: Werte hat der SL von Hand eingetragen
-    c["stufe"] = auf["zielStufe"]
-    if b.get("klasse"):
-        c["klasse"] = b["klasse"]
-    char_speichern(c)
-    SPIEL.eintragen("system", f"⬆ {c['name']} ist jetzt Stufe {c['stufe']} ({c.get('klasse')}).")
-    return {}
-
-
 def post_befehl(pfad, b):
     """Alle schreibenden Anfragen (läuft in SPIEL.ausfuehren)."""
     if pfad == "/api/sl/befehl":
@@ -2168,21 +1824,9 @@ def post_befehl(pfad, b):
             ergebnis = sl_befehl(befehl)
         return ergebnis
     if pfad == "/api/charakter":
-        c = b
-        if not c.get("name"):
-            raise Fehler("Name fehlt")
-        c["id"] = c.get("id") or re.sub(r"[^a-z0-9]+", "-", c["name"].lower()).strip("-") or secrets.token_hex(3)
-        char_speichern(c)
-        t = sc_token(c["id"])
-        if t:
-            t.update({"name": c["name"], "farbe": c.get("farbe", t.get("farbe")),
-                      "tpMax": c.get("tp", {}).get("max"), "tp": c.get("tp", {}).get("aktuell")})
-        return c
+        return CH.charakter_speichern(kx(), b, secrets.token_hex(3))
     if pfad == "/api/charakter-loeschen":
-        kx().chars.loeschen(b["id"])
-        t = sc_token(b["id"])
-        if t:
-            del SPIEL.z["tokens"][t["id"]]
+        CH.charakter_loeschen(kx(), b["id"])
         return {}
     return spieler_befehl(pfad, b)
 
@@ -2381,7 +2025,7 @@ def spieler_befehl(pfad, b):
         ziel = token_finden(b["ziel"]) if b.get("ziel") else None
         faehigkeit_wirken(t, c, int(b["index"]), ziel)
     elif pfad in ("/api/aufstieg-plan", "/api/aufstieg-tp", "/api/aufstieg-senden"):
-        return aufstieg_spieler(pfad, b)
+        return CH.aufstieg_spieler(kx(), pfad.rsplit("-", 1)[-1], b)
     elif pfad == "/api/zug-beenden":
         t = token_finden(b["id"])
         darf_handeln(t)
