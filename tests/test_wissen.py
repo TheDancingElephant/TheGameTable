@@ -22,6 +22,10 @@ class WissenTest(unittest.TestCase):
     def test_regel_suchen(self):
         t = self.tk.st.regel_suchen("Gelegenheitsangriff Bewegung verlassen")
         self.assertIn("Gelegenheitsangriff", t)
+        # Grundregeln bleiben trotz vieler Zusatzbücher vorn (erster Treffer, nicht ein Talent der Ausbauregeln)
+        erster = next(z for z in t.splitlines() if z.startswith("[") and z[1:2].isdigit())
+        self.assertIn("] Gelegenheitsangriffe —", erster)
+        self.assertIn("Kritische Treffer —", self.tk.st.regel_suchen("Kritischer Treffer bestätigen", max_treffer=3))
         self.assertIn("Beweglichkeit", self.tk.st.regel_schnell("talent", "Beweglichkeit"))
         # Ausbauregeln III: Völker (Volkstalente) und IV: Kampagnen
         self.assertIn("Ausbauregeln III: Völker", self.tk.st.regel_schnell("talent", "Elfisches Kampftraining"))

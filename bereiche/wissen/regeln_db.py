@@ -558,6 +558,11 @@ def _idf(con, stamme):
     return gew
 
 
+ZUSATZ_KENNZEICHEN = re.compile(r"^(?:[A-ZÄÖÜ]{2,3}|HG\b.*|Archetyp|Kampf|Metamagie|Legende|Stil|Gemeinschaft|"
+                                r"Erschaffung|Gegenstandserschaffung|Kritischer[- ]Treffer|Leistung|Gruppe|Elan|Blick)"
+                                r"(?:\s*[,;].*)?$")
+
+
 def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
     """Nachgewichtung: Titeltreffer (nach Seltenheit der Wörter gewichtet), exakter Titel, Typ, Buch."""
     if not ids_rang:
@@ -588,12 +593,19 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
         # wörtlich gleicher Titel, z. B. „Beweglichkeit“ -> Talent Beweglichkeit (nicht „Bewegung“)
         if kern and len(kern) >= 4 and re.search(r"(?<![\wäöüß])" + re.escape(kern) + r"(?![\wäöüß])", frage_klein):
             p *= 1.25
+        # Zusatz in runden Klammern, der nicht gefragt ist: „Kritischer Treffer (Verwirrt)“ hinter „Kritische Treffer“
+        # (Kennzeichen wie (AF), (ÜF), (Kampf), (Archetyp), (HG 5) zählen nicht)
+        for zusatz in re.findall(r"\(([^)]*)\)", r["titel"]):
+            zst = {stamm(w) for w in woerter(zusatz)}
+            if zst and not zst & sset and not ZUSATZ_KENNZEICHEN.match(zusatz.strip()):
+                p *= 0.85
+                break
         if typ_wunsch and r["typ"] == typ_wunsch:
             p *= 1.5
         if r["zeichen"] < 40:
             p *= 0.6
         if r["buch"] == "Grundregelwerk":
-            p *= 1.1  # Grundregeln werden am häufigsten gebraucht
+            p *= 1.2  # Grundregeln werden am häufigsten gebraucht
         aus.append((p, i))
     aus.sort(reverse=True)
     return aus
@@ -637,18 +649,27 @@ def suchen(frage, kategorie=None, buch=None, typ=None, max_treffer=5, datei=None
     gefunden = {}
     sql = ("SELECT a.id, bm25(abschnitte_fts, 8.0, 2.0, 1.0) AS r FROM abschnitte_fts JOIN abschnitte a "
            "ON a.id = abschnitte_fts.rowid WHERE abschnitte_fts MATCH ?" + filt + " ORDER BY r LIMIT 150")
-    versuche = [_fts_ausdruck(gruppen, True)]
+    # alle Wörter; dann je ein Wort weggelassen; zuletzt irgendeines
+    versuche = [(_fts_ausdruck(gruppen, True), 1.0)]
+    if 2 < len(gruppen) <= 6:
+        versuche += [(_fts_ausdruck(gruppen[:k] + gruppen[k + 1:], True), 0.6) for k in range(len(gruppen))]
     if len(gruppen) > 1:
-        versuche.append(_fts_ausdruck(gruppen, False))
-    for n, ausdruck in enumerate(versuche):
+        versuche.append((_fts_ausdruck(gruppen, False), 0.35))
+    for ausdruck, faktor in versuche:
         try:
             for r in con.execute(sql, [ausdruck] + par):
                 if r["id"] not in gefunden:
-                    gefunden[r["id"]] = r["r"] * (1.0 if n == 0 else 0.35)
+                    gefunden[r["id"]] = r["r"] * faktor
         except sqlite3.OperationalError:
             continue
-        if len(gefunden) >= max_treffer * 3:
+        if len(gefunden) >= 150 or (faktor < 1.0 and len(gefunden) >= max_treffer * 3):
             break
+    # Titeltreffer immer als Kandidaten (bei vielen Büchern fallen Grundregeln sonst aus den 150 besten heraus)
+    try:
+        for r in con.execute(sql, ["{titel} : (" + _fts_ausdruck(gruppen, False) + ")"] + par):
+            gefunden.setdefault(r["id"], r["r"] * 0.5)
+    except sqlite3.OperationalError:
+        pass
     # Teilwort-Treffer im Titel (Trigramm), z. B. „Weihwasser“ in „Fläschchen mit Weihwasser“
     for w in woerter(frage):
         if len(w) >= 4 and w not in STOPP:
