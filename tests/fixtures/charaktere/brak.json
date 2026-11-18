@@ -1,0 +1,27 @@
+{
+ "id": "brak",
+ "name": "Brak",
+ "klasse": "Kämpfer 3",
+ "stufe": 3,
+ "volk": "Mensch",
+ "farbe": "#3a7bd5",
+ "attribute": {"ST": 16, "GE": 14, "KO": 14, "IN": 10, "WE": 12, "CH": 8},
+ "tp": {"max": 30, "aktuell": 30},
+ "rk": {"normal": 18, "beruehrung": 12, "adff": 16},
+ "ini": 2,
+ "gab": 3,
+ "kmb": 6,
+ "kmv": 18,
+ "rw": {"REF": 3, "WIL": 2, "ZAEH": 5},
+ "bewegung": 9,
+ "angriffe": [
+  {"name": "Langschwert", "bonus": 7, "schaden": "1W8+3", "krit": "19-20/x2"},
+  {"name": "Kurzbogen", "bonus": 5, "schaden": "1W6", "krit": "x3"},
+  {"name": "Vollangriff Langschwert", "bonus": 7, "schaden": "1W8+3", "krit": "19-20/x2", "serie": [7]}
+ ],
+ "fertigkeiten": [{"name": "Wahrnehmung", "bonus": 4, "klasse": false}, {"name": "Klettern", "bonus": 6, "klasse": true}],
+ "talente": "Ausweichen, Beweglichkeit, Waffenfokus (Langschwert)",
+ "faehigkeiten": "",
+ "ausruestung": "Langschwert\nKurzbogen",
+ "ep": 5000
+}

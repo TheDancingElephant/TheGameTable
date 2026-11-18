@@ -1,0 +1,18 @@
+{
+ "id": "lern",
+ "name": "Lern",
+ "klasse": "Kämpfer 1",
+ "stufe": 1,
+ "volk": "Mensch",
+ "farbe": "#d5a03a",
+ "attribute": {"ST": 15, "GE": 13, "KO": 14, "IN": 10, "WE": 10, "CH": 10},
+ "tp": {"max": 12, "aktuell": 12},
+ "rk": {"normal": 16, "beruehrung": 11, "adff": 15},
+ "gab": 1,
+ "rw": {"REF": 1, "WIL": 0, "ZAEH": 4},
+ "bewegung": 9,
+ "angriffe": [{"name": "Langschwert", "bonus": 3, "schaden": "1W8+2", "krit": "19-20/x2"}],
+ "fertigkeiten": [{"name": "Klettern", "bonus": 6, "klasse": true}],
+ "talente": "Heftiger Angriff",
+ "ep": 1900
+}

@@ -1,0 +1,21 @@
+{
+ "id": "lied",
+ "name": "Lied",
+ "klasse": "Barde 2",
+ "stufe": 2,
+ "volk": "Elf",
+ "farbe": "#3ad57a",
+ "attribute": {"ST": 10, "GE": 14, "KO": 12, "IN": 12, "WE": 10, "CH": 16},
+ "tp": {"max": 14, "aktuell": 14},
+ "rk": {"normal": 14, "beruehrung": 12, "adff": 12},
+ "gab": 1,
+ "rw": {"REF": 5, "WIL": 3, "ZAEH": 1},
+ "bewegung": 9,
+ "zauberattribut": "CH",
+ "zauberpools": {"grad1": {"max": 2, "verbraucht": 0, "name": "Grad 1"}},
+ "zauberliste": [
+  {"name": "Federfall", "grad": 1, "proTag": null, "verbraucht": 0, "pool": "grad1"},
+  {"name": "Leichte Wunden heilen", "grad": 1, "proTag": null, "verbraucht": 0, "pool": "grad1"}
+ ],
+ "ep": 1500
+}

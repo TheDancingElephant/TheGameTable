@@ -205,7 +205,7 @@ eingebettetes Python.
 |---|---|
 | Git, `.gitignore`, Ausgangsstand | erledigt |
 | ARCHITEKTUR.md, STYLEGUIDE.md | erledigt |
-| Testsammlung `tests/` | offen |
+| Testsammlung `tests/` (61 Tests, ~80 s) | erledigt |
 | Shell: Kontext, Sicherung je Befehl, Charakterspeicher | offen |
 | Kampf + Modi | offen |
 | Karte | offen |
