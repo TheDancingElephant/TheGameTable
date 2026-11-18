@@ -584,8 +584,10 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
 
 
 # Bücher: Kürzel für die Ausgabe, Rang bei gleichnamigen Einträgen (Grundregelwerk zuerst)
-BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch": "MHB", "Abenteurerkompendium": "AK"}
-BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3}
+BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch": "MHB", "Abenteurerkompendium": "AK",
+             "Monsterhandbuch II": "MHB2"}
+BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
+             "Monsterhandbuch II": 4}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",

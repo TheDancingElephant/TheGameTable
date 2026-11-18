@@ -236,7 +236,7 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   (z. B. Schwarm, Untote), Monster-Talente, Monster erschaffen/verbessern, Monster als SC/Gefolgsleute/Tiergefährten,
   Begegnungstabellen. Markierung „MHB“. Schnellabfrage: MCP `monster_info` (name | hg, art) bzw.
   `sl.py regel --monster Lehmgolem` · `sl.py regel --monster --hg 3 --art Untoter`. Fallen aus dem Grundregelwerk
-  haben den Typ `falle`. Monsterhandbuch II–V sind (noch) nicht enthalten.
+  haben den Typ `falle`. **Monsterhandbuch II** ist ebenso enthalten (Markierung „MHB2“), III–V (noch) nicht.
 - **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
   das PRD enthält das Buch nur teilweise). Markierung „AK“.
 - **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index

@@ -680,7 +680,7 @@ def t_regeln_pdf(a):
     return ST.regeln_pdf(a.get("quellen"), a.get("ohne") or ())
 
 
-@tool("monster_info", "Monster-Werteblock aus dem Monsterhandbuch (PRD): HG, EP, Art, RK, TP, Rettungswürfe, Angriffe, "
+@tool("monster_info", "Monster-Werteblock aus Monsterhandbuch I und II (PRD): HG, EP, Art, RK, TP, Rettungswürfe, Angriffe, "
       "Spielwerte, Besondere Fähigkeiten, Beschreibung. IMMER statt Werten aus dem Gedächtnis. Ohne name: Liste, "
       "filterbar nach hg (z. B. 3, 1/2) und art (z. B. Untoter, Konstrukt, Drache).",
       {"name": S("Monstername, z. B. Lehmgolem, Ghul"), "hg": S("Herausforderungsgrad (Liste)"),

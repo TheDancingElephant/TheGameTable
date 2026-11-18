@@ -878,7 +878,7 @@ class Spieltisch:
             raise SLFehler(f"PDF-Index: {e}") from None
 
     def monster_info(self, name=None, hg=None, art=None):
-        """Monster-Werteblock aus dem Monsterhandbuch (PRD); ohne Namen: Liste nach HG/Art."""
+        """Monster-Werteblock aus Monsterhandbuch I und II (PRD); ohne Namen: Liste nach HG/Art."""
         return regeln_db.monster_text(name, hg, art)
 
     def regeln_aktualisieren(self, nur_index=False, meldung=None):

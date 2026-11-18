@@ -30,6 +30,9 @@ class WissenTest(unittest.TestCase):
         self.assertIn("SR** 10/Adamant", t)
         liste = self.tk.st.monster_info(hg="10", art="Konstrukt")
         self.assertIn("Lehmgolem", liste)
+        gug = self.tk.st.monster_info("Gug")  # Monsterhandbuch II
+        self.assertIn("Gug (HG", gug)
+        self.assertIn("Monsterhandbuch II", gug)
         self.assertIn("MHB", self.tk.st.regel_suchen("Schwarm Flächenschaden"))
 
     def test_hausregel_hat_vorrang(self):
@@ -98,6 +101,8 @@ class WissenTest(unittest.TestCase):
         # Spieler: keine Monsterseiten in Suche und Inhalt, allgemeine Monsterregeln schon
         t = self.wissen("suche", q="Golem")["treffer"]
         self.assertFalse(any(x["art"] == "monster" or x["titel"].startswith("Golem") for x in t))
+        self.assertFalse(self.wissen("suche", q="Gug")["treffer"] and any(  # Monsterhandbuch II ebenso
+            x["titel"].startswith("Gug") for x in self.wissen("suche", q="Gug")["treffer"]))
         self.assertTrue(any(x["titel"] == "Golem" for x in self.wissen("suche", sl=True, q="Golem")["treffer"]))
         self.assertTrue(self.wissen("suche", q="Regeneration")["treffer"])
         mhb = {b["titel"]: [k["titel"] for k in b["kapitel"]] for b in self.wissen("inhalt")["buecher"]}["Monsterhandbuch"]

@@ -42,6 +42,7 @@ BUECHER = {
     "Expertenregeln": {"start": "/Expertenregeln",
                        "ohne": ["/Expertenregeln/Zauber", "/Expertenregeln/Zauberlisten"]},
     "Monsterhandbuch": {"start": "/Monsterhandbuch", "ohne": []},
+    "Monsterhandbuch II": {"start": "/Monsterhandbuch-II", "ohne": []},
     "Abenteurerkompendium": {"start": "/Abenteurerkompendium",
                              "ohne": ["/Abenteurerkompendium/Zauber", "/Abenteurerkompendium/Zauberlisten"]},
 }

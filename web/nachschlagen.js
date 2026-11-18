@@ -101,7 +101,7 @@ async function inhaltZeichnen(s) {
   const d = await api("/api/wissen/inhalt").catch(() => null);
   if (!d) return;
   $("#ns-liste").innerHTML = `<div class="anzahl">Inhalt</div>` + d.buecher.map((b) =>
-    `<details class="buch"${b.titel !== "Monsterhandbuch" ? " open" : ""}><summary><a href="${esc(adresse({ ...s, e: `seite:${b.id}` }))}" data-e="seite:${b.id}">${esc(b.titel)}</a></summary>
+    `<details class="buch"${!b.titel.startsWith("Monsterhandbuch") ? " open" : ""}><summary><a href="${esc(adresse({ ...s, e: `seite:${b.id}` }))}" data-e="seite:${b.id}">${esc(b.titel)}</a></summary>
     ${b.kapitel.map((k) => `<a class="kapitel${s.e === `seite:${k.id}` ? " aktiv" : ""}" href="${esc(adresse({ ...s, e: `seite:${k.id}` }))}" data-e="seite:${k.id}">${esc(k.titel)}</a>`).join("")}</details>`).join("");
 }
 
@@ -163,7 +163,7 @@ async function seiteHtml(id, s) {
 function startHtml(s) {
   const f = N.filter;
   return `<h2>Regeln, Zauber${f.sl ? ", Monster" : ""} nachschlagen</h2>
-    <p>Suche oben im ganzen Regelwerk (Grundregelwerk, Expertenregeln${f.sl ? ", Monsterhandbuch" : ""}), in den Zaubern${f.hausregeln ? " und in den Hausregeln dieser Kampagne" : ""}.
+    <p>Suche oben im ganzen Regelwerk (Grundregelwerk, Expertenregeln${f.sl ? ", Monsterhandbücher" : ""}), in den Zaubern${f.hausregeln ? " und in den Hausregeln dieser Kampagne" : ""}.
     Unter <b>Zauber</b> lassen sich alle Zauber einer Klasse und eines Grades auflisten${f.sl ? ", unter <b>Monster</b> alle Monster nach HG und Art" : ""}; <b>Inhalt</b> zeigt die Kapitel der Bücher.</p>
     ${f.zustaende.length ? `<h3>Zustände</h3><div class="unterseiten">${f.zustaende.map((z) => link(`zustand:${z}`, z, s)).join("")}</div>` : ""}
     ${f.datenbank ? "" : `<p class="hinweis">Die Regeldatenbank fehlt (regeln/regeln.sqlite); nur Zauber sind verfügbar.</p>`}

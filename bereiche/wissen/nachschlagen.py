@@ -15,7 +15,7 @@ from . import regeln_db, zauber_db
 # Seiten des Monsterhandbuchs ohne Werteblock, die trotzdem nur der SL sieht (Listen mit Monsternamen und HG)
 SL_SEITEN = {"/Monsterhandbuch/Begegnungstabellen", "/Monsterhandbuch/Index", "/Monsterhandbuch/Index-der-Monstervarianten",
              "/Monsterhandbuch/Monster-nach-HG", "/Monsterhandbuch/Monster-nach-Geländeart",
-             "/Monsterhandbuch/Monsterindex-nach-Art"}
+             "/Monsterhandbuch/Monsterindex-nach-Art", "/Monsterhandbuch-II/Index"}
 MAX_ZEICHEN = 60000  # längere Einträge: Unterabschnitte danach nur noch als Verweis
 MAX_TREFFER = 30
 ZAUBER_FELDER = (("zeitaufwand", "Zeitaufwand"), ("komponenten", "Komponenten"), ("reichweite", "Reichweite"),
@@ -45,7 +45,7 @@ def gesperrte_seiten():
     if id(con) not in _gesperrt:  # db() baut die Verbindung neu, wenn sich die Datei ändert
         ids = {r[0] for r in con.execute(
             "SELECT DISTINCT s.id FROM seiten s JOIN abschnitte a ON a.seite_id = s.id "
-            "WHERE s.buch = 'Monsterhandbuch' AND a.typ = 'monster'")}
+            "WHERE s.buch LIKE 'Monsterhandbuch%' AND a.typ = 'monster'")}  # alle Monsterhandbücher
         ids |= {r[0] for r in con.execute("SELECT id FROM seiten WHERE pfad IN (%s)" % ",".join("?" * len(SL_SEITEN)),
                                           sorted(SL_SEITEN))}
         _gesperrt.clear()
