@@ -194,10 +194,13 @@ gespeichert und sind für alle Spieler gleich).
 Öffnet in einem eigenen Tab das Regelwerk (Grundregelwerk, Expertenregeln, allgemeine Monsterregeln), alle Zauber und
 die Hausregeln eurer Kampagne:
 - **Suchfeld**: Begriff eingeben (z. B. „Ringkampf“, „Gelegenheitsangriff verlassen“, „Hast“). Hausregeln stehen oben.
-- **Bereiche**: *Alle, Regeln, Zauber, Inhalt*. Unter *Zauber* ohne Suchwort z. B. Klasse „Barde“ und Grad 1 wählen –
-  dann erscheinen alle passenden Zauber. *Inhalt* zeigt die Kapitel der Bücher zum Blättern.
+- **Bereiche**: *Alle, Regeln, Talente, Zauber, Inhalt*. *Inhalt* zeigt die Kapitel der Bücher zum Blättern.
+- **Talente** und **Zauber** sind Tabellen: oben filtern (z. B. Klasse „Barde“ und Grad 1, oder Talent-Art „Kampf“),
+  das Suchfeld filtert mit, ein Klick auf den Spaltenkopf sortiert (zweiter Klick: umgekehrt). Ein Klick auf eine
+  Zeile zeigt den ganzen Text rechts daneben; **✕ schließen** blendet ihn wieder aus.
 - Im Text sind kursive Zauber- und Zustandsnamen anklickbar; „im PRD öffnen“ führt zur Originalseite.
-- Monster und ihre Werte sieht nur der Spielleiter.
+- Unter *Inhalt* stehen alle Monsterhandbücher zusammen als **Monster** (allgemeine Monsterregeln, Kreaturenarten …).
+  Monster und ihre Werte sieht nur der Spielleiter.
 
 ---
 

@@ -275,8 +275,14 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
 Eigene Seite für Spieler und SL, ohne Kommandozeile: Knopf **📖 Nachschlagen** oben rechts im Spieltisch öffnet sie in
 einem eigenen Tab (immer demselben). Mit SL-Schlüssel (`?sl=…`, wird vom Spieltisch mitgegeben) ist es die SL-Ansicht.
 - **Suche** über Regeldatenbank, Zauber (Name) und Hausregeln der Kampagne (Hausregeln oben, grün markiert, mit Vorrang);
-  Bereiche *Alle · Regeln · Zauber · Monster (nur SL) · Inhalt*. Filter: Regeln nach Buch und Typ; Zauber nach Klasse,
-  Grad, Schule, Quelle, „auch im Text“ (ohne Suchwort = Liste, z. B. alle Barde-1-Zauber); Monster nach HG und Kreaturart.
+  Bereiche *Alle · Regeln · Talente · Zauber · Monster (nur SL) · Inhalt*. Filter: Regeln nach Buch und Typ; Monster nach
+  HG und Kreaturart. Alle Monsterhandbücher (I, II, später weitere) erscheinen gemeinsam als **„Monster“**: im
+  Buchfilter ein Eintrag, im Inhalt ein Bereich mit den allgemeinen Kapiteln aller Bände (einzelne Monster stehen in
+  der Monster-Liste des SL, nicht im Inhalt).
+- **Tabellen (Grids)** für *Talente* (Name, Art, Voraussetzungen, Vorteil, Buch; Filter Art und Buch) und *Zauber* (Name,
+  Schule, Grad der gewählten Klasse, Zeitaufwand, Reichweite, Wirkungsdauer, RW, ZR, Kurzbeschreibung, Quelle; Filter
+  Klasse, Grad, Schule, Quelle, „auch im Text“). Das Suchfeld filtert mit, Klick auf den Spaltenkopf sortiert (nochmal:
+  absteigend, `&sort=-grad`), Klick auf eine Zeile öffnet den Volltext rechts daneben (✕ schließt ihn).
 - **Leseansicht** mit Unterabschnitten, Tabellen, Pfad (Buch › Seite › Abschnitt), passenden Hausregeln und Link ins
   PRD. Kursiv gesetzte Zauber- und Zustandsnamen im Text sind Verweise. **Inhalt** zeigt die Kapitel der Bücher.
 - Adresse enthält Suche und Eintrag (`?q=Ringkampf&e=regel:3702`, `?e=zauber:Hast`, `?e=zustand:Liegend`) – Zurück/Vor
@@ -289,7 +295,9 @@ einem eigenen Tab (immer demselben). Mit SL-Schlüssel (`?sl=…`, wird vom Spie
   sind öffentlich. Liste der gesperrten Listen-Seiten: `nachschlagen.SL_SEITEN`.
 - API (nur lesend, GET): `/api/wissen/suche?q=&art=alle|regeln|zauber|monster&buch=&typ=&klasse=&grad=&schule=&quelle=&volltext=1&hg=&monsterart=`,
   `/api/wissen/eintrag?art=regel|monster|zauber|hausregel|zustand|talent|fertigkeit&id=|name=`,
-  `/api/wissen/inhalt[?seite=ID]`, `/api/wissen/filter`. Code: `bereiche/wissen/nachschlagen.py`.
+  `/api/wissen/inhalt[?seite=ID]`, `/api/wissen/filter`, `/api/wissen/talente` (alle Talente, gefiltert wird im
+  Browser), `/api/wissen/zauber?q=&klasse=&grad=&schule=&quelle=&volltext=1` (Zeilen des Zauber-Grids).
+  Code: `bereiche/wissen/nachschlagen.py`.
 
 ## Lizenz und Rechtliches
 - **Programmcode und Dokumentation:** MIT-Lizenz (siehe [LICENSE](LICENSE)), © 2026 TheDancingElephant.
