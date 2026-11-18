@@ -255,12 +255,12 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
 - Im ZIP (`paket_bauen.py`): `regeln/regeln.sqlite` + `regeln/LIZENZ-REGELN.txt` (nicht `regeln/cache`, `regeln/md`).
 
 ## Lizenz und Rechtliches
-- **Programmcode:** Eine Lizenz für den Code ist noch nicht festgelegt. Bis dahin gilt: öffentlich einsehbar, alle
-  Rechte beim Autor (siehe Git-Historie). Eigene Arbeit sind auch Suchindex-Aufbau, Synonymliste und die
-  Spielmechanik-Datei `daten/zauber.json`.
+- **Programmcode und Dokumentation:** MIT-Lizenz (siehe [LICENSE](LICENSE)), © 2026 TheDancingElephant.
+  Ausgenommen sind die OGL-Dateien unten.
+- **Spielmechanik der Zauber** (`daten/zauber.json`): von Open Game Content abgeleitet, daher ebenfalls OGL 1.0a.
 - **Regel- und Zaubertexte:** Open Game Content aus dem deutschen PRD (https://prd.5footstep.de) unter der Open Game
   License 1.0a. Volltext der OGL und Abschnitt 15 (Urheberrechtsvermerke): `regeln/LIZENZ-REGELN.txt` (für
-  `regeln/regeln.sqlite`) und `daten/LIZENZ-ZAUBER.txt` (für `daten/zauber_prd.json`). Diese Dateien gehören zu jeder
+  `regeln/regeln.sqlite`) und `daten/LIZENZ-ZAUBER.txt` (für `daten/zauber_prd.json` und `daten/zauber.json`). Diese Dateien gehören zu jeder
   Weitergabe (`paket_bauen.py` erzwingt das).
 - **Product Identity / Marken:** Der Spieltisch ist ein inoffizielles, kostenloses Fan-Werkzeug, *kompatibel mit dem
   Pathfinder-Rollenspiel (1. Edition)*. Pathfinder ist eine Marke von Paizo Inc., die deutsche Übersetzung stammt von

@@ -21,7 +21,7 @@ from pathlib import Path
 
 BASIS = Path(__file__).resolve().parent
 
-DATEIEN = ["ANLEITUNG.md", "ANLEITUNG.pdf", "AGENT.md", "README.md",
+DATEIEN = ["ANLEITUNG.md", "ANLEITUNG.pdf", "AGENT.md", "README.md", "LICENSE", "ARCHITEKTUR.md", "STYLEGUIDE.md",
            "einrichten.bat", "start.bat", "zentrale.bat", "python_finden.bat"]
 ORDNER = ["web", "mcp", "daten", "vorlage", "bereiche"]
 # Regeldatenbank: nur Datenbank + Lizenz (Cache und Markdown-Ausgabe entstehen auf dem Zielrechner bei Bedarf)

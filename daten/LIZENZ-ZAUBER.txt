@@ -12,7 +12,9 @@ Pathfinder ist eine Marke von Paizo Inc. Diese Datei verwendet Inhalte gemäß d
 Policy; sie ist nicht von Paizo veröffentlicht, unterstützt oder genehmigt. Die Weitergabe darf nicht gegen Entgelt
 erfolgen. Product Identity (Eigennamen, Orte, Gottheiten usw., siehe unten) ist nicht Open Content.
 
-Die Spielmechanik-Datei daten/zauber.json und der Programmcode des Spieltisches sind eigene Arbeit.
+Der Programmcode des Spieltisches ist eigene Arbeit (MIT-Lizenz, siehe LICENSE im Programmordner). Die
+Spielmechanik-Datei daten/zauber.json ist eine eigene Aufbereitung von Open Game Content und steht ebenfalls
+unter der Open Game License 1.0a.
 
 -----------------------------------------------------------------------------
 Text der Seite „Open Game License“ des deutschen PRD:
@@ -317,6 +319,8 @@ Yellow Musk Zombie from the Tome of Horrors © 2002, Necromancer Games, Inc.; Au
 Yeti from the Tome of Horrors © 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
 
 Zombie Juju from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Spieltisch (TheGameTable), Zauberdatenbank (daten/zauber_prd.json) und Zaubermechanik (daten/zauber.json) © 2026, TheDancingElephant.
 
 Häufig gestellte Fragen zur OGL
 

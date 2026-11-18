@@ -15,7 +15,8 @@ verwendet Inhalte gemäß der OGL und der Paizo Community Use Policy; sie ist ni
 veröffentlicht, unterstützt oder genehmigt. Die Weitergabe darf nicht gegen Entgelt erfolgen. Product Identity
 (Eigennamen, Orte, Gottheiten usw., siehe unten) ist nicht Open Content.
 
-Programmcode (bereiche/wissen/regeln_db.py, regeln_abruf.py, regeln_md.py), Suchindex-Aufbau und Synonymliste sind eigene Arbeit.
+Programmcode (bereiche/wissen/regeln_db.py, regeln_abruf.py, regeln_md.py), Suchindex-Aufbau und Synonymliste sind eigene Arbeit
+(Programmcode: MIT-Lizenz, siehe LICENSE im Programmordner).
 Hausregeln (sl/hausregeln.md in den Kampagnen) gehören nicht zur Datenbank.
 
 -----------------------------------------------------------------------------
@@ -321,6 +322,8 @@ Yellow Musk Zombie from the Tome of Horrors © 2002, Necromancer Games, Inc.; Au
 Yeti from the Tome of Horrors © 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
 
 Zombie Juju from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+
+Spieltisch (TheGameTable), Regeldatenbank (regeln/regeln.sqlite, regeln/md/) © 2026, TheDancingElephant.
 
 Häufig gestellte Fragen zur OGL
 
