@@ -47,9 +47,31 @@ def ziel_rk(kx, ziel, beruehrung):
     return normal
 
 
-def aufloesen(kx, wer, ziel, waffe, bonus, schaden, krit, beruehrung, nahkampf, mods):
+def ga_bonus(kx, ziel, art):
+    """RK-Boni des Ziels gegen einen Gelegenheitsangriff: Talent Beweglichkeit (+4, nur wenn der GA durch Bewegung
+    provoziert wurde) und Modus-Wirkung `rkga`. Beides sind Ausweichboni und entfallen, wenn das Ziel auf dem
+    falschen Fuß oder hilflos ist (GRW: Talente, Beweglichkeit). Gibt [(Text, Wert)] zurück."""
+    zs = set(ziel.get("zustaende", []))
+    if "Auf dem falschen Fuß" in zs or zs & set(UNFAEHIG):
+        return []
+    if ziel["art"] == "sc":
+        c = CH.von_token(kx, ziel) or {}
+        talente, summe = c.get("talente"), (c.get("_wirkung") or {}).get("summe", {})
+    else:
+        talente, summe = ziel.get("talente"), CH.MODI.summe(CH.MODI.aktive(ziel))
+    text = (talente if isinstance(talente, str) else json.dumps(talente or "", ensure_ascii=False)).lower()
+    teile = []
+    if art == "bewegung" and re.search(r"\bbeweglichkeit\b", text):
+        teile.append(("Beweglichkeit", 4))
+    if summe.get("rkga"):
+        teile.append(("Modus gegen GA", int(summe["rkga"])))
+    return teile
+
+
+def aufloesen(kx, wer, ziel, waffe, bonus, schaden, krit, beruehrung, nahkampf, mods, gelegenheitsangriff=None):
     """Würfelt einen Angriff gegen die (verdeckte) RK, inkl. Kritischem Treffer, und zieht Schaden ab.
-    Gibt True/False (Treffer) zurück, None, wenn keine RK bekannt ist (dann wertet der SL aus)."""
+    gelegenheitsangriff: None (normaler Angriff), "bewegung"/True (GA durch Bewegung: Beweglichkeit zählt) oder
+    "andere" (GA aus anderem Grund). Gibt True/False (Treffer) zurück, None, wenn keine RK bekannt ist."""
     zs = ziel.get("zustaende", [])
     if "Liegend" in zs:
         mods.append(("Ziel liegt", 4 if nahkampf else -4))
@@ -57,10 +79,14 @@ def aufloesen(kx, wer, ziel, waffe, bonus, schaden, krit, beruehrung, nahkampf, 
         mods.append(("Ziel hilflos", 4))
     summe_mods = sum(v for _, v in mods)
     rk = ziel_rk(kx, ziel, beruehrung)
+    rk_extra = []
+    if gelegenheitsangriff and rk is not None:
+        rk_extra = ga_bonus(kx, ziel, "andere" if gelegenheitsangriff == "andere" else "bewegung")
+        rk += sum(v for _, v in rk_extra)
     d20 = kx.w(20)
     gesamt = d20 + bonus + summe_mods
     detail = f"1W20[{d20}] {bonus:+d}" + "".join(f" {v:+d} {t}" for t, v in mods)
-    titel = f"{wer} greift {ziel['name']} an ({waffe})"
+    titel = f"{wer} greift {ziel['name']} an ({'Gelegenheitsangriff, ' if gelegenheitsangriff else ''}{waffe})"
     besonders = "nat20" if d20 == 20 else "nat1" if d20 == 1 else None
     if rk is None:  # keine RK hinterlegt: der SL wertet aus
         kx.protokoll("angriff", titel, wer=wer, ergebnis=gesamt, detail=detail, besonders=besonders,
@@ -87,7 +113,8 @@ def aufloesen(kx, wer, ziel, waffe, bonus, schaden, krit, beruehrung, nahkampf, 
     kx.protokoll("angriff", titel, wer=wer, ergebnis=gesamt, detail=detail, besonders=besonders,
                  treffer=treffer, kritisch=kritisch, bestaetigung=bestaetigung, schaden=schaden_summe,
                  schadenDetail=" + ".join(sdetail), zielId=ziel["id"])
-    kx.protokoll("sl-notiz", f"{titel}: {gesamt} gegen RK {rk} → {'Treffer' if treffer else 'daneben'}"
+    extra = f" ({', '.join(f'{t} {v:+d}' for t, v in rk_extra)})" if rk_extra else ""
+    kx.protokoll("sl-notiz", f"{titel}: {gesamt} gegen RK {rk}{extra} → {'Treffer' if treffer else 'daneben'}"
                  f"{', kritisch' if kritisch else ''}; {ziel['name']} TP {ziel.get('tp')}/{ziel.get('tpMax')}",
                  verborgen=True)
     return treffer
@@ -149,7 +176,8 @@ def sl_bewegen(kx, tid, x, y):
 
 
 def sl_angriff(kx, b):
-    """Angriff eines Gegners/NSC, ohne Regelprüfung (der SL entscheidet); Modi des Angreifers zählen mit."""
+    """Angriff eines Gegners/NSC, ohne Regelprüfung (der SL entscheidet); Modi des Angreifers zählen mit.
+    b["gelegenheitsangriff"]: "bewegung" (Beweglichkeit des Ziels zählt) oder "andere"."""
     a = KA.finden(kx, b["angreifer"])
     ziel = KA.finden(kx, b["ziel"])
     fern = b.get("fernkampf", False)
@@ -157,7 +185,7 @@ def sl_angriff(kx, b):
     if kx.einst.get("modi", True) and not a.get("charId"):
         mods += CH.MODI.token_angriff_mods(a, fern)
     aufloesen(kx, a["name"], ziel, b.get("waffe", "Angriff"), int(b["bonus"]), b.get("schaden"),
-              b.get("krit"), b.get("beruehrung", False), not fern, mods)
+              b.get("krit"), b.get("beruehrung", False), not fern, mods, b.get("gelegenheitsangriff"))
 
 
 def _serie(a):

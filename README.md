@@ -68,6 +68,8 @@ Felder je Charakter-ID: `name, symbol, farbe, x, y, groesse, art (sc|gegner|nsc)
 Token mit Zustand „Tot“ werden auf der Karte grau, halbtransparent, mit ☠ und durchgestrichenem Namen gezeichnet und bekommen keinen Zugkranz mehr. „Sterbend“, „Kampfunfähig“, „Bewusstlos“ erscheinen abgeschwächt (halbtransparent). Reine Frontend-Änderung in `web/app.js` (`tokenZeichnen`); Kampagnen ohne diese Zustände sehen keinen Unterschied. Setzen: `sl.py zustand ID +Tot`.
 
 ## Modi: Buffs, Größe, Reichweite (Hast, Person vergrößern, Heldenmut …)
+Gelegenheitsangriffe: `sl.py angriff … --ga [bewegung|andere]` (MCP `angriff` mit `gelegenheitsangriff`). Bei `bewegung` zählt das Talent **Beweglichkeit** des Ziels (+4 RK, Talentliste des Charakters bzw. Feld `talente` am Token), dazu Modi mit `rkga`; beides entfällt, wenn das Ziel auf dem falschen Fuß oder hilflos ist.
+
 Zeitlich begrenzte Wirkungen liegen als Liste `modi` am Charakter (oder am Token bei Gegnern/NSC ohne Charakterdatei). Die gespeicherten Basiswerte bleiben unverändert; der Server rechnet die wirksamen Werte beim Lesen drauf (`modi.py`). Ende = Eintrag entfällt, nichts muss zurückgerechnet werden. Abschaltbar: `"modi": false` in `kampagne.json`; ohne Einträge in `modi` ändert sich nichts.
 
 ```
@@ -79,7 +81,7 @@ sl.py modus-ende aritian Hast ; sl.py modi ; sl.py modus-zeit --minuten 10
 ```
 Vorlagen: Hast/Massenhast, Heldenmut, (Person) vergrößern/verkleinern, Stierstärke, Katzenanmut, Bärenausdauer, Fuchslist, Eulenweisheit, Adlerprunk. Gleicher Name ersetzt den alten Modus (kein Stapeln). Dauer: im Kampf −1 Runde je neuer Kampfrunde; sonst `modus-zeit`; `rast` zählt 8 Stunden ab.
 
-Wirkungsschlüssel (ganze Zahlen, additiv): `groesse` (Stufen), `ST GE KO IN WE CH`, `rk` (normal + Berührung, z. B. Hast), `rkr` (normal + auf dem falschen Fuß, z. B. Rindenhaut), `rkb`, `rkf`, `angriff`, `nahangriff`, `fernangriff`, `schaden` (Nahkampf), `ref wil zaeh rw`, `ini kmb kmv`, `tempo` (Meter), `reichweite` (Felder), `extraangriff` (Hast: zusätzlicher Angriff in Serien), `fert:NAME`.
+Wirkungsschlüssel (ganze Zahlen, additiv): `groesse` (Stufen), `ST GE KO IN WE CH`, `rk` (normal + Berührung, z. B. Hast), `rkr` (normal + auf dem falschen Fuß, z. B. Rindenhaut), `rkb`, `rkf`, `rkga` (nur gegen Gelegenheitsangriffe), `angriff`, `nahangriff`, `fernangriff`, `schaden` (Nahkampf), `ref wil zaeh rw`, `ini kmb kmv`, `tempo` (Meter), `reichweite` (Felder), `extraangriff` (Hast: zusätzlicher Angriff in Serien), `fert:NAME`.
 - **Größe**: Größenmodifikator auf Angriff, RK, KMB/KMV, Heimlichkeit/Fliegen; Waffenschaden steigt/sinkt um Würfelstufen; Token wächst auf 2×2 (3×3 …) mit Platzsuche, Nahkampf-/Berührungsreichweite aus Größe und `koerperbau` (`hoch` Standard, `lang`): Mittel 1,5 m, Groß hoch 3 m / lang 1,5 m, Riesig 4,5/3 m usw. Basisgröße: Feld `groesse` ("Mittel", "Groß" …) am Charakter, sonst aus `groesseFelder`.
 - **Attribute** leiten ab: ST → Nahkampfangriff/-schaden, KMB, KMV; GE → RK (normal/Berührung; adFF nur bei Malus), Fernkampfangriff, REF, Ini, KMV; KO → ZÄH (TP-Änderung durch KO nicht: dafür TP von Hand).
 - Der Token trägt `reichweite` (Felder) nur solange ein Größen-/Reichweitenmodus aktiv ist; Nahkampf, Berührungszauber und -fähigkeiten prüfen dagegen. Ohne Modus gilt „angrenzend“ wie bisher. Gegner-Token: `sl.py angriff` addiert `angriff`-Modi (und Größe) automatisch.

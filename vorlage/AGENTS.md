@@ -62,7 +62,7 @@ dem Nutzer kurz berichten.
 1. `ini start`, Gegner mit `ini eintrag` (name, wert, token; `verborgen` für unbemerkte) eintragen.
 2. Spieler würfeln Initiative (der letzte Wurf weckt `warte`), dann `ini los`.
 3. SC-Züge laufen im Tool; „Zug beenden“ weckt `warte`.
-4. Gegnerzug: `zieh`, `angriff` (bonus, schaden, waffe, krit, mods), Sonderfähigkeiten mit `wurf`/`tp`/`zustand`, dann
+4. Gegnerzug: `zieh`, `angriff` (bonus, schaden, waffe, krit, mods; `gelegenheitsangriff` bewegung|andere), Sonderfähigkeiten mit `wurf`/`tp`/`zustand`, dann
    `ini weiter`, bis wieder ein SC dran ist; kurz `erzaehle`.
 5. Ende: `ini ende`, Beute (`beute`, `kasse`), Erfahrung (`ep`).
 - **Gelegenheitsangriffe:** `zieh` warnt nur. Würde ein Gegner einen Gelegenheitsangriff provozieren, den Gegnerzug

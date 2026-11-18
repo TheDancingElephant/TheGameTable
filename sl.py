@@ -163,7 +163,7 @@ def cmd_raster(a):
 
 def cmd_angriff(a):
     print(ST.angriff(a.angreifer, a.ziel, a.bonus, a.schaden, waffe=a.waffe, krit=a.krit, beruehrung=a.beruehrung,
-                     fernkampf=a.fernkampf, mods=a.mod))
+                     fernkampf=a.fernkampf, mods=a.mod, gelegenheitsangriff=a.ga))
 
 
 def cmd_modus(a):
@@ -288,6 +288,8 @@ def main():
     p.add_argument("angreifer"); p.add_argument("ziel"); p.add_argument("bonus", type=int); p.add_argument("schaden")
     p.add_argument("--waffe", default="Angriff"); p.add_argument("--krit"); p.add_argument("--beruehrung", action="store_true")
     p.add_argument("--fernkampf", action="store_true"); p.add_argument("--mod", action="append", default=[], help="Text=Wert, z. B. Flankieren=2")
+    p.add_argument("--ga", nargs="?", const="bewegung", choices=["bewegung", "andere"],
+                   help="Gelegenheitsangriff (bewegung: Talent Beweglichkeit des Ziels zählt, +4 RK; andere: z. B. Zaubern)")
     p.set_defaults(f=cmd_angriff)
     p = sp.add_parser("ep", help="Erfahrung vergeben (geteilt durch die Empfänger)")
     p.add_argument("--gegner", nargs="*", default=[], help="Token-IDs besiegter Gegner (deren HG zählt)")

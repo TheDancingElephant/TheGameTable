@@ -13,6 +13,7 @@ Wirkung (alles ganze Zahlen, additiv):
   rk             RK-Bonus gegen normale und Berührungsangriffe (Ausweichen/Ablenkung, z. B. Hast)
   rkr            RK-Bonus normal und auf dem falschen Fuß (Rüstung/natürliche Rüstung, z. B. Rindenhaut)
   rkb rkf        nur RK gegen Berührung / nur RK auf dem falschen Fuß
+  rkga           RK-Bonus nur gegen Gelegenheitsangriffe (Ausweichbonus; entfällt auf dem falschen Fuß)
   angriff nahangriff fernangriff schaden (Nahkampfschaden)
   ref wil zaeh rw (rw = alle Rettungswürfe)  ini kmb kmv
   tempo          Bewegungsrate in Metern
@@ -54,7 +55,7 @@ VORLAGEN = {
     "fuchslist": {"IN": 4}, "eulenweisheit": {"WE": 4}, "adlerprunk": {"CH": 4},
 }
 ATTRIBUTE = ("ST", "GE", "KO", "IN", "WE", "CH")
-SCHLUESSEL = {"groesse", "rk", "rkr", "rkb", "rkf", "angriff", "nahangriff", "fernangriff", "schaden", "ref", "wil", "zaeh",
+SCHLUESSEL = {"groesse", "rk", "rkr", "rkb", "rkf", "rkga", "angriff", "nahangriff", "fernangriff", "schaden", "ref", "wil", "zaeh",
               "rw", "ini", "kmb", "kmv", "tempo", "reichweite", "extraangriff", *ATTRIBUTE}
 
 

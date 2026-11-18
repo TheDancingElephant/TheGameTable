@@ -176,7 +176,7 @@ class Testkampagne:
         return self.sl(op="token-setzen", token=t)["id"]
 
 
-RK_RE = re.compile(r": (-?\d+) gegen RK (-?\d+) → (Treffer|daneben)")
+RK_RE = re.compile(r": (-?\d+) gegen RK (-?\d+)(?: \([^)]*\))? → (Treffer|daneben)")
 
 
 def letzter_angriff(tk, seit=0):

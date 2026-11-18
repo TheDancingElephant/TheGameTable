@@ -44,7 +44,7 @@
 | Szene / Handout | `szene` · `handout` (gleiche ID ersetzt, `entfernen`) |
 | Token | `token_neu` (art, name, x, y, id, tp, rk, rkb, rkf, ref, wil, zaeh, hg, symbol, verborgen, groesse) · `token_aendern` · `token_zeigen` · `token_entfernen` |
 | Bewegen / TP / Zustand | `zieh` · `tp` (delta) · `zustand` (an/aus) · `sc_platzieren` (SC auf die aktive Karte) |
-| Gegnerangriff | `angriff` (angreifer, ziel, bonus, schaden, waffe, krit, beruehrung, fernkampf, mods) |
+| Gegnerangriff | `angriff` (angreifer, ziel, bonus, schaden, waffe, krit, beruehrung, fernkampf, mods, gelegenheitsangriff) |
 | Initiative / Zug | `ini` (start, eintrag, los, weiter, entfernen, aufdecken, ende) · `zug` |
 | Würfeln (SL, verdeckt) | `wurf` (`offen: true` für sichtbare Würfe) |
 | Modi / Buffs | `modus` · `modus_ende` · `modus_zeit` · `modi` |
@@ -111,13 +111,14 @@ SC-Token heißen `sc-<charakter-id>`. Koordinaten sind Felder (x nach rechts, y 
 
 **Gelegenheitsangriffe:** `zieh` warnt nur. Verlässt ein Gegner ein von einem SC bedrohtes Feld (oder provoziert
 anders), den **Gegnerzug vor der Bewegung anhalten**: erzählen, dass ein Gelegenheitsangriff möglich ist, `warte`,
-Spieleraktion abwarten, dann erst `zieh`/`angriff`. Gelegenheitsangriffe der Gegner gegen SC selbst auswerten (`angriff`).
+Spieleraktion abwarten, dann erst `zieh`/`angriff`. Gelegenheitsangriffe der Gegner gegen SC mit `angriff` und
+`gelegenheitsangriff: bewegung` (Talent Beweglichkeit des SC zählt dann automatisch, +4 RK) bzw. `andere`.
 
 ## 9. Buffs, Zustände und Modi
 - Zeitlich begrenzte Wirkungen immer als **Modus** führen, damit das Tool die Werte mitrechnet:
   `modus` (ziel, name, runden/minuten/stunden, Vorlagen wie Hast, Heldenmut, Person vergrößern/verkleinern,
   Stierstärke, Katzenanmut, Bärenausdauer, Fuchslist, Eulenweisheit, Adlerprunk; sonst `wirkung` mit Schlüsseln
-  `groesse ST GE KO IN WE CH rk rkr rkb rkf angriff nahangriff fernangriff schaden ref wil zaeh rw ini kmb kmv tempo
+  `groesse ST GE KO IN WE CH rk rkr rkb rkf rkga angriff nahangriff fernangriff schaden ref wil zaeh rw ini kmb kmv tempo
   reichweite extraangriff fert:NAME`).
 - Im Kampf laufen Modi pro Runde ab; außerhalb des Kampfes Zeit mit `modus_zeit` vergehen lassen; `rast` zählt 8 Stunden.
 - `modi` regelmäßig prüfen (vor allem nach Kampfbeginn und Rast); beendete Effekte mit `modus_ende`.

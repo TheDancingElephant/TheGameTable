@@ -136,6 +136,30 @@ class AngriffTest(unittest.TestCase):
         self.assertEqual(rk, 18)                      # ohne Ausweichen, mit natürlicher Rüstung
         self.assertEqual(self.tk.datei_charakter("brak")["rk"]["normal"], 18)  # Basiswert bleibt in der Datei
 
+    def test_beweglichkeit_gegen_gelegenheitsangriff(self):
+        _, rk = self.gegner_greift_an(gelegenheitsangriff="bewegung")
+        self.assertEqual(rk, 22)                      # Brak hat Beweglichkeit: +4 nur gegen GA durch Bewegung
+        a, _ = letzter_angriff(self.tk)
+        self.assertIn("Gelegenheitsangriff", a["text"])
+        _, rk = self.gegner_greift_an(gelegenheitsangriff="andere")
+        self.assertEqual(rk, 18)
+        _, rk = self.gegner_greift_an(gelegenheitsangriff="bewegung", beruehrung=True)
+        self.assertEqual(rk, 16)                      # Ausweichbonus zählt auch gegen Berührung
+        self.tk.st.zustand_setzen(self.brak, ["Auf dem falschen Fuß"])
+        _, rk = self.gegner_greift_an(gelegenheitsangriff="bewegung")
+        self.assertEqual(rk, 16)                      # auf dem falschen Fuß: kein Ausweichbonus
+
+    def test_modus_rkga_auf_gegner(self):
+        self.tk.st.modus(self.ork, "Schutz vor GA", wirkung={"rkga": 2})
+        seit = self.tk.letzte_id()
+        self.tk.st.angriff(self.brak, self.ork, 7, "1W8", gelegenheitsangriff="andere")
+        _, rk = letzter_angriff(self.tk, seit)
+        self.assertEqual(rk, 17)
+        seit = self.tk.letzte_id()
+        self.tk.st.angriff(self.brak, self.ork, 7, "1W8")
+        _, rk = letzter_angriff(self.tk, seit)
+        self.assertEqual(rk, 15)
+
     def test_modus_auf_gegner_token(self):
         self.tk.st.modus(self.ork, "Hast", runden=3)
         self.assertEqual(self.tk.z()["tokens"][self.ork]["rk"], 16)

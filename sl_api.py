@@ -347,13 +347,17 @@ class Spieltisch:
         return "\n".join(aus) or f"  {token}: keine Täuschung"
 
     def angriff(self, angreifer, ziel, bonus, schaden, waffe="Angriff", krit=None, beruehrung=False,
-                fernkampf=False, mods=None):
-        """mods: {"Flankieren": 2} oder ["Flankieren=2"]."""
+                fernkampf=False, mods=None, gelegenheitsangriff=None):
+        """mods: {"Flankieren": 2} oder ["Flankieren=2"]. gelegenheitsangriff: "bewegung" (Beweglichkeit des Ziels
+        zählt) oder "andere" (z. B. Zaubern im bedrohten Feld)."""
+        if gelegenheitsangriff not in (None, "", False, True, "bewegung", "andere"):
+            raise SLFehler("gelegenheitsangriff: bewegung | andere")
         if isinstance(mods, (list, tuple)):
             mods = {m.split("=")[0]: int(m.split("=")[1]) for m in mods}
         self.befehl(op="angriff", angreifer=angreifer, ziel=ziel, bonus=int(bonus), schaden=schaden, krit=krit,
                     waffe=waffe, beruehrung=beruehrung, fernkampf=fernkampf,
-                    mods=[(k, int(v)) for k, v in (mods or {}).items()])
+                    mods=[(k, int(v)) for k, v in (mods or {}).items()],
+                    gelegenheitsangriff=("bewegung" if gelegenheitsangriff is True else gelegenheitsangriff) or None)
         return self.log(1)
 
     def ini(self, aktion, name=None, wert=None, token=None, verborgen=False):

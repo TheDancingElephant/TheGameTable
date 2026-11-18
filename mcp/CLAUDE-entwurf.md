@@ -46,7 +46,7 @@ Kampagnenordner (gesperrt). Notizen, Abenteuertexte, Charaktere, Karten: alles �
 | Szene / Handout | `szene` · `handout` (gleiche ID ersetzt, `entfernen`) |
 | Token | `token_neu` (art, name, x, y, id, tp, rk, rkb, rkf, ref, wil, zaeh, hg, symbol, verborgen) · `token_aendern` · `token_zeigen` · `token_entfernen` |
 | Bewegen / TP / Zustand | `zieh` · `tp` (delta) · `zustand` (an/aus) · `sc_platzieren` (SC auf aktive Karte) |
-| Gegnerangriff | `angriff` (angreifer, ziel, bonus, schaden, waffe, krit, beruehrung, fernkampf, mods) |
+| Gegnerangriff | `angriff` (angreifer, ziel, bonus, schaden, waffe, krit, beruehrung, fernkampf, mods, gelegenheitsangriff) |
 | Initiative / Zug | `ini` (start, eintrag, los, weiter, entfernen, aufdecken, ende) · `zug` |
 | Würfeln | `wurf` |
 | Modi / Buffs | `modus` · `modus_ende` · `modus_zeit` · `modi` |

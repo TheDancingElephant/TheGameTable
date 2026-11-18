@@ -223,11 +223,14 @@ def t_sc_platzieren(a):
 @tool("angriff", "Angriff eines Gegners/NSC gegen RK des Ziels; Schaden wird abgezogen. Gibt das Ergebnis zurück.",
       {"angreifer": S("Token-ID"), "ziel": S("Token-ID"), "bonus": I("Angriffsbonus"), "schaden": S("Schaden, z. B. 1W8+3"),
        "waffe": S("Waffenname (Standard Angriff)"), "krit": S("Krit, z. B. 19-20/x2"), "beruehrung": B("Berührungsangriff"),
-       "fernkampf": B("Fernkampf"), "mods": O("Situationsmodifikatoren, z. B. {\"Flankieren\": 2}")},
+       "fernkampf": B("Fernkampf"), "mods": O("Situationsmodifikatoren, z. B. {\"Flankieren\": 2}"),
+       "gelegenheitsangriff": {"type": "string", "enum": ["bewegung", "andere"],
+                               "description": "Gelegenheitsangriff: bewegung (Ziel verließ/durchquerte bedrohtes Feld; "
+                                              "Talent Beweglichkeit zählt, +4 RK) oder andere (z. B. Zaubern)"}},
       ["angreifer", "ziel", "bonus", "schaden"], gruppe="Kampf")
 def t_angriff(a):
     return ST.angriff(a["angreifer"], a["ziel"], a["bonus"], a["schaden"], a.get("waffe") or "Angriff", a.get("krit"),
-                      a.get("beruehrung", False), a.get("fernkampf", False), a.get("mods"))
+                      a.get("beruehrung", False), a.get("fernkampf", False), a.get("mods"), a.get("gelegenheitsangriff"))
 
 
 @tool("taeuschung", "Illusion: Token wirkt für bestimmte SC (wenn sie am Zug sind) anders. entfernen=true hebt auf; "
@@ -263,7 +266,7 @@ def t_zug(a):
 
 @tool("modus", "Buff/Modus auf Charakter oder Token (Vorlagen: Hast, Heldenmut, Person vergrößern/verkleinern, Stierstärke … "
       "oder eigene Wirkung, Schlüssel: groesse ST GE KO IN WE CH rk rkr rkb rkf angriff nahangriff fernangriff schaden "
-      "ref wil zaeh rw ini kmb kmv tempo reichweite extraangriff fert:NAME).",
+      "rkga ref wil zaeh rw ini kmb kmv tempo reichweite extraangriff fert:NAME).",
       {"ziel": S("Charakter- oder Token-ID"), "name": S("Modusname"), "runden": I("Dauer in Runden"), "minuten": I("Dauer in Minuten"),
        "stunden": I("Dauer in Stunden"), "groesse": I("Größenstufen (+1)"), "wirkung": O("Schlüssel -> ganze Zahl"),
        "quelle": S("Quelle (wer hat gezaubert)")}, ["ziel", "name"], gruppe="Modi")
