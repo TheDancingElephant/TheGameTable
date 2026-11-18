@@ -51,7 +51,10 @@
 
 - ES-Module (`<script type="module">`), kein Build-Schritt, keine Frameworks, keine CDN-Abhängigkeiten.
 - Ein Modul je Bereich (`web/kampf.js`, `web/karte.js` …) plus `web/grundlagen.js` (api, $, esc, meldung) und
-  `web/zustand.js` (gemeinsamer Zustand als ein exportiertes Objekt, nicht als lose `let`-Variablen).
+  `web/zustand.js` (gemeinsamer Zustand `G`, nicht als lose `let`-Variablen: Importe sind schreibgeschützt).
+- Benannte Importe am Dateianfang (`import { $, api } from "./grundlagen.js";`), keine Standard-Exporte.
+- Code, der beim Laden läuft (Ereignis-Handler eintragen), darf nur Funktionen anderer Module verwenden, keine
+  `const`-Werte aus Modulen, die sich gegenseitig importieren (sonst „Cannot access before initialization“).
 - HTML immer über `esc()` zusammensetzen; keine Spieler- oder SL-Texte ungeprüft in `innerHTML`.
 - Regeln werden im Browser höchstens vorgeprüft (Komfort); verbindlich entscheidet der Server.
 
@@ -61,3 +64,4 @@
 - Ein Thema je Commit; Umbau und Verhaltensänderung nicht mischen.
 - Tests grün vor dem Commit (`python -m unittest`).
 - Keine Kampagnendaten, keine Schlüssel, keine Pfade dieses Rechners (`paket_bauen.py --pruefen` hilft).
+- Kleine, prüfbare Schritte: Umbau so, dass nach jedem Commit Tests grün sind und das Tool spielbar bleibt.

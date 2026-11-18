@@ -72,15 +72,18 @@ benutzen **nur diese** (keine Unterstrich-Namen, keine Untermodule eines fremden
 Abhängigkeiten zwischen Bereichen laufen nur in eine Richtung:
 
 ```
-            Magie ──► Kampf ──► Karte
-              │         │         │
-Tisch ──►     └─────────┴─────────┴──► Charakter ──► Wissen
-  │  (Sichten: Kampf, Karte, Besitz)
-  └──► Besitz                       Kampagne: von der Shell genutzt, nutzt keinen Bereich
+Tisch ──► Magie ──► Kampf ──► Karte ──► Charakter ──► Wissen
+  │         │                              ▲
+  │         └──────────────────────────────┘
+  └──► Besitz ──► Charakter                     Kampagne: nur von der Shell (server.py, sl_api) genutzt
 ```
 
-Magie nutzt Kampf (Angriffswurf, Rettungswurf), Kampf nutzt Karte (Abstand, Sichtbarkeit, Wege), alle drei
-nutzen Charakter (wirksame Werte), Charakter und Magie nutzen Wissen (Zauberkatalog).
+Tisch baut die Sichten (Spieler/SL, Charakteransicht) und nutzt dafür Magie, Kampf, Karte, Besitz. Magie nutzt
+Kampf (Angriffswurf, Rettungswurf), Kampf nutzt Karte (Abstand, Sichtbarkeit, Wege), Karte, Kampf und Magie
+nutzen Charakter (wirksame Werte), Magie nutzt Wissen (Zauberkatalog). Ein Bereich darf die **Daten** anderer
+Bereiche im Spielstand lesen (z. B. liest Charakter die Token, um das SC-Token zu finden), **Funktionen** ruft er
+nur in Pfeilrichtung auf. Die Shell (`server.py`) ordnet jeden HTTP-Befehl genau einer Bereichsfunktion zu
+(Tabellen `SL_BEFEHLE`, `SPIELER_BEFEHLE`).
 
 Gemeinsame Kleinteile (Fehlerklasse `Fehler`, Würfelausdrücke, `Kontext`) liegen in `bereiche/kern.py`.
 Rückwirkungen gegen die Pfeilrichtung (z. B. „Token bewegt → Nebel aufdecken“, „Runde vorbei → Modi laufen ab“)
@@ -110,11 +113,17 @@ die verbindliche Prüfung macht der Server.
 
 **Karten-Ressourcen** (Kartenbild, Wandraster, Barrieren-Dateien, Aufdeck-Maske) sind teuer zu laden und werden
 in der Shell zwischengespeichert. Der Kern bekommt sie über die Schnittstelle `kx.res` (`bild`, `wand`, `barr`,
-`barr_speichern`, `maske`, `maske_sichern`); Tests setzen eine einfache Fälschung ein.
+`barr_speichern`, `maske`, `maske_sichern`, `maske_verwerfen`, `karte_neu_geladen`); Barrieren-Änderungen
+schreibt die Shell erst, wenn der Befehl gelungen ist. Die Bild- und Dateifunktionen in `bereiche/karte/karten.py`
+und `barrieren.py` (Laden, Erkennen) sind Adapter, die nur die Shell bzw. `sl_api` aufrufen.
+
+**Charaktere** liegen als Dateien vor; der Kern sieht sie über `kx.chars` (`speicher.Charakterspeicher`: lesen
+bei Bedarf, immer Kopien, schreiben erst bei Erfolg). Wirksame Werte mit Modi berechnet `charakter.wirksam`;
+`charakter.speichern` rechnet sie vor dem Speichern auf die Basiswerte zurück.
 
 **Daten statt Klassenhierarchien:** Charaktere, Token, Modi, Zauber, Barrieren sind Dicts in dem Format, das auch
-in den Dateien steht. Regeln stecken in Funktionen und Tabellen (z. B. `MODI.VORLAGEN`: Hast, Rindenhaut … als
-Datensätze), nicht in Unterklassen. Klassen nur für technische Hüllen (`Kontext`, HTTP-Handler, Caches).
+in den Dateien steht. Regeln stecken in Funktionen und Tabellen (z. B. `MODI.VORLAGEN`: Hast, Person vergrößern … als
+Datensätze, frei definierte Wirkungen wie Rindenhaut `rkr=2`), nicht in Unterklassen. Klassen nur für technische Hüllen (`Kontext`, HTTP-Handler, Caches).
 
 ## 5. Domänenereignisse
 
@@ -128,14 +137,27 @@ Zwei Arten von Ereignissen, beide als Dicts:
 
 | Ereignis | ausgelöst von | Reaktion |
 |---|---|---|
-| `token_bewegt` (token) | Karte (Bewegen, Sturmangriff) | Karte: Auto-Nebel/Sicht aufdecken |
-| `tuer_geschaltet` (karte) | Karte (Tür) | Karte: Sicht neu, falls Auto-Nebel |
-| `runde_vorbei` (runden) | Kampf (Initiative weiter) | Charakter: Modi laufen ab |
-| `zeit_vergeht` (runden) | Magie (Rast), SL (`modus_zeit`) | Charakter: Modi laufen ab |
-| `tp_geaendert` (token) | Kampf, Magie | Charakter: TP in die Charakterdatei übernehmen |
+| `token_bewegt` (token, von) | Karte (Bewegen durch Spieler oder SL) | Karte: Auto-Nebel/Sicht aufdecken |
+| `token_entfernt` (token_id) | Karte (Token entfernen) | Kampf: Eintrag aus der Initiative |
+| `runde_vorbei` (runden) | Kampf (neue Runde in der Initiative) | Charakter: Modi laufen ab |
+| `zeit_vergeht` (runden) | Magie (Rast: 4800 Runden) | Charakter: Modi laufen ab |
+| `charakter_modi` (cid, eff) | Charakter (Modus gesetzt/beendet/abgelaufen) | Karte: Größe/Reichweite des SC-Tokens |
+| `token_groesse` (token, groesse) | Charakter (Modus auf Token ohne Charakterdatei) | Karte: Token umgrößern (Platz suchen) |
 
-Reaktionen werden in `bereiche/__init__.py` verdrahtet (eine Liste je Ereignis). Ein Bereich, der ein Ereignis
-auslöst, weiß nicht, wer reagiert.
+Reaktionen tragen sich mit dem Dekorator `@reaktion("name")` aus `bereiche/__init__.py` ein (Liste je Ereignis);
+`kx.ereignis` gibt die Rückgaben der Reaktionen zurück (z. B. Hinweise „zu eng“). Ein Bereich, der ein Ereignis
+auslöst, weiß nicht, wer reagiert. Die Tür nutzt kein Ereignis: Sicht nachziehen ist Teil derselben Karte-Regel.
+Die einzige Invariante nach jedem Befehl ist der Tot-Abgleich (`kampf.tot_abgleich`).
+
+## 5a. Oberfläche (web/)
+
+ES-Module ohne Build-Schritt, je Bereich ein Modul: `grundlagen.js` (SL-Modus, `$`, `api`, `meldung`, `esc`),
+`zustand.js` (gemeinsamer Zustand `G`: Stand vom Server, Charaktere, Werkzeug, Auswahl …; Kartenansicht),
+`tisch.js` (Server-Schleife, Kopf, Protokoll, Erzählstimme, Würfel, Reiter, Unterlagen), `kampf.js` (Zugleiste,
+Angriffsmenü), `karte.js` (Zeichnen, Maus, Werkzeuge), `magie.js` (Zauber/Fähigkeiten wirken, Vorbereiten),
+`charakter.js` (Charakterkarten, Editor), `besitz.js` (Ausrüstung), `aufstieg.js` (Aufstiegsassistent);
+`app.js` lädt alles und startet die Schleife. Veränderliche Werte, die mehrere Module brauchen, stehen in `G`
+(Importe sind schreibgeschützt). Prüfung: `tests/demo_kampagne.py` anlegen, Server starten, im Browser durchspielen.
 
 ## 6. Dateiformate (Kampagnenordner)
 
@@ -205,16 +227,24 @@ eingebettetes Python.
 |---|---|
 | Git, `.gitignore`, Ausgangsstand | erledigt |
 | ARCHITEKTUR.md, STYLEGUIDE.md | erledigt |
-| Testsammlung `tests/` (61 Tests, ~80 s) | erledigt |
-| Shell: Kontext, Sicherung je Befehl, Charakterspeicher | offen |
-| Kampf + Modi | offen |
-| Karte | offen |
-| Magie | offen |
-| Charakter | offen |
-| Besitz | offen |
-| Tisch | offen |
-| Wissen, Kampagne (Module verschieben) | offen |
-| Frontend `web/` in ES-Module | offen |
+| Testsammlung `tests/` (79 Tests, ~90 s) | erledigt |
+| Shell: Kontext, Sicherung je Befehl, Charakterspeicher | erledigt |
+| Charakter + Modi (zuerst, weil Kampf und Karte darauf aufbauen) | erledigt |
+| Karte | erledigt |
+| Kampf (dazu neu: Beweglichkeit gegen Gelegenheitsangriffe, Wirkung `rkga`) | erledigt |
+| Wissen | erledigt |
+| Magie | erledigt |
+| Tisch, Besitz; `server.py` nur noch Shell (2581 → 455 Zeilen) | erledigt |
+| Kampagne | erledigt |
+| Frontend `web/` in ES-Module | erledigt |
+| Gegenprobe: Testsammlung gegen den Ausgangsstand (nur Tests für neues Verhalten scheitern) | erledigt |
+
+Offene Punkte:
+- `regeln/regeln.sqlite` ist Quelle und Index zugleich (die Seiteninhalte stehen nur dort); ein Neuaufbau braucht den
+  PRD-Abruf. Später ggf. Seiten als Markdown einchecken und den Index daraus bauen.
+- `sl_api.kampagne_neu` liegt noch in der Shell (liest PDFs über `Spieltisch` ein).
+- Sturmangriff deckt den Nebel nicht automatisch auf (wie bisher); mit `token_bewegt` wäre das ein Einzeiler.
+- Kartenbild lädt im Browser beim allerersten Aufruf manchmal erst nach einem Neuladen (älteres Verhalten).
 
 ## 13. Glossar (PRD-Begriff = Name im Code)
 
@@ -280,3 +310,5 @@ Fachbegriffe folgen dem deutschen PRD (https://prd.5footstep.de). Im Code steht 
 | geteilte Sicht | `sichtVon` | |
 | Spielstand | `z` (`sl/zustand.json`) | |
 | Kontext eines Befehls | `kx` (`bereiche.kern.Kontext`) | technischer Begriff |
+| RK-Bonus gegen Gelegenheitsangriffe | Wirkung `rkga`, Talent Beweglichkeit | `angriff … gelegenheitsangriff` |
+| gemeinsamer Zustand der Oberfläche | `G` (`web/zustand.js`) | technischer Begriff |

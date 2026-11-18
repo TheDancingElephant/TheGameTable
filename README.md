@@ -15,7 +15,7 @@ Ein Tool, mehrere Kampagnen. Jede Kampagne ist ein Ordner mit `kampagne.json` (`
 darin `sl/` (Spielstand, Karten, Notizen, Quellen, Schlüssel) und `daten/` (Charaktere, Protokoll).
 Regeldaten und Code liegen hier im Tool: `daten/zauber_prd.json` (alle Zauber aus dem deutschen PRD, OGL – siehe
 `daten/LIZENZ-ZAUBER.txt`) und `daten/zauber.json` (Spielmechanik für die Zauber, die das Tool selbst auswertet;
-eine kampagneneigene `daten/zauber.json` ersetzt sie). `zauber_db.py` vereint beides (siehe Abschnitt Zauberdatenbank).
+eine kampagneneigene `daten/zauber.json` ersetzt sie). `bereiche/wissen/zauber_db.py` vereint beides (siehe Abschnitt Zauberdatenbank).
 Dazu die Regeldatenbank `regeln/regeln.sqlite` (PF1-Grundregelwerk ohne Zauber, OGL – siehe `regeln/LIZENZ-REGELN.txt`;
 Abschnitt Regeldatenbank).
 
@@ -29,6 +29,15 @@ python <Programmordner>\sl.py --kampagne "<Kampagnenordner>" stand
 Aus dem Kampagnenordner heraus (Claude-Sitzung dort) genügt `python <Programmordner>\sl.py stand`.
 Verschiedene Kampagnen brauchen verschiedene Ports (in `kampagne.json`), dann können sie parallel laufen.
 Neue Kampagne: Zentrale „+ Neue Kampagne“ oder MCP `kampagne_neu` (Gerüst aus `vorlage/`, ältere Installationen: `<Kampagnen-Ordner>/_Vorlage`).
+
+## Aufbau des Programms (Kurzfassung, Details in ARCHITEKTUR.md)
+- `server.py` (Shell: HTTP, Sperre, Speichern), `sl_api.py` / `sl.py` / `mcp_server.py` (SL-Zugriff), `zentrale.py`.
+- `bereiche/` – Fachbereiche: `tisch`, `kampf`, `karte` (inkl. `karten.py`, `barrieren.py`, `kartenformat.py`),
+  `charakter` (inkl. `modi.py`, `aufstieg.py`), `magie`, `besitz`, `wissen` (Zauber-/Regeldatenbank), `kampagne`;
+  `bereiche/kern.py` (Fehler, Würfel, Kontext), `speicher.py` (Charakterdateien).
+- `web/` – Oberfläche als ES-Module: `app.js` (Einstieg), `grundlagen.js`, `zustand.js`, `tisch.js`, `kampf.js`,
+  `karte.js`, `magie.js`, `charakter.js`, `besitz.js`, `aufstieg.js`.
+- `tests/` – Testsammlung (`python -m unittest`), `tests/demo_kampagne.py` für Oberflächentests.
 
 ## Installation, Pfade, Paket
 - **`einrichten.bat`** (→ `einrichten.py`): Python suchen, Pakete installieren (PyMuPDF, numpy, pywebview),
@@ -65,12 +74,12 @@ sl.py taeuschung --schalter aus|ein                    # global abschalten (Date
 Felder je Charakter-ID: `name, symbol, farbe, x, y, groesse, art (sc|gegner|nsc), sichtbar`. Wer die Illusion durchschaut, bekommt einfach keinen Eintrag. Die Initiativliste zeigt den Scheinnamen. Grenze: Protokolltexte (Angriffe, Würfe) nennen weiter den echten Namen.
 
 ## Tote und kampfunfähige Token
-Token mit Zustand „Tot“ werden auf der Karte grau, halbtransparent, mit ☠ und durchgestrichenem Namen gezeichnet und bekommen keinen Zugkranz mehr. „Sterbend“, „Kampfunfähig“, „Bewusstlos“ erscheinen abgeschwächt (halbtransparent). Reine Frontend-Änderung in `web/app.js` (`tokenZeichnen`); Kampagnen ohne diese Zustände sehen keinen Unterschied. Setzen: `sl.py zustand ID +Tot`.
+Token mit Zustand „Tot“ werden auf der Karte grau, halbtransparent, mit ☠ und durchgestrichenem Namen gezeichnet und bekommen keinen Zugkranz mehr. „Sterbend“, „Kampfunfähig“, „Bewusstlos“ erscheinen abgeschwächt (halbtransparent). Reine Frontend-Änderung in `web/karte.js` (`tokenZeichnen`); Kampagnen ohne diese Zustände sehen keinen Unterschied. Setzen: `sl.py zustand ID +Tot`.
 
 ## Modi: Buffs, Größe, Reichweite (Hast, Person vergrößern, Heldenmut …)
 Gelegenheitsangriffe: `sl.py angriff … --ga [bewegung|andere]` (MCP `angriff` mit `gelegenheitsangriff`). Bei `bewegung` zählt das Talent **Beweglichkeit** des Ziels (+4 RK, Talentliste des Charakters bzw. Feld `talente` am Token), dazu Modi mit `rkga`; beides entfällt, wenn das Ziel auf dem falschen Fuß oder hilflos ist.
 
-Zeitlich begrenzte Wirkungen liegen als Liste `modi` am Charakter (oder am Token bei Gegnern/NSC ohne Charakterdatei). Die gespeicherten Basiswerte bleiben unverändert; der Server rechnet die wirksamen Werte beim Lesen drauf (`modi.py`). Ende = Eintrag entfällt, nichts muss zurückgerechnet werden. Abschaltbar: `"modi": false` in `kampagne.json`; ohne Einträge in `modi` ändert sich nichts.
+Zeitlich begrenzte Wirkungen liegen als Liste `modi` am Charakter (oder am Token bei Gegnern/NSC ohne Charakterdatei). Die gespeicherten Basiswerte bleiben unverändert; der Server rechnet die wirksamen Werte beim Lesen drauf (`bereiche/charakter/modi.py`). Ende = Eintrag entfällt, nichts muss zurückgerechnet werden. Abschaltbar: `"modi": false` in `kampagne.json`; ohne Einträge in `modi` ändert sich nichts.
 
 ```
 sl.py modus sc-nuramon-andokai "Person vergrößern" --minuten 1      # bekannte Vorlage (Größe +1, ST +2, GE −2)
@@ -134,11 +143,11 @@ python <Programmordner>\mcp_server.py "<Kampagnenordner>"
 Windows-Hinweis: `mcp_server.py` lädt numpy/pymupdf beim Start im Hauptthread vor; DLL-Nachladen in einem Worker-Thread
 hängt sonst, solange der Hauptthread auf stdin liest.
 
-## Karten mit exakten Wänden importieren (`kartenformat.py`)
+## Karten mit exakten Wänden importieren (`bereiche/karte/kartenformat.py`)
 Statt Wände aus dem Bild zu erkennen, kann eine Karte mit fertigen Wänden/Türen importiert werden
 (MCP `karte_import` / `karte_export`, CLI `sl.py karte-import DATEI [--id] [--name] [--aktiv]`, `sl.py karte-export ID`):
 - **Spieltisch-Kartenformat** (JSON, Koordinaten in Feldern = Gitterpunkte; Beispiel `mcp/kartenformat-beispiel.json`,
-  Beschreibung im Kopf von `kartenformat.py`): `raeume` (Rechtecke/Vielecke mit `boden`; Umrisse werden Wände,
+  Beschreibung im Kopf von `bereiche/karte/kartenformat.py`): `raeume` (Rechtecke/Vielecke mit `boden`; Umrisse werden Wände,
   überlappende Räume verschmelzen, aneinanderstoßende bekommen eine Wand), `waende` (Linienzüge), `tueren`
   (`tuer|geheimtuer|fenster`, `offen`), `oeffnungen` (Durchgänge), `beschriftungen`. Türen und Öffnungen schneiden die
   Wand darunter auf. **Ohne `bild`** zeichnet das Tool die Karte selbst (Bild und Wände passen exakt; Geheimtüren sehen
@@ -223,8 +232,8 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   Gegenstände, Neue Regeln. Treffer daraus sind mit „EXP“ markiert; `buch`/`--buch` grenzt ein.
 - Weitere Bücher: Eintrag in `regeln_abruf.BUECHER` (+ Kürzel in `regeln_db.BUCH_KURZ`), dann `python regeln_abruf.py aufbauen`.
 
-- Dateien: `regeln_md.py` (HTML → Markdown), `regeln_abruf.py` (Abruf mit 1 s Pause, Cache `regeln/cache/`, ETag,
-  Aufbau), `regeln_db.py` (Index, Suche, Textausgaben). Lesbare Kopie: `regeln/md/<Buch>/<Seite>.md` (mit Kopfdaten).
+- Dateien (in `bereiche/wissen/`): `regeln_md.py` (HTML → Markdown), `regeln_abruf.py` (Abruf mit 1 s Pause, Cache
+  `regeln/cache/`, ETag, Aufbau; Kommandozeile `python regeln_abruf.py` im Programmordner), `regeln_db.py` (Index, Suche, Textausgaben). Lesbare Kopie: `regeln/md/<Buch>/<Seite>.md` (mit Kopfdaten).
 - Einträge entlang der Überschriften; lange Abschnitte zusätzlich an fett gesetzten Stichworten geteilt (jedes Talent,
   jede Fertigkeit, jeder Zustand, jedes Klassenmerkmal ein Eintrag). Tabellen `talente`, `zustaende`, `fertigkeiten`.
 - Suche: SQLite FTS5 über deutsch gestemmten Text (Snowball, Umlaute/ß normalisiert, Präfixsuche) + Trigramm-Index über
@@ -258,4 +267,4 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   Ulisses Spiele; das Tool ist von beiden weder veröffentlicht noch unterstützt. Eigennamen der Spielwelt (Orte,
   Gottheiten, Figuren) sind kein Open Content und gehören nicht in Code, Vorlagen oder Beispiele; Kampagnendaten
   liegen außerhalb des Repos.
-- Abruf der PRD-Seiten nur mit Pause (1 s) und lokalem Cache, siehe `regeln_abruf.py`.
+- Abruf der PRD-Seiten nur mit Pause (1 s) und lokalem Cache, siehe `bereiche/wissen/regeln_abruf.py`.
