@@ -22,8 +22,8 @@ import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
-import kampagne
 import speicher
+from bereiche import kampagne
 from bereiche import REAKTIONEN, kern
 from bereiche import besitz as BE, charakter as CH, kampf as KM, karte as KA, magie as MA, tisch as TI, wissen as WI
 from bereiche.karte import barrieren, karten
