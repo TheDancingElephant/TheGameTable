@@ -486,7 +486,7 @@ def t_tuer(a):
       ["karte"], gruppe="Karte")
 def t_karte_einrichten(a):
     kid = a["karte"]
-    import barrieren as Bar
+    from bereiche.karte import barrieren as Bar
     vorhanden = Bar.laden(ST.kamp["sl"], kid)
     if vorhanden and vorhanden.get("quelle") == "import":
         aus = ["Wände aus Import übernommen (keine Erkennung)"]
@@ -946,10 +946,10 @@ def main():
     # Worker-Thread, solange der Hauptthread blockierend von stdin liest.
     import numpy  # noqa: F401
     import pymupdf  # noqa: F401
-    import karten  # noqa: F401
-    import barrieren  # noqa: F401
+    from bereiche.karte import karten  # noqa: F401
+    from bereiche.karte import barrieren  # noqa: F401
     import import_charaktere  # noqa: F401
-    import kartenformat  # noqa: F401
+    from bereiche.karte import kartenformat  # noqa: F401
     import regeln_abruf  # noqa: F401  (sqlite3, hashlib, ssl)
     if VERWALTUNG:
         print(f"spieltisch-mcp: Verwaltung {WURZEL}", file=sys.stderr)

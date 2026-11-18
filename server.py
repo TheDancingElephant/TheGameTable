@@ -27,9 +27,8 @@ import kampagne
 import speicher
 from bereiche import REAKTIONEN, kern
 from bereiche.kern import Fehler
-import barrieren
-import karten
-from bereiche import charakter as CH, reaktion
+from bereiche.karte import barrieren, karten
+from bereiche import charakter as CH, karte as KA, reaktion
 import zauber_db as ZDB
 
 _arg = argparse.ArgumentParser()
@@ -240,36 +239,22 @@ class Spiel:
     def maske_sichern(self, kid):
         self.z["karten"][kid]["nebelMaske"] = barrieren.maske_kodieren(self.masken[kid])
 
+    def maske_verwerfen(self, kid):
+        self.masken.pop(kid, None)
+
+    def karte_neu_geladen(self, kid):
+        self.bilder.pop(kid, None)
+        self.waende.pop(kid, None)
+
     def offen_set(self, k):
-        return {tuple(c) for c in k.get("aufgedeckt", [])}
+        return KA.offen(k)
 
     # -- Sicht für Spieler
     def token_sichtbar(self, t, offen):
-        if t["art"] == "sc":
-            return True
-        if not t.get("sichtbar", True):
-            return False
-        return (t["x"], t["y"]) in offen
+        return KA.sichtbar(t, offen)
 
     def taeuschung_fuer(self, t):
-        """Illusionsansicht: Eintrag aus t['taeuschung'] für den SC, der gerade in der Initiative dran ist.
-        Nur im Kampf, nur wenn global nicht abgeschaltet, nie für den aktiven Token selbst. Sonst None."""
-        z = self.z
-        td = t.get("taeuschung")
-        if not td or z.get("taeuschungAus"):
-            return None
-        ini = z["initiative"]
-        if not ini.get("aktiv") or ini.get("phase") == "wuerfeln" or not z.get("zug"):
-            return None
-        akt = z["tokens"].get(z["zug"].get("tokenId") or "")
-        if not akt or akt["art"] != "sc" or akt["id"] == t["id"]:
-            return None
-        r = td.get(akt.get("charId") or "")
-        if r is None:  # geteilte Sicht: Golem o. ä. sieht, was sein Sichtpartner sieht (eigener Eintrag hat Vorrang)
-            p = sicht_partner(akt)
-            if p:
-                r = td.get(p.get("charId") or "")
-        return r
+        return KA.taeuschung_fuer(kx(), t)
 
     def spieler_sicht(self):
         z = self.z
@@ -353,6 +338,29 @@ class Spiel:
 SPIEL = Spiel()
 
 
+# ---------------------------------------------------------------- Übergang: Bereich Karte (bereiche/karte)
+pf_distanz, token_felder, abstand = KA.pf_distanz, KA.token_felder, KA.abstand
+zellen_rechteck, zellen_kreis = KA.zellen_rechteck, KA.zellen_kreis
+reichweite_felder_t, sichtmodus, neue_id = KA.reichweite_felder, KA.sichtmodus, KA.neue_id
+
+
+def token_finden(tid):
+    return KA.finden(kx(), tid)
+
+
+def auto_nebel_aktiv(k):
+    return KA.auto_nebel_aktiv(kx(), k)
+
+
+def nebel_sicht(tokens, k=None, kid=None):
+    return KA.sicht(kx(), tokens, k, kid)
+
+
+@reaktion("token_entfernt")
+def _aus_initiative(k, token_id):
+    ini_entfernen(k.z["initiative"], lambda e: e.get("tokenId") == token_id)
+
+
 # ---------------------------------------------------------------- Übergang: Bereich Charakter (bereiche/charakter)
 MODI, AUF = CH.MODI, CH.AUF
 waffe_info, attr_mod = CH.waffe_info, CH.attr_mod
@@ -390,17 +398,6 @@ def ep_info(c):
     return CH.ep_info(kx(), c)
 
 
-@reaktion("charakter_modi")
-def _modi_tokens(k, cid, eff):
-    hinweise = [h for t in k.z["tokens"].values() if t.get("charId") == cid if (h := modi_token_sync(t, eff))]
-    return "; ".join(hinweise) or None
-
-
-@reaktion("token_groesse")
-def _token_groesse(k, token, groesse):
-    return token_umgroessern(token, groesse)
-
-
 def gesundheit_text(t):
     if t.get("tpMax") in (None, 0):
         return None
@@ -425,30 +422,6 @@ def wuerfeln(ausdruck):
 
 # ---------------------------------------------------------------- Felder & Nebel
 
-def zellen_rechteck(x0, y0, x1, y1):
-    return [(x, y) for x in range(min(x0, x1), max(x0, x1) + 1) for y in range(min(y0, y1), max(y0, y1) + 1)]
-
-
-def zellen_kreis(cx, cy, r):
-    return [(x, y) for x in range(cx - r, cx + r + 1) for y in range(cy - r, cy + r + 1)
-            if pf_distanz(cx, cy, x, y) <= r]
-
-
-def pf_distanz(x0, y0, x1, y1):
-    """Felder nach PF1-Diagonalregel (1-2-1-2 …)."""
-    dx, dy = abs(x1 - x0), abs(y1 - y0)
-    return max(dx, dy) + min(dx, dy) // 2
-
-
-def token_felder(t):
-    g = t.get("groesse", 1)
-    return [(t["x"] + i, t["y"] + j) for i in range(g) for j in range(g)]
-
-
-def abstand(t1, t2):
-    """Kleinster Abstand in Feldern zwischen zwei Tokens (berücksichtigt Größe)."""
-    return min(pf_distanz(a[0], a[1], b[0], b[1]) for a in token_felder(t1) for b in token_felder(t2))
-
 
 # ---------------------------------------------------------------- Kampf: Waffen, Züge, Angriffe
 
@@ -460,11 +433,6 @@ def krit_info(krit):
     m = re.search(r"(\d+)-20", k)
     m2 = re.search(r"[x×](\d)", k)
     return (int(m.group(1)) if m else 20), (int(m2.group(1)) if m2 else 2)
-
-
-def reichweite_felder_t(t):
-    """Nahkampfreichweite eines Tokens in Feldern (1 = angrenzend; gesetzt durch Größenmodi)."""
-    return max(1, int(t.get("reichweite") or 1))
 
 
 def tempo_felder(t):
@@ -1073,278 +1041,6 @@ def faehigkeit_wirken(t, c, index, ziel=None):
 
 # ---------------------------------------------------------------- Befehle
 
-def token_finden(tid):
-    t = SPIEL.z["tokens"].get(tid)
-    if not t:
-        # auch per Name (ohne Groß/Klein)
-        for kandidat in SPIEL.z["tokens"].values():
-            if kandidat["name"].lower() == str(tid).lower():
-                return kandidat
-        raise Fehler(f"Token {tid!r} nicht gefunden")
-    return t
-
-
-def neue_id(praefix, vorhanden):
-    i = 1
-    while f"{praefix}{i}" in vorhanden:
-        i += 1
-    return f"{praefix}{i}"
-
-
-def sichtmodus(k):
-    """Stufenloser Nebel nach Sichtpolygon (statt Feldraster) für diese Karte aktiv?"""
-    return bool(k) and k.get("nebelModus") == "sicht"
-
-
-def nebel_aendern(k, zellen, auf):
-    if sichtmodus(k):  # Maske für die Darstellung mitführen (Felder: ganze Feldfläche)
-        m = SPIEL.maske(k["id"])
-        for cx, cy in zellen:
-            barrieren.maske_rechteck(m, (k["ox"] + cx * k["zelle"], k["oy"] + cy * k["zelle"],
-                                         k["ox"] + (cx + 1) * k["zelle"], k["oy"] + (cy + 1) * k["zelle"]), auf)
-        SPIEL.maske_sichern(k["id"])
-    offen = SPIEL.offen_set(k)
-    if auf:
-        offen |= set(zellen)
-    else:
-        offen -= set(zellen)
-    k["aufgedeckt"] = sorted([list(c) for c in offen])
-    k["nebelVersion"] = k.get("nebelVersion", 0) + 1
-
-
-def sicht_partner(t):
-    """Geteilte Sicht: SC-Token, dessen Sicht `t` zusätzlich nutzt (Feld `sichtVon` = Charakter-ID, am Token oder
-    in den Charakterdaten; Vereinigung mit der eigenen Sicht). Ohne Feld: None (jeder sieht für sich)."""
-    if t.get("art") != "sc":
-        return None
-    cid = t.get("sichtVon")
-    if not cid and t.get("charId"):
-        try:
-            cid = char_laden(t["charId"]).get("sichtVon")
-        except Fehler:
-            cid = None
-    if not cid or cid == t.get("charId"):
-        return None
-    p = sc_token(cid)
-    if p is None or p.get("karte") != t.get("karte"):
-        return None
-    return p
-
-
-def mit_sichtpartnern(tokens):
-    """Erweitert eine Tokenliste um die Sichtpartner (ohne Doppelte)."""
-    ids = {t["id"] for t in tokens}
-    out = list(tokens)
-    for t in tokens:
-        p = sicht_partner(t)
-        if p and p["id"] not in ids:
-            ids.add(p["id"])
-            out.append(p)
-    return out
-
-
-def sicht_radius(t, k):
-    """Sichtweite in Feldern: Token-Feld `sicht`, sonst Dunkelsicht aus den Charakterdaten, sonst Karten-/Standardwert (8)."""
-    if t.get("sicht"):
-        return int(t["sicht"])
-    c = sc_char(t) or {}
-    m = re.search(r"Dunkelsicht\D{0,12}?(\d+(?:[.,]\d+)?)\s*m", str(c.get("faehigkeiten", "")))
-    if m:
-        return max(1, int(float(m.group(1).replace(",", ".")) // k.get("meterProFeld", 1.5)))
-    return int(k.get("sichtFelder", 8))
-
-
-def auto_nebel_aktiv(k):
-    return bool(k.get("autoNebel", KAMP.get("autoNebel", False)))
-
-
-def nebel_sicht(tokens, k=None, kid=None):
-    """Deckt per Sichtlinie auf (nur aufdecken). Gibt die Anzahl neu aufgedeckter Felder zurück."""
-    z = SPIEL.z
-    kid = kid or z["karteAktiv"]
-    k = k or SPIEL.karte(kid)
-    if not k or "zelle" not in k:
-        return 0
-    tokens = mit_sichtpartnern(tokens)
-    if sichtmodus(k) and SPIEL.barr(kid) is not None:
-        return nebel_sichtpolygon(tokens, k, kid)
-    wand = SPIEL.wand(kid)
-    neu = set()
-    for t in tokens:
-        if t["art"] != "sc" or t.get("karte", kid) != kid:
-            continue
-        neu.update(karten.sicht_felder(wand, k, (t["x"], t["y"]), sicht_radius(t, k)))
-    neu -= SPIEL.offen_set(k)
-    if neu:
-        nebel_aendern(k, neu, True)
-    return len(neu)
-
-
-def nebel_sichtpolygon(tokens, k, kid):
-    """Sichtpolygon-Nebel: Strahlen vom Mittelpunkt jeder Spielfigur bis zur nächsten Barriere (höchstens Sichtweite);
-    das Polygon wird stufenlos in die Aufdeck-Maske eingetragen. Pflegt zusätzlich die Feldliste (Mittelpunkt sichtbar),
-    damit Tokensichtbarkeit und Altfunktionen weiterlaufen. Gibt die Zahl neu aufgedeckter Felder zurück."""
-    seg, seite = SPIEL.barr(kid, blockierend=True)
-    maske = SPIEL.maske(kid)
-    z, ox, oy = k["zelle"], k["ox"], k["oy"]
-    M = barrieren.MASKE_B
-    geaendert = False
-    neue_felder = set()
-    for t in tokens:
-        if t["art"] != "sc" or t.get("karte", kid) != kid:
-            continue
-        r = (sicht_radius(t, k) + 0.5) * z
-        mitte = (ox + (t["x"] + 0.5) * z, oy + (t["y"] + 0.5) * z)
-        beste = None
-        for dx, dy in [(0, 0)] + [(a * 14, b * 14) for a in (-1, 0, 1) for b in (-1, 0, 1) if a or b]:
-            o = (mitte[0] + dx, mitte[1] + dy)
-            winkel, dist = barrieren.sichtpolygon(seg, seite, o, r)
-            if beste is None or dist.sum() > beste[2].sum():
-                beste = (o, winkel, dist)
-            if (dx, dy) == (0, 0) and dist.max() > 0.3 * z:
-                break  # Mittelpunkt sieht normal; Ausweichpunkte nur, wenn die Figur praktisch in einer Wand steht
-        o, winkel, dist = beste
-        y0, x0, neu = barrieren.sicht_zeichnen(maske, o, winkel, dist)
-        if neu.any():
-            geaendert = True
-        rmax = float(dist.max()) + z
-        for cy in range(int((o[1] - rmax - oy) // z), int((o[1] + rmax - oy) // z) + 1):
-            for cx in range(int((o[0] - rmax - ox) // z), int((o[0] + rmax - ox) // z) + 1):
-                px, py = ox + (cx + 0.5) * z, oy + (cy + 0.5) * z
-                if 0 <= px < k["w"] and 0 <= py < k["h"] and maske[int(py // M), int(px // M)]:
-                    neue_felder.add((cx, cy))
-    neue_felder -= SPIEL.offen_set(k)
-    if geaendert or neue_felder:
-        SPIEL.maske_sichern(kid)
-        k["aufgedeckt"] = sorted([list(c) for c in SPIEL.offen_set(k) | neue_felder])
-        k["nebelVersion"] = k.get("nebelVersion", 0) + 1
-    return len(neue_felder)
-
-
-def barrieren_befehl(op, b):
-    """SL-Befehle rund um Barrieren (Wände, Türen, Fenster); Koordinaten in Feldern (Gitterpunkte, auch halbe)."""
-    z = SPIEL.z
-    kid = b.get("karte") or z["karteAktiv"]
-    k = SPIEL.karte(kid)
-    if k is None:
-        raise Fehler("Keine Karte")
-    zl, ox, oy = k["zelle"], k["ox"], k["oy"]
-
-    def px(x, y):
-        return [ox + float(x) * zl, oy + float(y) * zl]
-
-    def feld(p):
-        return [round((p[0] - ox) / zl * 2) / 2, round((p[1] - oy) / zl * 2) / 2]
-
-    def mitte(e):
-        return (e["p"][0] + e["p"][2]) / 2, (e["p"][1] + e["p"][3]) / 2
-
-    if op == "barrieren-setzen":  # fertige Barrieren (z. B. aus dem Kartenimport) übernehmen
-        d = b.get("daten")
-        if not isinstance(d, dict) or not isinstance(d.get("waende"), list) or not isinstance(d.get("extra"), list):
-            raise Fehler("barrieren-setzen: daten mit waende und extra erwartet")
-        d.setdefault("loeschen", [])
-        SPIEL.barr_speichern(kid, d)
-        return {"waende": len(d["waende"]), "tueren": sum(1 for e in d["extra"] if e["typ"] in ("tuer", "geheimtuer"))}
-    if op == "barrieren-erkennen":
-        alt = SPIEL.barr(kid)
-        if alt and alt.get("quelle") == "import" and not b.get("erzwingen"):
-            raise Fehler("Die Wände dieser Karte stammen aus einem Import und sind exakt; Erkennung würde sie ersetzen "
-                         "(erzwingen=true, falls gewollt)")
-        neu = barrieren.erkennen(SPIEL.bild(kid), int(zl))
-        if alt:  # Korrekturen und Türzustände behalten
-            neu["loeschen"] = alt.get("loeschen", [])
-            alte = [e for e in alt["extra"] if e.get("quelle") == "auto"]
-            for e in neu["extra"]:
-                m = mitte(e)
-                for a in alte:
-                    if math.hypot(mitte(a)[0] - m[0], mitte(a)[1] - m[1]) < 12:
-                        e["offen"], e["typ"], e["blockiertVon"] = a.get("offen", False), a["typ"], a.get("blockiertVon")
-            neu["extra"] += [e for e in alt["extra"] if e.get("quelle") != "auto"]
-        SPIEL.barr_speichern(kid, neu)
-        return {"waende": len(neu["waende"]), "tueren": sum(1 for e in neu["extra"] if e["typ"] in ("tuer", "geheimtuer"))}
-    d = SPIEL.barr(kid)
-    if d is None:
-        raise Fehler("Für diese Karte gibt es noch keine Barrieren (sl.py barrieren erkennen)")
-    ids = [e["id"] for e in d["extra"]]
-    if op == "barriere-liste":
-        return {"karte": kid, "waende": len(barrieren.aktive_waende(d)), "nebelModus": k.get("nebelModus", "raster"),
-                "extra": [{"id": e["id"], "typ": e["typ"], "offen": bool(e.get("offen")), "von": feld(e["p"][:2]),
-                           "bis": feld(e["p"][2:]), "blockiertVon": e.get("blockiertVon"), "quelle": e.get("quelle")}
-                          for e in d["extra"]]}
-    if op == "tuer":
-        ziele = list(b.get("ids") or [])
-        if b.get("bei"):  # nächste Tür zu einem Feld (Gitterpunkt oder Feldmitte, z. B. 12.5 7)
-            c = px(*b["bei"])
-            tueren = [e for e in d["extra"] if e["typ"] in ("tuer", "geheimtuer")]
-            if tueren:
-                e = min(tueren, key=lambda e: math.hypot(mitte(e)[0] - c[0], mitte(e)[1] - c[1]))
-                if math.hypot(mitte(e)[0] - c[0], mitte(e)[1] - c[1]) <= 1.6 * zl:
-                    ziele.append(e["id"])
-        if not ziele:
-            raise Fehler("Keine Tür gefunden (ID oder Feld prüfen: sl.py barrieren liste)")
-        res = []
-        for i in ziele:
-            if i not in ids:
-                raise Fehler(f"Barriere {i!r} unbekannt")
-            e = d["extra"][ids.index(i)]
-            if e["typ"] not in ("tuer", "geheimtuer"):
-                raise Fehler(f"{i} ist keine Tür")
-            e["offen"] = (not e.get("offen")) if b.get("offen") is None else bool(b["offen"])
-            res.append(f"{i}: {'offen' if e['offen'] else 'geschlossen'}")
-        SPIEL.barr_speichern(kid, d)
-        if sichtmodus(k) and auto_nebel_aktiv(k):
-            nebel_sicht([t for t in z["tokens"].values() if t["art"] == "sc"], k, kid)  # Sicht durch die Tür sofort nachziehen
-        return {"tueren": res}
-    if op == "barriere-neu":
-        typ = b.get("typ", "wand")
-        if typ not in barrieren.TYPEN:
-            raise Fehler(f"Typ {typ!r} unbekannt ({', '.join(barrieren.TYPEN)})")
-        i = 1
-        while f"m{i}" in ids:
-            i += 1
-        e = {"id": b.get("id") or f"m{i}", "typ": typ, "p": px(*b["von"]) + px(*b["bis"]), "offen": bool(b.get("offen", False)),
-             "blockiertVon": b.get("blockiertVon"), "quelle": "manuell"}
-        if e["id"] in ids:
-            raise Fehler(f"ID {e['id']} existiert schon")
-        d["extra"].append(e)
-        SPIEL.barr_speichern(kid, d)
-        return {"id": e["id"]}
-    if op == "barriere-aendern":
-        if b["id"] not in ids:
-            raise Fehler(f"Barriere {b['id']!r} unbekannt")
-        e = d["extra"][ids.index(b["id"])]
-        for key in ("typ", "blockiertVon"):
-            if key in b:
-                e[key] = b[key]
-        SPIEL.barr_speichern(kid, d)
-        return {}
-    if op == "barriere-weg":
-        n = 0
-        for i in b.get("ids") or []:
-            if i not in ids:
-                raise Fehler(f"Barriere {i!r} unbekannt")
-        if b.get("ids"):
-            n = len(b["ids"])
-            d["extra"] = [e for e in d["extra"] if e["id"] not in b["ids"]]
-        if b.get("bereich"):  # erkannte Wandstücke (und manuelle Barrieren) in diesem Feldbereich ignorieren
-            x0, y0, x1, y1 = b["bereich"]
-            r = px(min(x0, x1), min(y0, y1)) + px(max(x0, x1), max(y0, y1))
-            vor = len(barrieren.aktive_waende(d))
-            d.setdefault("loeschen", []).append(r)
-            n += vor - len(barrieren.aktive_waende(d))
-            behalten = [e for e in d["extra"] if not (e.get("quelle") == "manuell" and r[0] <= mitte(e)[0] <= r[2]
-                                                      and r[1] <= mitte(e)[1] <= r[3])]
-            n += len(d["extra"]) - len(behalten)
-            d["extra"] = behalten
-        SPIEL.barr_speichern(kid, d)
-        return {"entfernt": n}
-    if op == "barriere-bereiche-frei":  # alle Löschbereiche wieder aufheben
-        d["loeschen"] = []
-        SPIEL.barr_speichern(kid, d)
-        return {}
-    raise Fehler(f"Unbekannter Barrieren-Befehl {op!r}")
-
 
 def sl_befehl(b):
     """Alle Spielleiter-Aktionen. Rückgabe: dict für die Antwort."""
@@ -1364,25 +1060,11 @@ def sl_befehl(b):
         z["szene"] = {"titel": b.get("titel", ""), "untertitel": b.get("untertitel", "")}
         SPIEL.eintragen("system", f"Szene: {z['szene']['titel']}")
     elif op == "karte-registrieren":
-        k = b["karte"]
-        k.setdefault("aufgedeckt", [])
-        k.setdefault("abdeckungen", [])
-        k.setdefault("meterProFeld", 1.5)
-        k["nebelVersion"] = k.get("nebelVersion", 0) + 1
-        z["karten"][k["id"]] = k
-        SPIEL.bilder.pop(k["id"], None)
-        SPIEL.waende.pop(k["id"], None)
+        KA.registrieren(kx(), b["karte"])
     elif op == "karte-aktiv":
-        if b["id"] not in z["karten"]:
-            raise Fehler(f"Karte {b['id']!r} unbekannt")
-        z["karteAktiv"] = b["id"]
-        z["karten"][b["id"]]["bekannt"] = True
-        SPIEL.eintragen("system", f"Karte: {z['karten'][b['id']]['name']}")
+        KA.aktivieren(kx(), b["id"])
     elif op == "karte-bekannt":  # Karte in den Unterlagen der Spieler anzeigen (oder wieder entfernen)
-        k = SPIEL.karte(b["id"])
-        k["bekannt"] = bool(b.get("bekannt", True))
-        if "legende" in b:
-            k["legende"] = b["legende"]
+        KA.bekannt(kx(), b)
     elif op == "handout":  # Text-Handout anlegen oder ersetzen (gleiche id)
         hs = z.setdefault("handouts", [])
         h = {"id": b["id"], "titel": b.get("titel") or b["id"], "text": b["text"]}
@@ -1395,108 +1077,29 @@ def sl_befehl(b):
     elif op == "handout-weg":
         z["handouts"] = [x for x in z.get("handouts", []) if x["id"] != b["id"]]
     elif op == "raster":
-        k = SPIEL.karte(b.get("karte"))
-        for key in ("zelle", "ox", "oy", "meterProFeld"):
-            if key in b:
-                k[key] = float(b[key])
-        if "waendeSperren" in b:
-            k["waendeSperren"] = bool(b["waendeSperren"])
-        if "autoNebel" in b:
-            if b["autoNebel"] is None:
-                k.pop("autoNebel", None)
-            else:
-                k["autoNebel"] = bool(b["autoNebel"])
-        if "sichtFelder" in b:
-            k["sichtFelder"] = int(b["sichtFelder"])
-        k["nebelVersion"] = k.get("nebelVersion", 0) + 1
+        KA.raster(kx(), b)
     elif op == "sicht":  # Sichtlinien-Aufdecken jetzt für alle SC auf der Karte (unabhängig vom Schalter)
-        return {"aufgedeckt": nebel_sicht([t for t in z["tokens"].values()], SPIEL.karte(b.get("karte")), b.get("karte"))}
+        return {"aufgedeckt": KA.sicht(kx(), list(z["tokens"].values()), KA.aktive(kx(), b.get("karte")), b.get("karte"))}
     elif op.startswith("barriere") or op == "tuer":
-        return barrieren_befehl(op, b)
+        return KA.barrieren_befehl(kx(), op, b)
     elif op == "nebel-modus":  # stufenloser Sichtpolygon-Nebel (sicht) oder Feldraster (raster), pro Karte
-        kid = b.get("karte") or z["karteAktiv"]
-        k = SPIEL.karte(kid)
-        if b["modus"] == "sicht":
-            if SPIEL.barr(kid) is None:
-                barrieren_befehl("barrieren-erkennen", {"karte": kid})
-            SPIEL.masken.pop(kid, None)
-            k.pop("nebelMaske", None)
-            k["nebelModus"] = "sicht"
-            SPIEL.maske(kid)
-            SPIEL.maske_sichern(kid)
-        else:
-            k.pop("nebelModus", None)
-            k.pop("nebelMaske", None)
-            SPIEL.masken.pop(kid, None)
-        k["nebelVersion"] = k.get("nebelVersion", 0) + 1
+        KA.nebel_modus(kx(), b)
     elif op in ("aufdecken", "verdecken"):
-        k = SPIEL.karte(b.get("karte"))
-        form = b.get("form", "rechteck")
-        if form == "rechteck":
-            zellen = zellen_rechteck(*b["felder"])
-        elif form == "kreis":
-            zellen = zellen_kreis(*b["felder"])
-        elif form == "liste":
-            zellen = [tuple(c) for c in b["felder"]]
-        elif form == "alles":
-            x0, y0, x1, y1 = karten.zellbereich(k)
-            zellen = zellen_rechteck(x0, y0, x1, y1)
-        else:
-            raise Fehler(f"Form {form!r} unbekannt")
-        nebel_aendern(k, zellen, op == "aufdecken")
+        KA.auf_zu(kx(), op, b)
     elif op in ("kasse", "item-neu", "item-aendern", "item-weg"):
         return ausruestung_aendern(b)
     elif op in ("buch-add", "buch-weg"):
         return zauberbuch_aendern({**b, "op": "add" if op == "buch-add" else "weg"})
     elif op == "abdecken":
-        k = SPIEL.karte(b.get("karte"))
-        if b.get("entfernen"):
-            k["abdeckungen"] = [a for a in k["abdeckungen"] if a != b["felder"]]
-        else:
-            k["abdeckungen"].append(list(b["felder"]))
-        k["nebelVersion"] = k.get("nebelVersion", 0) + 1
+        KA.abdecken(kx(), b)
     elif op == "token-setzen":
-        t = dict(b["token"])
-        t.setdefault("id", neue_id({"gegner": "g", "nsc": "n", "objekt": "o", "sc": "sc"}.get(t.get("art", "gegner"), "t"), z["tokens"]))
-        t.setdefault("art", "gegner")
-        t.setdefault("groesse", 1)
-        t.setdefault("zustaende", [])
-        t.setdefault("sichtbar", True)
-        t.setdefault("karte", z["karteAktiv"])
-        if "tpMax" in t:
-            t.setdefault("tp", t["tpMax"])
-        z["tokens"][t["id"]] = t
-        return {"id": t["id"]}
+        return KA.setzen(kx(), b["token"])
     elif op == "token-aendern":
-        t = token_finden(b["id"])
-        for key, wert in b["werte"].items():
-            if wert is None:
-                t.pop(key, None)
-            else:
-                t[key] = wert
+        KA.aendern(kx(), b["id"], b["werte"])
     elif op == "taeuschung":  # Illusionsansicht je SC (siehe README „Illusionen“)
-        if b.get("schalter") in ("ein", "aus"):
-            z["taeuschungAus"] = b["schalter"] == "aus"
-            return {"aus": z["taeuschungAus"]}
-        t = token_finden(b["id"])
-        td = t.setdefault("taeuschung", {})
-        if b.get("weg"):
-            for cid in (b.get("fuer") or list(td)):
-                td.pop(cid, None)
-        else:
-            eintrag = {k: b[k] for k in ("name", "symbol", "farbe", "x", "y", "groesse", "sichtbar", "art")
-                       if b.get(k) is not None}
-            if not eintrag:
-                raise Fehler("Täuschung ohne Angaben (name/symbol/farbe/x/y/groesse/sichtbar/art)")
-            for cid in b["fuer"]:
-                td[cid] = dict(eintrag)
-        if not td:
-            t.pop("taeuschung", None)
-        return {"taeuschung": t.get("taeuschung", {})}
+        return KA.taeuschung(kx(), b)
     elif op == "token-entfernen":
-        t = token_finden(b["id"])
-        del z["tokens"][t["id"]]
-        ini_entfernen(z["initiative"], lambda e: e.get("tokenId") == t["id"])
+        KA.entfernen(kx(), b["id"])
     elif op == "bewegen":
         t = token_finden(b["id"])
         bedroht = []
@@ -1504,9 +1107,7 @@ def sl_befehl(b):
             bedroht = [s["name"] for s in z["tokens"].values()
                        if s["art"] == "sc" and s.get("karte") == t.get("karte") and abstand(s, t) <= 1
                        and not set(s.get("zustaende", [])) & set(UNFAEHIG)]
-        t["x"], t["y"] = int(b["x"]), int(b["y"])
-        if t["art"] == "sc" and auto_nebel_aktiv(SPIEL.karte(t.get("karte"))):
-            nebel_sicht([t])
+        KA.bewegen(kx(), t, b["x"], b["y"])
         if bedroht:
             return {"warnung": f"Gelegenheitsangriff möglich für: {', '.join(bedroht)} ({t['name']} verließ ein bedrohtes Feld)"}
     elif op == "tp":
@@ -1613,48 +1214,6 @@ def weckende_ereignisse():
 
 
 # ---------------------------------------------------------------- Modi (Hast, Größe, Reichweite …)
-
-
-def token_umgroessern(t, g):
-    """Setzt die Tokengröße; beim Wachsen wird ein freier Platz in der Nähe gesucht. Gibt einen Hinweis zurück oder None."""
-    alt = t.get("groesse", 1)
-    if g <= alt:
-        t["groesse"] = g
-        return None
-    belegt = {f for s in SPIEL.z["tokens"].values() if s is not t and s.get("karte") == t.get("karte")
-              for f in token_felder(s)}
-    wachs = g - alt
-    kandidaten = sorted(((dx, dy) for dx in range(-wachs, 1) for dy in range(-wachs, 1)), key=lambda d: (abs(d[0]) + abs(d[1]), d))
-    for dx, dy in kandidaten:
-        x, y = t["x"] + dx, t["y"] + dy
-        if x < 0 or y < 0:
-            continue
-        if not any(f in belegt for f in token_felder({"x": x, "y": y, "groesse": g})):
-            t.update({"x": x, "y": y, "groesse": g})
-            return None
-    t["groesse"] = g
-    return f"{t['name']} wächst, aber es ist zu eng – das Token überlappt andere"
-
-
-def modi_token_sync(t, c):
-    """Überträgt Größe/Reichweite der wirksamen Charakterdaten c auf das Token t."""
-    w = (c or {}).get("_wirkung") or {}
-    g_neu, reich, hinweis = w.get("tokenGroesse"), w.get("reichweite"), None
-    if g_neu or reich:
-        t.setdefault("modiToken", {"groesse": t.get("groesse", 1)})
-        ziel = g_neu or t["modiToken"]["groesse"]
-        if ziel != t.get("groesse", 1):
-            hinweis = token_umgroessern(t, ziel)
-        if reich:
-            t["reichweite"] = reich
-        else:
-            t.pop("reichweite", None)
-    elif "modiToken" in t:
-        basis = t.pop("modiToken")["groesse"]
-        if basis != t.get("groesse", 1):
-            hinweis = token_umgroessern(t, basis)
-        t.pop("reichweite", None)
-    return hinweis
 
 
 def ini_entfernen(ini, entfernen):
@@ -2065,10 +1624,8 @@ def spieler_befehl(pfad, b):
             if felder > info["restFelder"]:
                 raise Fehler(f"Zu weit: {t['name']} kann noch {info['restFelder']} Felder gehen")
             z["zug"]["bewegt"] += felder
-        t["x"], t["y"] = int(b["x"]), int(b["y"])
+        KA.bewegen(kx(), t, b["x"], b["y"])
         k = SPIEL.karte()
-        if k and t.get("karte", z["karteAktiv"]) == z["karteAktiv"] and auto_nebel_aktiv(k):
-            nebel_sicht([t], k)
         meter = felder * (k.get("meterProFeld", 1.5) if k else 1.5)
         # Außerhalb eines Kampfes weckt Bewegung den SL (der Nachlauf von `warte` sammelt mehrere Züge ein)
         wecken = not z["initiative"].get("aktiv")
@@ -2102,23 +1659,11 @@ def spieler_befehl(pfad, b):
         else:
             zs.append(b["name"])
     elif pfad == "/api/sc-platzieren":
-        c = char_laden(b["charId"])
-        if not z["karteAktiv"]:
-            raise Fehler("Keine Karte aktiv")
-        t = sc_token(c["id"])
-        if t is None:
-            t = {"id": "sc-" + c["id"], "art": "sc", "charId": c["id"], "zustaende": [], "sichtbar": True}
-            z["tokens"][t["id"]] = t
-        t.update({"name": c["name"], "farbe": c.get("farbe", "#3a7bd5"), "karte": z["karteAktiv"],
-                  "x": int(b["x"]), "y": int(b["y"]), "groesse": c.get("groesseFelder", 1),
-                  "tpMax": c.get("tp", {}).get("max"), "tp": c.get("tp", {}).get("aktuell", c.get("tp", {}).get("max"))})
-        SPIEL.eintragen("system", f"{c['name']} betritt die Karte bei ({t['x']},{t['y']})")
+        KA.sc_platzieren(kx(), b["charId"], b["x"], b["y"])
     elif pfad == "/api/gruppennotizen":
         z["gruppennotizen"] = str(b.get("text", ""))[:50000]
     elif pfad == "/api/sc-entfernen":
-        t = sc_token(b["charId"])
-        if t:
-            del z["tokens"][t["id"]]
+        KA.sc_entfernen(kx(), b["charId"])
     else:
         raise Fehler("Unbekannter Pfad")
     return {}

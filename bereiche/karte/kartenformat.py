@@ -273,7 +273,7 @@ def ist_uvtt(d):
 
 def exportieren(karte, barr):
     """Bestehende Spieltisch-Karte + Barrieren-Dict -> Format-Dict (Wände als Zweipunkt-Linien in Feldern)."""
-    import barrieren as B
+    from bereiche.karte import barrieren as B
     zl, ox, oy = karte["zelle"], karte["ox"], karte["oy"]
 
     def f(x, y):

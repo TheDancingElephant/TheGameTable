@@ -254,7 +254,7 @@ class Spieltisch:
         return f"{r['ergebnis']}  [{r['detail']}]{bes}"
 
     def stand(self):
-        import karten
+        from bereiche.karte import karten
         z = self.anfrage("/api/sl/zustand")
         k = z["karten"].get(z["karteAktiv"]) if z["karteAktiv"] else None
         aus = [f"Szene: {z['szene']['titel']}  |  Karte: {k['name'] if k else '-'} ({z['karteAktiv']})  |  SL-Status: {z['slStatus']}"]
@@ -408,7 +408,7 @@ class Spieltisch:
                   leer=None, aktiv=False, versatz_erkennen=False):
         """Neue Karte aus PDF-Seite (Raster wird erkannt), Bilddatei (zelle_px = Feldgröße im Bild; mit
         versatz_erkennen wird die Lage des Rasters gesucht, sonst 0/0) oder leer [FELDER_X, FELDER_Y]."""
-        import karten
+        from bereiche.karte import karten
         import pymupdf
         if not re.fullmatch(r"[\w-]+", id or ""):
             raise SLFehler("Karten-ID nur aus Buchstaben, Ziffern, - und _")
@@ -455,8 +455,8 @@ class Spieltisch:
     def karte_import(self, datei=None, daten=None, id=None, name=None, aktiv=False, sc=None):
         """Karte mit exakten Wänden importieren: Spieltisch-Kartenformat (JSON, siehe kartenformat.py) oder
         Universal VTT (.dd2vtt/.uvtt). Legt Bild, Karte und Barrieren an und schaltet den Sichtnebel ein."""
-        import karten
-        import kartenformat as KF
+        from bereiche.karte import karten
+        from bereiche.karte import kartenformat as KF
         if datei:
             p = self.pfad(datei)
             if not p.is_file():
@@ -528,8 +528,8 @@ class Spieltisch:
 
     def karte_export(self, id):
         """Karte samt Wänden/Türen ins Spieltisch-Kartenformat schreiben (sl/karten/<id>.karte.json)."""
-        import barrieren as B
-        import kartenformat as KF
+        from bereiche.karte import barrieren as B
+        from bereiche.karte import kartenformat as KF
         z = self.zustand()
         if id not in z["karten"]:
             raise SLFehler(f"Karte {id!r} unbekannt")
@@ -543,7 +543,7 @@ class Spieltisch:
         return ""
 
     def karten_liste(self):
-        import karten
+        from bereiche.karte import karten
         z = self.zustand()
         aus = []
         for kid, k in z["karten"].items():
@@ -639,7 +639,7 @@ class Spieltisch:
                  max_kante=None, format="png"):
         """Rendert eine Karte mit Feldkoordinaten und Tokens. Gibt (Bilddaten, Info) zurück.
         max_kante: längste Bildkante in Pixeln begrenzen (verringert zoom)."""
-        import karten
+        from bereiche.karte import karten
         import pymupdf
         z = self.zustand()
         kid = karte or z["karteAktiv"]
@@ -649,7 +649,7 @@ class Spieltisch:
         bild = karten.bild_laden(str(self.kamp["karten"] / k["datei"]))
         pm = None
         if k.get("nebelModus") == "sicht" and k.get("nebelMaske") and spieler:
-            import barrieren as B
+            from bereiche.karte import barrieren as B
             pm = B.maske_in_pixel(B.maske_dekodieren(k["nebelMaske"]), bild.shape[1], bild.shape[0])
         jpg = karten.maskiert_jpeg(bild, k, [tuple(c) for c in k.get("aufgedeckt", [])], ganz=not spieler, pixelmaske=pm)
         zl, ox, oy = k["zelle"], k["ox"], k["oy"]
@@ -663,7 +663,7 @@ class Spieltisch:
         offen = {tuple(c) for c in k.get("aufgedeckt", [])}
         sh = pg.new_shape()
         if not spieler and k.get("nebelModus") == "sicht" and k.get("nebelMaske"):  # Sichtpolygon: Nebel pixelgenau andeuten
-            import barrieren as B
+            from bereiche.karte import barrieren as B
             import numpy as np
             m = B.maske_in_pixel(B.maske_dekodieren(k["nebelMaske"]), bild.shape[1], bild.shape[0])
             dim = bild.copy()
@@ -682,7 +682,7 @@ class Spieltisch:
         sh.finish(color=(1, 0, 0), width=0.6, stroke_opacity=0.5)
         sh.commit()
         if barrieren and not spieler:  # erkannte Barrieren einzeichnen (nur SL)
-            import barrieren as B
+            from bereiche.karte import barrieren as B
             d = B.laden(self.kamp["sl"], kid)
             if d:
                 sb = pg.new_shape()
