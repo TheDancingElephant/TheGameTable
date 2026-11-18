@@ -23,6 +23,14 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Gelegenheitsangriff", t)
         self.assertIn("Beweglichkeit", self.tk.st.regel_schnell("talent", "Beweglichkeit"))
 
+    def test_monster_info(self):
+        t = self.tk.st.monster_info("Lehmgolem")
+        self.assertIn("HG 10", t)
+        self.assertIn("SR** 10/Adamant", t)
+        liste = self.tk.st.monster_info(hg="10", art="Konstrukt")
+        self.assertIn("Lehmgolem", liste)
+        self.assertIn("MHB", self.tk.st.regel_suchen("Schwarm Flächenschaden"))
+
     def test_hausregel_hat_vorrang(self):
         t = self.tk.st.regel_suchen("Heldenpunkte")
         self.assertIn("HAUSREGEL", t.splitlines()[0] + t.splitlines()[1] if len(t.splitlines()) > 1 else t)
@@ -64,7 +72,8 @@ class MCPTest(unittest.TestCase):
         namen = [t["name"] for t in tools]
         self.assertEqual(len(namen), len(set(namen)))
         self.assertGreaterEqual(len(namen), 80)
-        for n in ("stand", "erzaehle", "warte", "angriff", "ini", "modus", "zauber_info", "regel_suchen", "kasse"):
+        for n in ("stand", "erzaehle", "warte", "angriff", "ini", "modus", "zauber_info", "regel_suchen", "kasse",
+                  "monster_info"):
             self.assertIn(n, namen)
 
 

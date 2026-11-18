@@ -627,14 +627,15 @@ def t_zauber_info(a):
 
 # ------------------------------------------------------------------ Regeln (PRD: Grundregelwerk, Expertenregeln + Hausregeln)
 
-@tool("regel_suchen", "Regelfrage in der lokalen Regeldatenbank nachschlagen (PF1, deutsches PRD: Grundregelwerk + Expertenregeln, ohne Zauber) "
+@tool("regel_suchen", "Regelfrage in der lokalen Regeldatenbank nachschlagen (PF1, deutsches PRD: Grundregelwerk, Expertenregeln, Monsterhandbuch; ohne Zauber) "
       "plus Hausregeln der Kampagne (sl/hausregeln.md, haben Vorrang). Liefert die besten Abschnitte kurz mit ID und Quelle; "
       "Volltext mit regel_lesen. IMMER vor einer Regelentscheidung nutzen statt aus dem Gedächtnis; Websuche nur, wenn nichts kommt. "
       "Abkürzungen gehen (GA, RK, KMB, KMV, TP, SG, GAB, RW …).",
       {"frage": S("Stichworte oder Frage, z. B. „Gelegenheitsangriff Bewegung verlassen“, „Hinterhältiger Angriff kritischer Treffer“"),
        "kategorie": S("Kapitel eingrenzen, z. B. Kampf, Magie, Ausrüstung, Fertigkeiten, Talente, Anhang, Umgebung, Spielleitung"),
-       "buch": S("Buch eingrenzen: Grundregelwerk oder Expertenregeln (Treffer aus Expertenregeln sind mit EXP markiert)"),
-       "typ": S("nur dieser Eintragstyp", ["regel", "talent", "zustand", "fertigkeit", "klasse", "prestigeklasse", "volk", "tabelle"]),
+       "buch": S("Buch eingrenzen: Grundregelwerk, Expertenregeln oder Monsterhandbuch (Treffer mit EXP/MHB markiert)"),
+       "typ": S("nur dieser Eintragstyp", ["regel", "talent", "zustand", "fertigkeit", "klasse", "prestigeklasse", "volk",
+                                          "tabelle", "monster", "klassenmerkmal", "gegenstand"]),
        "max_treffer": I("Standard 5, höchstens 20")}, ["frage"], lesen=True, gruppe="Regeln")
 def t_regel_suchen(a):
     return ST.regel_suchen(a["frage"], a.get("kategorie"), a.get("buch"), a.get("typ"), a.get("max_treffer") or 5)
@@ -670,11 +671,20 @@ def t_fertigkeit_info(a):
     return ST.regel_schnell("fertigkeit", a.get("name"))
 
 
+@tool("monster_info", "Monster-Werteblock aus dem Monsterhandbuch (PRD): HG, EP, Art, RK, TP, Rettungswürfe, Angriffe, "
+      "Spielwerte, Besondere Fähigkeiten, Beschreibung. IMMER statt Werten aus dem Gedächtnis. Ohne name: Liste, "
+      "filterbar nach hg (z. B. 3, 1/2) und art (z. B. Untoter, Konstrukt, Drache).",
+      {"name": S("Monstername, z. B. Lehmgolem, Ghul"), "hg": S("Herausforderungsgrad (Liste)"),
+       "art": S("Teil der Art (Liste), z. B. Untoter")}, lesen=True, gruppe="Regeln")
+def t_monster_info(a):
+    return ST.monster_info(a.get("name"), a.get("hg"), a.get("art"))
+
+
 _regeln_lauf = {"thread": None, "log": [], "ergebnis": None}
 
 
 @tool("regeln_aktualisieren", "Regeldatenbank aus dem PRD (prd.5footstep.de) aktualisieren: prüft jede Inhaltsseite (ETag/Inhaltsvergleich), "
-      "übernimmt geänderte/neue Seiten (1 s Pause je Abruf, ca. 20 Minuten), baut bei Änderungen den Index neu. Läuft im Hintergrund: "
+      "übernimmt geänderte/neue Seiten (1 s Pause je Abruf, ca. 30 Minuten), baut bei Änderungen den Index neu. Läuft im Hintergrund: "
       "erneuter Aufruf zeigt den Fortschritt. nur_index=true baut nur den Index aus der vorhandenen Datenbank neu (ohne Netz).",
       {"nur_index": B("nur Index neu (ohne Netz)")}, gruppe="Regeln")
 def t_regeln_aktualisieren(a):
@@ -821,7 +831,7 @@ ANLEITUNG = """Spieltisch-SL-Werkzeuge. Du bist Spielleiter; die Spieler handeln
 Ablauf: stand + protokoll lesen -> offene Aktionen beantworten (erzaehle) -> warte (blockiert bis zur nächsten Spieleraktion,
 bei Timeout erneut aufrufen) -> reagieren -> warte … Ohne erzaehle reagiert? Dann status_setzen bereit vor warte.
 Spoilerschutz: Ausgaben dieser Tools (Notizen, Quellen, Vorschau, verborgene Token) nie an die Spieler weitergeben.
-Regeln (Pathfinder 1, nicht D&D 5e/PF2): vor jeder Regelentscheidung regel_suchen (bzw. talent_info/zustand_info/fertigkeit_info,
+Regeln (Pathfinder 1, nicht D&D 5e/PF2): vor jeder Regelentscheidung regel_suchen (bzw. talent_info/zustand_info/fertigkeit_info, Gegner: monster_info,
 Zauber: zauber_info) statt aus dem Gedächtnis; HAUSREGEL-Treffer haben Vorrang; Websuche nur, wenn die Datenbank nichts liefert.
 Neue Karte: material_liste/material_vorschau -> karte_neu -> vorschau (Raster prüfen, ggf. raster) -> karte_einrichten
 -> vorschau barrieren=true, Kreise/Beschriftungen mit barrieren_entfernen bereich, Lücken mit barriere_neu -> vorschau spieler=true."""

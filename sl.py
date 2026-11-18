@@ -242,6 +242,8 @@ def cmd_zauber(a):
 
 def cmd_regel(a):
     text = " ".join(a.frage)
+    if a.monster:
+        return print(ST.monster_info(text or None, a.hg, a.art))
     for art in ("talent", "zustand", "fertigkeit"):
         if getattr(a, art):
             return print(ST.regel_schnell(art, text or None, a.voraussetzung, a.art))
@@ -432,7 +434,7 @@ def main():
     help="ohne Langtext"); p.add_argument("--max", type=int, default=40); p.set_defaults(f=cmd_zauber)
     p = sp.add_parser("regel", help="Regeln nachschlagen (PRD: Grundregelwerk + Expertenregeln, sl/hausregeln.md): regel Gelegenheitsangriff "
                                     "verlassen · regel --lesen ID|Titel · regel --seite Kampf · regel --talent Beweglichkeit · "
-                                    "regel --zustand Hilflos · regel --fertigkeit Akrobatik · regel (ohne Angaben: Stand)")
+                                    "regel --zustand Hilflos · regel --fertigkeit Akrobatik · regel --monster Lehmgolem · regel (ohne Angaben: Stand)")
     p.add_argument("frage", nargs="*"); p.add_argument("--kategorie"); p.add_argument("--typ")
     p.add_argument("--buch", help="Grundregelwerk oder Expertenregeln")
     p.add_argument("--max", type=int, default=5); p.add_argument("--lesen", action="store_true", help="Volltext (ID oder Titel)")
@@ -440,6 +442,8 @@ def main():
     p.add_argument("--max-zeichen", type=int, default=4000)
     p.add_argument("--talent", action="store_true"); p.add_argument("--zustand", action="store_true")
     p.add_argument("--fertigkeit", action="store_true"); p.add_argument("--voraussetzung"); p.add_argument("--art")
+    p.add_argument("--monster", action="store_true", help="Monster-Werteblock (mit --hg/--art: Liste)")
+    p.add_argument("--hg", help="Herausforderungsgrad für --monster, z. B. 3 oder 1/2")
     p.set_defaults(f=cmd_regel)
     p = sp.add_parser("regeln-aktualisieren", help="Regeldatenbank aus dem PRD aktualisieren (nur Änderungen, ETag)")
     p.add_argument("--nur-index", action="store_true", help="nur Index/Markdown aus der Datenbank neu (ohne Netz)")

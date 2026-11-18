@@ -209,7 +209,8 @@ FELD_LABELS = {"voraussetzung", "voraussetzungen", "vorteil", "normal", "speziel
                "wiederholungsversuch", "ungeübt", "synergie", "hinweis", "beispiel", "aura", "zs", "ausrüstungsplatz",
                "herstellung", "kosten", "erschaffungsvoraussetzungen", "erschaffung", "beschreibung", "anforderungen",
                "fertigkeiten", "trefferwürfel", "fertigkeitspunkte pro stufe", "klassenfertigkeiten", "gesinnung",
-               "attribute", "hg", "ep", "zauber", "reichweite", "ziel", "wirkungsdauer", "fertigkeitsränge"}
+               "attribute", "hg", "ep", "zauber", "reichweite", "ziel", "wirkungsdauer", "fertigkeitsränge",
+               "format"}  # „Format:“ = Schreibweise im Werteblock (Allgemeine Monsterregeln)
 _LABEL = re.compile(r"^\s*(\*\*|\*)([^*\n]{2,80}?)\1\s*")
 TEILEN_AB = 1200  # Zeichen: längere Abschnitte werden an Stichworten in Unter-Einträge geteilt
 
@@ -281,6 +282,29 @@ def abschnitte_aus_bloecken(bloecke, seiten_titel, teilen=True):
     return neu
 
 
+def _hg_wert(hg):
+    try:
+        z, _, n = hg.partition("/")
+        return float(z) / float(n) if n else float(z)
+    except ValueError:
+        return None
+
+
+def _monster_kopf(text):
+    """EP und Art (z. B. „Großes Konstrukt“) aus dem Kopf des Werteblocks."""
+    m = re.search(r"\*\*EP\s*([\d.]+)\*\*", text)
+    ep = int(m.group(1).replace(".", "")) if m else None
+    art = ""
+    rest = text[m.end():] if m else text
+    for zeile in rest.split("\n")[:3]:
+        z = zeile.replace("*", "").strip()
+        m2 = re.match(r"^(RG|NG|CG|RN|N|CN|RB|NB|CB|Beliebig|Jede|immer \S+)\s+(.+)$", z)
+        if m2:
+            art = m2.group(2).strip()
+            break
+    return ep, art
+
+
 def _feld(text, name):
     m = re.search(rf"\*\*{name}[^*:]*:\*\*\s*(.*?)(?=\n\*\*[A-ZÄÖÜ][^*\n]{{0,40}}:\*\*|\n\n|$)", text, re.S)
     return re.sub(r"\s+", " ", m.group(1)).strip() if m else ""
@@ -288,6 +312,9 @@ def _feld(text, name):
 
 TALENTART_KLAMMER = re.compile(r"\s*\(((?:Kampf|Metamagie|Metamagisch|Erschaffung|Gegenstandserschaffung|Kritischer[- ]Treffer"
                                r"|Gemeinschaft|Gemeinschaftstalent|Stil|Leistung|Gruppe)(?:\s*,\s*[^)]+)?)\s*\)\s*$")
+
+
+MONSTER_KOPF = re.compile(r"^(.+?)\s+HG\s+(\d+(?:/\d+)?)\s*$")
 
 
 def typ_bestimmen(kapitel, a, seiten_titel=""):
@@ -300,6 +327,8 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
         return "klasse"
     if t.startswith("Tabelle"):
         return "tabelle"
+    if MONSTER_KOPF.match(t):  # Werteblock: Kreatur (mit TP) oder Falle (Fallen im Kapitel Spielleitung)
+        return "monster" if "**TP**" in (a.get("text") or "") else "falle"
     if kapitel == "Talente" and "Talentbeschreibungen" in pf:
         return "talent"
     if "Zustände" in a["pfad"] and kapitel == "Anhang":
@@ -339,6 +368,8 @@ CREATE TABLE IF NOT EXISTS talente(abschnitt_id INTEGER PRIMARY KEY, name TEXT, 
   vorteil TEXT);
 CREATE TABLE IF NOT EXISTS zustaende(abschnitt_id INTEGER PRIMARY KEY, name TEXT);
 CREATE TABLE IF NOT EXISTS fertigkeiten(abschnitt_id INTEGER PRIMARY KEY, name TEXT, attribut TEXT, zusatz TEXT);
+CREATE TABLE IF NOT EXISTS monster(abschnitt_id INTEGER PRIMARY KEY, name TEXT, hg TEXT, hg_wert REAL, ep INTEGER,
+  art TEXT);
 CREATE TABLE IF NOT EXISTS vektoren(abschnitt_id INTEGER, modell TEXT, dim INTEGER, vektor BLOB,
   PRIMARY KEY(abschnitt_id, modell));
 """
@@ -360,7 +391,7 @@ def verbinden(pfad=None, schreiben=False):
 def index_neu_bauen(con):
     """abschnitte + FTS + Schnelltabellen aus seiten (rolle='inhalt') komplett neu aufbauen."""
     cur = con.cursor()
-    for t in ("abschnitte", "talente", "zustaende", "fertigkeiten"):
+    for t in ("abschnitte", "talente", "zustaende", "fertigkeiten", "monster"):
         cur.execute(f"DELETE FROM {t}")
     cur.execute("DELETE FROM vektoren")  # IDs ändern sich beim Neuaufbau
     cur.execute("INSERT INTO abschnitte_fts(abschnitte_fts) VALUES('delete-all')")
@@ -395,6 +426,9 @@ def index_neu_bauen(con):
                 teile_pfad.pop()
             pfad = " › ".join(teile_pfad)
             typ = typ_bestimmen(s["kapitel"], a, s["titel"])
+            mk = MONSTER_KOPF.match(a["titel"]) if typ in ("monster", "falle") else None
+            if mk:
+                a["titel"] = f"{mk.group(1).strip()} (HG {mk.group(2)})"
             url = alias_url.get(a["anker"]) or (s["url"] + ("#" + a["anker"] if a["anker"] else ""))
             eltern = ids[a["eltern"]] if a["eltern"] is not None else None
             cur.execute("INSERT INTO abschnitte VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",
@@ -423,6 +457,9 @@ def index_neu_bauen(con):
                     zus = m2.group(1).strip()
                 attr = (re.match(r"\s*([A-ZÄÖÜa-zäöü]+)", zus).group(1) if zus else "")
                 cur.execute("INSERT INTO fertigkeiten VALUES(?,?,?,?)", (aid, nm.strip(), attr, zus))
+            elif typ == "monster" and mk:
+                cur.execute("INSERT INTO monster VALUES(?,?,?,?,?,?)", (aid, mk.group(1).strip(), mk.group(2),
+                                                                         _hg_wert(mk.group(2)), *_monster_kopf(a["text"])))
     con.commit()
     return aid
 
@@ -537,11 +574,11 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
 
 
 # Bücher: Kürzel für die Ausgabe, Rang bei gleichnamigen Einträgen (Grundregelwerk zuerst)
-BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP"}
-BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1}
+BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch": "MHB"}
+BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2}
 
 
-TYP_WOERTER = {"talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",
+TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",
                "fertigkeit": "fertigkeit", "fertigkeiten": "fertigkeit", "klasse": "klasse"}
 
 
@@ -915,6 +952,39 @@ def schnell_text(art, name=None, voraussetzung=None, kategorie=None, hausregeln=
         return "Zustände: " + ", ".join(r["name"] for r in rows) + "\nVolltext: zustand_info(name=…)"
     rows = con.execute("SELECT name, zusatz FROM fertigkeiten ORDER BY name").fetchall()
     return "Fertigkeiten: " + "; ".join(f"{r['name']} ({r['zusatz']})" if r["zusatz"] else r["name"] for r in rows)
+
+
+def monster_text(name=None, hg=None, art=None, max_zeichen=6000):
+    """Monster nachschlagen: mit Namen der Werteblock (+ Beschreibung), sonst Liste nach HG/Art."""
+    con = db()
+    if con is None:
+        return FEHLT
+    if name:
+        r, weitere = titel_finden(name, tabelle="monster")
+        if not r:
+            r, weitere = titel_finden(name, typ="monster")
+        if not r:
+            nah = suchen(name, typ="monster", max_treffer=5)
+            return (f"Monster „{name}“ nicht gefunden." + (" Meintest du: " + ", ".join(t["titel"] for t in nah)
+                                                         if nah else " Tipp: regel_suchen(frage=…, typ=\"monster\")."))
+        aus = _abschnitt_text(r, 0, int(max_zeichen or 6000))
+        return aus + ("\n\nÄhnlich: " + ", ".join(weitere) if weitere else "")
+    q, par = ("SELECT m.name, m.hg, m.ep, m.art, a.buch FROM monster m JOIN abschnitte a ON a.id = m.abschnitt_id "
+              "WHERE 1"), []
+    if hg not in (None, ""):
+        w = _hg_wert(str(hg))
+        q += " AND abs(m.hg_wert - ?) < 0.001"
+        par.append(w if w is not None else -1)
+    if art:
+        q += " AND lower(m.art) LIKE ?"
+        par.append(f"%{art.lower()}%")
+    rows = con.execute(q + " ORDER BY m.hg_wert, m.name", par).fetchall()
+    if not rows:
+        return "Keine Monster gefunden (hg z. B. 3 oder 1/2, art z. B. Untoter, Konstrukt, Drache)."
+    zeilen = [f"{r['name']} (HG {r['hg']}, {r['ep'] or '?'} EP) – {r['art']}" +
+              (f" [{BUCH_KURZ.get(r['buch'], r['buch'])}]" if r["buch"] != "Monsterhandbuch" else "") for r in rows]
+    return f"{len(rows)} Monster:\n" + "\n".join(zeilen[:150]) + ("\n…" if len(zeilen) > 150 else "") + \
+        "\nWerteblock: monster_info(name=…)"
 
 
 def info_text():

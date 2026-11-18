@@ -868,6 +868,10 @@ class Spieltisch:
         """Talent / Zustand / Fertigkeit nachschlagen (ohne Namen: Liste)."""
         return regeln_db.schnell_text(art, name, voraussetzung, kategorie, self.hausregeln_datei)
 
+    def monster_info(self, name=None, hg=None, art=None):
+        """Monster-Werteblock aus dem Monsterhandbuch (PRD); ohne Namen: Liste nach HG/Art."""
+        return regeln_db.monster_text(name, hg, art)
+
     def regeln_aktualisieren(self, nur_index=False, meldung=None):
         """Regeldatenbank aus dem PRD aktualisieren (nur geänderte/neue Seiten per ETag), danach Index neu."""
         from bereiche.wissen import regeln_abruf

@@ -230,6 +230,12 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
 - **Expertenregeln:** Völker, Basisklassen (Alchemist, Hexe, Inquisitor, Mystiker, Paktmagier, Ritter), Optionen und
   Archetypen der Grundklassen (u. a. Kleriker-Unterdomänen), Talente, Ausrüstung, Prestigeklassen, Magische
   Gegenstände, Neue Regeln. Treffer daraus sind mit „EXP“ markiert; `buch`/`--buch` grenzt ein.
+- **Monsterhandbuch:** alle Monster mit vollständigem Werteblock (Typ `monster`, Tabelle `monster` mit Name, HG,
+  EP, Art), Allgemeine Monsterregeln (Blickangriff, Ergreifen, Regeneration …), Kreaturenarten und Unterarten
+  (z. B. Schwarm, Untote), Monster-Talente, Monster erschaffen/verbessern, Monster als SC/Gefolgsleute/Tiergefährten,
+  Begegnungstabellen. Markierung „MHB“. Schnellabfrage: MCP `monster_info` (name | hg, art) bzw.
+  `sl.py regel --monster Lehmgolem` · `sl.py regel --monster --hg 3 --art Untoter`. Fallen aus dem Grundregelwerk
+  haben den Typ `falle`. Monsterhandbuch II–V sind (noch) nicht enthalten.
 - Weitere Bücher: Eintrag in `regeln_abruf.BUECHER` (+ Kürzel in `regeln_db.BUCH_KURZ`), dann `python regeln_abruf.py aufbauen`.
 
 - Dateien (in `bereiche/wissen/`): `regeln_md.py` (HTML → Markdown), `regeln_abruf.py` (Abruf mit 1 s Pause, Cache
@@ -251,7 +257,7 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   bei Änderungen neu. Unterseiten, deren Inhalt schon im Kapitel steht (Alias), werden nicht erneut geholt.
   Dauer ca. 10–15 Minuten (ca. 300 Seiten, 1 s Pause). `--nur-index` baut nur Index/Markdown aus der Datenbank neu. Der Seiteninhalt steht in
   der Datenbank, daher funktioniert das auch ohne Cache (z. B. nach Installation aus dem ZIP). Erstaufbau ohne
-  Datenbank: ca. 1300 Seiten, ca. 1,5 Stunden. Aktualisierung prüft ca. 520 Inhaltsseiten (ca. 20 Minuten).
+  Datenbank: ca. 1900 Seiten, ca. 2,5 Stunden. Aktualisierung prüft ca. 730 Inhaltsseiten (ca. 30 Minuten).
 - Im ZIP (`paket_bauen.py`): `regeln/regeln.sqlite` + `regeln/LIZENZ-REGELN.txt` (nicht `regeln/cache`, `regeln/md`).
 
 ## Lizenz und Rechtliches

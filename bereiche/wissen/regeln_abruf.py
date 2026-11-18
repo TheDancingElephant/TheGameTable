@@ -41,6 +41,7 @@ BUECHER = {
                        "ohne": ["/Grundregelwerk/Zauber", "/Grundregelwerk/Zauberlisten"]},
     "Expertenregeln": {"start": "/Expertenregeln",
                        "ohne": ["/Expertenregeln/Zauber", "/Expertenregeln/Zauberlisten"]},
+    "Monsterhandbuch": {"start": "/Monsterhandbuch", "ohne": []},
 }
 KAPITEL_NAMEN = {"Auf-Gehts": "Auf geht's", "WeitereRegeln": "Zusätzliche Regeln", "Spielleiten": "Spielleitung",
                  "Magische-Gegenstände": "Magische Gegenstände", "NSC-erschaffen": "NSC erschaffen",

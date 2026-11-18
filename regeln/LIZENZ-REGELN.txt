@@ -2,7 +2,7 @@ Regeldatenbank des Spieltisches (regeln/regeln.sqlite, regeln/md/) – Herkunft 
 =========================================================================================
 
 Quelle: Deutsches Pathfinder-Referenzdokument (PRD), https://prd.5footstep.de
-        Grundregelwerk und Expertenregeln, jeweils ohne die Kapitel „Zauber“ und „Zauberlisten“ (die Zauber
+        Grundregelwerk, Expertenregeln und Monsterhandbuch, jeweils ohne die Kapitel „Zauber“ und „Zauberlisten“ (die Zauber
         stehen in daten/zauber_prd.json,
         siehe daten/LIZENZ-ZAUBER.txt). Seiten einzeln abgerufen (robots.txt beachtet), Texte unverändert
         übernommen; nur das Format wurde in Markdown/SQLite umgewandelt und entlang der Überschriften zerlegt.
