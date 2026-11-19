@@ -16,7 +16,7 @@ from . import regeln_db, zauber_db
 SL_SEITEN = {"/Monsterhandbuch/Begegnungstabellen", "/Monsterhandbuch/Index", "/Monsterhandbuch/Index-der-Monstervarianten",
              "/Monsterhandbuch/Monster-nach-HG", "/Monsterhandbuch/Monster-nach-Geländeart",
              "/Monsterhandbuch/Monsterindex-nach-Art", "/Monsterhandbuch-II/Index",
-             "/Monsterhandbuch-III/Index"}
+             "/Monsterhandbuch-III/Index", "/Monsterhandbuch-IV/Index", "/Monsterhandbuch-V/Index"}
 MAX_ZEICHEN = 60000  # längere Einträge: Unterabschnitte danach nur noch als Verweis
 MAX_TREFFER = 30
 ZAUBER_FELDER = (("zeitaufwand", "Zeitaufwand"), ("komponenten", "Komponenten"), ("reichweite", "Reichweite"),

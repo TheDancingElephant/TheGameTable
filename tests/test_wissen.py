@@ -65,6 +65,9 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Annisvettel (HG 6)", vettel)
         self.assertIn("Monsterhandbuch III", vettel)
         self.assertIn("**TP** 66", vettel)
+        self.assertIn("Cthulhu (HG 30)", self.tk.st.monster_info("Cthulhu"))  # MHB IV, „**TP 774**“
+        self.assertIn("Argus (HG 13, LG 6)", self.tk.st.monster_info("Argus"))  # MHB IV, „(LR 6)“
+        self.assertIn("Monsterhandbuch V", self.tk.st.monster_info("Aatheriexa"))
         self.assertIn("MHB", self.tk.st.regel_suchen("Schwarm Flächenschaden"))
 
     def test_hausregel_hat_vorrang(self):
@@ -141,6 +144,8 @@ class WissenTest(unittest.TestCase):
             x["titel"].startswith("Gug") for x in self.wissen("suche", q="Gug")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Annisvettel")  # Monsterhandbuch III
                              for x in self.wissen("suche", q="Annisvettel")["treffer"]))
+        self.assertFalse(any(x["titel"].startswith("Cthulhu")  # Monsterhandbuch IV
+                             for x in self.wissen("suche", q="Cthulhu")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Dorftrottel")  # NSC-Galerie (Spielleiterhandbuch)
                              for x in self.wissen("suche", q="Dorftrottel")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Legendärer Aboleth")  # legendäre Monster (Ausbauregeln V)

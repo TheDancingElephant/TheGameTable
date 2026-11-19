@@ -320,7 +320,7 @@ TALENTART_KLAMMER = re.compile(r"\s*\(((?:Kampf|Metamagie|Metamagisch|Erschaffun
 
 
 # „Name HG 5“, legendär „Name HG 9 (LG 3)“ (Ausbauregeln V: Legenden)
-MONSTER_KOPF = re.compile(r"^(.+?)\s+HG\s+(\d+(?:/\d+)?)(?:\s+HG\s+\2)?(?:\s*\(LG\s*(\d+)\))?\s*$")  # „HG 5 HG 5“ (Tippfehler)
+MONSTER_KOPF = re.compile(r"^(.+?)\s+HG\s+(\d+(?:/\d+)?)(?:\s+HG\s+\2)?(?:\s*\(L[GR]\s*(\d+)\))?\s*$")  # „HG 5 HG 5“; LG/LR = Legendengrad/-rang
 
 
 # Klassen, die in einem Buch als eigenes Kapitel stehen (Ausbauregeln: Magie / II: Kampf)
@@ -342,7 +342,7 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
     if t.startswith("Tabelle"):
         return "tabelle"
     if MONSTER_KOPF.match(t):  # Werteblock: Kreatur (mit TP) oder Falle (Fallen im Kapitel Spielleitung)
-        return "monster" if "**TP**" in (a.get("text") or "") else "falle"
+        return "monster" if re.search(r"\*\*TP\b", a.get("text") or "") else "falle"  # auch „**TP 774**“
     if kapitel == "Talente" and "Talentbeschreibungen" in pf:
         return "talent"
     if kapitel in ("Talente", "Legendäre Talente") and a["pfad"] and "Talentarten" not in a["pfad"] \
@@ -647,13 +647,15 @@ BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch"
              "Ausbauregeln III: Völker": "ARV", "Ausbauregeln IV: Kampagnen": "ARKa",
              "Ausbauregeln V: Legenden": "ARL", "Ausbauregeln VI: Klassen": "ARKl", "Ausbauregeln VII: Okkultes": "ARO",
              "Monsterhandbuch III": "MHB3", "Alternativregeln": "ALT",
-             "Spielleiterhandbuch": "SLHB", "Ausrüstungskompendium": "AUS"}
+             "Spielleiterhandbuch": "SLHB", "Ausrüstungskompendium": "AUS",
+             "Monsterhandbuch IV": "MHB4", "Monsterhandbuch V": "MHB5"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
              "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
              "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8,
              "Ausbauregeln V: Legenden": 9, "Ausbauregeln VI: Klassen": 10, "Ausbauregeln VII: Okkultes": 11,
              "Monsterhandbuch III": 12, "Alternativregeln": 13,
-             "Spielleiterhandbuch": 14, "Ausrüstungskompendium": 15}
+             "Spielleiterhandbuch": 14, "Ausrüstungskompendium": 15,
+             "Monsterhandbuch IV": 16, "Monsterhandbuch V": 17}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",

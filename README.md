@@ -236,7 +236,7 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   (z. B. Schwarm, Untote), Monster-Talente, Monster erschaffen/verbessern, Monster als SC/Gefolgsleute/Tiergefährten,
   Begegnungstabellen. Markierung „MHB“. Schnellabfrage: MCP `monster_info` (name | hg, art) bzw.
   `sl.py regel --monster Lehmgolem` · `sl.py regel --monster --hg 3 --art Untoter`. Fallen aus dem Grundregelwerk
-  haben den Typ `falle`. **Monsterhandbuch II** und **III** sind ebenso enthalten (Markierung „MHB2“/„MHB3“), IV–V (noch) nicht.
+  haben den Typ `falle`. **Monsterhandbuch II** bis **V** sind ebenso enthalten (Markierung „MHB2“ … „MHB5“).
 - **Ausbauregeln: Magie** (Kampfmagus, Magie meistern, Worte der Macht, Zauberkundige, Talente; Kürzel „ARM“) und
   **Ausbauregeln II: Kampf** (Ninja, Samurai, Schütze, Archetypen, Kampf meistern, Kampfkunststile, Fahrzeuge,
   Regelvarianten, Talente, Ausrüstung; Kürzel „ARK“), jeweils ohne Zauber/Zauberlisten.
