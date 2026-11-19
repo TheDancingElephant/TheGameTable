@@ -44,6 +44,9 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Verletzungsstufen", self.tk.st.regel_suchen("Verletzungsstufen"))
         self.assertIn("Grundregelwerk", self.tk.st.regel_schnell("fertigkeit", "Akrobatik"))
         self.assertIn("Expertenregeln", self.tk.st.regel_schnell("talent", "Heldenglück"))  # Heldenpunkt-Talente
+        # Ausbauregeln VIII: Intrigen
+        self.assertIn("Wortgefechte", self.tk.st.regel_suchen("Gesellschaftlicher Kampf Wortgefecht"))
+        self.assertIn("Vigilant", self.tk.st.regel_suchen("Vigilant", typ="klasse"))
         # Spielleiterhandbuch: Spielleitungsregeln und NSC-Werteblöcke
         self.assertIn("Verfolgungsjagden", self.tk.st.regel_suchen("Verfolgungsjagd"))
         self.assertIn("Spielleiterhandbuch", self.tk.st.monster_info("Dorftrottel"))

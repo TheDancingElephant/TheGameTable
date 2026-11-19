@@ -4,7 +4,7 @@ Regeldatenbank des Spieltisches (regeln/regeln.sqlite, regeln/md/) – Herkunft 
 Quelle: Deutsches Pathfinder-Referenzdokument (PRD), https://prd.5footstep.de
         Grundregelwerk, Expertenregeln, Monsterhandbuch I bis V, Abenteurerkompendium, Ausbauregeln: Magie,
         Ausbauregeln II: Kampf, Ausbauregeln III: Völker, Ausbauregeln IV: Kampagnen,
-        Ausbauregeln V: Legenden, Ausbauregeln VI: Klassen, Ausbauregeln VII: Okkultes, Alternativregeln, Spielleiterhandbuch, Ausrüstungskompendium, NSC-Kompendium, jeweils ohne die Kapitel „Zauber“ und „Zauberlisten“ (die Zauber
+        Ausbauregeln V: Legenden, Ausbauregeln VI: Klassen, Ausbauregeln VII: Okkultes, Ausbauregeln VIII: Intrigen, Alternativregeln, Spielleiterhandbuch, Ausrüstungskompendium, NSC-Kompendium, jeweils ohne die Kapitel „Zauber“ und „Zauberlisten“ (die Zauber
         stehen in daten/zauber_prd.json,
         siehe daten/LIZENZ-ZAUBER.txt). Seiten einzeln abgerufen (robots.txt beachtet), Texte unverändert
         übernommen; nur das Format wurde in Markdown/SQLite umgewandelt und entlang der Überschriften zerlegt.

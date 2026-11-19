@@ -361,7 +361,8 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
         return "zustand"
     if kapitel == "Fertigkeiten" and seitenkopf:
         return "fertigkeit"
-    if kapitel == "Klassen" and seitenkopf and t not in ("Grundklassen", "Basisklassen"):
+    if kapitel == "Klassen" and seitenkopf and t not in ("Grundklassen", "Basisklassen") \
+            and not (seiten_titel or "").startswith("Archetyp"):  # Archetyp-Seiten beginnen mit der Grundklasse
         return "klasse"
     if kapitel == "Prestigeklassen" and seitenkopf:
         return "prestigeklasse"
@@ -658,7 +659,7 @@ BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch"
              "Monsterhandbuch III": "MHB3", "Alternativregeln": "ALT",
              "Spielleiterhandbuch": "SLHB", "Ausrüstungskompendium": "AUS",
              "Monsterhandbuch IV": "MHB4", "Monsterhandbuch V": "MHB5",
-             "NSC-Kompendium": "NSC"}
+             "NSC-Kompendium": "NSC", "Ausbauregeln VIII: Intrigen": "ARI"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
              "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
              "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8,
@@ -666,7 +667,7 @@ BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Ab
              "Monsterhandbuch III": 12, "Alternativregeln": 13,
              "Spielleiterhandbuch": 14, "Ausrüstungskompendium": 15,
              "Monsterhandbuch IV": 16, "Monsterhandbuch V": 17,
-             "NSC-Kompendium": 18}
+             "NSC-Kompendium": 18, "Ausbauregeln VIII: Intrigen": 19}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",

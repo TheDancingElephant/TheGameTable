@@ -249,6 +249,8 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   „ARKl“) und **Ausbauregeln VII: Okkultes** (sechs okkulte Klassen, Archetypen, Talente, Mentale Magie, okkulte
   Regeln/Belohnungen/Kampagnen; „ARO“), jeweils ohne Zauber/Zauberlisten. Legendäre Monster sind wie die
   Monsterhandbücher nur für den SL.
+- **Ausbauregeln VIII: Intrigen** (Vigilant, Archetypen, Talente, Gesellschaftlicher Kampf mit Wortgefechten, Einfluss
+  auf Personen und Organisationen, Recherche, Ausrüstung und magische Gegenstände; Kürzel „ARI“), ohne Zauber/Zauberlisten.
 - **Alternativregeln** (Pathfinder Unchained: überarbeitete Klassen, Fertigkeiten, Spielregeln, Magie, Monster;
   Kürzel „ALT“), ohne Zauber/Zauberlisten. Alternativen zu den Grundregeln: gelten nur, wenn die Kampagne sie
   nutzt (Hausregel), deshalb stehen Grundregeln in der Suche vorn.
