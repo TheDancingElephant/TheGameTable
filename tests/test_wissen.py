@@ -42,6 +42,9 @@ class WissenTest(unittest.TestCase):
         # Spielleiterhandbuch: Spielleitungsregeln und NSC-Werteblöcke
         self.assertIn("Verfolgungsjagden", self.tk.st.regel_suchen("Verfolgungsjagd"))
         self.assertIn("Spielleiterhandbuch", self.tk.st.monster_info("Dorftrottel"))
+        # Ausrüstungskompendium; geläufige Umschreibung „Ring des Schutzes“ -> „Schutzring“
+        self.assertIn("Tragballon (gegenstand, AUS)", self.tk.st.regel_suchen("Tragballon"))
+        self.assertIn("Schutzring", self.tk.st.regel_suchen("Ring des Schutzes", max_treffer=3))
 
     def test_monster_info(self):
         t = self.tk.st.monster_info("Lehmgolem")

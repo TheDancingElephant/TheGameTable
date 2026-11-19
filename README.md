@@ -255,6 +255,9 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
 - **Spielleiterhandbuch** (Siedlungen, Verfolgungsjagden, Drogen, Existenzebenen, Gefahren, Katastrophen, schnelle
   Schiffskämpfe, Spukerscheinungen, Vernunft und Wahnsinn, NSC-Gefallen, NSC-Galerie mit rund 80 Werteblöcken für
   `monster_info`; Kürzel „SLHB“). Die NSC-Werteblöcke sind auf der Nachschlage-Seite nur für den SL.
+- **Ausrüstungskompendium** (Waffen und Rüstungen, magische Waffen und Rüstungen, Ringe/Stecken/Zepter, wundersame
+  Gegenstände, Artefakte, rund 300 Ausrüstungsgegenstände als eigene Einträge; Kürzel „AUS“). Bei gleichen Namen steht
+  die Fassung aus dem Grundregelwerk vorn.
 - **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
   das PRD enthält das Buch nur teilweise). Markierung „AK“.
 - **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index

@@ -47,6 +47,7 @@ BUECHER = {
     "Alternativregeln": {"start": "/Alternativregeln",
                          "ohne": ["/Alternativregeln/Zauber", "/Alternativregeln/Zauberlisten"]},
     "Spielleiterhandbuch": {"start": "/Spielleiterhandbuch", "ohne": []},
+    "Ausrüstungskompendium": {"start": "/Ausrüstungskompendium", "ohne": []},
     "Ausbauregeln: Magie": {"start": "/Ausbauregeln-Magie",
                             "ohne": ["/Ausbauregeln-Magie/Zauber", "/Ausbauregeln-Magie/Zauberlisten"]},
     "Ausbauregeln II: Kampf": {"start": "/Ausbauregeln-II-Kampf",

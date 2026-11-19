@@ -158,6 +158,9 @@ SYNONYME = {
     "concentration": ["konzentration"], "defensiv zaubern": ["defensiv zaubern", "konzentration"],
     "coup de grace": ["coup de grace", "gnadenstoß"], "gnadenstoss": ["coup de grace"], "gnadenstoß": ["coup de grace"],
     "nat 20": ["natürliche 20"], "rüstungsmalus": ["rüstungsmalus", "rüstungsmalus auf fertigkeiten"],
+    # Gegenstände: geläufige Umschreibungen -> Namen im deutschen PRD
+    "ring des schutzes": ["schutzring"], "ring of protection": ["schutzring"], "bag of holding": ["nimmervoller beutel"],
+    "staff": ["stecken"], "rod": ["zepter"],
 }
 PHRASEN = sorted((k for k in SYNONYME if " " in k), key=len, reverse=True)
 GROSS_ABK = {"ST": "stärke", "GE": "geschicklichkeit", "KO": "konstitution", "IN": "intelligenz", "WE": "weisheit",
@@ -644,13 +647,13 @@ BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch"
              "Ausbauregeln III: Völker": "ARV", "Ausbauregeln IV: Kampagnen": "ARKa",
              "Ausbauregeln V: Legenden": "ARL", "Ausbauregeln VI: Klassen": "ARKl", "Ausbauregeln VII: Okkultes": "ARO",
              "Monsterhandbuch III": "MHB3", "Alternativregeln": "ALT",
-             "Spielleiterhandbuch": "SLHB"}
+             "Spielleiterhandbuch": "SLHB", "Ausrüstungskompendium": "AUS"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
              "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
              "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8,
              "Ausbauregeln V: Legenden": 9, "Ausbauregeln VI: Klassen": 10, "Ausbauregeln VII: Okkultes": 11,
              "Monsterhandbuch III": 12, "Alternativregeln": 13,
-             "Spielleiterhandbuch": 14}
+             "Spielleiterhandbuch": 14, "Ausrüstungskompendium": 15}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",
