@@ -345,6 +345,9 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
     if kapitel in ("Talente", "Legendäre Talente") and a["pfad"] and "Talentarten" not in a["pfad"] \
             and re.search(r"\*\*(Vorteil|Voraussetzung)", a.get("text") or ""):
         return "talent"  # Ausbauregeln III–VII: nach Volk gruppiert bzw. ohne Überschrift „Talentbeschreibungen“
+    if a["pfad"] and a["pfad"][-1].lower().endswith("talente") and a["pfad"][-1] != "Talentarten" \
+            and re.search(r"\*\*(Vorteil|Voraussetzung)", a.get("text") or ""):
+        return "talent"  # Talente mitten in einem Kapitel („Gesinnungstalente“, Alternativregeln)
     if "Zustände" in a["pfad"] and kapitel == "Anhang":
         return "zustand"
     if kapitel == "Fertigkeiten" and seitenkopf:
@@ -563,6 +566,9 @@ ZUSATZ_KENNZEICHEN = re.compile(r"^(?:[A-ZÄÖÜ]{2,3}|HG\b.*|Archetyp|Kampf|Met
                                 r"(?:\s*[,;].*)?$")
 
 
+OPTIONALE_BUECHER = {"Alternativregeln"}  # Regelvarianten statt Ergänzungen: in der Suche hinter den anderen
+
+
 def _endung_gleich(a, b):
     """Gleiches Wort bis auf die Flexionsendung: gleicher Stamm und eines ist Anfang des anderen."""
     return stamm(a) == stamm(b) and (a.startswith(b) or b.startswith(a))
@@ -596,8 +602,14 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
         kst = {stamm(w) for w in woerter(kern)} - {"tabell"}
         if kst and sset and kst <= sset:
             p *= 1 + 1.0 * sum(gew.get(s, 0) for s in kst) / summe
+        # Zusatz in runden Klammern, der nicht gefragt ist: „Kritischer Treffer (Verwirrt)“ hinter „Kritische Treffer“
+        # (Kennzeichen wie (AF), (ÜF), (Kampf), (Archetyp), (HG 5) zählen nicht); solche Titel sind kein exakter Treffer
+        fremd = any((zst := {stamm(w) for w in woerter(z)}) and not zst & sset
+                    and not ZUSATZ_KENNZEICHEN.match(z.strip()) for z in re.findall(r"\(([^)]*)\)", r["titel"]))
+        if fremd:
+            p *= 0.85
         # wörtlich gleicher Titel, z. B. „Beweglichkeit“ -> Talent Beweglichkeit (nicht „Bewegung“)
-        if kern and len(kern) >= 4 and re.search(r"(?<![\wäöüß])" + re.escape(kern) + r"(?![\wäöüß])", frage_klein):
+        elif kern and len(kern) >= 4 and re.search(r"(?<![\wäöüß])" + re.escape(kern) + r"(?![\wäöüß])", frage_klein):
             p *= 1.6
         else:  # gleiche Wörter bis auf die Endung, gleiche Reihenfolge („Kritische Treffer“ – „kritischer Treffer …“;
             # nicht „Bewegung“ – „Beweglichkeit“)
@@ -605,19 +617,14 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
             if kf and any(all(_endung_gleich(a, b) for a, b in zip(kf, qfolge[j:j + len(kf)]))
                           for j in range(len(qfolge) - len(kf) + 1)):
                 p *= 1.3
-        # Zusatz in runden Klammern, der nicht gefragt ist: „Kritischer Treffer (Verwirrt)“ hinter „Kritische Treffer“
-        # (Kennzeichen wie (AF), (ÜF), (Kampf), (Archetyp), (HG 5) zählen nicht)
-        for zusatz in re.findall(r"\(([^)]*)\)", r["titel"]):
-            zst = {stamm(w) for w in woerter(zusatz)}
-            if zst and not zst & sset and not ZUSATZ_KENNZEICHEN.match(zusatz.strip()):
-                p *= 0.85
-                break
         if typ_wunsch and r["typ"] == typ_wunsch:
             p *= 1.5
         if r["zeichen"] < 40:
             p *= 0.6
         if r["buch"] == "Grundregelwerk":
             p *= 1.2  # Grundregeln werden am häufigsten gebraucht
+        elif r["buch"] in OPTIONALE_BUECHER:
+            p *= 0.85  # Alternativregeln gelten nur, wenn die Kampagne sie nutzt
         aus.append((p, i))
     aus.sort(reverse=True)
     # Abwechslung: gleicher Titel aus demselben Buch (z. B. dreimal „Gelegenheitsangriffe“ im GRW) zählt je Wiederholung
@@ -636,12 +643,12 @@ BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch"
              "Monsterhandbuch II": "MHB2", "Ausbauregeln: Magie": "ARM", "Ausbauregeln II: Kampf": "ARK",
              "Ausbauregeln III: Völker": "ARV", "Ausbauregeln IV: Kampagnen": "ARKa",
              "Ausbauregeln V: Legenden": "ARL", "Ausbauregeln VI: Klassen": "ARKl", "Ausbauregeln VII: Okkultes": "ARO",
-             "Monsterhandbuch III": "MHB3"}
+             "Monsterhandbuch III": "MHB3", "Alternativregeln": "ALT"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
              "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
              "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8,
              "Ausbauregeln V: Legenden": 9, "Ausbauregeln VI: Klassen": 10, "Ausbauregeln VII: Okkultes": 11,
-             "Monsterhandbuch III": 12}
+             "Monsterhandbuch III": 12, "Alternativregeln": 13}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",

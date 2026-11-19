@@ -35,6 +35,10 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Ausbauregeln VI: Klassen", self.tk.st.regel_schnell("talent", "Amateurdraufgänger"))
         self.assertIn("Zehrung", self.tk.st.regel_suchen("Kinetiker burn"))
         self.assertIn("LG 3", self.tk.st.monster_info("Legendärer Aboleth"))
+        # Alternativregeln: eigene Themen finden, Schnellzugriff bleibt beim Grundregelwerk
+        self.assertIn("Verletzungsstufen", self.tk.st.regel_suchen("Verletzungsstufen"))
+        self.assertIn("Grundregelwerk", self.tk.st.regel_schnell("fertigkeit", "Akrobatik"))
+        self.assertIn("Expertenregeln", self.tk.st.regel_schnell("talent", "Heldenglück"))  # Heldenpunkt-Talente
 
     def test_monster_info(self):
         t = self.tk.st.monster_info("Lehmgolem")
