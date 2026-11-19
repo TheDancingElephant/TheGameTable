@@ -7,6 +7,10 @@ from urllib.parse import urlencode
 
 from tests.hilfen import TOOL, HTTPFehler, Testkampagne
 
+# regeln/regeln.sqlite ist nicht im Git (zu groß); fehlt sie (frischer Klon), werden diese Tests übersprungen
+braucht_regeln = unittest.skipUnless((TOOL / "regeln" / "regeln.sqlite").is_file(),
+                                     "regeln/regeln.sqlite fehlt (aus dem ZIP kopieren oder sl.py regeln-aktualisieren)")
+
 
 class WissenTest(unittest.TestCase):
     @classmethod
@@ -19,6 +23,7 @@ class WissenTest(unittest.TestCase):
     def tearDownClass(cls):
         cls.tk.beenden()
 
+    @braucht_regeln
     def test_regel_suchen(self):
         t = self.tk.st.regel_suchen("Gelegenheitsangriff Bewegung verlassen")
         self.assertIn("Gelegenheitsangriff", t)
@@ -46,6 +51,7 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Tragballon (gegenstand, AUS)", self.tk.st.regel_suchen("Tragballon"))
         self.assertIn("Schutzring", self.tk.st.regel_suchen("Ring des Schutzes", max_treffer=3))
 
+    @braucht_regeln
     def test_monster_info(self):
         t = self.tk.st.monster_info("Lehmgolem")
         self.assertIn("HG 10", t)
@@ -83,6 +89,7 @@ class WissenTest(unittest.TestCase):
     def wissen(self, pfad, sl=False, **par):
         return self.tk.http(f"/api/wissen/{pfad}?{urlencode(par)}", sl=sl)
 
+    @braucht_regeln
     def test_nachschlagen_suche_mit_hausregel_zuerst(self):
         t = self.wissen("suche", q="Heldenpunkte")["treffer"]
         self.assertEqual((t[0]["art"], t[0]["id"]), ("hausregel", "H1"))
@@ -92,6 +99,7 @@ class WissenTest(unittest.TestCase):
         self.assertTrue(any(x["titel"].startswith("Ringkampf") and x["kuerzel"] == "GRW" for x in t))
         self.assertTrue(all(x["art"] in ("regel", "hausregel") for x in t))
 
+    @braucht_regeln
     def test_nachschlagen_zauber_und_zustand(self):
         z = self.wissen("eintrag", art="zauber", name="Hast")
         self.assertIn(["Schule", "Verwandlung"], z["felder"])
@@ -110,6 +118,7 @@ class WissenTest(unittest.TestCase):
         self.assertTrue(all("Barde 1" in x["untertitel"] for x in d["treffer"]))
         self.assertIn("hinweis", self.wissen("suche", art="zauber"))  # ohne Suchwort und Filter keine Liste
 
+    @braucht_regeln
     def test_nachschlagen_monster_nur_fuer_sl(self):
         for par in ({"art": "monster", "q": "Golem"}, {"art": "monster", "hg": "10"}):
             with self.assertRaises(HTTPFehler) as f:
@@ -158,6 +167,7 @@ class WissenTest(unittest.TestCase):
         t = self.wissen("suche", sl=True, q="Gug", buch="Monster")["treffer"]
         self.assertTrue(t and all(x["buch"].startswith("Monsterhandbuch") for x in t))
 
+    @braucht_regeln
     def test_nachschlagen_filterlisten_und_seite(self):
         f = self.wissen("filter")
         self.assertFalse(f["sl"])
@@ -174,6 +184,7 @@ class WissenTest(unittest.TestCase):
         self.assertTrue(any(a["titel"] == "Gelegenheitsangriffe" for a in s["abschnitte"]))
         self.assertIn(b"Nachschlagen", self.tk.http("/nachschlagen.html", roh=True))
 
+    @braucht_regeln
     def test_nachschlagen_talent_tabelle(self):
         t = self.wissen("talente")
         self.assertGreater(len(t["zeilen"]), 300)

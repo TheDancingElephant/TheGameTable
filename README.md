@@ -16,8 +16,8 @@ darin `sl/` (Spielstand, Karten, Notizen, Quellen, Schlüssel) und `daten/` (Cha
 Regeldaten und Code liegen hier im Tool: `daten/zauber_prd.json` (alle Zauber aus dem deutschen PRD, OGL – siehe
 `daten/LIZENZ-ZAUBER.txt`) und `daten/zauber.json` (Spielmechanik für die Zauber, die das Tool selbst auswertet;
 eine kampagneneigene `daten/zauber.json` ersetzt sie). `bereiche/wissen/zauber_db.py` vereint beides (siehe Abschnitt Zauberdatenbank).
-Dazu die Regeldatenbank `regeln/regeln.sqlite` (PF1-Grundregelwerk ohne Zauber, OGL – siehe `regeln/LIZENZ-REGELN.txt`;
-Abschnitt Regeldatenbank).
+Dazu die Regeldatenbank `regeln/regeln.sqlite` (PF1-Regelbücher des PRD ohne Zauber, OGL – siehe `regeln/LIZENZ-REGELN.txt`;
+Abschnitt Regeldatenbank). Sie ist wegen ihrer Größe **nicht im Git**, sondern nur im ZIP-Paket.
 
 Kampagnenordner wird gefunden über: `--kampagne PFAD` → Umgebungsvariable `SPIELTISCH_KAMPAGNE` → Suche aufwärts
 vom aktuellen Verzeichnis nach `kampagne.json`.
@@ -287,9 +287,12 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   bei Änderungen neu. Unterseiten, deren Inhalt schon im Kapitel steht (Alias), werden nicht erneut geholt.
   Dauer ca. 10–15 Minuten (ca. 300 Seiten, 1 s Pause). `--nur-index` baut nur Index/Markdown aus der Datenbank neu. Der Seiteninhalt steht in
   der Datenbank, daher funktioniert das auch ohne Cache (z. B. nach Installation aus dem ZIP). Erstaufbau ohne
-  Datenbank: ca. 1900 Seiten, ca. 2,5 Stunden. Aktualisierung prüft ca. 730 Inhaltsseiten (ca. 30 Minuten).
+  Datenbank: ca. 6000 Seiten, ca. 2 Stunden. Aktualisierung prüft ca. 2150 Inhaltsseiten (ca. 40 Minuten).
 - Im ZIP (`paket_bauen.py`): `regeln/regeln.sqlite` + `regeln/LIZENZ-REGELN.txt` (nicht `regeln/cache`, `regeln/md`,
   `regeln/privat.sqlite`).
+- **Nicht im Git:** `regeln/regeln.sqlite` (rund 90 MB; jede Änderung hätte eine vollständige Kopie ins Repo gelegt).
+  Nach einem frischen Klon die Datei aus einem ZIP-Paket nach `regeln/` kopieren (schnell) oder mit
+  `sl.py regeln-aktualisieren` neu aufbauen (ca. 2 Stunden). Ohne sie überspringen die Regel-Tests sich selbst.
 
 ## Nachschlagen im Browser (`/nachschlagen.html`)
 

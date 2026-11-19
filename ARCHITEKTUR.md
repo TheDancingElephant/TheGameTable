@@ -247,7 +247,8 @@ eingebettetes Python.
 
 Offene Punkte:
 - `regeln/regeln.sqlite` ist Quelle und Index zugleich (die Seiteninhalte stehen nur dort); ein Neuaufbau braucht den
-  PRD-Abruf. Später ggf. Seiten als Markdown einchecken und den Index daraus bauen.
+  PRD-Abruf. Sie ist nicht im Git (Größe), nur im ZIP-Paket. Später ggf. Seiten als Markdown einchecken und den Index
+  daraus bauen.
 - `sl_api.kampagne_neu` liegt noch in der Shell (liest PDFs über `Spieltisch` ein).
 - Sturmangriff deckt den Nebel nicht automatisch auf (wie bisher); mit `token_bewegt` wäre das ein Einzeiler.
 - Kartenbild lädt im Browser beim allerersten Aufruf manchmal erst nach einem Neuladen (älteres Verhalten).
