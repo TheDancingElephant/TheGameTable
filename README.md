@@ -258,6 +258,9 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
 - **Ausrüstungskompendium** (Waffen und Rüstungen, magische Waffen und Rüstungen, Ringe/Stecken/Zepter, wundersame
   Gegenstände, Artefakte, rund 300 Ausrüstungsgegenstände als eigene Einträge; Kürzel „AUS“). Bei gleichen Namen steht
   die Fassung aus dem Grundregelwerk vorn.
+- **NSC-Kompendium** (rund 310 fertige NSC nach Grund-, NSC- und Prestigeklassen geordnet, je mit Werteblock,
+  Kampf- und Rollenspielhinweisen; Kürzel „NSC“) für `monster_info`. Auf der Nachschlage-Seite nur für den SL; in der
+  Suche hinter den Regelbüchern (gleichnamige Kapitel wie „Duellant“ beschreiben NSC, nicht die Klasse).
 - **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
   das PRD enthält das Buch nur teilweise). Markierung „AK“.
 - **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index

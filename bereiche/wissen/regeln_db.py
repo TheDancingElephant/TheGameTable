@@ -297,7 +297,7 @@ def _hg_wert(hg):
 
 def _monster_kopf(text):
     """EP und Art (z. B. „Großes Konstrukt“) aus dem Kopf des Werteblocks."""
-    m = re.search(r"\*\*EP\s*([\d.]+)\*\*", text)
+    m = re.search(r"\*\*EP\s*(?:\*\*\s*)?([\d.]+)", text)  # „**EP 400**“ oder „**EP** 400“ (NSC-Kompendium)
     ep = int(m.group(1).replace(".", "")) if m else None
     art = ""
     rest = text[m.end():] if m else text
@@ -329,6 +329,10 @@ KLASSEN_KAPITEL = ("Kampfmagus", "Ninja", "Samurai", "Schütze")
 VOLK_KAPITEL = ("Grundvölker", "Ungewöhnliche Völker", "Seltene Völker")
 
 
+# Bücher mit NSC nach Klassen geordnet: Kapitel „Prestigeklassen“ usw. beschreiben NSC, nicht die Klassen selbst
+NUR_NSC_BUECHER = {"NSC-Kompendium"}
+
+
 def typ_bestimmen(kapitel, a, seiten_titel=""):
     pf = " / ".join(a["pfad"])
     t = a["titel"]
@@ -341,6 +345,8 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
         return "klasse"
     if t.startswith("Tabelle"):
         return "tabelle"
+    if a.get("buch") in NUR_NSC_BUECHER and not MONSTER_KOPF.match(t):  # NSC-Beschreibungen, keine Klassen
+        return "tabelle" if t.startswith("Tabelle") else "regel"
     if MONSTER_KOPF.match(t):  # Werteblock: Kreatur (mit TP) oder Falle (Fallen im Kapitel Spielleitung)
         return "monster" if re.search(r"\*\*TP\b", a.get("text") or "") else "falle"  # auch „**TP 774**“
     if kapitel == "Talente" and "Talentbeschreibungen" in pf:
@@ -447,6 +453,7 @@ def index_neu_bauen(con):
             if teile_pfad and teile_pfad[-1] == a["titel"]:
                 teile_pfad.pop()
             pfad = " › ".join(teile_pfad)
+            a["buch"] = s["buch"]
             typ = typ_bestimmen(s["kapitel"], a, s["titel"])
             mk = MONSTER_KOPF.match(a["titel"]) if typ in ("monster", "falle") else None
             if mk:
@@ -569,7 +576,9 @@ ZUSATZ_KENNZEICHEN = re.compile(r"^(?:[A-ZÄÖÜ]{2,3}|HG\b.*|Archetyp|Kampf|Met
                                 r"(?:\s*[,;].*)?$")
 
 
-OPTIONALE_BUECHER = {"Alternativregeln"}  # Regelvarianten statt Ergänzungen: in der Suche hinter den anderen
+# in der Suche hinter den anderen: Regelvarianten (Alternativregeln) und reine NSC-Sammlungen (dort gleichnamige
+# Kapitel wie „Duellant“, die NSC beschreiben, nicht die Klasse)
+OPTIONALE_BUECHER = {"Alternativregeln", "NSC-Kompendium"}
 
 
 def _endung_gleich(a, b):
@@ -627,7 +636,7 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
         if r["buch"] == "Grundregelwerk":
             p *= 1.2  # Grundregeln werden am häufigsten gebraucht
         elif r["buch"] in OPTIONALE_BUECHER:
-            p *= 0.85  # Alternativregeln gelten nur, wenn die Kampagne sie nutzt
+            p *= 0.85  # Regelvarianten bzw. NSC-Sammlung (s. OPTIONALE_BUECHER)
         aus.append((p, i))
     aus.sort(reverse=True)
     # Abwechslung: gleicher Titel aus demselben Buch (z. B. dreimal „Gelegenheitsangriffe“ im GRW) zählt je Wiederholung
@@ -648,14 +657,16 @@ BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch"
              "Ausbauregeln V: Legenden": "ARL", "Ausbauregeln VI: Klassen": "ARKl", "Ausbauregeln VII: Okkultes": "ARO",
              "Monsterhandbuch III": "MHB3", "Alternativregeln": "ALT",
              "Spielleiterhandbuch": "SLHB", "Ausrüstungskompendium": "AUS",
-             "Monsterhandbuch IV": "MHB4", "Monsterhandbuch V": "MHB5"}
+             "Monsterhandbuch IV": "MHB4", "Monsterhandbuch V": "MHB5",
+             "NSC-Kompendium": "NSC"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
              "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
              "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8,
              "Ausbauregeln V: Legenden": 9, "Ausbauregeln VI: Klassen": 10, "Ausbauregeln VII: Okkultes": 11,
              "Monsterhandbuch III": 12, "Alternativregeln": 13,
              "Spielleiterhandbuch": 14, "Ausrüstungskompendium": 15,
-             "Monsterhandbuch IV": 16, "Monsterhandbuch V": 17}
+             "Monsterhandbuch IV": 16, "Monsterhandbuch V": 17,
+             "NSC-Kompendium": 18}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",

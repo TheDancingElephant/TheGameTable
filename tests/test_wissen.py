@@ -68,6 +68,9 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Cthulhu (HG 30)", self.tk.st.monster_info("Cthulhu"))  # MHB IV, „**TP 774**“
         self.assertIn("Argus (HG 13, LG 6)", self.tk.st.monster_info("Argus"))  # MHB IV, „(LR 6)“
         self.assertIn("Monsterhandbuch V", self.tk.st.monster_info("Aatheriexa"))
+        soeldner = self.tk.st.monster_info("Wilder Söldner")  # NSC-Kompendium („**EP** 200“)
+        self.assertIn("NSC-Kompendium", soeldner)
+        self.assertIn("Wilder Söldner", self.tk.st.monster_info(hg="1/2", art="Humanoider"))
         self.assertIn("MHB", self.tk.st.regel_suchen("Schwarm Flächenschaden"))
 
     def test_hausregel_hat_vorrang(self):
@@ -146,6 +149,8 @@ class WissenTest(unittest.TestCase):
                              for x in self.wissen("suche", q="Annisvettel")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Cthulhu")  # Monsterhandbuch IV
                              for x in self.wissen("suche", q="Cthulhu")["treffer"]))
+        self.assertFalse(any(x["titel"].startswith("Wilder Söldner")  # NSC-Kompendium
+                             for x in self.wissen("suche", q="Wilder Söldner")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Dorftrottel")  # NSC-Galerie (Spielleiterhandbuch)
                              for x in self.wissen("suche", q="Dorftrottel")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Legendärer Aboleth")  # legendäre Monster (Ausbauregeln V)
