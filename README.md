@@ -252,6 +252,9 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
 - **Alternativregeln** (Pathfinder Unchained: überarbeitete Klassen, Fertigkeiten, Spielregeln, Magie, Monster;
   Kürzel „ALT“), ohne Zauber/Zauberlisten. Alternativen zu den Grundregeln: gelten nur, wenn die Kampagne sie
   nutzt (Hausregel), deshalb stehen Grundregeln in der Suche vorn.
+- **Spielleiterhandbuch** (Siedlungen, Verfolgungsjagden, Drogen, Existenzebenen, Gefahren, Katastrophen, schnelle
+  Schiffskämpfe, Spukerscheinungen, Vernunft und Wahnsinn, NSC-Gefallen, NSC-Galerie mit rund 80 Werteblöcken für
+  `monster_info`; Kürzel „SLHB“). Die NSC-Werteblöcke sind auf der Nachschlage-Seite nur für den SL.
 - **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
   das PRD enthält das Buch nur teilweise). Markierung „AK“.
 - **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index

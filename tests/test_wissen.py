@@ -39,6 +39,9 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Verletzungsstufen", self.tk.st.regel_suchen("Verletzungsstufen"))
         self.assertIn("Grundregelwerk", self.tk.st.regel_schnell("fertigkeit", "Akrobatik"))
         self.assertIn("Expertenregeln", self.tk.st.regel_schnell("talent", "Heldenglück"))  # Heldenpunkt-Talente
+        # Spielleiterhandbuch: Spielleitungsregeln und NSC-Werteblöcke
+        self.assertIn("Verfolgungsjagden", self.tk.st.regel_suchen("Verfolgungsjagd"))
+        self.assertIn("Spielleiterhandbuch", self.tk.st.monster_info("Dorftrottel"))
 
     def test_monster_info(self):
         t = self.tk.st.monster_info("Lehmgolem")
@@ -126,6 +129,8 @@ class WissenTest(unittest.TestCase):
             x["titel"].startswith("Gug") for x in self.wissen("suche", q="Gug")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Annisvettel")  # Monsterhandbuch III
                              for x in self.wissen("suche", q="Annisvettel")["treffer"]))
+        self.assertFalse(any(x["titel"].startswith("Dorftrottel")  # NSC-Galerie (Spielleiterhandbuch)
+                             for x in self.wissen("suche", q="Dorftrottel")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Legendärer Aboleth")  # legendäre Monster (Ausbauregeln V)
                              or "Legendäre Monster" in (x.get("untertitel") or "")
                              for x in self.wissen("suche", q="Legendärer Aboleth")["treffer"]))
