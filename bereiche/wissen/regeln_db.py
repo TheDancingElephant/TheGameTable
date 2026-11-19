@@ -563,11 +563,17 @@ ZUSATZ_KENNZEICHEN = re.compile(r"^(?:[A-ZÄÖÜ]{2,3}|HG\b.*|Archetyp|Kampf|Met
                                 r"(?:\s*[,;].*)?$")
 
 
+def _endung_gleich(a, b):
+    """Gleiches Wort bis auf die Flexionsendung: gleicher Stamm und eines ist Anfang des anderen."""
+    return stamm(a) == stamm(b) and (a.startswith(b) or b.startswith(a))
+
+
 def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
     """Nachgewichtung: Titeltreffer (nach Seltenheit der Wörter gewichtet), exakter Titel, Typ, Buch."""
     if not ids_rang:
         return []
     frage_klein = (frage or "").lower()
+    qfolge = [w for w in woerter(frage or "") if w not in STOPP]
     zeilen = {r["id"]: r for r in con.execute(
         f"SELECT id, titel, pfad, typ, zeichen, buch FROM abschnitte WHERE id IN ({','.join('?' * len(ids_rang))})",
         [i for i, _ in ids_rang])}
@@ -592,7 +598,13 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
             p *= 1 + 1.0 * sum(gew.get(s, 0) for s in kst) / summe
         # wörtlich gleicher Titel, z. B. „Beweglichkeit“ -> Talent Beweglichkeit (nicht „Bewegung“)
         if kern and len(kern) >= 4 and re.search(r"(?<![\wäöüß])" + re.escape(kern) + r"(?![\wäöüß])", frage_klein):
-            p *= 1.25
+            p *= 1.6
+        else:  # gleiche Wörter bis auf die Endung, gleiche Reihenfolge („Kritische Treffer“ – „kritischer Treffer …“;
+            # nicht „Bewegung“ – „Beweglichkeit“)
+            kf = [w for w in woerter(kern) if w not in STOPP]
+            if kf and any(all(_endung_gleich(a, b) for a, b in zip(kf, qfolge[j:j + len(kf)]))
+                          for j in range(len(qfolge) - len(kf) + 1)):
+                p *= 1.3
         # Zusatz in runden Klammern, der nicht gefragt ist: „Kritischer Treffer (Verwirrt)“ hinter „Kritische Treffer“
         # (Kennzeichen wie (AF), (ÜF), (Kampf), (Archetyp), (HG 5) zählen nicht)
         for zusatz in re.findall(r"\(([^)]*)\)", r["titel"]):
@@ -608,6 +620,14 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
             p *= 1.2  # Grundregeln werden am häufigsten gebraucht
         aus.append((p, i))
     aus.sort(reverse=True)
+    # Abwechslung: gleicher Titel aus demselben Buch (z. B. dreimal „Gelegenheitsangriffe“ im GRW) zählt je Wiederholung
+    # weniger, damit andere passende Einträge nicht aus den ersten Treffern fallen
+    schon = {}
+    for n, (p, i) in enumerate(aus):
+        k = (zeilen[i]["titel"].lower(), zeilen[i]["buch"])
+        aus[n] = (p * 0.8 ** schon.get(k, 0), i)
+        schon[k] = schon.get(k, 0) + 1
+    aus.sort(reverse=True)
     return aus
 
 
@@ -615,11 +635,13 @@ def _bewerten(con, ids_rang, stamme, typ_wunsch=None, frage=""):
 BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch": "MHB", "Abenteurerkompendium": "AK",
              "Monsterhandbuch II": "MHB2", "Ausbauregeln: Magie": "ARM", "Ausbauregeln II: Kampf": "ARK",
              "Ausbauregeln III: Völker": "ARV", "Ausbauregeln IV: Kampagnen": "ARKa",
-             "Ausbauregeln V: Legenden": "ARL", "Ausbauregeln VI: Klassen": "ARKl", "Ausbauregeln VII: Okkultes": "ARO"}
+             "Ausbauregeln V: Legenden": "ARL", "Ausbauregeln VI: Klassen": "ARKl", "Ausbauregeln VII: Okkultes": "ARO",
+             "Monsterhandbuch III": "MHB3"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
              "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
              "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8,
-             "Ausbauregeln V: Legenden": 9, "Ausbauregeln VI: Klassen": 10, "Ausbauregeln VII: Okkultes": 11}
+             "Ausbauregeln V: Legenden": 9, "Ausbauregeln VI: Klassen": 10, "Ausbauregeln VII: Okkultes": 11,
+             "Monsterhandbuch III": 12}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",

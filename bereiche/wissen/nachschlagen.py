@@ -15,7 +15,8 @@ from . import regeln_db, zauber_db
 # Seiten des Monsterhandbuchs ohne Werteblock, die trotzdem nur der SL sieht (Listen mit Monsternamen und HG)
 SL_SEITEN = {"/Monsterhandbuch/Begegnungstabellen", "/Monsterhandbuch/Index", "/Monsterhandbuch/Index-der-Monstervarianten",
              "/Monsterhandbuch/Monster-nach-HG", "/Monsterhandbuch/Monster-nach-Geländeart",
-             "/Monsterhandbuch/Monsterindex-nach-Art", "/Monsterhandbuch-II/Index"}
+             "/Monsterhandbuch/Monsterindex-nach-Art", "/Monsterhandbuch-II/Index",
+             "/Monsterhandbuch-III/Index"}
 MAX_ZEICHEN = 60000  # längere Einträge: Unterabschnitte danach nur noch als Verweis
 MAX_TREFFER = 30
 ZAUBER_FELDER = (("zeitaufwand", "Zeitaufwand"), ("komponenten", "Komponenten"), ("reichweite", "Reichweite"),

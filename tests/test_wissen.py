@@ -45,6 +45,10 @@ class WissenTest(unittest.TestCase):
         gug = self.tk.st.monster_info("Gug")  # Monsterhandbuch II
         self.assertIn("Gug (HG", gug)
         self.assertIn("Monsterhandbuch II", gug)
+        vettel = self.tk.st.monster_info("Annisvettel")  # Monsterhandbuch III („** TP**“ im PRD-HTML)
+        self.assertIn("Annisvettel (HG 6)", vettel)
+        self.assertIn("Monsterhandbuch III", vettel)
+        self.assertIn("**TP** 66", vettel)
         self.assertIn("MHB", self.tk.st.regel_suchen("Schwarm Flächenschaden"))
 
     def test_hausregel_hat_vorrang(self):
@@ -116,6 +120,8 @@ class WissenTest(unittest.TestCase):
                              for x in t))  # „Golemkonstrukteur“ (Regel aus Ausbauregeln: Magie) darf erscheinen
         self.assertFalse(self.wissen("suche", q="Gug")["treffer"] and any(  # Monsterhandbuch II ebenso
             x["titel"].startswith("Gug") for x in self.wissen("suche", q="Gug")["treffer"]))
+        self.assertFalse(any(x["titel"].startswith("Annisvettel")  # Monsterhandbuch III
+                             for x in self.wissen("suche", q="Annisvettel")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Legendärer Aboleth")  # legendäre Monster (Ausbauregeln V)
                              or "Legendäre Monster" in (x.get("untertitel") or "")
                              for x in self.wissen("suche", q="Legendärer Aboleth")["treffer"]))

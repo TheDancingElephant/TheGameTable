@@ -19,6 +19,29 @@ def text_norm(s):
     return re.sub(r"[ \t\r\f\v]+", " ", s)
 
 
+def _fett_raender(t):
+    """Leerzeichen am Rand fetter Stellen nach außen: „** TP**“ -> „ **TP**“ (Monsterhandbuch III), leere entfernen."""
+    teile = t.split("**")
+    if len(teile) % 2 == 0:  # unpaarig: nichts anfassen
+        return t
+    aus = [teile[0]]
+    for i in range(1, len(teile), 2):
+        innen, danach = teile[i], teile[i + 1]
+        kern = innen.strip()
+        if not kern:
+            aus.append(innen + danach)
+            continue
+        links, rechts = innen[:len(innen) - len(innen.lstrip())], innen[len(innen.rstrip()):]
+        if links and aus[-1] and not aus[-1][-1].isspace():
+            links = links if "\n" in links else " "
+        elif links and "\n" not in links:
+            links = ""  # davor steht schon ein Leerzeichen
+        if rechts and "\n" not in rechts and danach[:1].isspace():
+            rechts = ""
+        aus.append(f"{links}**{kern}**{rechts}{danach}")
+    return "".join(aus)
+
+
 class _P(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -36,8 +59,7 @@ class _P(HTMLParser):
         t = text_norm("".join(self.puffer))
         self.puffer = []
         self.inline = []
-        t = re.sub(r"\*\*(\s+)\*\*", r"\1", t)
-        t = re.sub(r"\*\*(\S[^*\n]*?)(\s+)\*\*", r"**\1**\2", t)   # Leerzeichen vor dem Schluss-Marker
+        t = _fett_raender(t)
         t = re.sub(r" *\n *", "\n", t)
         return t.strip()
 

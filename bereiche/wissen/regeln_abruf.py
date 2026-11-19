@@ -43,6 +43,7 @@ BUECHER = {
                        "ohne": ["/Expertenregeln/Zauber", "/Expertenregeln/Zauberlisten"]},
     "Monsterhandbuch": {"start": "/Monsterhandbuch", "ohne": []},
     "Monsterhandbuch II": {"start": "/Monsterhandbuch-II", "ohne": []},
+    "Monsterhandbuch III": {"start": "/Monsterhandbuch-III", "ohne": []},
     "Ausbauregeln: Magie": {"start": "/Ausbauregeln-Magie",
                             "ohne": ["/Ausbauregeln-Magie/Zauber", "/Ausbauregeln-Magie/Zauberlisten"]},
     "Ausbauregeln II: Kampf": {"start": "/Ausbauregeln-II-Kampf",
