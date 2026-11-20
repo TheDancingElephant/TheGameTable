@@ -663,7 +663,8 @@ BUCH_KURZ = {"Grundregelwerk": "GRW", "Expertenregeln": "EXP", "Monsterhandbuch"
              "Monsterhandbuch III": "MHB3", "Alternativregeln": "ALT",
              "Spielleiterhandbuch": "SLHB", "Ausrüstungskompendium": "AUS",
              "Monsterhandbuch IV": "MHB4", "Monsterhandbuch V": "MHB5",
-             "NSC-Kompendium": "NSC", "Ausbauregeln VIII: Intrigen": "ARI"}
+             "NSC-Kompendium": "NSC", "Ausbauregeln VIII: Intrigen": "ARI",
+             "Andere Bände": "AB"}
 BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Abenteurerkompendium": 3,
              "Monsterhandbuch II": 4, "Ausbauregeln: Magie": 5, "Ausbauregeln II: Kampf": 6,
              "Ausbauregeln III: Völker": 7, "Ausbauregeln IV: Kampagnen": 8,
@@ -671,7 +672,8 @@ BUCH_RANG = {"Grundregelwerk": 0, "Expertenregeln": 1, "Monsterhandbuch": 2, "Ab
              "Monsterhandbuch III": 12, "Alternativregeln": 13,
              "Spielleiterhandbuch": 14, "Ausrüstungskompendium": 15,
              "Monsterhandbuch IV": 16, "Monsterhandbuch V": 17,
-             "NSC-Kompendium": 18, "Ausbauregeln VIII: Intrigen": 19}
+             "NSC-Kompendium": 18, "Ausbauregeln VIII: Intrigen": 19,
+             "Andere Bände": 20}
 
 
 TYP_WOERTER = {"monster": "monster", "kreatur": "monster", "talent": "talent", "talente": "talent", "zustand": "zustand", "zustände": "zustand",

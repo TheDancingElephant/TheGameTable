@@ -51,6 +51,8 @@ BUECHER = {
     "Spielleiterhandbuch": {"start": "/Spielleiterhandbuch", "ohne": []},
     "Ausrüstungskompendium": {"start": "/Ausrüstungskompendium", "ohne": []},
     "NSC-Kompendium": {"start": "/NSC-Kompendium", "ohne": []},
+    "Andere Bände": {"start": "/Andere-Bände",  # „Quellen“ = Klappentexte der Quellbücher, keine Regeln
+                     "ohne": ["/Andere-Bände/Zauber", "/Andere-Bände/Zauberlisten", "/Andere-Bände/Quellen"]},
     "Ausbauregeln VIII: Intrigen": {"start": "/Ausbauregeln-VIII-Intrigen",
                                     "ohne": ["/Ausbauregeln-VIII-Intrigen/Zauber", "/Ausbauregeln-VIII-Intrigen/Zauberlisten"]},
     "Ausbauregeln: Magie": {"start": "/Ausbauregeln-Magie",

@@ -267,6 +267,9 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
 - **NSC-Kompendium** (rund 310 fertige NSC nach Grund-, NSC- und Prestigeklassen geordnet, je mit Werteblock,
   Kampf- und Rollenspielhinweisen; Kürzel „NSC“) für `monster_info`. Auf der Nachschlage-Seite nur für den SL; in der
   Suche hinter den Regelbüchern (gleichnamige Kapitel wie „Duellant“ beschreiben NSC, nicht die Klasse).
+- **Andere Bände** (Material aus kleineren Quellbänden: Talente, rund 200 Wesenszüge, Prestigeklassen, Ausrüstung,
+  magische Gegenstände, Sonstiges, 15 Monster; Kürzel „AB“), ohne Zauber und ohne die Klappentexte unter „Quellen“.
+  Die Monster sind auf der Nachschlage-Seite nur für den SL.
 - **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
   das PRD enthält das Buch nur teilweise: 6 Talente, 2 Zauber, die Seite „Ausrüstung“ fehlt). Markierung „AK“.
 - **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index

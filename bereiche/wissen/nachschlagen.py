@@ -47,7 +47,7 @@ def gesperrte_seiten():
         ids = {r[0] for r in con.execute(
             "SELECT DISTINCT s.id FROM seiten s JOIN abschnitte a ON a.seite_id = s.id "
             "WHERE a.typ = 'monster' AND (s.buch LIKE 'Monsterhandbuch%' "
-            "OR a.kapitel = 'Legendäre Monster' OR s.buch IN ('Spielleiterhandbuch', 'NSC-Kompendium'))")}  # + legendäre, NSC-Galerie
+            "OR a.kapitel = 'Legendäre Monster' OR s.buch IN ('Spielleiterhandbuch', 'NSC-Kompendium', 'Andere Bände'))")}  # + legendäre, NSC-Galerie
         # (Spuke der Ausbauregeln VII bleiben sichtbar wie Fallen)
         ids |= {r[0] for r in con.execute("SELECT id FROM seiten WHERE pfad IN (%s)" % ",".join("?" * len(SL_SEITEN)),
                                           sorted(SL_SEITEN))}

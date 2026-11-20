@@ -45,6 +45,10 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Grundregelwerk", self.tk.st.regel_schnell("fertigkeit", "Akrobatik"))
         self.assertIn("Expertenregeln", self.tk.st.regel_schnell("talent", "Heldenglück"))  # Heldenpunkt-Talente
         self.assertIn("Abenteurerkompendium", self.tk.st.regel_schnell("talent", "Wesen ohne Namen"))
+        # Andere Bände: Wesenszüge und Talente; Klappentexte unter „Quellen“ nicht in der Datenbank
+        self.assertIn("Flusskämpfer", self.tk.st.regel_suchen("Wesenszug Flusskämpfer"))
+        self.assertIn("Andere Bände", self.tk.st.regel_schnell("talent", "Adelsspross"))
+        self.assertNotIn("Almanach der Drachen —", self.tk.st.regel_suchen("Almanach der Drachen"))
         # Ausbauregeln VIII: Intrigen
         self.assertIn("Wortgefechte", self.tk.st.regel_suchen("Gesellschaftlicher Kampf Wortgefecht"))
         self.assertIn("Vigilant", self.tk.st.regel_suchen("Vigilant", typ="klasse"))
@@ -153,6 +157,8 @@ class WissenTest(unittest.TestCase):
                              for x in self.wissen("suche", q="Annisvettel")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Cthulhu")  # Monsterhandbuch IV
                              for x in self.wissen("suche", q="Cthulhu")["treffer"]))
+        self.assertFalse(any(x["titel"].startswith("Bergtroll")  # Andere Bände
+                             for x in self.wissen("suche", q="Bergtroll")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Wilder Söldner")  # NSC-Kompendium
                              for x in self.wissen("suche", q="Wilder Söldner")["treffer"]))
         self.assertFalse(any(x["titel"].startswith("Dorftrottel")  # NSC-Galerie (Spielleiterhandbuch)
