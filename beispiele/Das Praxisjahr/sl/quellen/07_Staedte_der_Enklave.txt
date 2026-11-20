@@ -1,0 +1,453 @@
+# Städte der Enklave: Torstadt, Grovaristadt, Endstadt, Drudanst, Illiatist und Tiefenburg
+
+*Pathfinder 1e · Ergänzung zu den Stadtplänen von Tiefenburg und Illiatist*
+
+Karten: [Torstadt.svg](Torstadt.svg) · [Grovaristadt.svg](Grovaristadt.svg)
+
+Die beiden Pläne sind schematisch: Die Häuserblöcke sind Füllmuster, wichtig sind Viertel, Straßen und die nummerierten Orte. Maßstab etwa 100 m pro 50 Pixel.
+
+---
+
+## Torstadt
+
+*9.400 Einwohner · Munavri 4.000, Svirfneblin 3.000, Duergar 1.000, Drow 1.000, Rattenvolk 200, Menschen 200*
+
+> *Torstadt riecht nach Eisen, Öl und Flusswasser. Überall Uniformen. Selbst die Bäcker tragen den Wehrpflicht-Gürtel, weil sie im Ernstfall auf die Mauer müssen. Über allem liegt das Grollen des Grovarie, der unter dem Wall hindurch in die Stadt fließt, und im Westen, schwarz und gewaltig, der Große Steinwall.*
+
+**Stadtgefühl:** Garnisonsstadt. Diszipliniert, stolz, ein bisschen paranoid. Jeder hier hat jemanden auf der Mauer der Namen oder in der Kalten Nacht verloren. Fremde werden höflich, aber genau beobachtet. Torstadt ist die einzige Stadt, in der man Munavri oft laut sprechen hört – die Garnison hat es ihnen abgewöhnt, in Gedanken zu flüstern.
+
+### Orte
+
+| Nr. | Ort | Beschreibung | Abenteuer |
+|---|---|---|---|
+| 1 | **Haupttor im Großen Steinwall** | Zwei Torflügel aus Lavaschmiede-Stahl, ein Fallgitter, das Torhaus. Hier stehen immer 40 Wachen. Der Wall ist 15 m hoch und 8 m dick, mit Wehrgang und Türmen alle 50 m | Finale |
+| 2 | **Wassertor** | Wo der Grovarie unter dem Wall hindurchfließt: ein doppeltes Eisengitter. Die schwächste Stelle des Walls – durch die Tunnel hier kamen in Jahr 118 die Drow-Infiltratoren | 1, Finale |
+| 3 | **Kaserne & Exerzierplatz** | Unterkünfte für 400 Wehrpflichtige. Hier beginnt die Kampagne | 1 |
+| 4 | **Quartiermeisterei** | Pipra Zwirns Reich. Formulare in dreifacher Ausführung | 1 |
+| 5 | **Mauer der Namen** | Eine schwarze Steinwand direkt hinter dem Wall mit 412 eingemeißelten Namen der Gefallenen von Jahr 118 – und darunter, kleiner, die Namen der Kalten Nacht (Jahr 152). Frische Leuchtpilze werden jeden Tag davor gelegt | 1, Finale |
+| 6 | **Wasserwerk am Zentralpfeiler** | Pumpen, Schleusen, Einstieg in die Zisternen. Vorarbeiter Dorrin Kalkbart | 1 |
+| 7 | **Kanzlei der Pfeilerwacht** | Kleine Außenstelle der Gilde. Ein freundlicher älterer Magier, **Meister Halvin Dunst** (Mensch), verwaltet sie. Von hier führt eine verschlossene Treppe in die **Kammer im Zentralpfeiler** (Jahr 127) | 1, Finale |
+| — | **Zentralpfeiler** | Die Säule trägt die Decke über Torstadt. In ihrem Inneren, 20 m über dem Boden, liegt die Kammer mit dem Verstärkungszauber. Im Finale ist hier der Gegenanker versteckt | Finale |
+| 8 | **Hospiz der Azatas** | Heilung für Wehrpflichtige kostenlos, für andere gegen Spende. Hennik (der erste Rattenbiss-Patient) liegt hier | 1 |
+| 9 | **Markt am Pfeiler** | Kleiner, voller Markt. Waffen, Proviant, Laternen, Glücksbringer für Wehrpflichtige | – |
+| 10 | **Haus des Wallmarschalls** | Sitz von **Wallmarschall Ormund Tiefgrund** (Svirfneblin, Kämpfer 9), Oberbefehlshaber der Wehrpflicht. Ein alter, müder Krieger, der seit der Kalten Nacht nicht mehr gut schläft | 6 |
+| 11 | **Halle der Vielen Lichter** | Tempel aller in der Enklave verehrten Götter: die Azatas und Empyreischen Fürsten (Munavri), Torag (Duergar), Desna (viele Drow-Flüchtlinge), Sarenrae (Menschen), Nivi Rhombodazzle (Svirfneblin). Jeder Altar hat ein anderes Licht | – |
+| 12 | **Taverne „Zum Letzten Stein"** | Stammkneipe der Wehrpflichtigen. Hier sitzt Seren Halvaris und erzählt von seinen Heldentaten | 1 |
+| 13 | **Osttor** | Kleines Tor, Straße nach Tiefenburg. Zollstation | 2 |
+| 14 | **Pfeilerbrücke** | Steinbrücke über den Grovarie | – |
+
+### Viertel
+
+| Viertel | Bewohner | Charakter |
+|---|---|---|
+| **Garnisonsviertel** | Wehrpflichtige, Offiziere | Kasernen, Waffenkammern, Exerzierplatz |
+| **Munavri-Viertel** | Munavri | Stille Gassen, weiße Häuser, der Leuchtpilzgarten |
+| **Marktviertel** | Gemischt | Händler, Handwerker, Gasthäuser |
+| **Duergar-Werkstätten** | Duergar | Armbrustmacher, Schmiede, Steinmetze – das Hämmern hört nie auf |
+| **Svirfneblin-Viertel** | Svirfneblin | Niedrige Häuser, Familienwerkstätten |
+| **Endstädter Gasse** | Rattenvolk, Menschen | Am Osttor. Die einzige Straße in Torstadt, in der nachts die Laternen brennen |
+| **Vorhöhle** | Niemand | Außerhalb des Walls: verlassene Gehöfte aus den ersten Jahren, Schanzgräben, ein Stalagmitenfeld. Täglich patrouilliert |
+
+### Torstadt im Finale
+
+- Die Untotenarmee greift am **Haupttor (1)** an. Brakka und die Wehrpflicht halten die Mauer.
+- Gleichzeitig versucht der Bleiche Hund, über das **Wassertor (2)** oder mithilfe der Lehrlinge über die **Kanzlei (7)** in den **Zentralpfeiler** zu gelangen.
+- Die Spieler müssen von der Mauer zum Pfeiler: durch die Stadt, über die Pfeilerbrücke (14) oder durch die Zisternen (Karte aus Abenteuer 1). Kluge Gruppen erinnern sich an den gefluteten Durchgang.
+
+---
+
+## Grovaristadt
+
+*13.000 Einwohner · Svirfneblin 6.000, Munavri 3.000, Drow 1.000, Duergar 1.000, Rattenvolk 500, Menschen 300 (Rest: Gäste, Händler, Flüchtlinge)*
+
+> *Eine Insel aus hellem Stein im schwarzen See, gekrönt von einer Säule, so gewaltig, dass man den Kopf in den Nacken legen muss, um zu sehen, wo sie in der Decke verschwindet. An ihr glimmen blaue Runen wie Sterne. Die Stadt drängt sich um ihren Fuß, Gassen schlängeln sich zu den Ufern hinab, und auf dem Wasser gleiten Fischerboote neben einem elfenbeinfarbenen Schiff mit violettem Segel.*
+
+**Stadtgefühl:** Hauptstadt. Laut, voll, vielsprachig, ein bisschen eitel. Hier wird Politik gemacht, hier sitzen die Gilden, hier ist man stolz darauf, „wie die Enklave sein sollte" – und bemerkt erst jetzt, mit Unbehagen, dass im Osten eine Stadt reich wird, die man jahrzehntelang übersehen hat.
+
+### Orte
+
+| Nr. | Ort | Beschreibung | Abenteuer |
+|---|---|---|---|
+| 1 | **Gildenhaus der Pfeilerwacht** | Am Fuß des Zentralpfeilers. Hohe Hallen, blaue Runen an den Wänden. Im obersten Stock: **Vanthes Arbeitszimmer** mit einem verhängten Spiegel – dem Kontaktspiegel zu Drevan (Magie entdecken: starke Erkenntnismagie; Zauberkunde SG 22: ein *Ausspähungs*-Fokus) | 2, 6 |
+| — | **Zentralpfeiler** | Der größte Pfeiler der Enklave. Seine Kammer liegt tief im Inneren, erreichbar nur durch das Gildenhaus | 6 |
+| 2 | **Ratshalle** | Acht Sitze im Halbkreis, eine Galerie für Zuschauer. Ratssitzungen sind öffentlich | 6 |
+| 3 | **Halle des Ethikrats** | Zehn Sitze, ein Azata-Tempel ist angebaut. Hier liegen die Schriftrollen der Ethikwache | 6 |
+| 4 | **Große Bibliothek** | Pilzpapier-Archiv mit allen Ratsprotokollen seit Jahr 0. **Hinweis:** Der Expeditionsbericht von Jahr 156 ist auffällig dünn – drei Seiten für drei Monate. Eine Seite fehlt. *(Bastrin Kieselgrund hat sie gestohlen, siehe Kampagnenbuch 3.4.)* | 6 |
+| 5 | **Garnison** | Ummauerter Hof, 150 Wehrpflichtige. Hier wartet Brakkas Bote am Ende von Abenteuer 2 | 2, 3 |
+| 6 | **Nordbrücke** | 400 m lange Steinbrücke zum Nordufer, Weg zur Nordfeste und nach Drudanst | 4 |
+| 7 | **Südbrücke & Südwache** | Zum Südufer, zu den Pilzfeldern und Richtung Land der Tausende | – |
+| 8 | **Westhafen** | Hier liegen die wenigen **Munavri-Schiffe** (Elfenbein, violette Segel). Ruhig, fast heilig | – |
+| 9 | **Osthafen & Fischmarkt** | Fischer, Rattenvolk-Händler, Gestank. Hier werden die **Plesiosaurier** gefüttert – ein Spektakel | – |
+| 10 | **Großer Markt der Völker** | Der größte Markt der Enklave. Alles, was es unter der Erde gibt | 2 |
+| 11 | **Kontor der Handelsgilden** | Sitz der großen Händlerfamilien, darunter die Familie Aster (Ratsmitglied Liane Aster). Hier wird über Pilzpreise entschieden | – |
+| 12 | **Gasthaus „Zum Plesiosaurier"** | Das beste Gasthaus der Stadt. Teuer. Mirsa Kieselweb steigt hier ab | 2 |
+| 13 | **Botschaft von Endstadt** | Ein kleines, ärmliches Haus, das Rattenvolk-Sprecher **Ratzek Lauffuß** gemietet hat, um „näher an der Macht" zu sein | 6 |
+| 14 | **Platz der Gründer** | Zwischen Ratshalle und Ethikrat. Statuen der ersten Munavri-Anführerin und des Svirfneblin-Bürgermeisters, die in Jahr 0 den Handschlag tauschten. Hier wird gewählt, hier werden Reden gehalten | 6 |
+| 15 | **Leuchtpilzpark** | Öffentlicher Garten. Treffpunkt für vertrauliche Gespräche | – |
+
+### Viertel
+
+| Viertel | Bewohner | Charakter |
+|---|---|---|
+| **Ratsviertel** | Beamte, Magier | Rund um den Pfeiler: Ratshalle, Ethikrat, Gildenhaus. Sauber, still, bewacht |
+| **Svirfneblin-Viertel** | Svirfneblin | Das größte Viertel. Werkstätten, Familienhäuser, Edelsteinläden |
+| **Munavri-Viertel** | Munavri | Am Westhafen. Elegante Häuser, kaum gesprochene Worte |
+| **Duergar-Viertel** | Duergar | Am Nordufer, nahe der Brücke nach Drudanst. Schmiede-Vertretungen |
+| **Drow-Viertel** | Drow | Klein, gepflegt, mit Spinnenseide-Läden. Bei Verbrechen schaut die Stadtwache zuerst hierher |
+| **Hafenviertel** | Gemischt, viel Rattenvolk | Laut, eng, ehrlich |
+
+### Grovaristadt in Abenteuer 6
+
+- **Platz der Gründer (14)** ist der natürliche Ort für die große Szene: Die Spieler legen ihre Beweise öffentlich vor – oder Vanthe hält dort eine Rede, die die Stadt gegen „Verleumder aus der Wehrpflicht" aufbringt.
+- **Bibliothek (4)** und **Gildenhaus (1)** sind Orte für Nachforschungen und Einbrüche (Ethikrat-Erlaubnis oder Ärger!).
+- **Botschaft von Endstadt (13)**: Ratzek bietet Hilfe gegen das Versprechen, sich für einen Sitz einzusetzen.
+- Agathum **Selis Varn** trifft die Gruppe heimlich im **Leuchtpilzpark (15)**.
+
+---
+
+## Endstadt
+
+*4.700 Einwohner · Rattenvolk 3.000, Menschen 1.000, Svirfneblin 500, Munavri 200 · dazu die Dörfer Parasal, Frindorf und Rudiapest*
+
+*Kein eigener Stadtplan – Lage siehe `Karte2.png`, Nordostende der Fluss-Straße.*
+
+> *Am Ende der Fluss-Straße, dort, wo der Grovarie die Enklave wieder verlässt, liegt eine Stadt, die nach Erde riecht. Pilzfelder bis an die Häuserwände, Käferställe, Trockengestelle voller Moos. Rattenvolk-Kinder flitzen zwischen den Beinen der Lastkäfer hindurch, und in den Gassen brennen Laternen – mehr Laternen als irgendwo sonst unter der Erde. Am Stadtrand stehen neue Hallen aus Glas und Stein, aus denen ein Licht dringt, das ihr nicht kennt: warm, weiß, blendend. Es riecht nach frischem Grün. Über dem Fluss spannt sich ein steinerner Bogen. Jemand hat in großen Buchstaben darauf gemalt: „Am Ende kommt alles bei uns an."*
+
+### Geschichte
+
+**Die Zeit davor (ca. Jahr 70–128): zwei kleine Minderheiten**
+- Um Jahr 70 erreichen die ersten **Rattenvolk-Familien** die Enklave – Flüchtlinge aus Duergar-Minen im Süden, in kleinen Gruppen, oft halb verhungert. Wenig später kommen die ersten **Menschen**: Nachfahren von Sklaven, die aus Drow-Karawanen und aus Varikanum entkommen sind.
+- Beide Gruppen sind **winzige Minderheiten** (zusammen kaum ein paar hundert). Sie leben in den ärmsten Ecken von Torstadt und Tiefenburg, als Träger, Tagelöhner, Kanalreiniger. Gesetzlich gleichberechtigt – „jeder ist wichtig" –, aber ohne Land, ohne eigenes Viertel und ohne Stimme.
+- Die Menschen leiden zusätzlich unter der Dunkelheit: Sie haben keine Dunkelsicht, und in Vierteln anderer Völker werden die Laternen nachts gelöscht.
+
+**Die Öffnung der Osthöhle (Jahr 129)**
+- Der Dammbau in der Großen Höhle staut den Grovarie. Durch den verringerten Abfluss wird ein Weg in eine weitere Höhle frei – die **Osthöhle**. Dort entdeckt man eine Kolonie von **Vegepygmys** und schließt das Abkommen.
+- Die großen Völker zögern: Die Osthöhle liegt weit vom Steinwall, grenzt an ein fremdes Pilzvolk, und durch sie führt künftig der Weg, auf dem die Verurteilten zu den Vegepygmys gebracht werden. Niemand will dort wohnen.
+- **Rattenvolk und Menschen schon.** Zum ersten Mal gibt es Land, das niemand anderes beansprucht. In den Jahren 129–132 ziehen fast alle Rattenvolk-Familien und die meisten Menschen in die hintere Höhle.
+
+**Die Gründung (Jahr 130–135)**
+- **Großmutter Kesh Lauffuß** (Rattenvolk) und **Joran Lichtweg** (Mensch, Laternenmacher) führen die Siedler. Sie schließen am Flussufer einen Handschlag-Vertrag: Die Höhle wird geteilt, Streit wird gemeinsam geschlichtet. Wo der Handschlag stattfand, entsteht **Frindorf** – der „Friedensort".
+- 500 **Svirfneblin** kommen als Pilzbauern-Lehrer, weil die Siedler von Pilzzucht nichts verstehen. Viele bleiben.
+- 200 **Munavri** kommen als **Abkommenswächter**: Sie begleiten jede Übergabe von Verurteilten an die Vegepygmys und sorgen dafür, dass es würdevoll zugeht. Sie leben etwas abseits und gelten in Endstadt als ernst und traurig.
+- Jorans Familie stellt so viele Laternen auf, dass die Stadt nachts leuchtet – der Ursprung des späteren **Laternenbunds**. Menschen können hier zum ersten Mal sehen, wohin sie gehen.
+- Danach entstehen **Parasal** (Flusshafen, Jahr 133) und zuletzt **Rudiapest** (Jahr 135), direkt an der Grenze zu den Vegepygmys.
+
+**Der Name**
+„Endstadt" war zuerst ein **Spottname** aus Grovaristadt: die Stadt am Ende der Fluss-Straße, am Ende der Enklave – und die Stadt, durch die die Verurteilten zu ihrem Ende gehen. Die Siedler haben den Namen trotzig übernommen. Ihr Spruch, in großen Buchstaben auf dem Bogen über dem Fluss: *„Am Ende kommt alles bei uns an."* Gemeint ist: auch das Essen der ganzen Enklave.
+
+**Das Wachstum (Jahr 135–160)**
+- Mit Hilfe der Vegepygmys wird die Osthöhle zum **Pilzgarten der Enklave**. Ab etwa Jahr 145 kommt der größte Teil der Nahrung aus Endstadt.
+- Das Rattenvolk wächst schnell – von wenigen hundert auf heute 5.000 (davon 3.000 in Endstadt selbst, der Rest in Parasal, Rudiapest und in Händlervierteln anderer Städte).
+- Der Reichtum bleibt trotzdem lange aus: Die Gildenhändler in Grovaristadt kaufen die Ernte billig und verkaufen sie teuer weiter. Endstadt hat keine eigenen Händler mit genug Geld, um das zu ändern – bis zum Sonnensalz.
+
+**Das Sonnensalz (Jahr 162–170)**
+- Seit Jahrzehnten experimentieren die **Alchemisten des Rattenvolks** in Parasal mit Leuchtpilzen, Feuerkäfer-Drüsen und Lavaschmiede-Schlacke. Um **Jahr 164** gelingt der Durchbruch: das **Sonnensalz**, eine alchemistische Mischung, die in gläsernen Kugeln ein warmes, weißes Licht erzeugt – **künstliches Sonnenlicht**.
+- Mit Saatgut, das die Kalkstiege-Expeditionen von der Oberfläche mitgebracht haben, wachsen in den ersten **Lichthallen** von Endstadt Pflanzen, die es unter der Erde nie gab: **Kartoffeln, Bohnen, Kohl, Zwiebeln, Kräuter** – Gemüse der Oberwelt.
+- Ab **Jahr 167** wird das Gemüse verkauft. Es ist begehrt wie Edelsteine: Es schmeckt nach einer Welt, die die meisten nie gesehen haben, und es heilt die schleichenden Mangelkrankheiten, an denen viele Höhlenbewohner leiden. Die Käufer zahlen in Säulentalern.
+- **Endstadt blüht auf.** Zum ersten Mal fließt Geld in die Osthöhle statt aus ihr heraus. Neue Häuser aus behauenem Stein, eigene Händlerkontore, Rattenvolk-Händler, die in Grovaristadt mit den Gilden auf Augenhöhe verhandeln. Die alte Abhängigkeit von den Gildenhändlern ist gebrochen.
+- **Das Geheimnis:** Das Rezept kennen nur die **Sieben vom Glaskolben**, ein Kreis von Rattenvolk-Alchemisten unter **Meisterin Tikka Funkenschwanz**. Sie geben es nicht heraus – nicht an die Gilden, nicht an den Rat, nicht an die Pfeilerwacht. Die Lichthallen sind bewacht, die Arbeiter schwören Schweigeeide, und das Sonnensalz wird nur in versiegelten Kugeln verkauft – wenn überhaupt.
+
+
+**Die Kränkung (Jahr 161 bis heute)**
+- **161:** Die Ratsreform verteilt Sitze an vier Völker und vier Höhlen. Rattenvolk und Menschen bekommen keinen Völkersitz – „zu wenige, zu neu". Die Osthöhle bekommt keinen Höhlensitz, weil sie „seit dem Damm zur Großen Höhle gehört". In Endstadt nennt man das den **„Dammbeschluss"**.
+- **166:** Endstadt beantragt einen eigenen Sitz. Abgelehnt, mit 5 zu 3 Stimmen.
+- **168–170:** Der Laternenbund (Mara Lichtweg, Jorans Enkelin) und die Händlergilde (Ratzek Lauffuß, Keshs Enkel) arbeiten zum ersten Mal zusammen. Endstadt ist jetzt reich – und hat trotzdem keine Stimme. Das macht die Lage gefährlicher als früher: Zur Wahl 171 drohen sie mit einem **Erntestreik**, und hinter vorgehaltener Hand fällt ein noch schärferes Wort – **„dann eben eine eigene Enklave"**.
+
+### Orte in Endstadt
+
+| Ort | Beschreibung |
+|---|---|
+| **Der Endbogen** | Steinbogen über dem Grovarie am Nordrand der Stadt (das Bogensymbol auf der Karte), mit dem Spruch der Gründer. Hier verlässt der Fluss die Enklave. Treffpunkt, Markt, Wahrzeichen |
+| **Die Laternengasse** | Hauptstraße, nachts taghell. Sitz des Laternenbunds |
+| **Kesh-Halle** | Versammlungshaus der Stadt, benannt nach der Gründerin. Hier tagt der inoffizielle Stadtrat (Rattenvolk, Menschen, Svirfneblin, Munavri – je zwei Sitze, ganz nach dem Vorbild, das der Enklave fehlt) |
+| **Die Lichthallen** | Fünf Gewächshäuser aus Glas und Stein am Stadtrand, erleuchtet von Sonnensalz-Kugeln. Kartoffeln, Bohnen, Kohl, Kräuter. Bewacht von angeheuerten Söldnern – darunter ehemalige Wehrpflichtige |
+| **Der Glaskolben (Parasal)** | Werkstatt der Sieben vom Glaskolben. Ein unscheinbares Lagerhaus am Hafen, schwerer bewacht als die Ratshalle |
+| **Die Käferställe** | Größte Lastkäfer-Zucht der Enklave. Hier stammt auch „Bertha" aus Abenteuer 2 |
+| **Das Haus der Stillen Wache** | Wohnort der Munavri-Abkommenswächter |
+| **Der Letzte Weg** | Die Straße von Endstadt über Rudiapest zur Grenze der Vegepygmys. Wer verurteilt ist, geht ihn mit verbundenen Augen. Die Endstädter schließen ihre Fensterläden, wenn ein Zug vorbeikommt |
+
+### Endstadt in der Kampagne
+
+- **Zwischenspiel „Das Abkommen":** Die Truppe begleitet einen Verurteilten über den Letzten Weg.
+- **Abenteuer 6:** Ratzek Lauffuß und Mara Lichtweg sind mögliche Verbündete gegen Vanthe – gegen das Versprechen, sich für einen Sitz einzusetzen.
+- **Nach der Kampagne:** Die Wahl 171 und der Erntestreik. Wenn Endstadt die Ernte zurückhält, hungert Grovaristadt in drei Wochen.
+- **Aufhänger:** Ein Mitglied der Sieben vom Glaskolben verschwindet. Waren es die Gilden, Drevans Diener – oder ist er freiwillig gegangen, um das Rezept zu verkaufen?
+- **Für das Finale:** Hat die Gruppe Ratzek oder Mara gewonnen, schickt Endstadt eine Kiste **Sonnensalz-Kugeln** nach Torstadt – gegen die Vampirbrut eine Waffe, mit der Drevan nicht rechnet.
+
+### Das Sonnensalz – wer es haben will (für die SL)
+
+Das Geheimnis ist weit mehr wert als Gemüse. Folgende Mächte haben ein Interesse daran – das sind **Vorschläge**, keine Festlegungen:
+
+| Wer | Warum | Wie |
+|---|---|---|
+| **Die Handelsgilden von Grovaristadt** (Familie Aster) | Sie verlieren an Endstadt Geld und Macht | Bestechung, Spionage, Druck über den Rat („Ein Geheimnis dieser Bedeutung gehört der ganzen Enklave!") |
+| **Die Sporenfesten** | Das Myzel meidet helles Licht. Sonnensalz könnte Brandschneisen ersetzen | Bitten offiziell um Lieferungen – bisher abgelehnt, weil die Sieben fürchten, dass das Rezept dann durchsickert |
+| **Die Bastion der Lebenden** | Ob Sonnensalz-Licht Vampire wirklich verbrennt, weiß niemand. **SL-Entscheidung:** Es wirkt wie echtes Sonnenlicht, aber nur 3 Runden pro Kugel und in 6 m Umkreis – oder es blendet Untote nur | Hagra Lichtschild will es testen |
+| **Fürst Drevan** | Wenn das Licht Vampire verbrennt, ist es die größte Gefahr für sein Reich | Er will das Rezept stehlen oder vernichten – und die Sieben töten. Kell Morrow gibt sich nicht zufällig als „Pilzhändler aus Endstadt" aus |
+| **Drow und Munavri** | Beide Völker haben **Lichtblindheit**. Sonnensalz-Licht blendet sie, und in den falschen Händen wäre es eine Waffe gegen sie | **Sie wollen, dass die Technologie in der hinteren Höhle bleibt** – siehe „Der Lichtbann" unten |
+| **Der Ethikrat** | „Jeder ist wichtig" – darf ein Volk ein Geheimnis horten, das allen helfen könnte? | Eine Anhörung steht bevor. Ratzek Lauffuß kontert: „Ihr habt uns sechzig Jahre lang nichts gegeben. Jetzt haben wir etwas, und plötzlich gehört es allen?" |
+
+### Der Lichtbann – Drow und Munavri gegen die Ausbreitung
+
+**Was sie wollen:** Das Sonnensalz soll **in der Osthöhle bleiben**. Keine Lichthallen in anderen Höhlen, keine Kugeln außerhalb von Endstadt, keine Lieferungen an Festen. Das Gemüse darf verkauft werden – das Licht nicht.
+
+**Warum:**
+- **Lichtblindheit:** Ein Sonnensalz-Licht in einer Gasse von Illiatist oder im Munavri-Viertel von Grovaristadt würde die Bewohner blenden. Ein Anschlag mit ein paar Kugeln könnte einen ganzen Markt lahmlegen.
+- **Erinnerung:** Für die Drow ist grelles Licht das Zeichen der Oberflächenwelt, die sie verstoßen hat. Für die Munavri ist es fremd – sie kommen aus Orv, wo es nie Licht gab.
+- **Angst vor einer Waffe:** Wer Sonnensalz hat, hat etwas, gegen das Drow und Munavri wehrlos sind. Heute ist das Endstadt. Und morgen?
+- Bei manchen schwingt auch etwas weniger Edles mit: Ein reiches, selbstbewusstes Endstadt verschiebt die Macht in der Enklave – weg von den Gründervölkern.
+
+**Wie sie es durchsetzen:**
+- Seit **Jahr 169** liegt im Rat ein Antrag auf einen **„Lichtbann"**: Sonnensalz darf nur innerhalb der Osthöhle hergestellt, gelagert und benutzt werden.
+- Der Block steht: **Munavri-Sitz, Drow-Sitz, Nordhöhle (Kesrin Valdorn) und Große Höhle (Liane Aster)** – vier von acht Stimmen. Für einen Beschluss reicht das nicht (5 nötig), aber sie können jeden Antrag blockieren, der das Licht verbreiten würde, etwa Lieferungen an die Sporenfesten oder die Bastion.
+- Im **Ethikrat** sitzen drei Munavri. Eine Anhörung, ob Endstadt das Geheimnis „für alle" herausgeben muss, wird dort gern verschleppt – denn ein freigegebenes Rezept würde sich in der ganzen Enklave verbreiten.
+
+**Die Ironie:** Die Sieben vom Glaskolben wollen das Rezept ebenfalls geheim halten. Drow, Munavri und Endstadt sind sich also einig, dass das Licht in der Osthöhle bleiben soll – nur aus ganz verschiedenen Gründen.
+
+**Der mögliche Handel – „Licht gegen Sitz":** Zur Wahl 171 könnten Drow und Munavri Endstadt ein Angebot machen: Sie stimmen für einen Ratssitz für die Osthöhle, wenn Endstadt den Lichtbann freiwillig annimmt. Ratzek Lauffuß wäre interessiert. Mara Lichtweg und die Menschen nicht: Sie wollen Licht in **allen** Straßen, nicht nur in ihren.
+
+**Was niemand laut sagt:** Pflanzen unter Sonnensalz verwandeln CO₂ in Sauerstoff – genau wie das Myzel, das bisher die Luft der Enklave liefert. Genug Lichthallen könnten die Enklave **unabhängig vom Myzel** machen und das **Luft-Dilemma** lösen (siehe Regionalband, „Das Myzel"): Man könnte die Pilzwälder zurückdrängen, ohne zu ersticken. Der Lichtbann verhindert damit ausgerechnet die beste Waffe gegen den Grünen Hunger.
+
+**Wer dagegen ist:**
+- **Die Sporenfesten und die Bastion der Lebenden** brauchen das Licht gegen Myzel und Untote. Hauptfrau Ysolde Moosgrund und Bastionsmeisterin Hagra Lichtschild halten den Lichtbann für gefährlich.
+- **Ausgerechnet Drow-Brenner der Sporenfeste bei Illiatist** wollen das Licht heimlich haben – sie stehen jeden Tag am Myzel. Ein Riss im Drow-Block, den die Spieler entdecken können.
+- **Die Menschen** und der Laternenbund.
+- **Die Svirfneblin** (Edda Glimmerstein) sind gespalten: Ihnen schadet das Licht nicht, aber sie misstrauen jedem neuen Machtzentrum.
+
+**Aufhänger:**
+- Ein Drow-Brenner der Sporenfeste bittet die Truppe, eine Kiste Sonnensalz-Kugeln aus Endstadt zu „besorgen". Gegen den Lichtbann, aber vielleicht rettet es die Feste.
+- In Illiatist explodiert eine Sonnensalz-Kugel auf dem Markt. Dutzende Drow sind geblendet. Wer war das – und woher kam die Kugel? (Eine Provokation von Drevans Dienern, um Drow und Rattenvolk gegeneinander aufzubringen?)
+
+**Werte für die Kampagne:**
+- **Sonnensalz-Kugel** (Wurfwaffe, 1 Anwendung): erzeugt 3 Runden lang helles Licht in 6 m Radius (wie *Tageslicht*). Kreaturen mit Lichtblindheit sind 1 Runde geblendet (Reflex SG 15 verhindert). Wirkung auf Vampire und Myzel: siehe SL-Entscheidung oben. Preis: nicht käuflich – außer als Geschenk von Endstadt oder auf dem Schwarzmarkt in Parasal für 500 GM.
+- **Lichthalle:** Ein Gewächshaus aus Glas und Stein, beleuchtet von Dutzenden Kugeln, die alle paar Tage erneuert werden müssen. Innen ist es so hell wie an einem Sommertag an der Oberfläche. Menschen kommen hierher, um zu weinen – sie haben so etwas noch nie gesehen.
+
+---
+
+## Drudanst
+
+*6.500 Einwohner · Duergar 5.500, Munavri 500, Svirfneblin 500 · Höhlensitz: Hulda Grauschmied*
+
+*Kein eigener Stadtplan – Lage siehe `Karte2.png`: die Stadt am Nordrand ihrer Höhle, der Bruch im Südwesten bei der Südfeste.*
+
+> *Drudanst ist eine Stadt aus Bögen. Jedes Haus, jede Halle, jede Gasse wird von steinernen Gewölben getragen, Säule an Säule, als hätten die Erbauer der Decke nie wieder trauen wollen. Aus dem Norden dringt ein dumpfes Rot durch den langen Tunnel zur Lavaschmiede, und der Boden ist warm unter den Füßen. Im Süden aber, jenseits der Mauern, liegt etwas anderes: ein Feld aus Geröll, Spalten und schwarzen Löchern, aus denen kalte Luft aufsteigt. Die Duergar sehen nicht hin, wenn sie daran vorbeigehen.*
+
+### Geschichte
+
+**Die erste Siedlung (Jahr 113–123)**
+- In Jahr 113 wollen die Duergar eine **eigene Stadt** – nach achtzig Jahren in Torstadt, wo sie gebraucht, aber nie ganz angenommen wurden. *(Vorschlag:)* Es ging um Stolz: einen Ort, an dem Duergar nicht die „ehemaligen Aufseher" sind, sondern Baumeister.
+- Sie gründen die erste, kleine Siedlung im **Süden der Höhle**. Von dort graben sie den Tunnel nach Norden zum Lavastrom und bauen die **Lavaschmiede**. Ab Jahr 120 kommen von dort die ersten Waffen und Rüstungen.
+
+**Der Einsturz (Jahr 123)**
+- Die Höhle über der alten Siedlung **stürzt ein**. Es gibt nur wenige Tote, weil die meisten Duergar zu dieser Zeit in der Lavaschmiede arbeiten oder auf dem Weg dorthin sind. Aber die Angst geht durch die ganze Enklave – sie führt zur magischen Verstärkung aller Höhlendecken (124–128).
+- Wo die Siedlung stand, bleibt ein Gewirr aus **vielen kleinen Höhlen und Gängen**: zerbrochene Decken, eingestürzte Häuser, Spalten, Hohlräume unter dem Geröll. Die Duergar nennen es **den Bruch**, die Älteren auch **Altdrudanst**.
+- **Die offizielle Wahrheit:** Das Graben des Lavatunnels hat den Fels geschwächt; die Duergar haben zu schnell und zu tief gegraben. Das glaubt die ganze Enklave, und die Duergar tragen es als stille Schuld.
+- **Die wirkliche Wahrheit (nur für die SL):** Der Einsturz war die **erste Mahnung des Dämons Xal'thuun**.
+  - In Jahr 113 war der Baumeister **Hargrim Erzfaust** verzweifelt: Die Duergar suchten seit Monaten vergeblich nach einem Weg zur Lava, die Siedlung drohte zu scheitern, und in Torstadt lachte man schon über sie. Allein und heimlich beschwor er im Tempel der alten Siedlung einen Dämon und erbat einen Wunsch: den Weg zum Lavastrom. Er bekam ihn – und schuldete dafür eine jährliche Gabe und einen Gefallen, „der später eingefordert wird".
+  - Zehn Jahre lang brachte Hargrim die Gaben. In Jahr 123 wollte er aufhören. Der Dämon ließ die Decke über der alten Siedlung einstürzen – aber er **warnte Hargrim vorher**, sodass fast alle in der Schmiede waren. Xal'thuun wollte zeigen, dass er Leben nehmen *und* schenken kann. Hargrim starb im Einsturz, als er versuchte, die letzten Nachzügler herauszuholen. Er gilt bis heute als Held.
+  - **Es war die Tat eines Einzelnen, nicht des Volkes.** Die Duergar wussten nichts davon.
+
+**Wer die Wahrheit heute kennt:**
+- **Thorgrim Aschhand**, Schmiedemeister der Lavaschmiede. Er fand vor zwanzig Jahren Hargrims Tagebuch. Seitdem bringt er die jährliche Gabe – und hasst sich dafür. In diesem Jahr weigert er sich zum ersten Mal: Er will den Pakt brechen, weiß aber nicht, wie, ohne dass Drudanst dafür bezahlt.
+- **Zwei Alte der Amboss-Versammlung**, die Thorgrim eingeweiht hat. Sie haben beschlossen zu schweigen.
+- **Fürst Drevan.** Ein Quasit aus den Teufelshöhlen, der gern plaudert, hat es nach Varikanum getragen. Drevan wartet auf den richtigen Moment, um es öffentlich zu machen – und die Enklave gegen ihre Duergar aufzubringen.
+
+**Warum sie schweigen:** Wegen der **Fünfhunderter-Regel**. Die Duergar stehen seit fast sechzig Jahren unter Aufsicht, weil man sie für „möglicherweise böse" hält. Ein Dämonenpakt in Drudanst wäre der Beweis, auf den viele nur warten – und alle Duergar würden dafür büßen, nicht nur ein toter Baumeister. Also schweigen die Mitwisser. **Nicht das Volk hat den Pakt verschuldet; das Misstrauen hat das Verschweigen erzeugt.** Eine Gesellschaft, die überwacht, erntet Geheimnisse.
+
+
+**Der Neubau im Norden (Jahr 124–130)**
+- Die Duergar bauen ihre Stadt neu – diesmal am **Nordrand der Höhle**, nahe am Lavatunnel, wo der Fels am festesten ist.
+- Sie bauen sie als **Gewölbestadt**: Jeder Raum wird von Bögen und Säulen getragen. Niemand in der Enklave baut sicherer. Das ist bis heute ihr Stolz – und ihr Trauma.
+- **Die Fünfhundert:** Wie in jeder Stadt eines „möglicherweise bösen" Volkes leben auch in Drudanst nach der **Fünfhunderter-Regel** (seit Jahr 113) standardmäßig **500 Munavri und 500 Svirfneblin** – zur Überwachung.
+  - **Munavri:** Sie betreiben die **Pfeilerwacht-Station**, das Hospiz und eine kleine Außenstelle der **Ethikwache**. Sie schreiben Berichte nach Grovaristadt. Die Duergar nennen sie „die Schreiber".
+  - **Svirfneblin:** Bergleute, Händler – und ein großer Teil der **Stadtwache**. Zwischen Svirfneblin- und Duergar-Bergleuten gibt es eine alte Rivalität, wer die besseren Stollen gräbt. Halb gutmütig, halb nicht.
+  - Beim Einsturz von Jahr 123 haben die Fünfhundert mit angepackt und selbst Tote zu beklagen gehabt. Das hat das Verhältnis verbessert – aber die Duergar vergessen nicht, warum die Fünfhundert eigentlich da sind.
+
+### Die Stadt heute
+
+**Regierung:** Die **Amboss-Versammlung** – ein Rat aus den Meistern der Schmiede- und Baugilden. Sie wählt die Ratsmitglieder für den Höhlensitz. Wer kein Handwerksmeister ist, hat wenig zu sagen; viele junge Duergar finden das überholt.
+
+**Glaube:** Die Duergar der Enklave haben sich von **Droskar** (dem Gott der Fron und der Duergar-Sklavenhalter) abgewandt und verehren **Torag**, den Zwergengott des Schmiedens und Schützens. Die Abwendung ist ein Bekenntnis: „Wir sind nicht unsere Vorfahren." Ein paar Alte beten heimlich noch zu Droskar.
+
+**Orte**
+
+| Ort | Beschreibung |
+|---|---|
+| **Die Gewölbehalle** | Versammlungshalle der Amboss-Versammlung. Ein Wald aus Säulen |
+| **Die Stunden der Stille** | Kein Ort, sondern ein Brauch der Lavaschmiede: Zweimal am Tag ruhen alle Hämmer für eine Stunde – „damit der Schläfer weiterschläft". Fremde halten das für Aberglauben. Es ist keiner (siehe Regionalband, „Der Rote Schläfer") |
+| **Der Lavatunnel** | 11 km langer, schnurgerader Tunnel nach Norden zur Lavaschmiede. Schienen für Erzwagen, alle 500 m eine Wachnische. Je weiter nach Norden, desto heißer |
+| **Torags Esse** | Tempel des Torag mit einer ewigen Flamme, die mit Lava aus der Schmiede gespeist wird |
+| **Die Svirfneblin-Stollen** | Erzstollen im Osten der Höhle |
+| **Pfeilerwacht-Station** | Munavri-Magier, die den Pfeiler der Drudanst-Höhle warten. Seit Jahr 169 „Große Pfeilerprüfung" – Lehrlinge gehen ein und aus |
+| **Das Gedenktor** | Das Südtor der Stadt, mit Blick auf den Bruch. Hier stehen die Namen der Toten von Jahr 123 – und daneben eine leere Tafel für die, deren Leichen nie geborgen wurden |
+
+### Der Bruch (Altdrudanst)
+
+> *Zwischen den Felsblöcken öffnen sich Spalten, und dahinter: Gänge, Kammern, halbe Häuser, die schräg im Geröll stecken. Eine Tür steht noch in ihrem Rahmen, aber hinter ihr ist nur Stein. Irgendwo tropft Wasser. Und irgendwo, weit hinten, klopft jemand – dreimal, Pause, dreimal.*
+
+**Was es ist:** Die Trümmer der ersten Siedlung im Süden der Drudanst-Höhle (auf der Karte die dunkle, gitterartige Fläche bei der **Südfeste**). Ein Labyrinth aus vielen kleinen Höhlen und Gängen, teils natürlich, teils Reste von Häusern, Werkstätten und dem alten Tempel. Instabil: Bei lauten Geräuschen oder Kämpfen rieselt Gestein (1 auf W6 pro Kampf: Reflex SG 14, sonst 2W6 Schaden).
+
+**Gefahrenstufe:** HG 2–7.
+
+**Wer dort lebt:**
+- **Höhlentiere:** Höhlenfischer, Dunkelmäntel, Gricks, die sich in den Hohlräumen eingenistet haben.
+- **Schmuggler**, die den Bruch als Abkürzung in die Finsterhöhlen nutzen – am Zoll der Südfeste vorbei.
+- **Die Ungeborgenen:** Die Duergar, deren Leichen nie aus dem Geröll geholt wurden. Einige sind als **Gespenster** (HG 5) oder **Grabunholde** (HG 3) zurückgekehrt. Sie wollen nicht unbedingt töten – sie wollen gefunden werden. Das Klopfen in der Tiefe stammt von ihnen.
+- **Quasits** aus den Teufelshöhlen, die durch alte Spalten bis hierher kriechen.
+
+**Geheimnis:** Unter dem Bruch liegen die Reste des **alten Tempels**. Wer sich bis dorthin gräbt, findet einen Beschwörungskreis im Boden: Hier hat Hargrim Erzfaust im Jahr 113 mit Xal'thuun verhandelt. Daneben, unter einem Felsblock: Hargrims Gebeine – er hat es nicht mehr aus dem Tempel geschafft – und ein zweites, unvollständiges Tagebuch mit dem Wortlaut des Pakts. **Wer den Kreis und das Tagebuch hat, hat den Beweis – und den Schlüssel, um Xal'thuun zu bannen.**
+
+**Die Südfeste** bewacht nicht nur die Straße nach Grovaristadt, sondern auch die Ränder des Bruchs. Betreten nur mit Erlaubnis.
+
+**Begegnungen (W6):**
+
+| W6 | Begegnung |
+|---|---|
+| 1 | Steinschlag: Reflex SG 14, 2W6 Schaden; der Weg zurück ist verschüttet (Stärke SG 15, um freizugraben) |
+| 2 | 1W3 Dunkelmäntel an der Decke einer Kammer (HG 1 je) |
+| 3 | Grick (HG 3) im Hohlraum unter einem eingestürzten Haus |
+| 4 | Schmugglerbande (4 Krieger 2, ein Schurke 3) mit einer Ladung unverzollten Erzes |
+| 5 | Ein Ungeborgener (Grabunhold, HG 3) – kämpft, bis jemand seinen Namen von der Gedenktafel nennt |
+| 6 | Gespenst (HG 5) eines Arbeiters von Jahr 123, das ruft: „Er hat es gewusst! Hargrim hat es gewusst!" – ein Hinweis, den niemand in Drudanst hören will |
+
+**Aufhänger:**
+- **Abenteuer 4:** Die Diebe des Schwarzsteins nutzen den Bruch, um aus Drudanst in die Finsterhöhlen zu gelangen.
+- Eine Duergar-Witwe bittet die Truppe, die Gebeine ihres Großvaters aus dem Bruch zu holen. Er steht auf der leeren Tafel.
+- Kinder aus Drudanst machen im Bruch Mutproben. Eines ist nicht zurückgekommen.
+- **Hochstufig:** Den Beschwörungskreis im alten Tempel finden – Beweis für den Pakt und der Schlüssel, um Xal'thuun zu bannen.
+
+---
+
+## Illiatist
+
+*9.000 Einwohner · Drow 8.000, Munavri 500, Svirfneblin 500 (die „Fünfhundert") · Höhlensitz: Kesrin Valdorn · Stadtplan `Illiatist.png`*
+
+> *Illiatist ist still. Keine Marktschreier, keine Hämmer, nur das Plätschern des Hochsees an den Kaimauern und das leise Klicken der Spinnen in den Webhäusern. Die Gassen laufen sternförmig auf einen runden Platz zu, die Häuser sind schmal und hoch, mit Spinnenseide vor den Fenstern statt Glas. Die Bewohner grüßen höflich und sehen euch nach, bis ihr um die Ecke seid. Im Westen, gleich hinter der Mauer, steigt schwarzer Rauch auf: die Sporenfeste. Und dahinter pulsiert der Pilzwald in langsamem Violett.*
+
+### Geschichte (aus deinen Unterlagen, ergänzt)
+
+| Jahr | Ereignis |
+|---|---|
+| 113–114 | Erste Drow-Späher bei der Enklave; ein Drow-Angriff auf eine Patrouille. |
+| 116 | **Haus Jurakin** – 352 Drow, die jahrzehntelang versteckt unter den bösen Drow lebten – erhält Asyl. Sie kommen durch die **Labyrinthe der Jäger**. |
+| 118 | Schlacht am Steinwall. 37 Jurakin fallen im Kampf gegen ihr eigenes Volk. |
+| 131–140 | Viele einzelne Drow-Flüchtlinge, mehrere Spione werden entlarvt. Debatte „Tore schließen?". |
+| 154 | Die Drow, inzwischen über 500, bitten um eine eigene Siedlung in der Nordhöhle. Die Duergar warnen davor – der Bauplatz liegt direkt am Intelligenten Pilzwald. |
+| 157 | 300 ausgewählte Drow und einige Munavri und Svirfneblin gründen **Illiatist** am Südwestende des Hochsees. Nach der Fünfhunderter-Regel wachsen daraus je 500 Aufpasser. |
+| 157–170 | Die Stadt wächst auf 9.000 Einwohner. Die Drow bemannen fast allein die Sporenfeste vor ihrer Stadt. |
+
+### Gesellschaft
+
+- **Die Häuser:** Auch in der Enklave haben die Drow ihre **Adelshäuser** behalten – nicht mehr als Herrscherfamilien mit Sklaven, sondern als große Familienverbände mit Ehre, Pflichten und Geschichte. Die wichtigsten *(Vorschlag)*:
+  - **Haus Jurakin** – das älteste und angesehenste, Matriarchin **Nymra Jurakin** (Völkersitz im Rat). Velrith Jurakin aus Abenteuer 3 gehört dazu.
+  - **Haus Valdorn** – Diplomaten und Händler, Oberhaupt **Kesrin Valdorn** (Höhlensitz Nordhöhle).
+  - **Haus Duskryn** – die Brennerfamilie: Sie stellt die Hälfte der Besatzung der Sporenfeste und will heimlich das Sonnensalz aus Endstadt.
+  - Dazu ein Dutzend kleinerer Häuser, die aus Flüchtlingsgruppen entstanden sind. Wer allein kam, wird von einem Haus „aufgenommen" – oder bleibt hauslos, was in Illiatist einen schweren Stand bedeutet.
+- **Regierung:** Der **Stille Kreis** – die Oberhäupter der großen Häuser. Er wählt den Stadtvorsteher und die Ratsmitglieder. Dass Adel in einer Enklave der Gleichen regiert, ist ein Dauerthema im Ethikrat.
+- **Die Fünfhundert:** 500 Munavri (Pfeilerwacht-Station, Ethikwache, Berichte nach Grovaristadt) und 500 Svirfneblin (Stadtwache, Händler). Die Drow nennen sie höflich „unsere Gäste".
+- **Glaube:** Die meisten Drow der Enklave haben den Göttern ihrer Vorfahren abgeschworen. Viele verehren **Desna**, die Göttin der Sterne und der Reisenden – Sterne, die sie nie gesehen haben, als Zeichen für einen Weg aus der Dunkelheit.
+
+### Der Jägergang – die Prüfung der Jugend
+
+**Die Idee:** Die Drow-Adelshäuser nutzen die **Labyrinthe der Jäger**, um ihre Jugendlichen zu prüfen. Wer als erwachsenes Mitglied eines Hauses gelten will, muss den **Jägergang** bestehen.
+
+**Herkunft:** Auch in den bösen Drow-Städten gibt es solche Prüfungen – dort müssen die Jugendlichen einen Sklaven jagen und töten oder einen Rivalen ausschalten. Haus Jurakin hat die Tradition mitgebracht und **umgedeutet**, als es in die Enklave kam. *(Vorschlag:)*
+
+**Die Regeln des Jägergangs:**
+1. Je **drei Jugendliche** aus verschiedenen Häusern gehen gemeinsam – nie aus demselben Haus, damit sie lernen, Fremden zu vertrauen.
+2. Sie gehen **drei „Nächte"** (drei Leuchtpilz-Zyklen) in die Labyrinthe, ohne Licht, mit Waffe, Seil und Wasser für zwei Tage.
+3. Sie müssen eine **Trophäe** mitbringen – traditionell die Speerspitze eines Morlocks oder den Faden eines Höhlenfischers.
+4. Die wichtigste Regel: **Wer allein zurückkommt, hat versagt.** Wer einen Gefährten zurücklässt, gilt als „hauslos", egal, was er mitbringt. In den alten Drow-Städten war es genau umgekehrt.
+
+Damit ist der Jägergang ein Bekenntnis: *„Wir sind Drow. Aber wir sind nicht wie sie."* Die Drow sind stolz darauf, und viele junge Drow fürchten und ersehnen ihn gleichermaßen.
+
+**Die Kehrseite:**
+- **Es sterben Jugendliche.** Fast jedes Jahr kommt eine Dreiergruppe nicht vollständig zurück. Die Labyrinthe sind Gebiet der Morlocks und der Gänge des Purpurwurms.
+- **Haus Vel'Ashar** – eines der feindlichen Drow-Häuser – weiß vom Jägergang. Ihre Jagdmeisterin **Zesstra Vel'Ashar** lauert den Jugendlichen auf. Wen sie lebend fängt, nimmt sie mit. Manche dieser Gefangenen kommen Jahre später „geflohen" nach Illiatist zurück – und sind Spione. *(Das erklärt, warum es in Illiatist immer wieder neue Spione gibt.)*
+- **Der Ethikrat** hält den Jägergang für gefährlich und für einen Rest grausamer Drow-Kultur. Die Munavri der Fünfhundert schreiben jedes Jahr Berichte darüber. Ein Verbot wurde zweimal beantragt und zweimal abgelehnt – die Drow drohten, ihre Sitze niederzulegen.
+- **Die Wehrpflicht** darf die Labyrinthe ohne Befehl nicht betreten. Wenn eine Dreiergruppe überfällig ist, bitten die Häuser deshalb manchmal **heimlich** Wehrpflichtige um Hilfe – an den Vorgesetzten vorbei.
+
+**Für Drow-Spielercharaktere:** Ein adliger Drow-Charakter hat den Jägergang bestanden – oder nicht. Gute Fragen für die Hintergrundgeschichte: Wer waren die anderen beiden? Sind alle zurückgekommen? Was war die Trophäe?
+
+### Orte (bezogen auf den Stadtplan `Illiatist.png`)
+
+Der Stadtplan hat keine Nummern. Die Orte sind nach ihrer Lage beschrieben:
+
+| Lage auf dem Plan | Ort | Beschreibung |
+|---|---|---|
+| Ummauerter Bereich im **Westen** mit großem Gebäude | **Die Westbastion** | Kaserne der Brenner und Tor zur Sporenfeste. Von hier ziehen die Brenner jeden Tag zur Front gegen das Myzel |
+| **Runder Platz in der Mitte**, auf den alle Straßen zulaufen | **Der Platz der Häuser** | Hier hängen die Banner aller Häuser. Hier beginnt und endet der Jägergang: Die Rückkehrer werden auf dem Platz empfangen – oder die Namen der Verlorenen vorgelesen |
+| **Zwei Grünflächen** im Nordosten | **Die Sterngärten** | Leuchtpilzgärten, angelegt wie Sternbilder. Desna-Schreine. Ruheorte |
+| **Kaimauern und Stege** im Osten am See | **Der Hochseehafen** | Fischerboote, Webhäuser der Spinnenseide, der Wehrturm aus Abenteuer 3 |
+| **Nordtor** | **Das Jägertor** | Weg nach Drizzat und weiter in die Labyrinthe der Jäger. Hier verabschieden die Familien ihre Jugendlichen zum Jägergang |
+| **Südtor** | **Das Wassertor** | Am Abfluss des Hochsees, Weg zur Wasserfallfeste und nach Tiefenburg |
+| Großes Haus nahe dem Platz | **Haus der Fünfhundert** | Sitz der Munavri-Aufpasser und Außenstelle der Ethikwache. Die Drow gehen in weitem Bogen daran vorbei |
+
+### Illiatist in der Kampagne
+
+- **Abenteuer 3** spielt hier. Velrith Jurakin hat den Jägergang vor zehn Jahren bestanden; seine beiden Gefährten sind heute angesehene Brenner – und seine lautesten Fürsprecher.
+- **Aufhänger:** Eine Dreiergruppe ist vom Jägergang nicht zurückgekehrt. Haus Valdorn bittet die Truppe heimlich, sie zu suchen. In den Labyrinthen: Morlocks, Spuren von Haus Vel'Ashar – und ein Jugendlicher, der allein überlebt hat und nicht ohne seine Gefährten zurückgehen will.
+- **Aufhänger:** Ein „Geflohener" kehrt nach sieben Jahren aus der Gefangenschaft zurück. Seine Familie feiert. Der Svirfneblin-Hauptmann der Stadtwache ist misstrauisch. Wer hat recht?
+
+---
+
+## Tiefenburg
+
+*10.000 Einwohner · Svirfneblin 9.000, Munavri 500, Menschen 500 · teilt sich mit Torstadt den Höhlensitz „Westhöhle" · Stadtplan `Tiefenburg.png` (Legende in Abenteuer 2)*
+
+**Die älteste aller Städte.** Tiefenburg bestand schon lange, bevor die Munavri kamen. Alle anderen Städte der Enklave sind jünger.
+
+> *Tiefenburg klingt. Hunderte Werkstätten hämmern, schleifen und klopfen, und das Geräusch hallt über den Felsensee wie ein ferner Regen. Die Häuser sind niedrig und alt, viel älter als alles in Torstadt; manche Türstürze tragen Zeichen, die selbst die Bewohner nicht mehr lesen können. Mitten im See liegt eine kleine Insel mit ein paar Gebäuden. Kein Boot fährt hinüber. Wer fragt, bekommt ein höfliches Lächeln und keine Antwort.*
+
+### Die Svirfneblin (nach Pathfinder-Kanon, angepasst)
+
+- **Herkunft:** Wie alle Gnome stammen die Svirfneblin (Tiefengnome) aus der **Ersten Welt**, der Heimat der Feen. Nach dem Erdenfall zogen sich einige Gruppen nicht an die Oberfläche, sondern tief in die Finsterlande zurück.
+- **Das Bleichen:** Oberflächengnome müssen ständig Neues erleben, sonst „verbleichen" sie und sterben. Die Svirfneblin haben eine tiefere Bindung an die Erste Welt bewahrt und sind dagegen weitgehend gefeit. Dafür wirken sie auf andere oft **seltsam gefühlsarm** – und dann wieder mit **plötzlichen, heftigen Gefühlsausbrüchen**. *(Für das Rollenspiel: Mirsa Kieselweb redet gleichmütig über Preise und schreit im nächsten Moment einen Kutscher an. Das ist für Svirfneblin normal.)*
+- **Versteckte Städte:** Svirfneblin halten ihre Siedlungen traditionell **geheim** – aus Angst vor Sklavenjägern und Monstern. Die größte bekannte Svirfneblin-Stadt ist **Dwimovel**, ebenfalls in Sekamina.
+- **Lebensweise:** Edelsteinabbau, Pilzzucht (als Nahrung und als Ersatz für Holz und Stoff), Illusionsmagie zur Tarnung.
+- **Glaube:** **Nivi Rhombodazzle**, die gnomische Halbgöttin der Edelsteine, des Glücksspiels und der Heimlichkeit.
+- **Erbfeinde:** Seit Jahrhunderten führen die Svirfneblin Krieg gegen die **Duergar**, und die **Drow** jagen sie. Viele Svirfneblin können kaum zwischen bösen Duergar und anderen Zwergen unterscheiden.
+
+### Geschichte
+
+**Die verborgene Stadt (vor Jahr 0)**
+- Tiefenburg wurde *(Vorschlag:)* um **600 v. B.** – also vor rund 770 Jahren – von einem Svirfneblin-Klan gegründet, der sich von **Dwimovel** abgespalten hatte – nach einem Streit, über den in Tiefenburg nicht gesprochen wird. Die Gründer suchten eine Höhle, die sich leicht verbergen ließ, und fanden sie: viele Höhlen mit nur einem großen Zugang und einem Fluss. Genau die Lage, die später die Munavri überzeugen sollte.
+- Jahrhundertelang war Tiefenburg **unsichtbar**. Illusionen verbargen den Zugang, wo heute Torstadt steht; Fremde, die sich hierher verirrten, wurden festgesetzt oder mit verwirrten Erinnerungen fortgeschickt. Der Name ist eine Übersetzung des alten gnomischen Namens und bedeutet etwa „die Burg in der Tiefe" – eine Burg, die man nicht sieht.
+
+**Die Ankunft der Munavri (Jahr 0)**
+- Einige hundert Munavri finden die Stadt. Die Svirfneblin sind **skeptisch** (deine Zeitlinie) – und das ist eine Untertreibung: Die Munavri wollen aus ihrem Versteck eine **offene Zuflucht** für alle guten Wesen der Finsterlande machen. Für ein Volk, dessen Überleben auf Heimlichkeit beruht, ist das beinahe Wahnsinn.
+- *(Vorschlag:)* Den Ausschlag gibt die **Älteste Bredda Tiefstein**. Sie stimmt zu, unter einer Bedingung: Die Insel im Felsensee bleibt den Svirfneblin vorbehalten, für immer. Die Munavri willigen ein. Die Bedingung gilt bis heute.
+- Die Munavri, die damals in Tiefenburg blieben, bilden das **Gründerviertel** – die 500 Munavri der Stadt sind ihre Nachfahren. *(Sie sind keine Aufpasser wie in Drudanst und Illiatist, sondern die ältesten Nachbarn.)*
+
+**Was die Offenheit kostete (Jahr 27)**
+- Die Svirfneblin hatten es befürchtet: Duergar-Sklavenjäger aus Varikanum greifen an, verschleppen Dutzende – und durch die Verschleppten **erfahren die ganzen Finsterlande** von der Enklave. Das Versteck ist für immer verloren. Viele alte Svirfneblin haben den Munavri das nie ganz verziehen.
+
+**Das größte Opfer (Jahr 31)**
+- Die ersten **Duergar** bitten um Asyl – ausgerechnet Duergar, die **Erbfeinde** der Svirfneblin, und ausgerechnet Aufseher aus der Stadt, die Svirfneblin versklavt. Dass die Svirfneblin zustimmen, ist das größte Opfer, das ein Volk der Enklave je gebracht hat. *(Vorschlag:)* Die Abstimmung in Tiefenburg ging knapp aus. Der Preis, den die Svirfneblin dafür verlangten, ist bis heute spürbar: Die Duergar bekommen eine **eigene Stadt** (Drudanst, Jahr 113) – möglichst weit weg –, und dort leben dauerhaft 500 Svirfneblin als Aufpasser. Die **Fünfhunderter-Regel** ist zur Hälfte eine Svirfneblin-Idee.
+
+**Der Urpfeiler (Jahr 127)**
+- Nach dem Einsturz in Drudanst wird in **der Svirfneblin-Höhle der erste Verstärkungszauber** gewirkt (deine Zeitlinie). Dazu wird eine Kammer in den Zentralpfeiler gegraben, der Dutzende Meter Durchmesser hat. Dieser **Urpfeiler** ist das Vorbild für alle anderen Pfeiler der Enklave – und der älteste, wichtigste und am besten bewachte.
+- *(Für die Kampagne:)* Wenn Drevans Gegenanker in Torstadt gelingt, wäre der Urpfeiler das nächste Ziel. Eine Fortsetzung kann hier ansetzen.
+
+### Die Stadt heute
+
+- **Regierung:** Der **Steinrat** – die Ältesten der großen Svirfneblin-Familien (Kieselweb, Glimmerstein, Tiefstein, Grünschiefer u. a.) und die Meister der Handwerksgilden. Er tagt im **Gildenhaus** (Nr. 12 auf dem Stadtplan).
+- **Haltung:** Stolz, sparsam, misstrauisch gegenüber Fremden – und gegenüber Freunden von legendärer Gastfreundschaft. Die Svirfneblin sehen sich als die eigentlichen Gastgeber der Enklave und fühlen sich mit **einem** Völkersitz für 20.000 Leute übergangen.
+- **Die 500 Menschen** leben im Handwerkerviertel (Nr. 11): Familien, die nach Jahr 129 nicht mit nach Endstadt gezogen sind. Laternenmacher und Linsenschleifer. Die Svirfneblin mögen sie, weil Menschen „wenigstens ehrlich sagen, was sie denken".
+- **Der Glaube:** Der **Schrein der Nivi Rhombodazzle** (Nr. 8 auf dem Stadtplan). Opfergaben sind geschliffene Edelsteine – und Würfel. Glücksspiel ist in Tiefenburg ein heiliger Zeitvertreib.
+
+### Die Insel im Felsensee – die Schleierinsel
+
+*(Vorschlag – auf der Karte ist eine kleine Insel mit Gebäuden im Felsensee eingezeichnet.)*
+
+- Die Insel ist der **älteste Ort von Tiefenburg**: Hier stand die allererste Siedlung, verborgen hinter Illusionen. Heute leben dort nur die **Ältesten vom Schleier**, eine Handvoll sehr alter Svirfneblin-Illusionisten.
+- **Kein Fremder darf sie betreten** – das ist die Bedingung von Jahr 0. Selbst die Munavri halten sich daran.
+- **Das Geheimnis:** Auf der Insel ist die Grenze zur **Ersten Welt** dünn. Die Ältesten können dort mit Feenwesen sprechen, und von hier stammt die Kraft, mit der die Svirfneblin dem Bleichen widerstehen. Es gibt sogar einen schlafenden **Durchgang** in die Erste Welt.
+- **Aufhänger (hochstufig):** Die Insel wäre der einzige Weg aus den Finsterlanden, den weder Drevan noch die Duergar-Könige kennen. Wenn die Enklave fällt, könnten die Svirfneblin ihre Leute hindurchführen – aber nur ihre eigenen?
+
+### Tiefenburg in der Kampagne
+
+- **Abenteuer 2** beginnt hier (Stadtplan, Legende, Gerüchte).
+- **Aufhänger:** Eine Gesandtschaft aus **Dwimovel** taucht auf – die ersten Boten seit über 700 Jahren. Sie wollen wissen, ob es stimmt, dass Tiefenburg „mit Duergar unter einem Dach" lebt. Und sie haben ein Angebot.
+- **Aufhänger:** Ein Wehrpflichtiger rudert aus Neugier zur Schleierinsel und kommt verändert zurück: Er spricht mit Wesen, die niemand sieht.
+- **Aufhänger:** Die alte Feindschaft bricht auf. Ein Svirfneblin-Bergmann und ein Duergar-Schmied geraten in einer Taverne aneinander, einer stirbt. Beide Völker verlangen Gerechtigkeit – und jedes meint etwas anderes damit.

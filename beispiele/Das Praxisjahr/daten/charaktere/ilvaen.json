@@ -1,0 +1,55 @@
+{
+ "id": "ilvaen",
+ "name": "Ilvaen Mondweiß",
+ "klasse": "Magier 1",
+ "stufe": 1,
+ "volk": "Munavri",
+ "groesse": "Mittel",
+ "gesinnung": "NG",
+ "gottheit": "Empyreische Fürsten",
+ "farbe": "#b0a0e0",
+ "attribute": {"ST": 8, "GE": 16, "KO": 14, "IN": 18, "WE": 10, "CH": 10},
+ "tp": {"max": 9, "aktuell": 9},
+ "rk": {"normal": 13, "beruehrung": 13, "adff": 10},
+ "ini": 7,
+ "gab": 0,
+ "kmb": -1,
+ "kmv": 12,
+ "rw": {"REF": 3, "WIL": 2, "ZAEH": 2},
+ "bewegung": 9,
+ "angriffe": [
+  {"name": "Dolch", "bonus": -1, "schaden": "1W4-1", "krit": "19-20/x2", "art": "S"},
+  {"name": "Leichte Armbrust", "bonus": 3, "schaden": "1W8", "krit": "19-20/x2", "art": "S", "fernkampf": true, "inkrement": 24}
+ ],
+ "fertigkeiten": [
+  {"name": "Wahrnehmung", "bonus": 1, "klasse": false},
+  {"name": "Wissen (Arkanes)", "bonus": 8, "klasse": true},
+  {"name": "Wissen (Geschichte)", "bonus": 8, "klasse": true},
+  {"name": "Wissen (Gewölbekunde)", "bonus": 9, "klasse": true},
+  {"name": "Wissen (Lokales)", "bonus": 8, "klasse": true},
+  {"name": "Wissen (Religion)", "bonus": 8, "klasse": true},
+  {"name": "Zauberkunde", "bonus": 8, "klasse": true}
+ ],
+ "talente": "Verbesserte Initiative, Schriftrolle anfertigen",
+ "wesenszuege": "Wehrpflichtiger der Grovari (Wissen [Gewölbekunde] +1, Klassenfertigkeit)",
+ "faehigkeiten": "Test-SC (Probe-Charakter der Beispielkampagne).\nDunkelsicht 36 m, Lichtblindheit (Hausregel Munavri).\nTelepathie 18 m (nur mit anderen Munavri).\nGegenstand lesen (ZF) 3/Tag, ZS 1; Erweitertes Objektlesen 1/Tag (siehe Hausregel Munavri).\nMagier (Universalist): Arkanes Band (Gegenstand: Silberring), Handgeschoss 6/Tag (Fernkampfberührung 9 m, 1W6 Wucht).",
+ "zauberKlasse": "Magier",
+ "zauberattribut": "IN",
+ "zauberliste": [
+  {"name": "Licht", "grad": 0},
+  {"name": "Magie entdecken", "grad": 0},
+  {"name": "Säurespritzer", "grad": 0},
+  {"name": "Magisches Geschoss", "grad": 1, "proTag": 1, "verbraucht": 0},
+  {"name": "Brennende Hände", "grad": 1, "proTag": 1, "verbraucht": 0}
+ ],
+ "zauberbuch": [
+  {"name": "Licht", "grad": 0}, {"name": "Magie entdecken", "grad": 0}, {"name": "Säurespritzer", "grad": 0},
+  {"name": "Benommenheit", "grad": 0}, {"name": "Tanzende Lichter", "grad": 0}, {"name": "Resistenz", "grad": 0},
+  {"name": "Magie lesen", "grad": 0},
+  {"name": "Magisches Geschoss", "grad": 1}, {"name": "Brennende Hände", "grad": 1}, {"name": "Schlaf", "grad": 1},
+  {"name": "Magierrüstung", "grad": 1}, {"name": "Sprühende Farben", "grad": 1}, {"name": "Federfall", "grad": 1},
+  {"name": "Identifizieren", "grad": 1}
+ ],
+ "ausruestung": "Dolch, leichte Armbrust mit 20 Bolzen, Zauberbuch, Komponentenbeutel, Silberring (Arkanes Band), Pilzpapier und Tinte, graue Schreiberrobe",
+ "ep": 0
+}

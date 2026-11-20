@@ -1,0 +1,389 @@
+# Abenteuer 2 – Geleit nach Grovaristadt
+
+*Pathfinder 1e · 4 Charaktere der Stufe 2 · ein bis zwei Spielabende · Orte: Tiefenburg → Sporenfeste → Spierest → Grovaristadt*
+
+Karten: `Tiefenburg.png` (Stadtplan, Legende unten) · `Karte2.png` (Reiseroute)
+NSC-Werte: [03_NSC_Werte.md](03_NSC_Werte.md) (Kell Morrow, Seren Halvaris, Oriel Vanthe)
+
+---
+
+## Überblick für die SL
+
+**Was wirklich los ist:** Die Pfeilerwacht hat bei der Svirfneblin-Händlerin Mirsa Kieselweb eine Kiste **Silberstaub** bestellt – angeblich für die Wartung der Deckenrunen. In Wahrheit braucht Erzmagistra Vanthe (beherrscht) den Silberstaub für die Tinte der Gegenanker – aber eine offizielle Lieferung würde in den Büchern der Gilde auftauchen. Also lässt Fürst Drevan die Lieferung **unterwegs rauben**. Der Verlust wird als Banditenüberfall verbucht, der Silberstaub verschwindet spurlos.
+
+Ausführender ist **Kell Morrow**, ein menschlicher Diener des Vampirreichs. Er reist **getarnt als Mitreisender** mit der Karawane und führt in der zweiten Nacht zwei Ghule an das Lager heran.
+
+**Was die Spieler erleben:** Eine Reise mit einer anstrengenden Auftraggeberin, eine blockierte Straße, ein Kampf gegen einen feindlichen, denkenden Pilzwald an einer Grenzfeste, einen Überfall in der Nacht – und die Frage, warum Ghule ausgerechnet Silberstaub stehlen.
+
+**Ablauf**
+1. Szene 1 – Tiefenburg (Stadt, Auftraggeberin, Gerüchte)
+2. Szene 2 – Aufbruch und erster Reisetag (Steinschlag, Hundertfüßer)
+3. Szene 3 – Die Sporenfeste (Kampf gegen das Myzel)
+4. Szene 4 – Spierest und der Überfall (Nachtkampf)
+5. Szene 5 – Verfolgung (optional)
+6. Szene 6 – Ankunft in Grovaristadt (Erzmagistra Vanthe)
+
+**Zeitbedarf:** Wenn die Gruppe gern Rollenspiel in der Stadt macht, teile das Abenteuer nach Szene 3.
+
+---
+
+## Szene 1 – Tiefenburg
+
+> *Tiefenburg klingt. Das ist das Erste, was euch auffällt. Überall hämmert, schleift und klopft es – Hunderte Svirfneblin-Werkstätten, in denen Edelsteine geschliffen und Metall getrieben wird. Die Stadt liegt im Bogen am Ufer des Felsensees, die Mauer schmiegt sich an das Wasser. Über den Dächern hängen Netze voller Leuchtpilze, die die Gassen in ein mildes, grünliches Licht tauchen. Für Svirfneblin-Augen ist das gemütlich. Für alle anderen: düster.*
+
+**Stadtgefühl:** Fast nur Svirfneblin (9.000 von 10.000). Alles ist für kleine Leute gebaut. Mittelgroße Charaktere stoßen sich an Türrahmen, Tavernenstühle sind zu niedrig, die Leute sind höflich, aber neugierig („Seid ihr alle so groß, da wo ihr herkommt?"). **Kleine Charaktere fühlen sich hier wie zu Hause** – lass sie das genießen und für die Gruppe übersetzen.
+
+### Die Auftraggeberin: Mirsa Kieselweb
+
+Treffpunkt ist Mirsas Kontor am Osthafen (**Stadtplan Nr. 3**).
+
+> *Das Kontor ist vollgestopft mit Kisten, Waagen und Rechenbrettern. Hinter einem Schreibpult, das für sie viel zu groß ist, steht eine Svirfneblin-Frau mit grauem, straff geflochtenem Bart, einer Edelsteinlupe vor dem rechten Auge und einem Gesichtsausdruck, als hätte sie gerade einen schlechten Handel gemacht. „Ihr seid spät", sagt sie, bevor ihr etwas sagen könnt. „Ich zahle für Pünktlichkeit. Nicht für Ausreden."*
+
+**Mirsa Kieselweb** – geizig, laut, misstrauisch, redet ununterbrochen über Preise. Hat aber ein gutes Herz: Ihre beiden Kutscher behandelt sie wie Familie. Werte und Einstellung: siehe NSC-Werte (Unfreundlich, Motiv erkennen +9).
+
+**Mirsa erklärt den Auftrag:**
+- Drei Wagen, gezogen von **Lastkäfern** (Riesen-Hirschkäfer), von Tiefenburg nach Grovaristadt. Zwei Tagesreisen.
+- **Wagen 1:** geschliffene Edelsteine (Wert ca. 3.000 GM – „Wenn einer fehlt, zahlt ihr ihn. Von eurem Sold. Bis an euer Lebensende.")
+- **Wagen 2:** Werkzeug, Eisenwaren, Svirfneblin-Laternen
+- **Wagen 3:** eine **versiegelte Kiste mit dem Säulen-Siegel der Pfeilerwacht**. Inhalt: Silberstaub, 40 Pfund. Wert ca. 2.000 GM. „Bestellt von der Gilde persönlich. Ich weiß nicht, wofür. Ich frage auch nicht. Gilden-Kunden zahlen pünktlich."
+- **Kutscher:** **Fenn** (alt, wortkarg, Pfeifenraucher) und **Jorri** (jung, Fenns Enkel, redet zu viel).
+- **Mitreisender:** **„Tobin Fell"**, ein menschlicher Pilzhändler aus Endstadt, der für 5 Silber mitfahren darf. *(In Wahrheit Kell Morrow – siehe unten.)*
+
+**Belohnung:** 100 GM pro Charakter bei Ankunft. Mirsa versucht, das auf 80 herunterzuhandeln. Wer gegenhält (Diplomatie SG 15 oder ein guter Spruch), bekommt **+25 GM Bonus**, wenn alle Wagen heil ankommen.
+
+### „Tobin Fell" – der falsche Mitreisende
+
+Kell Morrow (Werte: NSC-Werte Nr. 4) gibt sich als harmloser menschlicher Pilzhändler aus. Er ist freundlich, etwas schmierig, stellt viele Fragen über die Ladung und die Wachen.
+
+**Wie die Spieler ihn durchschauen können:**
+- **Motiv erkennen** gegen seinen Bluffen-Wurf (+4): Bei Erfolg wirkt er „zu interessiert am dritten Wagen".
+- **Wissen (Natur) SG 12** oder Druide im Gespräch: Er weiß erstaunlich wenig über Pilze für einen Pilzhändler.
+- **Wahrnehmung SG 15** (beim Beladen): Sein Gepäck riecht nach süßlicher Verwesung (das Ghul-Futter).
+- **Wahrnehmung SG 20:** Unter dem Hemdkragen trägt er einen Anhänger mit einer kleinen schwarzen Fledermaus.
+
+**Wenn die Spieler ihn früh enttarnen:** Kell versucht zu fliehen (Trank *Unsichtbarkeit*). Gelingt das, findet der Überfall trotzdem statt – nur ohne Ablenkung, und die Ghule sind schlechter koordiniert (–2 auf Initiative). Wird er gefangen, hat er den Brief mit dem Säulen-Siegel bei sich (siehe Szene 5). Belohne das!
+
+### Gerüchte in Tiefenburg (W6)
+
+In der Taverne **„Zum Funkelnden Spinell"** (Nr. 13), auf dem Markt oder in der Garnison (Nr. 6) – Diplomatie (Informationen sammeln) SG 10, ein Gerücht pro 5 Punkte über dem SG.
+
+| W6 | Gerücht | Wahr? |
+|---|---|---|
+| 1 | „Auf der Straße nach Spierest hat es einen Steinschlag gegeben. Die Pfeilerwacht sagt, das sei ganz normal." | Wahr (der Steinschlag ist natürlich, aber er beunruhigt die Leute) |
+| 2 | „Drow-Banditen überfallen Händler auf der Strecke. Die stecken alle unter einer Decke, die in Illiatist." | Falsch – Vorurteil |
+| 3 | „Der Pilzwald bei der Sporenfeste wächst wieder schneller. Die Brenner kommen kaum hinterher." | Wahr (siehe Szene 3) |
+| 4 | „Ein junger Magier der Pfeilerwacht war letzte Woche hier und hat bei allen Händlern nach Silberstaub gefragt. Wollte große Mengen." | Wahr – derselbe Lehrling wie in Abenteuer 1! |
+| 5 | „Im Land der Untoten sollen sich mehr Untote sammeln als je zuvor. Die Bastion der Lebenden hat Verstärkung angefordert." | Wahr (Vorbote von Abenteuer 5) |
+| 6 | „Die Erzmagistra der Pfeilerwacht war früher ganz anders. Seit ihrer Expedition lächelt sie nicht mehr." | Wahr |
+
+### Legende zum Stadtplan Tiefenburg
+
+| Nr. | Ort | Was hier ist |
+|---|---|---|
+| 1 | **Schleiferviertel** | Edelsteinschleifereien am Fluss, die Wasserräder treiben die Schleifsteine an |
+| 2 | **Westmarkt** | Lebensmittel, Pilze, lebende Höhlenfische |
+| 3 | **Osthafen & Kontor Kieselweb** | Lagerhäuser, Mirsas Kontor, Fährstege |
+| 4 | **Pilzgehöfte** | Pilzfarmen vor der Westmauer, Druidenaufsicht |
+| 5 | **Westhafen & Fischmarkt** | Fischerboote, Fährverbindung über den Felsensee |
+| 6 | **Garnison am Felsensee** | Ummauerter Wehrpflicht-Außenposten; die Truppe übernachtet hier |
+| 7 | **Osttor & Karawanserei** | Ställe für Lastkäfer, Abreise nach Spierest |
+| 8 | **Schrein der Nivi Rhombodazzle & Hospiz** | Heiligtum der gnomischen Halbgöttin der Edelsteine und des Glücksspiels. Opfergaben: Edelsteine und Würfel. Heilung gegen Spende |
+| 9 | **Nordwesttor & Steinbruch** | Weg zur Wasserfallfeste |
+| 10 | **Nordtor & Brückenwache** | Brücke über den Grovarie, Zollstation |
+| 11 | **Handwerkerviertel** | Schmiede, Laternenmacher, Seiler |
+| 12 | **Gildenhaus** | Rathaus der Handwerksgilden, Stadtvorsteher |
+| 13 | **Taverne „Zum Funkelnden Spinell"** | Treffpunkt der Händler, Gerüchte, niedrige Stühle |
+| Grünflächen | **Leuchtpilzgärten** | Öffentliche Gärten, Liebespaare, Straßenmusik |
+
+---
+
+## Szene 2 – Aufbruch und erster Reisetag
+
+> *Die Lastkäfer sind gewaltige Tiere, so groß wie ein Ochse, mit glänzend schwarzem Panzer und Kieferzangen, die einen Menschen in zwei Teile beißen könnten. Fenn tätschelt dem vordersten Käfer liebevoll den Kopf. „Das ist Bertha. Beißt nicht. Meistens."*
+
+### Reiseregeln
+- **Geschwindigkeit:** Die Lastkäfer schaffen etwa 3 km/h. Strecke bis Grovaristadt: ca. 30 km → zwei Reisetage mit Übernachtung in **Spierest**.
+- **Marschordnung:** Lass die Spieler festlegen, wer wo geht (Spitze, neben welchem Wagen, Nachhut). Das wird beim Überfall wichtig.
+- **Licht:** Die Karawane führt Svirfneblin-Laternen mit (schwaches Licht, 6 m Radius). Charaktere ohne Dunkelsicht sollten nahe an den Wagen bleiben.
+- **Pflicht der Truppe:** Der Druide geht mit, sobald die Stadt verlassen wird. Erinnere daran – diesmal ist es kein Formalismus.
+
+### Der Steinschlag (Begegnung, HG 2)
+
+Nach etwa 4 Stunden ist die Hauptstraße am Fluss durch einen **frischen Steinschlag** blockiert.
+
+> *Vor euch versperrt eine Wand aus Geröll die Straße – Brocken, so groß wie Wagenräder, dazwischen Staub, der sich noch nicht ganz gesetzt hat. Über euch, in der Höhlendecke, klafft eine frische, helle Bruchstelle. Fenn spuckt aus. „Das war letzte Woche noch nicht da."*
+
+- **Untersuchen** (Wissen [Gewölbe] oder Wissen [Ingenieurwesen] SG 13): Der Steinschlag ist **natürlich** – Wasser hat den Fels über Jahre ausgehöhlt. *(Wichtig: Nicht jeder Einsturz ist Sabotage. Lass die Spieler ruhig paranoid werden.)*
+- **Zauberkunde SG 15** beim Blick auf die Decke: Die Verstärkungsrunen sind dort intakt. Die Runen halten die *große* Decke, nicht jeden einzelnen Brocken.
+- **Optionen:**
+  - Geröll wegräumen: 6 Stunden Arbeit (oder 3 mit erfolgreichen Stärkewürfen SG 15 von mindestens zwei Charakteren). Dann aber Nachtlager im Freien statt in Spierest → Überfall findet im Freien statt, ohne Unterstützung der Garnison.
+  - **Umweg** über die Sporenfeste, vorbei am Rand des Pilzwalds (2 Stunden länger) → Szene 3. **Fenn empfiehlt den Umweg** – ungern: „Lieber die Feste als eine Nacht im Freien."
+
+**Kreaturen:** Im Geröll haben sich **4 Riesenhundertfüßer** eingenistet, angelockt von den zerquetschten Höhlenfischen unter den Steinen. Sie greifen an, sobald jemand das Geröll betritt oder die Käfer nahe heranführt. Die Lastkäfer scheuen (Mit Tieren umgehen SG 12, sonst rennt ein Wagen 1W4 × 3 m zurück).
+
+**Taktik:** Die Hundertfüßer kommen aus den Spalten (Heimlichkeit +10), beißen und ziehen sich ins Geröll zurück (Klettergeschwindigkeit).
+
+---
+
+## Szene 3 – Die Sporenfeste
+
+Der Umweg führt an der **Sporenfeste** vorbei – einer Feste, die nur einen Zweck hat: den **Intelligenten Pilzwald** aufzuhalten, ein feindliches, denkendes Pilzgeflecht („das Myzel", siehe Regionalband). Fenn wird still, als sie näher kommen. „Schaut nicht zu lange hin. Und wenn ihr was flüstern hört – nicht antworten."
+
+> *Die Sporenfeste ist ein gedrungener Turm hinter einem Graben, aus dem ölig-schwarzer Rauch aufsteigt. Dahinter, keine dreihundert Schritt entfernt, beginnt der Wald: Pilze, faustgroß, mannshoch, haushoch, deren Hüte in langsamem Blau und Violett pulsieren. Und die Straße … die Straße ist weg. Über Nacht ist eine weiße Zunge aus Pilzgeflecht quer über den Weg gewachsen, fünfzig Schritt breit. Mittendrin stehen Gestalten. Reglos. Eine trägt einen Händlermantel. Aus ihrem Mund wächst etwas.*
+
+### Die Lage
+
+- **Hauptfrau Ysolde Moosgrund** (Svirfneblin, Druidin 6) kommandiert die Feste. Sie hat 25 Leute, aber die Hälfte steht auf der anderen Seite der Feste, wo das Myzel gestern einen Graben überwunden hat.
+- Die **Sporenzunge** auf der Straße muss weg, bevor sie Wurzeln schlägt – sonst ist die Straße für Monate gesperrt. Ysolde bittet die Truppe um Hilfe: „Ihr seid Wehrpflicht. Das hier ist Wehrpflicht-Arbeit."
+- **Was der Druide weiß:** Der Druide der Gruppe erkennt sofort (Wissen [Natur] SG 10): Die Zunge ist jung. Mit Feuer lässt sie sich zurückbrennen. Wartet man einen Tag, ist es zu spät.
+
+### Der Lockruf
+
+Sobald die Karawane näher als 30 m an die Zunge kommt, flüstert das Myzel – sanft, warm, verführerisch:
+
+> *„Ihr seid müde. So lange unterwegs. Hier ist es weich. Hier ist es warm. Ruht euch aus. Nur einen Moment."*
+
+- Jeder Charakter: **Willen SG 13** (geistesbeeinflussend). Bei Misserfolg geht er 1 Runde lang auf die Zunge zu. Jede Runde ein neuer Wurf. Ein Verbündeter kann ihn festhalten (Ringkampf oder einfach ein Seil).
+- **Der Druide** erkennt den Lockruf als das, was er ist, und erhält +4 auf den Wurf. Er kann einen Verbündeten pro Runde durch lautes Rufen „wecken" (neuer Wurf mit +2).
+- **Hinweis!** Das Myzel ist besonders an **„Tobin Fells" Gepäck** interessiert: Weiße Fäden kriechen zielstrebig auf seine Kiste zu. Sie riecht nach Verwesung – das Ghul-Futter. Wer das bemerkt (Wahrnehmung SG 12) und nachschaut, findet verfaulte Fleischstücke statt Pilzen. Tobin wird blass und behauptet, es sei „Spezialdünger".
+
+### Die Zunge zurückbrennen (Begegnung, HG 3)
+
+**Kreaturen:** **3 Sporenzombies** (Werte unten) und **1 Kreischer**. Die Zombies sind ein verschollener Händler und zwei Höhlenziegen-Hirten. Sobald jemand die Zunge betritt, schreit der Kreischer, und die Zombies setzen sich in Bewegung.
+
+**Werkzeuge der Feste:** Ysolde gibt der Gruppe, was die Feste hat:
+- **2 Krüge Brennöl** (je 3 Würfe, wie Alchemistenfeuer, aber 1W4 Feuer)
+- **Fackeln** auf Stangen (1W4 Feuer, Reichweite 3 m)
+- Die **6 Feuerkäfer** aus dem Pferch der Feste. Wer sie mit Mit Tieren umgehen SG 12 in die Zunge treibt, setzt jede Runde ein 3-m-Feld in Brand (2W6 Feuer gegen Pflanzen und Sporenzombies darin). Feuerkäfer werden von den Zombies nicht angegriffen – das Myzel „sieht" sie nicht als Nahrung.
+
+**Taktik:** Die Sporenzombies schlurfen auf den nächsten Charakter zu. Wer einen tötet, steht in einer kleinen Sporenwolke (siehe Werte). Brennt die Zunge (nach 3 Runden Feuer oder wenn alle Zombies erledigt sind), zieht sich das Geflecht zischend zurück, und der Lockruf verstummt.
+
+**Wenn es schlecht läuft:** Ysoldes Brenner kommen in Runde 4 mit Flammenwerfer-Röhren (alchemistisch) und brennen die Zunge selbst ab. Die Gruppe kommt mit dem Leben davon, verliert aber Ansehen.
+
+### Belohnung
+
+- Ysolde schenkt der Gruppe **4 Heilpilze** aus dem Kräutergarten der Feste (wie Trank *Leichte Wunden heilen*, halten 1 Monat) und für jeden Charakter eine **Sporenmaske** (+4 auf Rettungswürfe gegen Sporen und Lockruf).
+- **Hinweis:** Die Späher der Feste haben vor zwei Tagen **Ghul-Spuren** gefunden – drei Paar, frisch, Richtung Spierest. „Ghule so weit im Norden? Das ist neu."
+- Wenn die Gruppe gut gekämpft hat: **Freundschaft der Sporenfeste** (siehe Kampagnenbuch, Kap. 5).
+
+---
+
+## Szene 4 – Spierest und der Überfall
+
+### Spierest
+
+> *Spierest ist kaum mehr als eine Handvoll Steinhäuser um einen trutzigen Turm, der an einer Biegung des Grovarie aufragt. Über dem Tor hängt das Banner der Wehrpflicht. Ein Svirfneblin-Feldwebel mit gewaltigem Schnurrbart winkt euch herein. „Mirsa Kieselweb! Immer noch so freundlich wie ein Hundertfüßer?" – „Immer noch so hässlich wie dein Käfer, Pell?"*
+
+- **Feldwebel Pell Grauknopf** (Svirfneblin) führt eine kleine Besatzung von 8 Wehrpflichtigen. Die Karawane übernachtet im **Hof vor dem Turm** (Wagen im Kreis, Käfer in einem offenen Unterstand).
+- **Seren Halvaris** und seine Truppe sind auch hier – auf dem Rückweg von einer Patrouille. Seren macht sich über den „Kutscherdienst" lustig. Seine Truppe schläft im Turm. Gute Gelegenheit für Rivalitätsrollenspiel (Würfelspiel, Armdrücken, Angeberei).
+- **Pell erzählt** (wenn man fragt): In den letzten Wochen sind zweimal Schafe … äh, *Höhlenziegen* aus dem Pferch verschwunden. „Wahrscheinlich Ghule aus dem Südwesten. Die werden mutiger."
+
+### Die Nachtwache
+
+Lass die Spieler eine **Wacheinteilung** machen (drei Schichten à 3 Stunden). Der Überfall kommt in der **dritten Schicht**, kurz vor dem „Morgen" (die Leuchtpilze der Höhle werden heller).
+
+**Vorzeichen** (für die Wachhabenden):
+- Die Lastkäfer werden unruhig und klacken mit den Kiefern (Wahrnehmung SG 10 bemerkt das, Mit Tieren umgehen oder Wissen [Natur] SG 12: „Sie riechen etwas Totes.").
+- „Tobin Fell" steht auf, „um auszutreten" (Wahrnehmung SG 15, um zu bemerken, dass er nicht zu den Latrinen geht, sondern zum Rand des Hofs, wo er eine Laterne dreimal abdeckt – **ein Signal**).
+
+### Der Überfall (Begegnung, HG 3–4)
+
+**Kreaturen:** **2 Ghule** + **Kell Morrow**
+
+**Ziel der Angreifer: die Kiste mit dem Silberstaub (Wagen 3).** Nicht die Edelsteine, nicht die Charaktere. Das sollte auffallen.
+
+**Ablauf:**
+- **Runde 1:** Die Ghule klettern über die Hofmauer an der dunkelsten Stelle (neben Wagen 3). Kell löscht die nächste Laterne (falls er noch unerkannt ist) und schießt dann aus der Deckung.
+- **Runde 2–3:** Ein Ghul bricht die Kiste auf (Volle Aktion) und packt **den Silberstaub in zwei Säcke**, der zweite Ghul verteidigt ihn.
+- **Runde 4+:** Die Ghule fliehen mit den Säcken über die Mauer Richtung Südwesten. Kell deckt den Rückzug und flieht dann unsichtbar.
+
+**Wer hilft?** Pell und seine Leute brauchen 3 Runden, um aus dem Turm zu kommen. Seren Halvaris kommt in Runde 3 dazu und wirkt *Magisches Geschoss* auf einen Ghul – er rettet so vielleicht einen Charakter, was ihn unerträglich selbstzufrieden machen wird.
+
+> **Gefahr – Ghul-Lähmung:** Die Lähmung der Ghule (Zähigkeit SG 13) kann einen Kampf schnell kippen. **Elfen (Drow-Charaktere!) sind immun.** Wenn die Gruppe nur aus 3 Charakteren besteht oder schon angeschlagen ist: nur **1 Ghul**. Die Angreifer wollen den Silberstaub, nicht die Truppe – gelähmte Charaktere werden nicht weiter angegriffen, sondern liegen gelassen.
+
+**Opfer:** **Jorri**, der junge Kutscher, wird von einem Ghul gebissen und ist gelähmt. Er hat Ghulfieber, wenn niemand hilft (Heilkunde SG 13 oder *Krankheit kurieren*). Als die Gruppe ihn versorgt, murmelt er:
+> *„Bleiche Männer … sie haben das Licht gescheut … und einer war kein Toter. Er hat gelacht. Er hatte Tobins Mantel an."*
+
+**Fenn** ist untröstlich und wütend. **Mirsa** steht im Nachthemd im Hof und zählt die Edelsteine. Alle da. Sie wird still. „Warum nehmen die den Staub und nicht die Steine?"
+
+**Gute Spuren am Tatort:**
+- Wahrnehmung SG 12: Die Kiste wurde **nicht** wahllos geöffnet – das Siegel der Pfeilerwacht wurde *vorsichtig gelöst*, nicht zerbrochen. Jemand wollte es behalten.
+- Überlebenskunst SG 13: Die Spuren führen nach **Südwesten**, Richtung Land der Untoten.
+
+---
+
+## Szene 5 – Verfolgung (optional)
+
+Wenn die Gruppe sofort hinterherjagt, nutze eine **einfache Verfolgungsjagd** (Verfolgungsregeln aus dem Spielleiterhandbuch oder vereinfacht):
+
+**Vereinfachte Verfolgung:** 5 Etappen. Die Gruppe muss in jeder Etappe **einen Wurf** schaffen (jeder Charakter darf wählen, die Gruppe braucht in jeder Etappe mindestens 2 Erfolge):
+
+| Etappe | Hindernis | Würfe (SG 13) |
+|---|---|---|
+| 1 | Über die Hofmauer, Spuren im Geröll finden | Klettern, Überlebenskunst |
+| 2 | Enger Tunnel, Säcke schleifen am Boden | Wahrnehmung, Akrobatik |
+| 3 | Unterirdischer Bach, rutschig | Schwimmen, Akrobatik, Stärke |
+| 4 | Gabelung – wohin? | Überlebenskunst, Wissen (Gewölbe), Wahrnehmung |
+| 5 | Steiler Anstieg | Klettern, Konstitution |
+
+- **3 oder mehr Etappen geschafft:** Die Gruppe holt die Ghule ein. **Kurzer Kampf** gegen den Ghul mit einem Sack (der andere entkommt). Die Gruppe rettet **die Hälfte des Silberstaubs**.
+- **5 Etappen geschafft:** Zusätzlich wird **Kell Morrow** gestellt, der zurückgeblieben ist, weil sein Trank verbraucht ist. Er kämpft oder ergibt sich (siehe NSC-Werte).
+- **Weniger als 3:** Die Spur verliert sich an einem Fluss. Alles weg.
+
+### Kells Brief (Hinweis!)
+
+Wenn Kell gefangen oder besiegt wird, hat er einen gefalteten Zettel bei sich:
+
+> *Vierzig Pfund. Spierest. Die Ghule bringen es zum Grauen Hof. Siegel unbeschädigt zurückbringen – die Tinte braucht es.*
+> *— D.*
+
+Darunter ein Siegelabdruck in schwarzem Wachs: eine **Säule**. Das Siegel der Pfeilerwacht.
+
+- **Wissen (Lokales) SG 10:** Das ist eindeutig das Gilden-Siegel. Aber Siegel kann man stehlen.
+- „Grauer Hof" sagt niemandem etwas. (*Es ist ein Lager im Land der Untoten – die Gruppe sieht ihn in Abenteuer 5.*)
+- „D." – Drow? Duergar? Lass die Spieler spekulieren. (*Drevan.*)
+
+---
+
+## Szene 6 – Ankunft in Grovaristadt
+
+> *Am zweiten Tag öffnet sich die Höhle zu einer Weite, die euch den Atem raubt. Vor euch liegt das Grovarimeer – ein schwarzer See, so groß, dass sein anderes Ufer im Dunkel verschwindet. Gewaltige Säulen tragen eine Decke, an der Tausende von Leuchtpilzen wie Sterne funkeln. Mitten im See, auf einer Insel, liegt Grovaristadt: Türme aus hellem Stein, Brücken, Lichter, die sich im Wasser spiegeln. Im Osten spannt sich der große Damm über den Fluss. Jorri, auf seinem Wagen liegend, flüstert: „Sie ist so schön."*
+
+- **Ankunft:** Über den Damm und eine lange Brücke zur Insel. Zoll, Kontrollen, viele Völker durcheinander – die Hauptstadt ist laut, voll, lebendig.
+- **Mirsa zahlt** – wenn der Silberstaub ganz oder halb gerettet wurde, ohne Murren. Wenn nicht, versucht sie, den Bonus zu streichen, gibt aber die 100 GM. Wenn die Gruppe Jorri gerettet hat, drückt sie jedem Charakter wortlos zusätzlich einen kleinen **Spinell** (50 GM) in die Hand. „Für Jorri. Sagt es niemandem."
+- **Mirsas Reaktion auf den Überfall:** „Drow-Banditen!" – wenn die Spieler nicht widersprechen. Widerspricht jemand mit Fakten (Ghule, Siegel, „Tobin"), wird sie nachdenklich.
+
+### Bei der Pfeilerwacht
+
+Die Gruppe muss den Verlust bei der Pfeilerwacht melden. Das **Gildenhaus der Pfeilerwacht** steht am Fuß des großen Zentralpfeilers von Grovaristadt.
+
+> *Der Raum ist hoch und still, die Wände sind mit blauen Runen bedeckt, die in einem langsamen Rhythmus glimmen. Ein Sekretär will euch gerade abwimmeln, als sich eine Tür öffnet. Eine große Munavri-Frau mit langem weißem Haar tritt heraus, in einer schlichten grauen Robe mit dem Säulen-Abzeichen. Alle im Raum verstummen. „Ich habe gehört, ihr kommt aus Spierest", sagt sie leise. „Bitte. Erzählt mir alles."*
+
+Zuerst erscheint **Obermagister Bastrin Kieselgrund** (Svirfneblin, Vanthes Stellvertreter), überfliegt den Bericht und will den Fall sofort abschließen: „Drow-Banditen. Wie immer. Ich unterschreibe den Verlust, ihr könnt gehen." Auf der Bestellung des Silberstaubs steht seine Unterschrift. Motiv erkennen SG 12: Er will etwas loswerden. *(Falsche Spur, siehe Kampagnenbuch 3.4.)* Da öffnet sich eine Tür.
+
+**Erzmagistra Oriel Vanthe** empfängt die Gruppe persönlich. Spiele sie **warm, klug und aufrichtig besorgt**. Sie ist eine sympathische Figur – das macht die spätere Enthüllung schmerzhaft.
+
+- Sie fragt **sehr genau** nach den Angreifern: Wie viele? Wohin sind sie geflohen? Hat jemand etwas bei ihnen gefunden? *(Drevan will wissen, was die Gruppe weiß.)*
+- Wenn die Gruppe **Kells Brief** zeigt: Sie liest ihn lange. Ihre Hand zittert ganz leicht. *„Gestohlene Siegel. Das ist … beunruhigend. Ich werde dem nachgehen. Darf ich das behalten?"* (Wenn die Gruppe ablehnt, akzeptiert sie es freundlich. **Kluge Gruppen behalten den Brief.**)
+- Wenn die Gruppe den **schwarzen Stein aus Abenteuer 1** erwähnt: Sie stockt mitten im Satz, starrt für zwei, drei Sekunden ins Leere. Dann: *„Verzeihung. Ein langer Tag. Der Stein … ja, der wurde mir gemeldet. Ein Überbleibsel aus alten Svirfneblin-Zeiten, harmlos."*
+- **Motiv erkennen SG 25:** Sie steht unter einer Beeinflussung (siehe NSC-Werte). **SG 20:** Sie verbirgt etwas, aber es scheint ihr selbst Angst zu machen.
+- **Zum Abschied** gibt sie der Gruppe als Dank zwei **Schriftrollen *Schutz vor Bösem***. *„Die Wege werden gefährlicher. Nehmt das. Bitte."* (Ein Rest ihres freien Willens! Diese Schriftrollen sind im Finale **genau das Mittel, um sie zu befreien**.)
+
+### Ausklang
+
+Ein Bote von Brakka wartet in der Garnison von Grovaristadt:
+
+> *„Gute Arbeit, auch wenn der Staub weg ist. Bleibt in Grovaristadt, ruht euch aus. In Illiatist ist etwas passiert. Ein Wachturm, ein Anschlag, ein verhafteter Drow. Die Garnison dort will Hilfe von außerhalb – oder zumindest Zeugen, die nicht aus Illiatist stammen. Ihr brecht übermorgen auf. – B."*
+
+**→ Weiter mit Abenteuer 3: Der Schatten über dem Hochsee**
+
+---
+
+## Belohnungen
+
+**Erfahrung (wenn mit EP gespielt):**
+
+| Begegnung / Erfolg | EP gesamt |
+|---|---|
+| Riesenhundertfüßer (4) | 800 |
+| Sporenzunge zurückgebrannt (3 Sporenzombies + Kreischer) | 1.000 |
+| Lockruf ohne Verluste überstanden / Tobins Gepäck durchschaut | 200 |
+| Überfall (2 Ghule + Kell), überstanden | 1.200 |
+| Verfolgung erfolgreich (3+ Etappen) | 400 |
+| „Tobin Fell" vor dem Überfall enttarnt | 400 |
+| Jorri gerettet | 200 |
+
+Bei Meilenstein-Aufstieg: Die Gruppe bleibt auf **Stufe 2** und steigt nach Abenteuer 3 auf Stufe 3. Wenn die Gruppe Abenteuer 2 über zwei Abende gespielt hat und alles geschafft hat, kannst du auch jetzt schon auf Stufe 3 erhöhen.
+
+**Schätze:**
+- Mirsas Lohn: 100 GM pro Charakter (+25 Bonus, wenn ausgehandelt und alle Wagen heil)
+- Mirsas Dank für Jorri: 1 Spinell (50 GM) pro Charakter
+- **4 Heilpilze** (wie Trank *Leichte Wunden heilen*) und je eine **Sporenmaske** von der Sporenfeste
+- **2 Schriftrollen *Schutz vor Bösem*** von Vanthe – **wichtig für das Finale!**
+- Kells Ausrüstung (wenn gestellt): beschlagene Lederrüstung, Kurzschwert, leichte Armbrust, ggf. Trank *Unsichtbarkeit*, 23 GM
+- Gerettete Hälfte des Silberstaubs: gehört der Pfeilerwacht. Wer ehrlich abliefert → **Ehrenmarke**. Wer etwas abzweigt, kann bei einem Hehler in Grovaristadt 200 GM pro 5 Pfund bekommen – und riskiert eine Untersuchung durch den Ethikrat.
+
+**Ehrenmarke:** Für ehrliche Ablieferung des Silberstaubs **oder** für die Rettung Jorris trotz Verfolgungsdruck (höchstens eine Marke in diesem Abenteuer).
+
+**Vermögensstand:** Nach Abenteuer 1 und 2 liegt die Gruppe etwas unter der Vermögenstabelle für Stufe 3 (3.000 GM). Gleiche in Abenteuer 3 aus (z. B. Belohnung des Stadtvorstehers von Illiatist).
+
+---
+
+## Werte
+
+### Riesenhundertfüßer (HG 1/2, 200 EP)
+N Mittelgroßes Ungeziefer · **INI** +2; **Sinne** Dunkelsicht 18 m; Wahrnehmung +4
+
+**RK** 14, Berührung 12, auf dem falschen Fuß 12 (+2 GE, +2 natürlich) · **TP** 5 (1W8+1) · **REF** +2, **WIL** +0, **ZÄH** +3 · **Immunität** geistesbeeinflussende Effekte
+
+**Bewegung** 12 m, Klettern 12 m · **Nahkampf** Biss +2 (1W6–1 plus Gift)
+
+**ST** 9, **GE** 15, **KO** 12, **IN** –, **WE** 10, **CH** 2 · **GAB** +0; **KMB** –1; **KMV** 11 (kann nicht zu Fall gebracht werden) · **Talente** Waffenfinesse (Bonus) · **Fertigkeiten** Heimlichkeit +10, Klettern +10, Wahrnehmung +4
+
+**Gift** (Biss – Verletzung): Zähigkeit SG 13; Frequenz 1/Runde für 6 Runden; Effekt 1W3 GE-Schaden; Heilung 1 Rettungswurf.
+
+---
+
+### Sporenzombie (HG 1/2, 200 EP)
+*Vom Myzel durchwachsene Leiche · N Mittelgroße Pflanze*
+
+**INI** +0; **Sinne** Erschütterungssinn 9 m; Wahrnehmung +0
+
+**RK** 12, Berührung 10, auf dem falschen Fuß 12 (+2 natürlich) · **TP** 14 (2W8+5) · **REF** +0, **WIL** +0, **ZÄH** +4 · **Immunität** wie Pflanzen (geistesbeeinflussende Effekte, Gift, Schlaf, Lähmung, Betäubung) · **Schwäche** Verwundbarkeit gegen Feuer
+
+**Bewegung** 6 m · **Nahkampf** Hieb +4 (1W6+4)
+
+**ST** 17, **GE** 10, **KO** 13, **IN** –, **WE** 10, **CH** 1 · **GAB** +1; **KMB** +4; **KMV** 14 · **Talente** Abhärtung (Bonus)
+
+**Wankend:** kann pro Runde nur eine Bewegungs- *oder* Standard-Aktion ausführen.
+**Sporenwolke (AF):** Wenn ein Sporenzombie stirbt, platzt er: alle in 1,5 m Zähigkeit SG 12 oder 1 Runde übelkeitserregt.
+**Kein Untoter:** *Positive Energie fokussieren* schadet ihm nicht – Feuer aber umso mehr.
+
+---
+
+### Feuerkäfer (HG 1/3, 135 EP)
+*In Abenteuer 2 als Werkzeug der Sporenfeste, nicht als Gegner.*
+N Kleines Ungeziefer · **INI** +0; **Sinne** Dunkelsicht 18 m; Wahrnehmung +0
+
+**RK** 12, Berührung 11, auf dem falschen Fuß 12 (+1 natürlich, +1 Größe) · **TP** 4 (1W8) · **REF** +0, **WIL** +0, **ZÄH** +2 · **Immunität** geistesbeeinflussende Effekte
+
+**Bewegung** 9 m, Fliegen 9 m (schlecht) · **Nahkampf** Biss +1 (2W4)
+
+**ST** 10, **GE** 11, **KO** 11, **IN** –, **WE** 10, **CH** 7 · **GAB** +0; **KMB** –1; **KMV** 9 (17 gegen Zu-Fall-bringen) · **Fertigkeiten** Fliegen –2
+
+**Leuchten (AF):** Die Drüsen eines Feuerkäfers verbreiten Licht im Radius von 3 m. Sie leuchten 1W6 Tage nach dem Tod weiter – eine gute Lichtquelle für menschliche Charaktere!
+
+---
+
+### Ghul (HG 1, 400 EP)
+CB Mittelgroßer Untoter · **INI** +2; **Sinne** Dunkelsicht 18 m; Wahrnehmung +7
+
+**RK** 14, Berührung 12, auf dem falschen Fuß 12 (+2 GE, +2 natürlich) · **TP** 13 (2W8+4) · **REF** +2, **WIL** +5, **ZÄH** +2 · **Verteidigungsfähigkeiten** Resistenz gegen Fokussieren +2; **Immunität** wie Untote
+
+**Bewegung** 9 m · **Nahkampf** Biss +3 (1W6+1 plus Krankheit und Lähmung), 2 Klauen +3 (1W6+1 plus Lähmung)
+
+**ST** 13, **GE** 15, **KO** –, **IN** 13, **WE** 14, **CH** 14 · **GAB** +1; **KMB** +2; **KMV** 14 · **Talente** Waffenfinesse · **Fertigkeiten** Akrobatik +4, Heimlichkeit +7, Klettern +6, Schwimmen +3, Wahrnehmung +7 · **Sprachen** Gemeinsprache
+
+**Lähmung (ÜF):** Getroffene Kreaturen: Zähigkeit SG 13 oder 1W4+1 Runden gelähmt. **Elfen sind immun.**
+**Ghulfieber** (Biss – Verletzung): Zähigkeit SG 13; Inkubationszeit 1 Tag; Frequenz 1/Tag; Effekt 1W3 KO- und 1W3 GE-Schaden; Heilung 2 aufeinanderfolgende Rettungswürfe. Wer daran stirbt, erhebt sich als Ghul.
+
+---
+
+### Lastkäfer „Bertha" (nicht kampfrelevant)
+Riesen-Hirschkäfer, gezähmt · **RK** 16 · **TP** 30 · **Bewegung** 6 m · Kann im Notfall beißen: +5 (2W8+4). Wenn ein Charakter Bertha im Kampf befehligt (Mit Tieren umgehen SG 15), beißt sie einmal pro Runde einen Ghul. **Ein großartiger Moment, wenn es passiert.**
+
+---
+
+### Kreischer (HG 1)
+Monsterhandbuch. Schreit, sobald sich jemand auf 3 m nähert oder Licht auf ihn fällt.
+
+---
+
+## Wenn etwas schiefgeht
+
+- **Ein Charakter folgt dem Lockruf bis in die Zunge:** Er wird von Fäden umschlungen (festgehalten, Entfesselungskunst oder Stärke SG 14). Ysoldes Brenner ziehen ihn mit einem Haken heraus. Er hört den Lockruf noch tagelang im Schlaf – gutes Rollenspielmaterial.
+- **Gruppe will in den Wald hinein, um „das Problem an der Wurzel zu packen":** Ysolde verbietet es scharf. Wenn sie es trotzdem tun: Nach 200 m beginnt das Dickicht (HG 5–8). Lass sie einen Basidirond sehen und den Rückzug antreten. Das Myzel ist eine Bedrohung für spätere Stufen.
+- **Mehrere Charaktere gelähmt beim Überfall:** Pell und Seren kommen früher (Runde 2). Seren erzählt die Geschichte noch Wochen später.
+- **Gruppe verdächtigt fälschlich Fenn oder Mirsa:** Spiel es aus! Mirsa ist zutiefst beleidigt, Fenn schweigt verletzt. Die Wahrheit kommt in Szene 4 ans Licht.
+- **Gruppe folgt den Ghulen bis ins Land der Untoten:** Nach 2 Stunden erreichen sie die Grenze zur Bastion der Lebenden. Die Besatzung dort hält sie auf: „Da raus? Ohne Befehl? Ihr seid verrückt." Gib einen Blick auf die Untotenarmee in der Ferne als **Vorschau auf Abenteuer 5** und schicke sie zurück.
+- **Gruppe gibt Vanthe den Brief:** Er verschwindet, wie der Stein. Nicht schlimm – Ilvrae Xun in Abenteuer 3 und die Lieferliste in Abenteuer 4 liefern denselben Hinweis.

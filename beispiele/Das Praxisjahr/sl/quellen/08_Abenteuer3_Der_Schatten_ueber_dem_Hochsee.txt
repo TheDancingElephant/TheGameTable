@@ -1,0 +1,359 @@
+# Abenteuer 3 – Der Schatten über dem Hochsee
+
+*Pathfinder 1e · 4 Charaktere der Stufe 2 · zwei Spielabende · Ort: Illiatist und Morbar*
+
+Karten: [Karte_Wachhaus_Hochsee.svg](Karte_Wachhaus_Hochsee.svg) (Wachhaus, Kerker, Wehrturm, Seepfeiler) · `Illiatist.png` (Stadtplan, Orte im Städteband)
+NSC-Werte: [03_NSC_Werte.md](03_NSC_Werte.md) (Ilvrae Xun, Pfeilerwacht-Lehrling) · Hintergrund: Städteband, Abschnitt Illiatist
+
+---
+
+## Überblick für die SL
+
+**Worum es geht:** Ein Wehrturm am Hochsee wurde nachts beschädigt, eine Svirfneblin-Wache liegt im Koma, und ein junger Drow-Adliger sitzt im Kerker. Die Stadt will einen Schuldigen, die Svirfneblin-Stadtwache will Rache, und die Drow wollen Gerechtigkeit von jemandem, der nicht aus Illiatist stammt. Die Truppe ermittelt – und findet heraus, dass der Drow unschuldig ist und die Spur zur Pfeilerwacht führt.
+
+**Testet:** Ermittlung, Rollenspiel, das Kernthema der Welt (Vorurteile) – und ein Nachtkampf im Dunkeln.
+
+### Was wirklich geschah
+
+Die **Große Pfeilerprüfung** (seit Jahr 169) ist die Tarnung, unter der Vanthes beherrschte Lehrlinge die Gegenanker in den Pfeilern der Enklave verstecken. Der Pfeiler der Nordhöhle ist der **Seepfeiler**: Er steigt direkt neben dem Hafen von Illiatist aus dem Hochsee auf. An seinem Fuß steht ein Wehrturm.
+
+**Die Tatnacht (drei Nächte vor Ankunft der Truppe):**
+
+| Zeit | Was passiert |
+|---|---|
+| Abend | Der Pfeilerwacht-Lehrling **Aldren Vey** (Munavri, beherrscht) betritt Illiatist durch das Wassertor. Im Torbuch steht: „A. Vey, Pfeilerwacht, Große Prüfung, Seepfeiler". |
+| Spät | **Velrith Jurakin** sitzt am Steg neben dem Wehrturm und schreibt Gedichte – mit **Ithiel Sarn**, einer Munavri-Schreiberin der Fünfhundert. Die beiden sind heimlich ein Paar. |
+| Mitternacht | Aldren steigt in den Keller des Wehrturms, wo der Seepfeiler durch das Fundament tritt, und setzt einen **schwarzen Runenstein** in eine Fuge. **Korporal Fenja Kiesbart** (Svirfneblin, Stadtwache) überrascht ihn. Aldren liest eine Schriftrolle – die Entladung reißt einen Spalt in die Turmmauer, Fenja wird von Steinen und von der Kälte des Steins getroffen und bricht zusammen. |
+| Kurz danach | Velrith und Ithiel hören den Krach und sehen eine **Gestalt in grauer Robe** am Ufer davonlaufen. Ithiel flieht nach Hause – niemand darf wissen, dass sie dort war. Velrith rennt zu Fenja, um ihr zu helfen. |
+| Wenig später | Die nächste Patrouille findet Velrith neben der bewusstlosen Fenja. Er schweigt darüber, warum er dort war. Er wird verhaftet. |
+| Morgengrauen | Aldren verlässt die Stadt durch das Wassertor. Im Torbuch: „A. Vey, Prüfung beendet". |
+| Nächster Tag | **Ilvrae Xun**, der Spion des Vampirreichs, legt einen gefälschten Brief in Velriths Haus: Velrith biete dem feindlichen Haus Vel'Ashar die Schwächen der Hafenwehr an. Die Stadtwache „findet" ihn bei der Durchsuchung. |
+| Zwei Tage später | Der **Stille Kreis** bittet um Ermittler von außerhalb, weil die Stadtvorsteherin selbst aus Haus Jurakin stammt. |
+
+**Warum Velrith?** Er ist ein bekannter Kritiker der Fünfhunderter-Regel – seine Gedichte über „die Gäste, die nie gehen" kennt jeder. Für die Svirfneblin-Wache ist er der perfekte Verdächtige. Für Drevan ist er der perfekte Sündenbock: Ein Jurakin als Verräter würde das Misstrauen zwischen Drow und allen anderen vertiefen.
+
+**Wer Ilvrae Xun wirklich ist:** Vor zwölf Jahren kehrte eine Jägergang-Gruppe nur zu zweit zurück; der Dritte, Ilvrae, galt als tot. In Wahrheit fing ihn Haus Vel'Ashar und verkaufte ihn nach Varikanum. Vor acht Jahren tauchte er als „Geflohener" wieder auf – als Drevans Agent. Seine Familie lebt in Morbar und ahnt nichts.
+
+### Ablauf
+
+1. **Ankunft** – Empfang durch die Stadtvorsteherin, der Fall, der Zeitdruck
+2. **Ermittlung** (offen) – Tatort, Gefangener, Zeugen, Morbar, die Fünfhundert
+3. **Gegendruck** – Die Wache und Duergar-Händler fordern Velriths Auslieferung
+4. **Die Nacht im Kerker** – Ilvrae will Velrith vergiften
+5. **Die Anhörung** – vor dem Stillen Kreis werden die Beweise vorgelegt
+
+### Der Zeitdruck
+
+- **Tag 1:** Ankunft, erste Ermittlungen.
+- **Nacht 1 oder 2:** Ilvrae schlägt im Kerker zu (siehe Szene 4) – **in der Nacht, nachdem die Gruppe zum ersten Mal mit Velrith gesprochen hat**. Die Ankunft von Ermittlern macht Drevans Leute nervös.
+- **Tag 3, Mittag:** Hauptmann Steinbart will Velrith nach Grovaristadt überstellen lassen, „vor ein ordentliches Gericht". Dort wäre er den Verleumdungen ausgeliefert. Bis dahin muss die Gruppe vor dem Stillen Kreis sprechen.
+
+---
+
+## Szene 1 – Ankunft in Illiatist
+
+> *Ihr kommt durch das Wassertor im Süden, wo der Hochsee in einem schäumenden Kanal aus der Stadt fließt. Illiatist ist still. Keine Marktschreier, keine Hämmer, nur das Plätschern an den Kaimauern und das leise Klicken der Spinnen in den Webhäusern. Die Gassen laufen sternförmig auf einen runden Platz zu, an dem die Banner der Häuser hängen. Die Leute grüßen höflich und sehen euch nach, bis ihr um die Ecke biegt. Im Westen, gleich hinter der Mauer, steigt schwarzer Rauch auf.*
+
+**Stimmung:** Die Drow begegnen der Truppe kühl, höflich, wachsam. Nicht-Drow-Charaktere spüren, wie es ist, die Minderheit zu sein: Gespräche verstummen, wenn sie vorbeigehen. Drow-Charaktere werden anders behandelt – freundlicher, aber auch genauer gemustert: „Aus welchem Haus kommst du?"
+
+### Die Stadtvorsteherin
+
+**Stadtvorsteherin Sylvra Jurakin** empfängt die Truppe im Haus des Stillen Kreises am **Platz der Häuser**. Sie ist alt, aufrecht, mit einer Stimme wie kaltes Wasser.
+
+> *„Ich danke euch für euer Kommen. Ihr werdet euch fragen, warum Illiatist Fremde braucht, um ein Verbrechen in den eigenen Mauern aufzuklären. Die Antwort ist einfach: Der Beschuldigte ist der Sohn meiner Nichte. Was immer ich herausfände, niemand würde es glauben. Was immer ihr herausfindet, wird man glauben müssen. – Findet die Wahrheit. Auch wenn sie mir nicht gefällt."*
+
+Sie gibt der Truppe:
+- ein **Siegel des Stillen Kreises** (freier Zugang zu Kerker, Tatort und Torbüchern),
+- den **Brief**, der in Velriths Haus gefunden wurde (Abschrift; das Original hat die Wache),
+- die Frist: **Mittag des dritten Tages**.
+
+### Der Hauptmann der Wache
+
+**Hauptmann Gorrik Steinbart** (Svirfneblin, Fünfhundert, Stadtwache) wartet draußen. Breit, grau, unbestechlich – und voller alter Vorurteile.
+
+> *„Ihr seid also die Truppe, die den Jurakin freisprechen soll. – Nein, sagt nichts. Fenja Kiesbart liegt im Hospiz und atmet kaum. Sie hat zwei Kinder. Und der Kerl, den wir neben ihr gefunden haben, hat kein einziges Wort gesagt. Unschuldige reden. Wenn ihr was findet, kommt zu mir. Wenn nicht, geht er am dritten Tag nach Grovaristadt."*
+
+Gorrik ist **nicht böse** und nicht Teil der Verschwörung. Er ist wütend, trauert um seine Wache und glaubt, was er immer schon geglaubt hat. Wer ihm Beweise bringt, kann ihn umstimmen (siehe Anhörung).
+
+---
+
+## Szene 2 – Die Ermittlung
+
+Die Ermittlung ist **offen**. Die Spieler können die Orte in beliebiger Reihenfolge besuchen. Jeder Ort hat Hinweise; nicht jeder muss gefunden werden. Am Ende dieses Abschnitts steht eine **Hinweis-Übersicht**.
+
+### A – Der Tatort: Wehrturm und Seepfeiler (Karte, Bereiche 5–7)
+
+> *Der Wehrturm steht auf der Kaimauer, rund, gedrungen, aus schwarzem Stein. Ein Riss zieht sich von unten bis zur halben Höhe, als hätte eine Faust von innen dagegen geschlagen. Dahinter, nur ein paar Schritte entfernt, steigt der Seepfeiler aus dem Wasser – so breit wie ein Haus, glatt, mit blauen Runen, die ruhig glimmen. Fast ruhig. Ihr seht genauer hin: Hin und wieder flackern sie.*
+
+- **Der Riss** (Wahrnehmung SG 10): Er beginnt im **Keller**, nicht oben. Die Explosion kam von innen, von unten.
+- **Brandspuren im Keller** (Zauberkunde oder Wissen [Arkanes] SG 15): Reste einer arkanen Entladung – **Bannmagie**, wie sie die Pfeilerwacht benutzt. Keine Drow-Magie. SG 20: Eine Schriftrolle wurde benutzt; Reste des Pergaments liegen im Schutt (Pilzpapier, grau gefärbt – Gildenpapier der Pfeilerwacht).
+- **Die Fuge am Pfeiler** (Wahrnehmung SG 18, oder automatisch, wenn jemand die flackernden Runen untersucht): In einer Fuge, wo der Pfeiler durch das Kellerfundament tritt, steckt ein **faustgroßer schwarzer Stein**, eiskalt. **Der zweite Gegenanker.** Wer Abenteuer 1 erlebt hat, erkennt ihn sofort.
+  - *Magie entdecken:* Nekromantie und umgekehrte Bannmagie, wie in Abenteuer 1. Dieser Stein ist aber **ruhig**, „wie ein schlafendes Tier" – er wartet auf ein Signal.
+  - Herauslösen: Stärke SG 12 oder Mechanismus ausschalten SG 15. Wer ihn mit bloßen Händen anfasst: 1 Kälteschaden.
+  - **Wem gibt die Gruppe den Stein?** Das ist eine echte Entscheidung (siehe „Der zweite Stein" unten).
+- **Fußspuren am Ufer** (Überlebenskunst SG 15, die Spuren sind drei Tage alt): Schmale Stiefel, mittelgroß, laufen nach Süden zum Wassertor. Daneben, Richtung Stadt: ein zweites Paar, kleiner, leichter, das in die Gassen des Munavri-Viertels führt (Ithiel).
+
+### B – Der Gefangene: Velrith Jurakin (Karte, Bereich 3)
+
+> *Velrith sitzt auf der Pritsche seiner Zelle, den Rücken gerade, die Hände im Schoß. Er ist jung für einen Drow, schmal, mit weißem Haar, das ihm ungekämmt ins Gesicht fällt. Auf dem Boden liegen Blätter Pilzpapier, mit Kohle beschrieben. Er sieht nicht auf, als ihr eintretet. „Noch mehr Fragen. Wie schön."*
+
+- **Velrith** ist stolz, verletzt und **schweigt** über die Tatnacht. Er sagt nur: „Ich habe einen Schrei gehört und bin hingelaufen. Mehr sage ich nicht."
+- **Warum er schweigt:** Er schützt **Ithiel Sarn**. Eine Munavri-Schreiberin der Fünfhundert und ein Drow-Dichter, der gegen die Fünfhundert schreibt – wenn das herauskommt, verliert sie ihr Amt und muss Illiatist verlassen.
+- **Motiv erkennen SG 12:** Er schützt jemanden. **SG 18:** Jemanden, den er liebt.
+- Wer sein Vertrauen gewinnt (Diplomatie SG 18, oder SG 12, wenn die Gruppe Ithiel schon gefunden hat und ihm verspricht, sie zu schützen), erzählt die ganze Wahrheit – inklusive der **grauen Gestalt mit weißem Haar**, die zum Wassertor lief.
+- **Die Gedichte auf dem Boden** sind ein Hinweis: Velriths Handschrift ist schwungvoll und eigenwillig. Vergleich mit dem Brief: siehe C.
+
+*Beispiel für eines seiner Gedichte (für die Stimmung):*
+> *Fünfhundert Augen an fünfhundert Fenstern,*
+> *sie zählen unsre Schritte, nicht die Sterne.*
+> *Wir lernten, in der Dunkelheit zu sehen –*
+> *sie lernten nur, uns nicht zu verstehen.*
+
+### C – Der Brief
+
+Der Brief ist in **Drow-Schrift** auf teurem Papier geschrieben und trägt ein Siegel. Inhalt: Velrith biete Haus Vel'Ashar „die Schwächen der Hafenwehr und die Zeiten der Patrouillen" an, gegen „Rückkehr in das Haus meiner Ahnen".
+
+- **Handschrift** (Linguistik SG 12, oder Wahrnehmung SG 15 beim Vergleich mit Velriths Gedichten): Nicht seine Hand. Die Schrift ist geübt, aber steif – ein Schreiber, der fremde Schrift nachahmt.
+- **Der Inhalt** (Wissen [Adel] oder Wissen [Lokales] SG 15, oder jeder Drow-Charakter automatisch): Haus Jurakin hat keine „Ahnen" bei Vel'Ashar – die Jurakin waren immer ein eigenes, verfolgtes Haus. Wer das schrieb, kennt die Drow nur von außen. Oder will, dass es so aussieht.
+- **Die Tinte** (Handwerk [Alchemie] SG 14, oder *Magie entdecken* und Wahrnehmung SG 12): Sie enthält **Silberstaub**. Teure Siegeltinte, wie sie nur die **Pfeilerwacht** benutzt – und es ist **derselbe Silberstaub** wie der aus dem Raub in Abenteuer 2 (wer dabei war, erkennt die feine, bläuliche Körnung).
+- **Das Siegel:** Ein Fantasiesiegel, angeblich Vel'Ashar. Wissen (Adel) SG 20: Das echte Siegel von Vel'Ashar sieht anders aus.
+- *(Falsche Spur zu Bastrin, siehe Kampagnenbuch 3.4:)* Wer bei der Pfeilerwacht-Station in Illiatist nachfragt, erfährt, dass die Siegeltinte der Gilde zentral in **Obermagister Bastrin Kieselgrunds Kanzlei** in Grovaristadt verwahrt und von dort ausgegeben wird.
+
+### D – Korporal Fenja Kiesbart im Hospiz
+
+Fenja liegt im kleinen **Hospiz der Fünfhundert**. Sie ist eiskalt, atmet flach, ihre Lippen sind blau. Die Heiler sind ratlos: „Wir haben alles versucht. Sie wärmt nicht auf."
+
+- **Heilkunde SG 15** oder **Wissen (Religion) SG 12:** Das ist keine gewöhnliche Verletzung. Sie hat **negative Energie** abbekommen – wie von einem Untoten berührt.
+- **Sie aufwecken:** Positive Energie hilft. Ein Charakter, der *Positive Energie fokussieren*, einen Heilzauber oder einen Heiltrank einsetzt **und** einen Heilkunde-Wurf SG 15 schafft (ein zweiter Charakter kann helfen), weckt sie für einige Minuten. Ein Heilpilz aus Abenteuer 2 zählt ebenfalls.
+- **Was Fenja sagt** (schwach, abgehackt):
+  > *„Unten im Keller … Licht … einer kniete am Pfeiler. Graue Robe. Weißes Haar. Kein Drow … ein Munavri, glaube ich. Jung. Er sah mich an, als würde er mich gar nicht sehen. Dann … Kälte."*
+- **Wenn Gorrik dabei ist**, ist das der Moment, in dem er zum ersten Mal zweifelt.
+
+### E – Das Torbuch am Wassertor
+
+Die Torwache (Svirfneblin, gelangweilt) führt ein Torbuch für alle, die nachts kommen oder gehen.
+- Diplomatie SG 10 oder das Siegel des Stillen Kreises: Einblick.
+- **Einträge der Tatnacht:** „A. Vey, Pfeilerwacht, Große Prüfung, Seepfeiler" (Abend) und „A. Vey, Prüfung beendet" (Morgengrauen).
+- Die Wache erinnert sich (Diplomatie SG 12): „Ein junger Munavri. Höflich. Ein bisschen abwesend. Er hatte es eilig, raus zu kommen."
+- *Für die Kampagne:* **Aldren Vey** ist einer der beherrschten Lehrlinge, die im Finale im Torstädter Pfeiler auftauchen. Wer ihn dort wiedererkennt, hat einen starken Moment.
+
+### F – Ithiel Sarn und die Fünfhundert
+
+Die zweiten Fußspuren (A), Velriths Schweigen (B) oder ein Gerücht im Munavri-Viertel („Die junge Schreiberin Sarn war seit Tagen nicht mehr am Hafen") führen zu **Ithiel Sarn**, Munavri, Schreiberin im **Haus der Fünfhundert**.
+
+> *Ithiel öffnet die Tür nur einen Spalt. Sie ist blass – blasser als selbst eine Munavri sein sollte –, und ihre Augen sind gerötet. Als sie eure Uniformen sieht, wird sie noch blasser. „Ich habe nichts gesehen. Ich war zu Hause."*
+
+- **Motiv erkennen SG 10:** Sie lügt.
+- **Wenn die Gruppe ihr Schutz zusagt** (Diplomatie SG 15; leichter, wenn die Gruppe Velrith schon kennt): Sie bestätigt das Alibi, die graue Gestalt – und erzählt mehr.
+- **Das Wichtigste, was Ithiel weiß – die verfälschten Berichte:**
+  > *„Ich schreibe die Berichte der Fünfhundert ab, bevor sie nach Grovaristadt gehen. An das Archum. Vor zwei Monaten habe ich über Velrith geschrieben: ‚Dichter, harmlos, kritisch, aber friedlich.' Letzte Woche kam die Zusammenfassung aus Grovaristadt zurück an den Hauptmann. Darin stand: ‚Bekannter Unruhestifter, Kontakte zu feindlichen Häusern vermutet.' Das habe ich nie geschrieben. Und es ist nicht der erste Bericht, der so … zurückkommt."*
+  - Sie hat **Abschriften** ihrer Originale. Gorrik hat die **Zusammenfassungen** aus Grovaristadt. Wer beides vergleicht, sieht schwarz auf weiß: Die Berichte wurden **auf dem Weg durch das Archum verschärft**.
+  - *Für die SL:* Das zeigt auf Vanthe (das Archum) – aber auch auf ihre Kanzlei, also möglicherweise auf Bastrin. Lass beide Möglichkeiten offen.
+- **Ithiels Dilemma:** Sagt sie öffentlich aus, verliert sie ihr Amt. Die Gruppe kann versuchen, ihre Aussage vor dem Stillen Kreis **unter Ausschluss der Öffentlichkeit** zu ermöglichen (Diplomatie SG 15 bei Sylvra Jurakin) – dann bleibt ihr Geheimnis gewahrt. **Ehrenmarke**, wenn das gelingt.
+
+### G – Velriths Jägergang-Gefährten
+
+Wer sich in der Stadt nach Velrith umhört, trifft auf seine beiden Gefährten vom Jägergang vor zehn Jahren: **Saelin Duskryn** und **Merra Valdorn**, beide heute Brenner an der Sporenfeste. Sie kommen gerade mit rußigen Gesichtern von der Front.
+
+> *„Velrith? Ein Verräter? Er hat mich drei Tage lang durch die Labyrinthe getragen, als ich mir das Bein gebrochen hatte. Er hätte allein zurückgehen können. Er hat es nicht getan."* – Saelin
+
+- Sie kennen Velrith wie niemand sonst und sind seine lautesten Fürsprecher. Vor dem Stillen Kreis zählt ihr Wort (+2 auf einen Wurf in der Anhörung).
+- **Sie kennen auch eine alte Geschichte:** Vor zwölf Jahren kam eine andere Jägergang-Gruppe nur zu zweit zurück. Der Dritte, **Ilvrae Xun**, galt als tot – und tauchte vier Jahre später wieder auf. „Er sagt, er sei aus Varikanum geflohen. Er redet nie darüber. Er lebt in Morbar."
+- *(Wenn die Gruppe nach Hinweisen auf einen Spion sucht, ist das die Spur nach Morbar.)*
+
+### H – Die Sterngärten (Zeugin)
+
+In den **Sterngärten**, den Leuchtpilzgärten im Nordosten, arbeitet die alte Gärtnerin **Thessa Morn** (Drow). Sie sitzt nachts gern zwischen den Pilzen.
+- Diplomatie SG 12 oder ein freundliches Gespräch über die Gärten: Sie hat am Tag nach der Tat **einen Mann aus Morbar** gesehen, der früh am Morgen aus der Gasse kam, in der Velriths Familie wohnt. „Xun. Der Pilzbauer. Was wollte der so früh in der Stadt? Er hat nichts verkauft."
+
+### I – Morbar: Ilvraes Haus (optional, Begegnung HG 2)
+
+Morbar liegt eine Stunde zu Fuß am Südostufer des Hochsees. Ilvraes Hütte steht am Rand der Pilzfelder.
+
+- **Ilvrae ist tagsüber auf den Feldern** (oder schon in der Stadt, wenn die Kerkerszene bevorsteht). Wer ihn trifft, erlebt einen freundlichen, unauffälligen Pilzbauern. Bluffen +7 gegen Motiv erkennen.
+- **Die Hütte** ist verschlossen (Mechanismus ausschalten SG 20 oder Stärke SG 18 für die Tür).
+  - **Giftnadelfalle** am Schreibtisch (HG 2): Wahrnehmung SG 20 zum Entdecken, Mechanismus ausschalten SG 20 zum Entschärfen. Auslösen: Angriff +8, 1 Schaden plus **Drow-Gift** (Zähigkeit SG 13).
+  - **Wachspinne:** Unter dem Bett haust eine abgerichtete **Riesenspinne** (HG 1). Sie greift an, sobald jemand den Schreibtisch berührt.
+  - **Fundstücke:** Ein Fläschchen **Siegeltinte mit Silberstaub**, Übungsblätter mit nachgemachter Drow-Schrift (dieselben Formulierungen wie im Brief!), 2 Dosen Drow-Gift, 1 Dosis Riesenhundertfüßer-Gift, 40 GM – und, in einem Geheimfach im Boden (Wahrnehmung SG 20), ein kleiner **schwarzer Fledermaus-Anhänger** wie der von Kell Morrow aus Abenteuer 2.
+- **Wenn Ilvrae merkt, dass jemand in seiner Hütte war**, verlegt er seinen Anschlag auf Velrith auf **dieselbe Nacht** – er will die Sache zu Ende bringen und fliehen.
+
+---
+
+## Hinweis-Übersicht
+
+Für jede Schlussfolgerung gibt es mehrere Wege. Die Gruppe braucht nicht alle.
+
+| Schlussfolgerung | Hinweise (Ort) |
+|---|---|
+| **Velrith ist unschuldig** | Ithiels Alibi (F) · Fenjas Aussage: ein Munavri, kein Drow (D) · Handschrift und Inhalt des Briefs (C) · die Explosion kam von unten, Bannmagie (A) · Saelin und Merra (G) |
+| **Die Pfeilerwacht ist beteiligt** | Bannmagie und Gildenpapier im Keller (A) · Torbuch: „A. Vey, Pfeilerwacht" (E) · Silberstaub-Siegeltinte (C) · der Gegenanker am Seepfeiler (A) |
+| **Ilvrae Xun ist der Fälscher** | Thessa sieht ihn bei Velriths Haus (H) · Fundstücke in seiner Hütte (I) · die Jägergang-Geschichte (G) · der Anschlag im Kerker (Szene 4) |
+| **Die Berichte werden in Grovaristadt verfälscht** | Ithiels Abschriften gegen Gorriks Zusammenfassungen (F) |
+| *(Falsche Spur)* **Bastrin Kieselgrund?** | Die Siegeltinte wird in seiner Kanzlei verwahrt (C) · die Zusammenfassungen gehen durch die Kanzlei des Archums, die er als Stellvertreter mitverwaltet (F) |
+
+---
+
+## Szene 3 – Gegendruck
+
+Am **zweiten Tag** (oder sobald die Gruppe öffentlich Zweifel an Velriths Schuld äußert) versammelt sich am **Platz der Häuser** eine aufgebrachte Menge: **Svirfneblin der Stadtwache** – Fenjas Kameraden, außer Dienst – und eine Gruppe **Duergar-Erzhändler** aus Drudanst, die gerade in der Stadt sind.
+
+> *„Die Drow schützen ihre eigenen! Erst die Spione, jetzt das! Schickt ihn nach Grovaristadt! – Schließt die Tore, bevor sie uns alle verkaufen!"*
+
+Drow-Bewohner sammeln sich auf der anderen Seite des Platzes. Die Stimmung kippt.
+
+**Die Szene als Herausforderung:** Drei Rädelsführer müssen beruhigt werden, bevor die Menge handgreiflich wird. Jeder Rädelsführer verlangt einen eigenen Wurf; jeder Charakter kann einen Wurf machen oder einem anderen helfen. Nach 3 Runden ohne Erfolg bei mindestens zwei Rädelsführern: Schlägerei (nichttödlich, Ruf der Truppe beschädigt).
+
+| Rädelsführer | Was ihn bewegt | Wie man ihn erreicht |
+|---|---|---|
+| **Brannik** (Svirfneblin, Wache, Fenjas Freund) | Trauer, Wut | Diplomatie SG 15; **automatisch**, wenn die Gruppe Fenja geweckt hat und sagt, was sie gesehen hat |
+| **Dorga Eisenhut** (Duergar, Händlerin) | Angst um Geschäfte, alte Vorurteile | Einschüchtern SG 17 oder Diplomatie SG 17; +4, wenn ein Duergar-Charakter spricht |
+| **Ein junger Drow** (Haus Valdorn), der zurückbrüllt | Stolz, Wut über das Misstrauen | Diplomatie SG 13; +4, wenn ein Drow-Charakter spricht |
+
+**Ausgang:**
+- **Erfolg:** Die Menge zerstreut sich. Gorrik nickt der Truppe zum ersten Mal anerkennend zu.
+- **Misserfolg:** Eine Prügelei. Niemand stirbt, aber Gorrik lässt Velrith strenger bewachen – und Ilvrae nutzt das Chaos, um sich auf das Dach des Wachhauses zu schleichen (er hat in der nächsten Nacht eine Überraschungsrunde).
+
+---
+
+## Szene 4 – Die Nacht im Kerker (Begegnung, HG 3)
+
+**Wann:** In der Nacht, nachdem die Gruppe zum ersten Mal mit Velrith gesprochen hat – oder in derselben Nacht, wenn Ilvrae merkt, dass seine Hütte durchsucht wurde.
+
+**Wo die Gruppe ist:** Kluge Gruppen bewachen Velrith selbst oder lassen sich im Wachhaus einquartieren. Wenn nicht: Ein Charakter mit hoher Wahrnehmung hört auf dem Weg zum Quartier Lärm aus dem Wachhaus (Wahrnehmung SG 15), oder Saelin klopft atemlos an die Tür: „Im Wachhaus ist das Licht ausgegangen!"
+
+**Kreaturen:** **Ilvrae Xun** (NSC-Werte Nr. 5) und **2 Schläger** (Drow, Krieger 1), angeheuert in Morbar für ein paar Münzen. Sie wissen nicht, worum es geht.
+
+**Ablauf:**
+1. Die Schläger lenken die Nachtwache im Hof (Karte, Bereich 1) mit einem vorgetäuschten Streit ab.
+2. Ilvrae kommt über das **Dach** und durch die **Dachluke** (Bereich 4) in den Zellengang.
+3. Er wirkt *Dunkelheit* auf die Laterne im Zellengang und öffnet Velriths Zelle (Mechanismus ausschalten +10).
+4. Er braucht **2 Runden**, um Velrith das Hundertfüßer-Gift zu verabreichen (es soll aussehen wie ein Herzversagen in der Haft).
+
+**Taktik:**
+- *Dunkelheit* löscht das Laternenlicht im Zellengang: **völlige Finsternis** für alle ohne Dunkelsicht. Ilvrae rechnet mit menschlichen Wachen und Fackelträgern. **Aber:** Nach PF1-Regeln funktioniert Dunkelsicht in der Finsternis von *Dunkelheit* ganz normal (erst *Tiefe Dunkelheit* könnte sie blockieren). Drow-, Duergar-, Svirfneblin-, Munavri- und Rattenvolk-Charaktere sehen ihn also – **lass sie glänzen**. Nur Menschen tappen im Dunkeln.
+- Ilvrae schießt mit der Handarmbrust (Drow-Gift) auf den ersten Zauberkundigen, nutzt Hinterhältige Angriffe gegen Charaktere ohne Sicht und flieht bei unter 8 TP über die Dachluke.
+- Die Schläger kämpfen 2 Runden lang und laufen dann davon. Gefangen genommen, verraten sie sofort: „Xun hat uns bezahlt. Fünf Silberstücke!"
+- **Velrith** in der Zelle ist unbewaffnet, kämpft aber mit bloßen Händen um sein Leben (Ringkampf gegen Ilvrae: KMB +1).
+
+**Wenn Ilvrae entkommt:** Er flieht nach Morbar, holt den Fledermaus-Anhänger und will über die Labyrinthe der Jäger fliehen. Eine kurze Verfolgung (3 Etappen, Überlebenskunst/Akrobatik/Klettern SG 13, mindestens 2 Erfolge) stellt ihn am **Jägertor** – sonst ist er weg und taucht in Abenteuer 6 als Verräter-Zeuge in Varikanum oder gar nicht mehr auf.
+
+**Ilvrae lebend gefangen:** Siehe NSC-Werte. Er bittet um **Asyl** und verrät gegen dessen Zusicherung: *„Der Befehl kam mit dem Siegel der Säule. Wie immer."* Mehr weiß er nicht – er hat Vanthe nie gesehen.
+
+> *Die Ironie, die die Spieler genießen sollten: Ein echter Spion bittet um genau den Schutz, den die Enklave allen gewährt.*
+
+---
+
+## Szene 5 – Die Anhörung vor dem Stillen Kreis
+
+Am **dritten Tag, vor Mittag**, tritt der **Stille Kreis** im Haus am Platz der Häuser zusammen: die Oberhäupter der großen Häuser, Stadtvorsteherin Sylvra Jurakin (die sich aus Befangenheit enthält), Hauptmann Gorrik Steinbart als Ankläger – und die Truppe.
+
+> *Ein runder Raum ohne Fenster. In der Mitte ein steinerner Tisch, auf dem Kerzen brennen – in Illiatist eine Geste der Höflichkeit gegenüber Gästen, die schlechter sehen. Um den Tisch sitzen sieben Drow in dunklen Gewändern. Niemand spricht. Dann hebt die Älteste die Hand. „Wir hören."*
+
+**So funktioniert die Anhörung:**
+- Die Gruppe trägt ihre Beweise vor. Jeder **Hinweis**, den sie vorlegt, ist **1 Punkt** wert (aus der Hinweis-Übersicht; nur die drei Schlussfolgerungen „Velrith unschuldig", „Pfeilerwacht beteiligt", „Ilvrae ist der Fälscher" zählen).
+- Dazu ein abschließender **Diplomatie-Wurf** (SG 15) durch den Sprecher der Gruppe; andere können helfen. Erfolg: +1 Punkt, um 5 übertroffen: +2. Saelin und Merra als Fürsprecher: +2 auf den Wurf.
+- **Gorrik** hält dagegen. Hat die Gruppe Fenja geweckt und ihre Aussage vor ihn gebracht, zieht er die Anklage selbst zurück: +2 Punkte.
+
+| Punkte | Ergebnis |
+|---|---|
+| **0–3** | Der Kreis ist gespalten. Velrith wird nach Grovaristadt überstellt. Die Gruppe kann den Fall dort weiterverfolgen (Abenteuer 6), aber Haus Jurakin vergisst das nicht. |
+| **4–6** | Velrith wird freigelassen, „bis auf Weiteres". Der Verdacht bleibt an ihm haften. |
+| **7+** | Velrith wird **vollständig entlastet**. Gorrik entschuldigt sich – steif, aber ehrlich. Der Stille Kreis spricht der Truppe öffentlich seinen Dank aus. Kesrin Valdorn wird in Abenteuer 6 ein Verbündeter. |
+
+**Nach der Anhörung:**
+- Sylvra Jurakin hält die Truppe kurz zurück:
+  > *„Ihr habt einem Jurakin das Leben gerettet. Das Haus Jurakin vergisst so etwas nicht. – Und noch etwas. Die Spur, die ihr gefunden habt, führt nach Grovaristadt. In die Pfeilerwacht. Seid vorsichtig, wem ihr dort davon erzählt."*
+- **Der Abschlussbrief von Brakka** wartet in der Garnison:
+  > *„Gut gemacht. Ich höre von überall, dass die Drow in Illiatist zum ersten Mal seit Jahren über Wehrpflichtige reden, ohne zu fluchen. Nächster Auftrag: Drudanst. In der Lavaschmiede ist etwas gestohlen worden, und die Duergar zeigen mit dem Finger auf – ihr ahnt es – die Drow. Nehmt einen Drow mit, wenn ihr einen habt. – B."*
+
+**→ Weiter mit Abenteuer 4: Feuer aus der Tiefe**
+
+---
+
+## Der zweite Stein – wem gibt die Gruppe den Gegenanker?
+
+Aus Abenteuer 1 wissen die Spieler vielleicht, dass der erste Stein spurlos verschwand. Jetzt haben sie einen zweiten.
+
+| Wem | Was passiert |
+|---|---|
+| **Gorrik / Stadtwache** | Gorrik bewahrt ihn als Beweisstück im Wachhaus auf. Zwei Wochen später fordert die Pfeilerwacht ihn „zur Untersuchung" an. Gorrik gibt ihn heraus – er verschwindet. |
+| **Pfeilerwacht-Station in Illiatist** | Die Munavri-Magier schicken ihn ans Archum. Er verschwindet. |
+| **Sylvra Jurakin / Stiller Kreis** | Die Drow verwahren ihn in der Schatzkammer von Haus Jurakin – wo ihn die Pfeilerwacht nicht erreicht. **Ein Beweis, der bis Abenteuer 6 erhalten bleibt.** |
+| **Die Gruppe behält ihn** | Möglich – aber wer ihn länger als einen Tag am Körper trägt: Willen SG 11 oder Albträume von einer bleichen Gestalt (wie Abenteuer 1). Und Drevan erfährt, wer ihn hat. In Abenteuer 4 oder 5 versucht ein Dieb, ihn zurückzuholen. |
+| **Zerstören** | Härte 10, 20 TP. Die Runen des Seepfeilers leuchten hell auf, und irgendwo in Grovaristadt erwacht eine Erzmagistra schweißgebadet. Drevan weiß jetzt, dass jemand die Steine findet – in Abenteuer 4 sind seine Diener vorsichtiger. |
+
+**Für das Finale wichtig:** Ein erhaltener zweiter Stein trägt dieselbe **Zauberschrift** wie der Gegenanker im Torstädter Pfeiler – und wie Vanthes Zauberbuch. Wer beide vergleicht (Zauberkunde SG 20), hat einen unwiderlegbaren Beweis.
+
+---
+
+## Belohnungen
+
+**Erfahrung (wenn mit EP gespielt):**
+
+| Erfolg | EP gesamt |
+|---|---|
+| Fenja geweckt | 400 |
+| Gegenanker am Seepfeiler gefunden | 400 |
+| Ithiels Alibi gewonnen | 400 |
+| Gegendruck ohne Schlägerei aufgelöst | 600 |
+| Morbar: Riesenspinne und Giftnadelfalle | 1.000 |
+| Die Nacht im Kerker (Ilvrae + 2 Schläger) | 870 |
+| Ilvrae lebend gefangen | 400 |
+| Anhörung: 7+ Punkte | 800 |
+
+Bei Meilenstein-Aufstieg: **Stufe 3** am Ende des Abenteuers.
+
+**Schätze:**
+- Belohnung des Stillen Kreises: **150 GM pro Charakter**.
+- **Haus Jurakin** schenkt jedem Charakter einen **Spinnenseidenmantel** (wirkt wie *Umhang des Widerstands +1*, 1.000 GM) – bei 4–6 Punkten in der Anhörung nur einen Mantel für die ganze Gruppe.
+- Ilvraes Ausrüstung (wenn gestellt): Meisterarbeits-beschlagene Lederrüstung, Meisterarbeits-Kurzschwert, Handarmbrust, Gifte, 40 GM.
+- **Vermögensstand:** Damit erreicht die Gruppe ungefähr die Vermögenstabelle für Stufe 3 (3.000 GM pro Charakter).
+
+**Ehrenmarke** (höchstens eine): Ithiels Geheimnis bewahrt **oder** Ilvrae trotz allem Asyl zugesichert und Wort gehalten.
+
+---
+
+## Werte
+
+### Drow-Schläger (HG 1/3, 135 EP)
+*Drow, Krieger 1 · NB Mittelgroßer Humanoide (Elf)* · **INI** +2; **Sinne** Dunkelsicht 36 m; Wahrnehmung +3
+**RK** 15, Berührung 12, auf dem falschen Fuß 13 (+3 Rüstung, +2 GE) · **TP** 5 (1W10) · **REF** +2, **WIL** +0, **ZÄH** +1; +2 gegen Verzauberung · **Immunität** Schlaf · **ZR** 7 · **Schwäche** Lichtblindheit
+**Bewegung** 9 m · **Nahkampf** Knüppel +2 (1W6+1) · **Zauberähnliche Fähigkeiten** (ZS 1) 1/Tag – *Dunkelheit*, *Feenfeuer*, *Tanzende Lichter*
+**ST** 13, **GE** 14, **KO** 10, **IN** 10, **WE** 11, **CH** 9 · **GAB** +1; **KMB** +2; **KMV** 14 · **Ausrüstung** beschlagene Lederrüstung, Knüppel, 5 SM
+
+### Riesenspinne (HG 1, 400 EP)
+Monsterhandbuch. Abgerichtet von Ilvrae; greift an, wer den Schreibtisch berührt. Gift: Zähigkeit SG 14, 1W2 ST-Schaden.
+
+### Giftnadelfalle (HG 2, 600 EP)
+Mechanisch; Wahrnehmung SG 20; Mechanismus ausschalten SG 20 · **Auslöser** Berührung (Schreibtischschublade); **Rücksetzen** manuell · **Wirkung** Angriff +8 (1 Schaden plus Drow-Gift, Zähigkeit SG 13)
+
+### Korporal Fenja Kiesbart
+Svirfneblin, Kriegerin 2 · im Koma (negative Energie), siehe Ort D.
+
+---
+
+## Nichtspielercharaktere – Übersicht
+
+| Name | Volk | Rolle | Einstellung | Motiv erkennen | Kurz |
+|---|---|---|---|---|---|
+| **Sylvra Jurakin** | Drow | Stadtvorsteherin | Freundlich | +11 | Alt, würdevoll, enthält sich aus Befangenheit |
+| **Gorrik Steinbart** | Svirfneblin | Hauptmann der Stadtwache (Fünfhundert) | Unfreundlich | +8 | Wütend, trauernd, ehrlich, voller Vorurteile |
+| **Velrith Jurakin** | Drow | Beschuldigter, Dichter | Unfreundlich | +5 | Stolz, schweigt, um Ithiel zu schützen |
+| **Ithiel Sarn** | Munavri | Schreiberin der Fünfhundert | Gleichgültig (Angst) | +6 | Velriths Geliebte; Schlüssel zu Alibi und Berichten |
+| **Fenja Kiesbart** | Svirfneblin | Korporal, im Koma | – | – | Augenzeugin |
+| **Saelin Duskryn** | Drow | Brenner, Velriths Jägergang-Gefährte | Freundlich | +4 | Laut, loyal |
+| **Merra Valdorn** | Drow | Brennerin, Velriths Jägergang-Gefährtin | Freundlich | +7 | Ruhig, beobachtet genau |
+| **Thessa Morn** | Drow | Gärtnerin der Sterngärten | Gleichgültig | +5 | Alt, neugierig, Zeugin |
+| **Ilvrae Xun** | Drow | Pilzbauer in Morbar, Spion | Gleichgültig (gespielt) | +6 | Siehe NSC-Werte Nr. 5 |
+| **Aldren Vey** | Munavri | Pfeilerwacht-Lehrling (beherrscht) | – | – | Nur im Torbuch – taucht im Finale wieder auf |
+
+---
+
+## Wenn etwas schiefgeht
+
+- **Die Gruppe glaubt an Velriths Schuld:** Lass Saelin und Merra Druck machen, und lass Fenja von selbst kurz erwachen (in der zweiten Nacht), wenn niemand sie behandelt. Ihre Aussage („ein Munavri, kein Drow") kippt jede Vorverurteilung.
+- **Die Gruppe verdächtigt Ithiel** (Munavri, war am Tatort, lügt): Gute Wendung! Ihre Verzweiflung ist echt; Motiv erkennen zeigt Angst, nicht Schuld. Ihre Fußspuren führen von der Tat weg in ihr Viertel, nicht zum Wassertor.
+- **Die Gruppe verdächtigt Bastrin:** Das ist gewollt. Bastrin ist weit weg in Grovaristadt; die Spur zu ihm bleibt bis Abenteuer 6 offen.
+- **Ilvrae entkommt und die Anhörung droht zu scheitern:** Die Übungsblätter in seiner Hütte (Ort I) reichen als Beweis, dass er der Fälscher ist – auch ohne ihn.
+- **Die Gruppe findet den Gegenanker nicht:** Lass die Runen des Seepfeilers bei der Anhörung sichtbar flackern. Ein Munavri der Pfeilerwacht-Station meldet sich verwirrt: „Der Seepfeiler … schwankt. Das hat er noch nie getan." Ein Grund, noch einmal in den Keller zu gehen.
+- **Die Gruppe ist zu schnell fertig:** Die Jägergang-Geschichte (G) kann in einen Abstecher in die Labyrinthe führen – eine überfällige Dreiergruppe Jugendlicher (siehe Städteband, Illiatist).

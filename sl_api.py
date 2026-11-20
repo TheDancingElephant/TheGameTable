@@ -1164,15 +1164,20 @@ class Spieltisch:
 
 # ------------------------------------------------------------------ Kampagnen verwalten (ohne laufende Kampagne)
 
-def kampagne_neu(wurzel, name, ordner=None, port=None, pdfs=None, quellen=True, sperre=False, ep_tempo="mittel"):
+def kampagne_neu(wurzel, name, ordner=None, port=None, pdfs=None, quellen=True, sperre=False, ep_tempo="mittel",
+                 beispiel=None):
     """Neue Kampagne unter `wurzel` anlegen: Ordnerstruktur (aus der Vorlage), kampagne.json mit freiem Port,
     .mcp.json und .claude/launch.json mit den Pfaden dieses Rechners, CLAUDE.md (MCP-Leitfaden), optional
     Abenteuer-PDFs nach Material/ kopieren und ihren Text nach sl/quellen/ übernehmen; sperre=True legt
-    .claude/settings.json mit der Datei-Sperre an."""
+    .claude/settings.json mit der Datei-Sperre an. beispiel = Name einer mitgelieferten Beispielkampagne
+    (`beispiele/`): ihre Notizen, Quellen, Karten, Charaktere und Startszene werden übernommen (Name dann optional)."""
     import shutil
     wurzel = Path(wurzel)
     if not wurzel.is_dir():
         raise SLFehler(f"Kampagnen-Wurzel fehlt: {wurzel}")
+    quelle = kampagne.beispiel_ordner(beispiel) if beispiel else None
+    if quelle is not None and not (name or "").strip():
+        name = _json_lesen(quelle / "kampagne.json").get("name") or quelle.name
     if not (name or "").strip():
         raise SLFehler("Name fehlt")
     ordner = (ordner or re.sub(r"[^\w -]+", "", name)).strip()
@@ -1199,8 +1204,11 @@ def kampagne_neu(wurzel, name, ordner=None, port=None, pdfs=None, quellen=True, 
         text = entwurf.read_text(encoding="utf-8").replace("<Kampagnenname>", name)
         text = re.sub(r"\A(# .*\n)\n> \*\*Entwurf.*?\n\n", r"\1\n", text, flags=re.S)
         (ziel / "CLAUDE.md").write_text(_platzhalter(text, ziel), encoding="utf-8")
-    (ziel / "sl" / "notizen" / "kapitel1.md").write_text(
-        f"# {name} – SL-Notizen\n\n## Gruppe\n\n## Laufende Notizen\n\n", encoding="utf-8")
+    if quelle is not None:
+        kampagne.beispiel_uebernehmen(quelle, ziel)
+    else:
+        (ziel / "sl" / "notizen" / "kapitel1.md").write_text(
+            f"# {name} – SL-Notizen\n\n## Gruppe\n\n## Laufende Notizen\n\n", encoding="utf-8")
     if sperre:
         (ziel / ".claude").mkdir(exist_ok=True)
         (ziel / ".claude" / "settings.json").write_text(json.dumps({
@@ -1210,6 +1218,9 @@ def kampagne_neu(wurzel, name, ordner=None, port=None, pdfs=None, quellen=True, 
             encoding="utf-8")
     pfade_schreiben(ziel, port)
     aus = [f"Kampagne »{name}« angelegt: {ziel} (Port {port})"]
+    if quelle is not None:
+        aus.append(f"Aus der Beispielkampagne »{quelle.name}« übernommen: Notizen, Abenteuertexte, Karten, Charaktere "
+                   "und Startszene.")
     st = Spieltisch(ziel, basis=ziel)
     for pdf in pdfs or []:
         q = Path(pdf).expanduser()
@@ -1226,6 +1237,10 @@ def kampagne_neu(wurzel, name, ordner=None, port=None, pdfs=None, quellen=True, 
                 aus.append("Quelle: " + st.quelle_aus_pdf(f"Material/{q.name}"))
             except SLFehler as e:
                 aus.append(f"Quelle {q.name}: {e}")
+    if quelle is not None:
+        aus.append("Weiter: Server starten (Zentrale oder server_starten), dann eine Claude-Sitzung im Ordner öffnen "
+                   "und als vertrauenswürdig bestätigen; Startszene und Karten sind fertig eingerichtet.")
+        return "\n".join(aus)
     aus.append("Weiter: neue Claude-Sitzung im Ordner öffnen und als vertrauenswürdig bestätigen (dann sind die "
                "spieltisch-Tools da), server_starten, Charaktere mit charaktere_importieren, Notizen in "
                "sl/notizen/kapitel1.md aufbauen (notiz_anhaengen/notiz_schreiben), Karten mit karte_neu/karte_import.")

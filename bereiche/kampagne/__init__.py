@@ -1,8 +1,8 @@
 """Bereich Kampagne: Kampagnenordner finden (der Ordner mit kampagne.json), Einstellungen laden, Kampagnen
 auflisten, Pfade in .mcp.json/.claude dieses Rechners schreiben und prüfen, Vorlage, Python-Pfad.
 
-Öffentlich: laden, ordner_finden, TOOL, kampagnen_liste, vorlage_ordner, python_exe, pfade_schreiben, pfade_ok,
-pfade_reparieren. (Eine neue Kampagne legt sl_api.kampagne_neu an, weil dazu auch PDFs eingelesen werden.)
+Öffentlich: laden, ordner_finden, TOOL, kampagnen_liste, vorlage_ordner, beispiele_liste, beispiel_ordner,
+beispiel_uebernehmen, python_exe, pfade_schreiben, pfade_ok, pfade_reparieren. (Eine neue Kampagne legt sl_api.kampagne_neu an, weil dazu auch PDFs eingelesen werden.)
 
 Kampagnenordner:
 
@@ -115,6 +115,64 @@ def vorlage_ordner(wurzel=None):
         if v is not None and v.is_dir():
             return v
     return None
+
+
+BEISPIELE = BASIS / "beispiele"
+# Nie aus einem Beispiel übernehmen: Spielstand-Reste, Schlüssel, rechnerspezifische Dateien
+BEISPIEL_OHNE = (".claude", ".mcp.json", "CLAUDE.md", "AGENTS.md", "kampagne.json", "kampagnenregeln.md", "__pycache__",
+                 "schluessel.txt", "protokoll.jsonl", "*.log", "*.tmp", ".sicherung", "Thumbs.db", "desktop.ini")
+
+
+def beispiele_liste():
+    """Mitgelieferte Beispielkampagnen (`<Programm>/beispiele/<Ordner>` mit kampagne.json):
+    [{ordner, name, beschreibung}] – Beschreibung = erster Absatz von BEISPIEL.md."""
+    aus = []
+    if not BEISPIELE.is_dir():
+        return aus
+    for p in sorted(BEISPIELE.iterdir()):
+        k = p / "kampagne.json"
+        if not k.is_file():
+            continue
+        name = _json_lesen(k).get("name") or p.name
+        beschreibung = ""
+        info = p / "BEISPIEL.md"
+        if info.is_file():
+            absaetze = [a.strip() for a in info.read_text(encoding="utf-8").split("\n\n")]
+            beschreibung = next((a for a in absaetze if a and not a.startswith("#")), "")
+        aus.append({"ordner": p.name, "name": name, "beschreibung": beschreibung})
+    return aus
+
+
+def beispiel_ordner(name):
+    """Ordner der Beispielkampagne `name` (Ordner- oder Kampagnenname, Groß/klein egal)."""
+    for b in beispiele_liste():
+        if (name or "").strip().lower() in (b["ordner"].lower(), b["name"].lower()):
+            return BEISPIELE / b["ordner"]
+    namen = ", ".join(b["ordner"] for b in beispiele_liste()) or "keine"
+    raise SLFehler(f"Beispielkampagne {name!r} unbekannt (vorhanden: {namen})")
+
+
+def beispiel_uebernehmen(quelle, ziel):
+    """Inhalt einer Beispielkampagne in einen frisch angelegten Kampagnenordner kopieren: Notizen, Quellen, Karten,
+    Barrieren, Startzustand (sl/zustand.json), Charaktere, Material. Einstellungen aus ihrer kampagne.json (außer Name
+    und Port) und ihre kampagnenregeln.md (Abschnitt „Kampagnenregeln“ in CLAUDE.md/AGENTS.md) werden übernommen."""
+    quelle, ziel = Path(quelle), Path(ziel)
+    shutil.copytree(quelle, ziel, dirs_exist_ok=True, ignore=shutil.ignore_patterns(*BEISPIEL_OHNE))
+    k = ziel / "kampagne.json"
+    cfg = _json_lesen(k)
+    for schl, wert in _json_lesen(quelle / "kampagne.json").items():
+        if schl not in ("name", "port"):
+            cfg[schl] = wert
+    k.write_text(json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
+    regeln = quelle / "kampagnenregeln.md"
+    if regeln.is_file():
+        text = regeln.read_text(encoding="utf-8").strip() + "\n"
+        for md in (ziel / "CLAUDE.md", ziel / "AGENTS.md"):
+            if md.is_file():  # Platzhalterzeile „- (…)“ unter der Überschrift ersetzen, sonst darunter einfügen
+                alt = md.read_text(encoding="utf-8")
+                neu = re.sub(r"(^## Kampagnenregeln\n)(?:- \([^\n]*\)\n)?", lambda m: m.group(1) + text, alt, count=1,
+                             flags=re.M)
+                md.write_text(neu, encoding="utf-8")
 
 
 def python_exe():

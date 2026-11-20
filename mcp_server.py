@@ -24,6 +24,7 @@ sys.stdout = sys.stderr
 sys.stdin.reconfigure(encoding="utf-8")
 
 from sl_api import Spieltisch, SLFehler  # noqa: E402
+from bereiche import kampagne  # noqa: E402
 
 VERSIONEN = ("2025-06-18", "2025-03-26", "2024-11-05")
 ST = None  # Spieltisch, nach dem Start gesetzt
@@ -795,16 +796,21 @@ def t_kampagnen_liste(a):
 @tool("kampagne_neu", "Neue Kampagne anlegen (neben den vorhandenen): Ordner aus der Vorlage, kampagne.json mit freiem Port, "
       ".mcp.json für diesen MCP-Server, CLAUDE.md (MCP-Leitfaden), sl/notizen/kapitel1.md; optional Abenteuer-PDFs nach "
       "Material/ kopieren und ihren Text nach sl/quellen/ übernehmen. Gespielt wird danach in einer neuen Sitzung im "
-      "neuen Ordner (einmal als vertrauenswürdig bestätigen).",
-      {"name": S("Kampagnenname"), "ordner": S("Ordnername (Standard: aus dem Namen)"), "port": I("Port (Standard: nächster freier ab 8780)"),
+      "neuen Ordner (einmal als vertrauenswürdig bestätigen). Mit `beispiel` wird eine mitgelieferte Beispielkampagne "
+      "übernommen (Notizen, Abenteuertexte, Karten mit Wänden, Test-SC, Startszene); `name` ist dann optional.",
+      {"name": S("Kampagnenname (bei `beispiel` optional)"),
+       "beispiel": S("Mitgelieferte Beispielkampagne als Grundlage",
+                     [b["ordner"] for b in kampagne.beispiele_liste()] or None),
+       "ordner": S("Ordnername (Standard: aus dem Namen)"), "port": I("Port (Standard: nächster freier ab 8780)"),
        "pdfs": L("Abenteuer-PDFs (absolute Pfade oder relativ zum Kampagnen-Hauptordner)"),
        "quellen": B("Text der PDFs nach sl/quellen (Standard true)"),
        "sperre": B(".claude/settings.json mit Datei-Sperre anlegen (Standard false)"),
-       "ep_tempo": S("EP-Tempo", ["langsam", "mittel", "schnell"])}, ["name"], gruppe="Verwaltung", verwaltung=True)
+       "ep_tempo": S("EP-Tempo", ["langsam", "mittel", "schnell"])}, [], gruppe="Verwaltung", verwaltung=True)
 def t_kampagne_neu(a):
     from sl_api import kampagne_neu
-    return kampagne_neu(WURZEL, a["name"], a.get("ordner"), a.get("port"), a.get("pdfs"), a.get("quellen", True),
-                        a.get("sperre", False), a.get("ep_tempo") or "mittel")
+    return kampagne_neu(WURZEL, a.get("name") or "", a.get("ordner"), a.get("port"), a.get("pdfs"),
+                        a.get("quellen", True), a.get("sperre", False), a.get("ep_tempo") or "mittel",
+                        a.get("beispiel") or None)
 
 
 @tool("pfade_reparieren", "Pfade (Python, Programm, Kampagne) in .mcp.json und .claude/launch.json einer Kampagne neu "

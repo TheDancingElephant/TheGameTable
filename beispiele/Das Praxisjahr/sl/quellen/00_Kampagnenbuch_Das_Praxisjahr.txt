@@ -1,0 +1,468 @@
+# Das Praxisjahr – Testkampagne in den Grovari-Höhlen
+
+*Pathfinder (Golarion, Finsterlande / Sekamina) · Spielleiter-Buch*
+
+---
+
+## 0. Eckdaten auf einen Blick
+
+| | |
+|---|---|
+| **System** | Pathfinder 1e (Grundregelwerk, Monsterhandbücher I–II, Expertenregeln/ARG für die Völker) |
+| **Gruppe** | 4–5 Spielercharaktere |
+| **Stufen** | 1 → 5 (Meilenstein-Aufstieg nach jedem Abenteuer, siehe Kap. 5) |
+| **Umfang** | 6 Abenteuer + Finale, ca. 8–10 Abende à 4 Std. |
+| **Ton** | Militär-Episoden („Monster der Woche") mit einem roten Faden aus Verschwörung, Politik und einer drohenden Belagerung |
+| **Ingame-Jahr** | **Jahr 170 n. B.** – nach Gründung des Bundes (9 Jahre nach der Ratsreform, 1 Jahr vor der nächsten Ratswahl) |
+
+**Warum als Testkampagne geeignet:** Jedes Abenteuer spielt in einem anderen Teil der Karte und testet ein anderes Element der Welt (Stadtleben, Reisen, Politik, Untote, Drow, Pilze). Nach der Kampagne weißt du, was am Tisch funktioniert und was du für eine längere Kampagne ausbauen willst.
+
+---
+
+## 1. Die Prämisse in drei Sätzen
+
+Die Spielercharaktere sind **Wehrpflichtige im vierten Jahr – dem Praxisjahr**. Sie wurden zu einer *Standardtruppe* zusammengestellt (Kämpfer, Druide, Zauberkundiger, Schurke, ggf. Höhlenscout) und werden von Einsatz zu Einsatz quer durch die Höhlen geschickt. Hinter scheinbar unzusammenhängenden Aufträgen steckt ein Plan des **Vampirreichs** im Westen: die magischen **Deckenverstärkungen** der Höhlen zu sabotieren, um den Großen Steinwall von Torstadt im Moment eines Untoten-Angriffs einstürzen zu lassen.
+
+---
+
+## 2. Die Welt für den Spieltisch
+
+### 2.1 Die Höhlen (Karte `Karte2.png`)
+
+> **Ausführlich:** Festen, Dörfer und alle Regionen außerhalb der Mauern stehen im Regionalband [05_Umgebung_der_Hoehlen.md](05_Umgebung_der_Hoehlen.md).
+> **Wirtschaft, Völker, Ratsbesetzung:** [06_Wirtschaft_und_Voelker.md](06_Wirtschaft_und_Voelker.md)
+> **Die sechs Städte der Enklave (Torstadt, Grovaristadt, Endstadt, Drudanst, Illiatist, Tiefenburg):** [07_Staedte_der_Enklave.md](07_Staedte_der_Enklave.md)
+
+Die Grovari-Höhlen liegen in **Sekamina**, der mittleren Schicht der Finsterlande. Fünf große Höhlen, ein einziger armeetauglicher Zugang (bei **Torstadt**). Der Fluss **Grovarie** fließt von Torstadt über Tiefenburg und das Grovarimeer bis Endstadt.
+
+| Höhle / Siedlung | Einwohner | Prägung | Was die Spieler hier erleben |
+|---|---|---|---|
+| **Torstadt** (Westen, am Tor) | 9.400 – Munavri, Svirfneblin, gemischt | Älteste Stadt, Garnison, Großer Steinwall | Kasernen, Ausbildung, Finale |
+| **Tiefenburg** (am Felsensee) | 10.000 – fast nur Svirfneblin | Handwerk, Edelsteine, Handel; Stadtplan `Tiefenburg.png` | Geleitschutz, Kampf an der Sporenfeste |
+| **Illiatist** (Nordhöhle, Südwestende des Hochsees) | 9.000 – fast nur Drow | Drow-Asylstadt seit Jahr 157. Liegt direkt am Abfluss des Hochsees – und direkt am Intelligenten Pilzwald: Die Drow halten hier die Front gegen das Myzel; Stadtplan `Illiatist.png` | Misstrauen, Vorurteile, Ermittlung |
+| **Drudanst** (Mitte/Nord) | 6.500 – Duergar (dazu je 500 Munavri und Svirfneblin) | Gewölbestadt am Nordrand ihrer Höhle, Tunnel zur **Lavaschmiede**; im Süden die Trümmer der ersten Siedlung („der Bruch"); Festungen West-, Süd-, Ostfeste | Diebstahl, Finsterhöhlen |
+| **Grovaristadt** (Inselhauptstadt im Grovarimeer) | 13.000 – alle Völker | Rat & Ethikrat, Damm, Pilzwaldfeste | Politik, Aufdeckung |
+| **Endstadt** (Osten) | 4.700 – Rattenvolk, Menschen | Lange die ärmste Stadt, seit dem **Sonnensalz** (künstliches Licht, Gemüse der Oberwelt) im Aufschwung. Parasal, Frindorf, Rudiapest; Grenze zu den Vegepygmys | Nebenschauplatz, Vegepygmy-Abkommen |
+
+**Außerhalb der Mauern** (alles gefährlich): Vampirreich mit **Varikanum** (Westen), Land der Untoten (Südwesten), Labyrinthe der Jäger, Teufelshöhlen, Finsterhöhlen, Kloster der Wahrheit, Alte Ruinen, Echsenvolk, Winzlinge, Land der Tausende, Land der Spinnen, Vegepygmy-Gebiet.
+
+### 2.2 Gesellschaft
+
+- **Motto:** *„Jeder ist wichtig."* Kein Volk darf sich über ein anderes stellen – das Gefüge ist fragil.
+- **Volksmund:** *„Jeder ist gleich wichtig – außer Bürokraten und Steuereintreiber, die braucht niemand."*
+- **Ansehen:** Druiden und Zauberkundige genießen das höchste Ansehen; einfache Krieger werden hinter vorgehaltener Hand belächelt.
+- **Rat der Höhlen** (Jahr 161) und **Ethikrat:** siehe 2.2c – Zusammensetzung, Befugnisse und Grenzen.
+- **Die Fünfhunderter-Regel** (seit Jahr 113): In jede große Stadt eines Volkes, das als „möglicherweise böse" gilt – also **Drudanst** (Duergar) und **Illiatist** (Drow) –, werden standardmäßig **500 Munavri und 500 Svirfneblin** angesiedelt. Offiziell heißt das „Brückensiedlung" und soll den Austausch fördern. Jeder weiß, wozu sie wirklich da ist: **zur Überwachung**. Die Munavri der Brückensiedlungen berichten an den Ethikrat, die Svirfneblin stellen einen großen Teil der Stadtwache und der Händler.
+  - *Das ist der wunde Punkt der Enklave:* Sie predigt „Nicht die Rasse, sondern die Gesellschaft" – und stellt trotzdem genau zwei Völker unter Aufsicht. Duergar und Drow wissen das, und sie nehmen es übel.
+- **Vegepygmy-Abkommen** (Jahr 129): Mörder und zum Tode Verurteilte werden den Vegepygmys übergeben, dafür helfen diese bei den Pilzkulturen. *Das ist der dunkle Fleck der Enklave – gutes Material für moralische Fragen.*
+
+### 2.2b Die Munavri – Gründervolk aus Orv
+
+*Nach Pathfinder-Kanon (Darklands Revisited, Occult Bestiary), angepasst an die Enklave.*
+
+- **Herkunft:** Munavri sind Nachfahren **azlantischer Seefahrer**, die beim Erdenfall von den Alghollthus (Aboleths) in die Tiefe verschleppt wurden. Sie leben normalerweise auf **schwimmenden Jadeinseln im Lichtlosen Meer von Orv**, der tiefsten Schicht der Finsterlande, und führen dort einen ewigen Krieg gegen Alghollthus, Ulat-Kini und Urdefhan.
+- **Die Gründer der Enklave** waren eine Gruppe von einigen hundert Munavri, die Orv verließen und nach **Sekamina hinaufstiegen** – eine für ihr Volk fast unerhörte Entscheidung. Warum genau, ist eine offene Frage für deine Kampagne. *Vorschlag:* Sie waren Anhänger einer Azata-Prophezeiung, die sagte, die Güte müsse „dort wachsen, wo sie am wenigsten erwartet wird". In Orv gelten sie seither als Sonderlinge oder Abtrünnige.
+- **Telepathie:** Munavri sprechen untereinander in Gedanken, laut nur mit anderen Völkern. In der Enklave hat das zu einem Missverständnis geführt, das bis heute besteht: Andere Völker halten Munavri für schweigsam und hochmütig, Munavri halten das laute Reden der anderen für anstrengend.
+- **Glaube:** Munavri verehren die **Empyreischen Fürsten, besonders die Azatas** (Götter der Freiheit und Güte). Das prägt die Enklave: Freiheit, Asyl, Gleichwertigkeit sind letztlich Azata-Werte.
+- **Die drei Ämter:** Munavri-Gemeinden werden von drei geistlichen Ämtern geführt: **Agathum**, **Archum** und **Azatum** (das Azatum ist meist das einflussreichste). In der Enklave lebt das im **Ethikrat** weiter: Der Munavri-Sitz und die zwei zusätzlichen Munavri-Sitze sind genau diese drei Ämter. **Aurelan Mysk**, der Vorsitzende, ist das amtierende **Azatum**.
+- **Jade:** In Orv schützt Jade die Munavri vor den Alghollthus, auf eine Weise, die sie selbst nicht verstehen. *Vorschlag für die Kampagne:* Die Verstärkungsrunen der Pfeilerwacht sind mit Jadestaub geschrieben – deshalb braucht der Gegenanker Schwarzstein, das „Gegenstück" zu Jade.
+- **Erbe:** Elfenbeinfarbene Schiffe mit violetten Segeln. Auf dem Grovarimeer fahren heute einige wenige Munavri-Boote dieser Art – ein Stück Heimat.
+
+### 2.2c Rat und Ethikrat – Zusammensetzung und Befugnisse
+
+**Die fünf Höhlen** (für die Sitzverteilung):
+1. **Westhöhle** – Torstadt und Tiefenburg (die lange Flusshöhle)
+2. **Nordhöhle** – Illiatist
+3. **Drudanst-Höhle** – Drudanst und Lavaschmiede
+4. **Große Höhle** – Grovaristadt
+5. **Osthöhle** – Endstadt, Parasal, Frindorf, Rudiapest
+
+**Der Rat der Höhlen** (seit Jahr 161, 8 Sitze, Wahl alle 5 Jahre)
+- **4 Völkersitze:** Svirfneblin, Munavri, Duergar, Drow
+- **4 Höhlensitze:** West, Nord, Drudanst, Groß. Die Osthöhle gilt seit dem Dammbau als „Anhängsel der Großen Höhle" und wird vom Sitz der Großen Höhle mitvertreten.
+- **Befugnisse:** Gesetze, Haushalt, Verträge (z. B. das Vegepygmy-Abkommen), Ernennung des **Wallmarschalls** (Oberbefehl über die Wehrpflicht). Beschlüsse mit 5 von 8 Stimmen. Bei Gleichstand gilt ein Antrag als abgelehnt.
+
+**Die Schieflage (bewusst als Konfliktstoff):**
+
+| Gruppe | Einwohner | Sitze im Rat |
+|---|---|---|
+| Svirfneblin | 20.000 | 1 |
+| Drow | 10.000 | 1 |
+| Munavri | 9.000 | 1 (+ 3 von 10 im Ethikrat) |
+| Duergar | 8.000 | 1 |
+| Rattenvolk | 5.000 | **0** |
+| Menschen | 2.000 | **0** |
+| Osthöhle (Endstadt) | 4.700 | **0** eigener Höhlensitz |
+
+Die Svirfneblin sind mehr als doppelt so viele wie die Munavri, haben aber gleich viel Gewicht – und im Ethikrat sitzen drei Munavri. Endstadt, die Stadt, die die Enklave ernährt und gerade reich wird, hat gar keine eigene Stimme. Die Ratswahl im Jahr 171 steht bevor, und Endstadt will einen Sitz.
+
+**Der Ethikrat** (10 Sitze: die 8 Sitze wie im Rat, getrennt gewählt, + 2 Munavri)
+- Die drei Munavri im Ethikrat sind zugleich die drei geistlichen Ämter ihres Volkes: **Agathum**, **Archum** und **Azatum**. Vorsitz hat das Azatum (derzeit **Aurelan Mysk**). Oriel Vanthe ist das **Archum**.
+- **Leitsatz** (seit der Aufnahme des Hauses Jurakin, Jahr 116): *„Wir richten Taten, nicht Seelen."* Eine böse Gesinnung ist **kein Verbrechen**. Nur Taten werden bestraft.
+
+| Der Ethikrat **darf** | Der Ethikrat **darf nicht** |
+|---|---|
+| Wahlen überwachen und bei Betrug für ungültig erklären | Gesetze erlassen oder den Haushalt bestimmen |
+| Ratsbeschlüsse mit 7 von 10 Stimmen **aussetzen**; der Rat muss dann neu beraten (ein zweites Aussetzen ist nicht möglich) | Ratsmitglieder selbst absetzen – er kann nur eine **Abberufungswahl** im betroffenen Volk bzw. der Höhle beantragen |
+| Bei **Amtsträgern und Kandidaten** die Gesinnung prüfen (*Böses entdecken*, *Gesinnung erkennen*) – nur in öffentlicher Sitzung und mit Mehrheitsbeschluss. Wer böse ist, darf kein Amt führen | Die Gesinnung **gewöhnlicher Bürger** prüfen, außer mit konkretem Tatverdacht und richterlichem Auftrag |
+| Zeugen vorladen; bei schweren Verbrechen eine Befragung im **Kloster der Wahrheit** oder unter *Zone der Wahrheit* verlangen | Gedanken lesen (*Gedanken wahrnehmen*, telepathisches Ausforschen) ohne Zustimmung – das gilt besonders unter Munavri als schwerster Tabubruch |
+| Die **Ethikwache** einsetzen: 12 Ermittler (Paladine, Inquisitoren, Kleriker), dazu Schriftrollen (*Schutz vor Bösem*, *Zone der Wahrheit*, *Böses entdecken*) | Urteile sprechen – das tun die Gerichte der Städte |
+
+**Was das für die Spieler bedeutet:**
+- Wehrpflicht-Truppen dürfen *Böses entdecken* bei laufenden Ermittlungen gegen Verdächtige einsetzen – aber das Ergebnis ist **kein Beweis**. Ein Drow, der als böse aufleuchtet, ist deshalb noch kein Täter (Abenteuer 3!).
+- **Warum fällt Vanthe nicht auf?** Sie ist nicht böse, sondern beherrscht. Gesinnungsprüfungen finden nichts.
+- **Warum werden Spione nicht entdeckt?** Weil niemand einfach alle Bürger prüfen darf – und weil gute Spione *Gesinnung verbergen* nutzen.
+- Der **Bleiche Hund** und andere Untote würden jede Prüfung sofort auslösen. Deshalb bleiben sie draußen und arbeiten über lebende Diener.
+
+### 2.3 Die Wehrpflicht (Rahmen der Kampagne)
+
+- Eintritt mit 15–25 (menschliches Äquivalent), Dauer 4 Jahre: **1 Jahr Grundausbildung → 2–3 Jahre Klassenausbildung → Praxisjahr.**
+- Einsätze nur nach mindestens 2 Jahren Ausbildung.
+- **Pflicht:** Ein Druide muss mit, sobald eine Gruppe die Städte verlässt. In unbekanntes Terrain kommt ein Höhlenscout mit.
+- Aufgaben: Verbrechen aufklären, Patrouillen, Pilz-Eindämmung (der gefährliche Typ), Ungeziefer (Hundertfüßer, Spinnen, Schreckensratten), Informationsbeschaffung, Geleitschutz.
+- Die besten **Gruppen** (selten Einzelne) bekommen danach ein Angebot: weiter beim Militär oder als freie Söldner. → **Das ist der Preis der Kampagne.**
+
+### 2.4 Zeitlinie (ergänzt)
+
+**Zeitrechnung:** Alle Jahreszahlen der Kampagne zählen ab der **Gründung des Bundes** von Munavri und Svirfneblin (Jahr 0). Jahre danach: **n. B.** (nach dem Bund), Jahre davor: **v. B.** (vor dem Bund). Wenn im Text nur „Jahr 118" steht, ist immer n. B. gemeint.
+
+*Optional – Anschluss an den Golarion-Kalender:* Wer die Kampagne mit offiziellen Abenteuern verbinden will, kann z. B. **170 n. B. = 4712 AR** setzen; dann wurde der Bund 4542 AR gegründet. Für die Testkampagne ist das nicht nötig.
+
+Deine Zeitlinie, ergänzt um die Geschichte des Vampirreichs und die Jahre bis zum Kampagnenbeginn. **[neu]** = von mir ergänzt, **[ergänzt]** = um Details erweitert, **[geändert]** = umgedeutet.
+
+| Jahr | Ereignis |
+|---|---|
+| ca. 600 v. B. | **[neu]** Ein Svirfneblin-Klan aus Dwimovel gründet **Tiefenburg** – eine verborgene Stadt, geschützt durch Illusionen. Die älteste Stadt der Enklave. |
+| 0 | Einige hundert Munavri steigen aus Orv nach Sekamina hinauf und finden die Svirfneblin-Stadt Tiefenburg in vier großen Höhlen. **[ergänzt]** Die Svirfneblin geben ihr Versteck auf, um eine offene Zuflucht zu ermöglichen; Bedingung: Die Insel im Felsensee bleibt ihnen vorbehalten. |
+| 2 | Gründung von Torstadt. |
+| 5 | Die erste Mauer ist fertig. |
+| 20 | Erster großer Aufschwung durch Handel und Wissensaustausch. |
+| 27 | **[ergänzt]** Erster Angriff: Duergar-Sklavenjäger aus **Varikanum** – damals eine Duergar-Sklavenstadt, einen Tagesmarsch westlich. Die Mauer wird durchbrochen, Dutzende Munavri und Svirfneblin werden nach Varikanum verschleppt. |
+| 28 | Einführung der Wehrpflicht (3 Jahre). |
+| 31 | **[ergänzt]** Die ersten Duergar bitten um Asyl – entflohene Aufseher aus Varikanum, die die Grausamkeit ihrer Herren nicht mehr ertrugen. Für die Svirfneblin sind Duergar **Erbfeinde**; dass sie zustimmen, ist das größte Opfer eines Volkes der Enklave. |
+| 33–35 | Duergar-Handwerk verbessert die Verteidigung; der Große Steinwall wird fertiggestellt. |
+| 42–113 | 60 Jahre Frieden. Immer mehr Duergar kommen, Torstadt wächst. |
+| ca. 70 | **[neu]** Die ersten Rattenvolk-Familien und wenig später die ersten Menschen erreichen die Enklave – zwei winzige Minderheiten, die in den ärmsten Ecken von Torstadt und Tiefenburg leben. |
+| ca. 80 | **[neu]** Die Wehrpflicht wird auf 4 Jahre verlängert; das Praxisjahr wird eingeführt. |
+| ca. 90 | **[neu]** Die ersten Ausläufer des **Myzels** wachsen aus dem Atemgrund in die Höhlen der Enklave herauf – angezogen vom steigenden CO₂ der wachsenden Bevölkerung. Bald darauf entsteht die erste Sporenfeste bei Tiefenburg. Weil das Myzel CO₂ in Sauerstoff umwandelt – in den tieferen Höhlen ist es noch viel umfangreicher – und damit die Enklave mit Atemluft versorgt, darf man die Wälder nicht vernichten, nur zurückschneiden. |
+| 113 | Gründung von Drudanst – **[ergänzt]** zuerst als kleine Siedlung im **Süden** der Höhle – und der Lavaschmiede. Erste Drow-Späher. **[ergänzt]** Mit Drudanst entsteht die **Fünfhunderter-Regel**: 500 Munavri und 500 Svirfneblin werden zur Überwachung in der Duergar-Stadt angesiedelt. |
+| 114 | Drow überfallen eine Patrouille, Gefangene werden verschleppt. |
+| 116 | Haus Jurakin (352 Drow) erhält Asyl. **[neu]** Der Ethik-Leitsatz *„Wir richten Taten, nicht Seelen"* entsteht in dieser Debatte. |
+| 118 | **[geändert]** **Die Schlacht am Steinwall** – siehe 2.5. |
+| 120–130 | Lavaschmiede-Waffen; Einsturz der alten Siedlung im Süden von Drudanst (123; offiziell: zu tief gegraben; in Wahrheit die Mahnung eines Dämons, siehe Städteband) – **[ergänzt]** übrig bleibt „der Bruch", ein Gewirr aus kleinen Höhlen und Gängen; Neubau der Stadt am Nordrand als Gewölbestadt (124–130); magische Verstärkung der Höhlendecken (124–128); Dammbau und Vegepygmy-Abkommen (129); Gründung von Grovaristadt (130). |
+| 129–135 | **[neu]** Durch den Damm wird die **Osthöhle** zugänglich. Die großen Völker zögern – **Rattenvolk und Menschen** ziehen fast geschlossen dorthin und gründen **Endstadt** (Frindorf 131, Parasal 133, Rudiapest 135). Ab ca. 145 kommt der größte Teil der Nahrung der Enklave von hier. Siehe Städteband. |
+| 131–140 | Viele Drow-Flüchtlinge, mehrere Spione entlarvt. Debatte „Tore schließen?" – die Munavri setzen sich durch. |
+| 141 | **[neu]** **Der Blutwechsel:** Der Vampir **Casimir Drevan** erobert Varikanum in einer einzigen Nacht. Die Duergar-Herren sterben oder werden zu seinen Bruten. Die Sklaven bleiben Sklaven – nur ihre Herren sind andere. Duergar-Flüchtlinge bringen die Nachricht nach Torstadt. |
+| 143–150 | **[neu]** Das **Land der Untoten** entsteht südlich von Tiefenburg. Drevan sammelt Tote und lässt die Obelisken aufrichten – „vor den Toren baut er sein Reich auf". |
+| 148 | **[neu]** Bau der **Bastion der Lebenden**. |
+| 152 | **[neu]** **Die Kalte Nacht:** Drevans erster Sturm auf den Steinwall. Tausend Untote zerschellen am Wall und an den Klerikern. Drevan lernt: Mit Gewalt kommt er nicht hinein. Er beginnt, nach einem anderen Weg zu suchen. |
+| 154–157 | Die Drow erhalten die Nordhöhle; Gründung von Illiatist (deine Zeitlinie: „300 ausgewählte Drow und ein paar Munavri und Svirfneblin" – nach der Fünfhunderter-Regel wachsen daraus je 500). **[ergänzt]** Der Rat weist ihnen den Bauplatz am Südwestende des Hochsees zu – direkt am Intelligenten Pilzwald. Die Duergar warnen genau davor. Die Drow nehmen den Platz trotzdem an, um zu zeigen, dass sie keine Angst haben. Seitdem bemannen sie die Sporenfeste bei Illiatist fast allein. |
+| ab 157 | **[neu]** Die Drow-Häuser führen den **Jägergang** ein: Prüfung der Jugendlichen in den Labyrinthen der Jäger (siehe Städteband, Illiatist). |
+| 156 | **[neu]** Eine Expedition der Pfeilerwacht unter **Oriel Vanthe** gerät in Gefangenschaft des Vampirreichs. Drei Monate später kehrt Vanthe allein zurück – „wie durch ein Wunder". |
+| 158–161 | Drow und Duergar fordern Ratssitze; neues politisches System mit Rat und Ethikrat. **[neu]** Vanthe wird zum **Archum** gewählt und sitzt damit im Ethikrat. |
+| 163 | **[neu]** Erste Svirfneblin-Flüchtlinge aus Varikanum erreichen die Vorhöhle. Durch sie erfährt die Enklave von den vier Sklavenvierteln. |
+| 164 | **[neu]** Die Alchemisten des Rattenvolks erfinden das **Sonnensalz** – künstliches Sonnenlicht. Ab 167 wächst in den Lichthallen von Endstadt Gemüse der Oberwelt; Endstadt blüht wirtschaftlich auf. Das Rezept bleibt geheim. |
+| 166 | **[neu]** Zweite Wahl. **Aurelan Mysk** wird Azatum und Vorsitzender des Ethikrats. Endstadt beantragt erstmals einen eigenen Sitz – abgelehnt. |
+| 168 | **[neu]** Ein höflicher menschlicher Gesandter Drevans erscheint vor dem Tor und bietet „Schutz" gegen einen jährlichen Tribut „aus Freiwilligen". Der Rat lehnt einstimmig ab. Seitdem nimmt die Bewegung im Land der Untoten zu. |
+| 169 | **[neu]** Drow und Munavri beantragen im Rat einen **Lichtbann**: Das Sonnensalz soll in der Osthöhle bleiben. Vier von acht Stimmen – zu wenig für einen Beschluss, genug für eine Blockade. |
+| 169 | **[neu]** Vanthe ordnet eine **„Große Prüfung aller Pfeiler"** an. Lehrlinge der Pfeilerwacht besuchen jeden Zentralpfeiler. *(In Wahrheit: Vorbereitung der Gegenanker.)* |
+| **170** | **Kampagnenbeginn.** Die nächste Ratswahl ist im Jahr 171. |
+
+### 2.5 Die Schlacht am Steinwall (Jahr 118)
+
+Deine Zeitlinie sagt, das Drow-Heer sei „ohne Probleme" abgewehrt worden. Am Tisch würden die Drow dadurch harmlos wirken. Deshalb diese Fassung – der Sieg war echt, aber teuer:
+
+- **2.000 Drow** greifen den Steinwall an. Gleichzeitig dringen **Drow-Infiltratoren durch die Wassertunnel unter dem Wall** ein – genau die Zisternen aus Abenteuer 1.
+- Die Wehrpflicht hält den Wall: Selbst Bauern mit Speeren stehen auf der Mauer, die Duergar-Armbrüste und die Kleriker brechen den Sturm. *Insofern stimmt dein Satz „Die Wehrpflicht zahlt sich aus" weiterhin.*
+- Unten in den Zisternen stellen sich **Feldwebel Tamrin Kalkbart** (Svirfneblin, Wasserwerker) und elf seiner Leute den Infiltratoren. Als sie zu unterliegen drohen, öffnet Tamrin die Schleusen und **flutet die Tunnel** – die Infiltratoren ertrinken, Tamrin und seine Leute mit ihnen.
+- **37 Drow des Hauses Jurakin** kämpfen auf dem Wall gegen ihr eigenes Volk und fallen. Erst danach verstummen die Stimmen, die Jurakin für Verräter hielten.
+- **Bilanz:** 412 Verteidiger tot, 1.400 tote Angreifer. Die Drow-Häuser greifen nie wieder offen an – sie verlegen sich auf Spione.
+- **Erinnerung:** In Torstadt steht die **Mauer der Namen** mit allen 412 Gefallenen. Jedes Jahr am Jahrestag lesen Wehrpflichtige die Namen vor.
+
+**Verknüpfungen zur Kampagne:**
+- **Abenteuer 1:** Vorarbeiter **Dorrin Kalkbart** ist Tamrins Enkel. Im Überlaufbecken der Zisternen hängt eine Gedenktafel für die Zwölf.
+- **Abenteuer 3:** **Velrith Jurakins** Großmutter steht auf der Mauer der Namen. Dass ausgerechnet er als Verräter beschuldigt wird, ist bittere Ironie – lass Kesrin Valdorn oder Velrith selbst das aussprechen.
+- **Finale:** Der Wall hat schon einmal gehalten, weil alle Völker zusammenstanden. Brakka erinnert in ihrer Rede daran.
+
+---
+
+## 3. Die Hintergrund-Verschwörung (nur für die SL)
+
+### 3.1 Was wirklich passiert
+
+Die **Pfeilerwacht** ist die Gilde der Magier, die seit Jahr 127/128 die Deckenverstärkungszauber in den Zentralpfeilern jeder Höhle warten. Ohne diese Zauber wären die Höhlen nach dem Einsturz von Jahr 123 längst gefährdet.
+
+**Erzmagistra Oriel Vanthe** (Munavri), Leiterin der Pfeilerwacht und Mitglied des Ethikrats, geriet vor 14 Jahren bei einer Expedition in Gefangenschaft des Vampirreichs und kehrte „wie durch ein Wunder" zurück. Seitdem steht sie unter der Herrschaft von **Fürst Casimir Drevan**, Vampir und Herr von Varikanum. Sie weiß selbst nur in lichten Momenten, was sie tut (*dominiert*, nicht verwandelt – deshalb erkennt sie kein Ethikrat).
+
+**Drevans Plan:**
+1. In jedem Zentralpfeiler einen **Gegenanker** platzieren – eine Schwarzstein-Rune, die den Verstärkungszauber umkehren kann.
+2. Für die Runen braucht man **in der Lavaschmiede gehärteten Schwarzstein** → Diebstahl in Drudanst.
+3. Den Verdacht auf die **Drow von Illiatist** lenken – die Enklave soll sich selbst zerfleischen, Rufe nach „Tore schließen!" werden laut.
+4. In der Nacht des Angriffs der Untotenarmee aus dem Land der Untoten: Aktivierung des Gegenankers im **Torstädter Pfeiler**. Der Große Steinwall stürzt ein, das Tor ist offen.
+5. Ziel: Sklaven und Blut für das Vampirreich (siehe Kartenlegende: *„ein Vampir-Reich, welches alle Wesen der Höhlen versklaven will"*).
+
+### 3.2 Die Hinweiskette
+
+| Abenteuer | Hinweis, den die Spieler finden können |
+|---|---|
+| 1 | Ein kleiner schwarzer Runenstein in der Zisterne unter dem Steinwall (der erste Test-Anker). Niemand kann ihn lesen. |
+| 2 | Ein ausgeraubter Händlerzug hatte **Silberstaub für die Pfeilerwacht** geladen; der Überlebende erinnert sich an „bleiche Männer, die das Licht scheuten". |
+| 3 | Der beschuldigte Drow ist unschuldig; die gefälschten Beweise tragen die **Siegeltinte der Pfeilerwacht**; im Torbuch steht ein Pfeilerwacht-Lehrling; am Seepfeiler steckt ein **zweiter Gegenanker**; die Berichte der Fünfhundert wurden auf dem Weg durch das Archum verschärft. |
+| 4 | Die gestohlenen Schwarzstein-Barren werden in den Finsterhöhlen an Ghoule übergeben. Eine Lieferliste nennt fünf Ziele: *„die fünf Säulen"*. |
+| 5 | Im Land der Untoten: eine gefangene Munavri-Kundschafterin erzählt, dass Vanthe vor 14 Jahren „nicht entkam, sondern freigelassen wurde". |
+| 6 | Zusammensetzen im Rat → Konfrontation, Finale in Torstadt. |
+
+**Grundregel:** Fehlt ein Hinweis, kann ihn ein späteres Abenteuer nachliefern. Die Kampagne darf nicht an einem verpassten Wurf scheitern.
+
+### 3.3 Die Falsche Fährte
+
+Jeder in den Höhlen „weiß", dass es noch unentdeckte Drow-Spione gibt (Jahr 131–140). Spiele das aus: NSCs verdächtigen reflexhaft Drow. Die Auflösung, dass ausgerechnet eine angesehene Munavri – Gründervolk, Ethikrat – die Verräterin ist, bestätigt das Leitmotiv der Höhlen: *Nicht die Rasse, sondern die Umstände machen gut oder böse.*
+
+Die falsche Fährte hat **zwei Schichten**: Erst verdächtigen alle die Drow (Abenteuer 2–3). Wer das durchschaut, stößt auf eine zweite, glaubwürdigere Spur – zu Vanthes Stellvertreter (3.4).
+
+### 3.4 Der zweite Verdächtige – Obermagister Bastrin Kieselgrund
+
+**Warum:** Erfahrene Spieler ahnen früh, dass die freundliche, wichtige Mentorin hinter allem steckt. Deshalb führt eine zweite, glaubwürdige Spur zu jemand anderem – zu jemandem, der wirklich etwas verbirgt, nur nicht das, was die Spieler denken.
+
+**Wer er ist:** **Bastrin Kieselgrund**, Svirfneblin, Magier (Illusionist) 7, **Stellvertreter von Vanthe** in der Pfeilerwacht. Brillant, ungeduldig, schlechter Lügner, und gnadenlos ehrgeizig: Er will der **erste Erzmagister sein, der kein Munavri ist**. Die Svirfneblin unterstützen ihn, Ratsmitglied Edda Glimmerstein nennt ihn „unseren Mann in der Gilde". Er spricht offen schlecht über Vanthe: „Sie ist seit Jahren nicht mehr bei der Sache. Jemand muss die Gilde führen."
+
+**Was er wirklich verbirgt:**
+1. **Schmuggel:** Bastrin verkauft heimlich **Schattenkristalle** aus den Finsterhöhlen, auf die die Pfeilerwacht ein Monopol hat. Mit dem Geld kauft er sich Stimmen für seine Wahl zum Erzmagister. Seine Schmuggler arbeiten in denselben Höhlen, in denen in Abenteuer 4 das Ghul-Versteck liegt.
+2. **Die fehlende Seite:** Bastrin misstraut Vanthe seit Langem. Vor zwei Jahren hat er aus der Großen Bibliothek die **fehlende Seite des Expeditionsberichts von Jahr 156** gestohlen, als Druckmittel gegen sie. Darauf steht in der Handschrift eines toten Expeditionsmitglieds: *„Die Magistra wurde nicht befreit. Sie wurde zum Tor gebracht und gehen gelassen."* Bastrin hat nie verstanden, was das bedeutet. Er hielt es für einen Hinweis auf Feigheit, nicht auf Verrat.
+
+**Die falschen Spuren:**
+
+| Abenteuer | Was auf Bastrin deutet | Warum es harmlos ist |
+|---|---|---|
+| 1 | Der Auftrag für die Messungen in den Zisternen trägt **Bastrins Unterschrift** | Er unterschreibt als Stellvertreter alle Routineaufträge. Vanthe hat den Auftrag diktiert |
+| 2 | Die Bestellung des Silberstaubs trägt ebenfalls seine Unterschrift. Bei der Meldung in Grovaristadt spottet er über „Drow-Banditen" und will den Fall schnell abschließen | Er will nur nicht, dass jemand die Bücher der Gilde zu genau liest – wegen seines Schmuggels |
+| 3 | Die Siegeltinte der Pfeilerwacht wird in **seiner** Kanzlei verwahrt | Vanthe hat einen eigenen Schlüssel |
+| 4 | In den Finsterhöhlen trifft die Gruppe auf **Schmuggler mit Kisten, die das Säulen-Zeichen tragen**. Sie fliehen | Es sind Bastrins Kristallschmuggler – sie haben mit den Ghulen nichts zu tun und fürchten sie selbst |
+| 6 | Motiv erkennen gegen Bastrin gelingt leicht (er ist ein schlechter Lügner): **Er verbirgt eindeutig etwas** | Den Schmuggel, nicht den Verrat. Unter *Zone der Wahrheit* oder im Kloster der Wahrheit gesteht er den Schmuggel und schwört, mit dem Vampirreich nichts zu tun zu haben – wahrheitsgemäß |
+
+**Die Wendung in Abenteuer 6:** Wird Bastrin in die Enge getrieben, bietet er einen Handel an: Er übergibt die **gestohlene Seite von Jahr 156** – gegen Straffreiheit für den Schmuggel und die Unterstützung der Gruppe für seine Wahl zum Erzmagister. Die Seite ist der stärkste Beweis gegen Vanthe. Die Spieler müssen entscheiden, ob sie einem Schmuggler zur Macht verhelfen, um eine Verräterin zu entlarven.
+
+**Wichtig für die SL:** Bastrin soll nie *eindeutig* schuldig wirken, sondern **plausibel**. Lass die Spieler ihn verdächtigen, verfolgen, vielleicht sogar anklagen. Wenn sie Vanthe zu früh durchschauen, ist das kein Problem: Dann wird Bastrin vom Verdächtigen zum widerwilligen Verbündeten.
+
+---
+
+## 4. Die Abenteuer
+
+> Jedes Abenteuer beginnt mit einem **Einsatzbefehl** von Hauptfeldwebelin **Brakka Steinfaust** (Duergar, Ausbilderin der Truppe). Vorlesetexte sind in Kursivschrift.
+
+---
+
+### Abenteuer 1 – „Ratten unter dem Wall" (Torstadt · Stufe 1)
+
+> **Spielfertig ausgearbeitet:** [02_Abenteuer1_Ratten_unter_dem_Wall.md](02_Abenteuer1_Ratten_unter_dem_Wall.md) mit Karte [Karte_Zisternen_Torstadt.svg](Karte_Zisternen_Torstadt.svg)
+
+**Einsatzbefehl:** *„Willkommen im Praxisjahr. Unter dem Steinwall verstopfen Schreckensratten die Zisternen. Die Wasserwerker trauen sich nicht mehr runter. Ihr schon. Abmarsch."*
+
+**Ablauf**
+1. **Kaserne & Auftakt** – Die Gruppe lernt sich als Truppe kennen. Lass jede*n Spieler*in eine Ausbildungsanekdote erzählen. Die Quartiermeisterin (Ratfolk **Pipra Zwirn**) gibt Ausrüstung aus – gegen Unterschrift in dreifacher Ausführung (Running Gag: Bürokratie).
+2. **Die Zisternen** – Kleiner Dungeon (6–8 Räume) unter dem Wall, teils überflutet.
+   - Begegnung A: 4 Schreckensratten (HG 1/3)
+   - Begegnung B: Rattenschwarm im engen Schacht (HG 2)
+   - Begegnung C (Boss): **Rattenmutter** – Schreckensratte mit Riesen- und Fortgeschritten-Schablone (ca. HG 1) mit 2 Schreckensratten im Nest
+3. **Der Fund** – Im Nest, eingeklemmt in einer Mauerfuge direkt am Fundament des Pfeilers: ein faustgroßer **schwarzer Runenstein**, kalt, leicht vibrierend. Die Ratten wurden von ihm angezogen (oder vertrieben – was die Spieler vermuten, bleibt offen).
+4. **Abschluss** – Brakka nimmt den Stein „zur Untersuchung durch die Pfeilerwacht" entgegen. *(Er landet natürlich bei Vanthe und verschwindet.)*
+
+**Testet:** Grundmechaniken, Dunkelsicht/Licht, enge Räume, Gruppendynamik.
+
+---
+
+### Abenteuer 2 – „Geleit nach Grovaristadt" (Tiefenburg → Grovaristadt · Stufe 2)
+
+> **Spielfertig ausgearbeitet:** [04_Abenteuer2_Geleit_nach_Grovaristadt.md](04_Abenteuer2_Geleit_nach_Grovaristadt.md) (inkl. Legende zum Stadtplan Tiefenburg)
+
+**Einsatzbefehl:** Die Truppe begleitet eine Svirfneblin-Händlerkarawane (Edelsteine, Werkzeug, **Silberstaub für die Pfeilerwacht**) von Tiefenburg über Spierest nach Grovaristadt.
+
+**Ablauf**
+1. **Tiefenburg** (Stadtplan nutzen): Markt, Hafen am Felsensee. Händlerin **Mirsa Kieselweb** ist geizig, nervös und redet ununterbrochen über Preise.
+2. **Unterwegs** – 2 Zufallsbegegnungen (Tabelle Kap. 6), z. B. Riesenhundertfüßer oder Riesenspinnen.
+3. **Die Sporenfeste** – Eine Zunge des feindlichen Pilzwalds (das „Myzel") hat die Straße überwuchert. Die Truppe widersteht dem telepathischen Lockruf und brennt die Zunge mit den Brennern der Feste zurück. Das Myzel zieht es zu „Tobins" Gepäck – Hinweis auf das Ghul-Futter.
+4. **Der Überfall** – Nachts bei Spierest werden **zwei Wagen** überfallen. Die Angreifer (2–3 Ghule à HG 1, gelenkt von einem vermummten menschlichen Diener – Schurke 2) nehmen gezielt **nur den Silberstaub**. Ein verletzter Kutscher murmelt von „bleichen Männern".
+5. **Ankunft in Grovaristadt** – Der Silberstaub ist weg. Wer hatte Interesse daran? Mirsa schimpft auf „Drow-Banditen".
+
+**Testet:** Reise, Diplomatie, Nachtwache, nicht-tödliche Lösungen.
+
+---
+
+### Abenteuer 3 – „Der Schatten über dem Hochsee" (Illiatist · Stufe 2–3)
+
+> **Spielfertig ausgearbeitet:** [08_Abenteuer3_Der_Schatten_ueber_dem_Hochsee.md](08_Abenteuer3_Der_Schatten_ueber_dem_Hochsee.md) mit Karte [Karte_Wachhaus_Hochsee.svg](Karte_Wachhaus_Hochsee.svg). Die Ausarbeitung erweitert die Skizze unten: Der Täter war ein beherrschter Lehrling, der am Seepfeiler einen **zweiten Gegenanker** versteckte; Velriths Alibi ist die Munavri-Schreiberin Ithiel Sarn; der Gegendruck kommt von der Svirfneblin-Stadtwache und Duergar-Händlern; das Finale ist eine Anhörung vor dem Stillen Kreis.
+
+**Einsatzbefehl:** In Illiatist wurde ein Wehrturm am Hochsee nachts beschädigt, ein Wachposten liegt im Koma. Verhaftet wurde **Velrith Jurakin**, Nachfahre des Asylhauses Jurakin. Die Truppe soll „den Fall abschließen". Der Unterton: Die Obrigkeit will einen schnellen Schuldigen.
+
+**Ablauf (Ermittlung)**
+1. **Ankommen in Illiatist** – Die Stadt ist ruhig, gepflegt, misstrauisch. Bewohner reagieren kühl auf Soldaten aus Torstadt. Nicht-Drow in der Gruppe spüren, wie es ist, Minderheit zu sein.
+2. **Spuren:**
+   - Der Tatort: Rußspuren einer arkanen Entladung am Fundament des Turms – *nicht* Drow-Magie, sondern ein Bannzauber, wie ihn die Pfeilerwacht nutzt (Zauberkunde oder Wissen [Arkanes] SG 15).
+   - Der „Beweis" gegen Velrith: ein Brief mit Drow-Glyphen. Die Siegeltinte enthält Silberstaub (Handwerk [Alchemie] SG 14 oder *Magie entdecken* + Wahrnehmung SG 12) – **derselbe gestohlene Silberstaub aus Abenteuer 2**.
+   - Ein Zeuge (Svirfneblin-Fischer) sah eine Gestalt in Gildenrobe am Ufer.
+   - **Die Berichte der Fünfhundert:** Die Munavri-Aufpasser in Illiatist haben in den letzten Monaten auffällig viele Verdachtsberichte über Drow nach Grovaristadt geschickt – alle über das Archum, also über **Vanthe**. Wer die Berichte vergleicht (Ethikrat-Archiv, Diplomatie SG 18 für Zugang), merkt: Mehrere wurden nachträglich verschärft. Die Drow wissen nichts davon, ahnen es aber.
+3. **Gegendruck** – Ein Mob aus Drudanst-Duergar und Torstädter Munavri fordert Velriths Auslieferung („Tore schließen!"). Soziale Szene: Diplomatie SG 15 / Einschüchtern SG 17, mehrere Würfe für mehrere Rädelsführer.
+4. **Kampf** – Ein echter Drow-Spion des Vampirreichs (Drow, Schurke 3, Giftwaffe, *Dunkelheit*) mit 2 angeheuerten Schlägern (Krieger 1) versucht nachts, Velrith im Kerker zu vergiften, um den Fall „zu schließen". Er wurde vom Vampirreich gekauft – *das* ist der einzige echte Spion.
+5. **Ergebnis** – Velrith wird entlastet, wenn die Gruppe die Beweise vor den Stadtvorsteher bringt. Die Spur führt zur Pfeilerwacht, aber noch nicht zu Vanthe persönlich.
+
+**Testet:** Ermittlungsabenteuer, Rollenspiel, das Kernthema der Welt (Vorurteile).
+
+---
+
+### Abenteuer 4 – „Feuer aus der Tiefe" (Drudanst · Lavaschmiede · Finsterhöhlen · Stufe 3)
+
+**Einsatzbefehl:** Aus der Lavaschmiede wurden zwölf Barren **gehärteter Schwarzstein** gestohlen – ein Material, das nur für Runenmagie taugt. Die Duergar sind wütend und beschuldigen (natürlich) die Drow.
+
+**Ablauf**
+1. **Drudanst & Lavaschmiede** – Der Tunnel zum Lavastrom, Hitze (Grundregelwerk: Hitzegefahren, Zähigkeit SG 15 + 1 je Wurf, sonst nichttödlicher Schaden), Duergar-Schmiedemeister **Thorgrim Aschhand**: grimmig, stolz, ehrlich. Er erzählt vom Einsturz in Jahr 123 und dass „die Pfeilerwacht danach jede Woche hier war".
+2. **Die Spur** – Schleifspuren führen durch den **Bruch** (die Trümmer des alten Drudanst, siehe Städteband – mit Steinschlag und einem Ungeborgenen) in die **Finsterhöhlen** (Labyrinth, Pflicht: Höhlenscout!). Spielt das Labyrinth als Fertigkeitsherausforderung (3 Erfolge vor 3 Fehlschlägen, Überlebenskunst/Wissen [Gewölbe]/Wahrnehmung SG 15; Fehlschläge = Erschöpfung oder Zufallsbegegnung).
+3. **Das Versteck** – Eine Höhle mit 3 Ghulen und einem **Ghast** (HG 2) als Anführer. Hier werden die Barren gerade verladen.
+4. **Der Fund** – Eine **Lieferliste** auf Ghulhaut: *„Zwölf Barren. Fünf Säulen. Die erste in Torstadt – wenn der Mond der Toten steht."* Dazu das Siegel der Pfeilerwacht.
+5. **Rückkehr** – Thorgrim schuldet der Gruppe einen Gefallen (später: magische Waffe oder Rüstungsverbesserung aus der Lavaschmiede als Belohnung).
+
+**Testet:** Umweltgefahren, Fertigkeitsherausforderung, härtere Kämpfe.
+
+---
+
+### Zwischenspiel (optional) – „Das Abkommen" (Endstadt · Vegepygmy-Grenze)
+
+Kurzer Einsatz für einen Abend: Die Truppe eskortiert einen zum Tode Verurteilten zur Übergabe an die Vegepygmys. Unterwegs stellt sich heraus, dass er unschuldig sein könnte – er war Zeuge, wie Pfeilerwacht-Lehrlinge nachts Steine in den Grovaristädter Pfeiler trugen. **Die Gruppe muss entscheiden:** Befehl befolgen oder das Abkommen brechen? Beides hat Konsequenzen vor dem Ethikrat.
+
+*Funktioniert auch als Bonus-Hinweisquelle, falls Spieler Hinweise verpasst haben.*
+
+---
+
+### Abenteuer 5 – „Bastion der Lebenden" (Südwesten · Land der Untoten · Stufe 4)
+
+**Einsatzbefehl:** Der Kontakt zur **Knochenwacht** ist abgerissen, dem Außenposten vor der Bastion der Lebenden. Die Bastion selbst kann keine Leute entbehren – deshalb wird eine Wehrpflicht-Truppe geschickt. Aufklärung, ggf. Entsatz.
+
+> **Wichtig:** Die Gruppe betritt nur den **äußeren Ring** des Landes der Untoten (HG 2–6). Was dahinter liegt (bis HG 14, siehe Regionalband), soll sie nur **sehen**: das Obeliskenfeld, das grüne Licht des Grauen Hofs, die Armee. Bastionsmeisterin Hagra Lichtschild stellt klar: „Weiter als bis zum Lager geht ihr nicht. Niemand kommt von dort zurück."
+
+**Ablauf**
+1. **Die Knochenwacht** – Der Außenposten ist halb eingenommen. Die Truppe kämpft sich zu den Überlebenden durch (Menschliche Skelette HG 1/3, Menschliche Zombies HG 1/2, 1 Ghast-Offizier HG 2; Kleriker mit *Untote vertreiben/Positive Energie fokussieren* glänzen hier).
+2. **Blick ins Land der Untoten** – Von der Bastion aus sieht man es: Eine **Armee** sammelt sich. Hunderte Untote, Banner von Varikanum. Der Angriff ist nicht weit.
+3. **Rettungsmission** – Eine Gruppe Gefangener wird in einem Lager zwischen Bastion und Land der Untoten festgehalten. Darunter **Kundschafterin Ilun Sareth** (Munavri), seit Monaten verschollen.
+4. **Die Wahrheit** – Ilun war in Varikanum gefangen und hörte die Wachen lachen: *„Die weiße Magistra? Die haben wir nicht verloren – die haben wir zurückgeschickt."*
+5. **Flucht** – Tipp: Vampire vertragen kein fließendes Wasser – wer den Grovarie durchquert, entkommt. Verfolgungsjagd zurück zur Bastion (Verfolgungsregeln aus dem Spielleiterhandbuch oder einfache Kartenkette) mit einem **Vampirbrut-Jäger** (Vampirbrut, HG 4) im Nacken. Achtung: Seine Stufenentzug-Attacke ist für Stufe-4-Gruppen hart – nur einsetzen, wenn ein Kleriker *Wiederherstellung* o. ä. erreichbar ist. Er sollte entkommen können, wenn der Kampf schlecht läuft – er kehrt im Finale zurück.
+
+**Testet:** Taktik, Ressourcenmanagement, Klerikermagie gegen Untote, Dramatik.
+
+---
+
+### Abenteuer 6 + Finale – „Die fünf Säulen" (Grovaristadt → Torstadt · Stufe 5)
+
+**Teil 1: Vor dem Rat (Grovaristadt)**
+- Die Gruppe hat Hinweise – aber gegen eine Ethikrätin vorzugehen, ist politisch gefährlich. Wer im Rat hilft? Wer blockiert?
+  - **Ratsherr Kesrin Valdorn** (Drow, Illiatist): Verbündeter, wenn Abenteuer 3 gut lief.
+  - **Rätin Hulda Grauschmied** (Duergar): Verbündete, wenn Abenteuer 4 gut lief.
+  - **Ethikrat-Vorsitzender Aurelan Mysk** (Munavri): Vanthes alter Freund, blockiert zuerst.
+  - **Obermagister Bastrin Kieselgrund** (Svirfneblin): Der zweite Verdächtige (3.4). Unter Druck bietet er die gestohlene Seite von Jahr 156 an – gegen Straffreiheit und Unterstützung für seine Wahl.
+  - **Rattenvolk & Menschen** aus Endstadt haben *keinen* eigenen Sitz (siehe 2.2c) – ein Sprecher bietet Hilfe gegen das Versprechen, sich für einen Sitz einzusetzen.
+- **Vanthe konfrontieren:** *Schutz vor Bösem* unterdrückt die Beherrschung (wie *Person beherrschen*, ZS 12) für die Wirkungsdauer, *Magie bannen* gegen ZS 12 kann sie beenden. *Böses entdecken* zeigt nichts – sie selbst ist nicht böse. Für einen Moment ist sie klar: *„Die Torstädter Säule … heute Nacht … haltet ihn auf."* Dann schlägt die Beherrschung zurück, sie flieht oder bricht zusammen.
+
+**Teil 2: Die Nacht der Toten (Torstadt)**
+- Die Untotenarmee steht vor dem Tor. Die gesamte Wehrpflicht wird einberufen (Bauern mit Speeren, Jahr-118-Gefühl).
+- Die Truppe muss in den **Zentralpfeiler von Torstadt** (Kammer aus Jahr 127) und den Gegenanker entfernen, bevor er aktiviert wird.
+- **Endkampf:** Der Vampirbrut-Jäger aus Abenteuer 5 + 3 Pfeilerwacht-Lehrlinge unter Beherrschung (Magier 2; nicht töten = Bonus-Ehre!) + die Rune selbst als Gefahr (jede Runde ein Beben, Reflex SG 15 gegen 2W6 Steinschlag). Rune entschärfen: Mechanismus ausschalten SG 20 oder *Magie bannen*, mehrere Runden.
+- **Fürst Drevan** erscheint *nicht* persönlich – nur als Stimme in der Rune. Er bleibt Gegner für eine Fortsetzungskampagne.
+
+**Ausgang**
+- Erfolg: Der Wall hält, der Angriff wird abgewehrt. Die Truppe erhält das Angebot: Dienst beim Militär (Spezialeinheit „Pfeilerwacht-Ermittler") oder freie Söldner.
+- Teilerfolg: Ein Teil des Walls stürzt, Torstadt wird teilweise überrannt – düstere, aber spannende Ausgangslage für eine Fortsetzung.
+
+---
+
+## 5. Aufstieg & Belohnungen
+
+Meilenstein-Aufstieg (statt EP-Zählung, weil viele Lösungen sozial sind):
+
+| Nach | Stufe |
+|---|---|
+| Abenteuer 1 | 2 |
+| Abenteuer 3 | 3 |
+| Abenteuer 4 | 4 |
+| Abenteuer 5 | 5 |
+
+Wer lieber mit EP spielt: mittlere Aufstiegsgeschwindigkeit, Begegnungen mit HG = Gruppenstufe planen und soziale Erfolge (Mob beruhigt, Ratsmitglied überzeugt) wie eine Begegnung gleichen HG belohnen.
+
+**Vermögen:** Pro Abenteuer ungefähr den Unterschied der Vermögenstabelle (Grundregelwerk) zur nächsten Stufe verteilen – als Sold, Ausrüstung aus der Kaserne oder Beute.
+
+**Besondere Belohnungen**
+- **Ehrenmarken der Truppe:** Für Aktionen, die dem Motto „Jeder ist wichtig" dienen (Unschuldige schützen, Völker zusammenbringen). Bei 3 Marken: Truppe gilt als „herausragend" → bessere Angebote am Ende.
+- **Lavaschmiede-Gefallen** (Abenteuer 4): eine Waffe/Rüstung mit Rune, kostenlos.
+- **Freundschaft der Sporenfeste** (Abenteuer 2): Heilpilze und Sporenmasken zum Selbstkostenpreis; Hauptfrau Ysolde Moosgrund schickt im Finale ihre Brenner zur Hilfe.
+
+---
+
+## 6. Zufallsbegegnungen in Sekamina (W12)
+
+| W12 | Begegnung | PF1-Vorschlag (HG) |
+|---|---|---|
+| 1 | Schwarm Schreckensratten | Rattenschwarm (2) |
+| 2 | Riesenhundertfüßer im Deckenspalt | Riesenhundertfüßer ×2–3 (je 1/2) |
+| 3 | Riesenspinnen | Riesenspinne ×1–2 (je 1) |
+| 4 | Gefährlicher Pilzbefall (Sporenwolke) | Gefahr: Zähigkeit SG 13, sonst 1W3 KO-Schaden; Druide erkennt sie mit Wissen (Natur) SG 12 |
+| 5 | Verirrter Händler mit Gerüchten | – |
+| 6 | Drow-Späher (nicht feindlich – Flüchtling?) | Drow (1/3) bzw. Drow-Schurke 2 |
+| 7 | Duergar-Sklavenjäger | Duergar ×3 (je 1/3) + Duergar-Kämpfer 2 |
+| 8 | Ghule auf Beutezug | Ghul ×2 (je 1) |
+| 9 | Erdbeben, Steinschlag | Reflex SG 15, sonst 2W6 |
+| 10 | Echsenvolk-Jäger, verhandlungsbereit | Echsenvolk ×2 (je 1) |
+| 11 | Fernes Beben eines Purpurwurms – alle verstecken sich! | Atmosphäre |
+| 12 | Patrouille einer anderen Wehrpflicht-Truppe (Rivalen!) | – |
+
+Für Stufe 3+ einfach mehr Kreaturen oder die Fortgeschritten-Schablone nutzen. Vegepygmys (Monsterhandbuch II, HG 1) passen für Begegnungen rund um Endstadt.
+
+**Rivalen-Truppe (Tipp):** Eine zweite Praxisjahr-Truppe unter dem arroganten Munavri **Seren Halvaris** konkurriert um die Angebote am Ende. Gibt der Kampagne Wettbewerb und Humor.
+
+---
+
+## 7. Wichtige NSCs
+
+> **Vollständige PF1-Werte:** [03_NSC_Werte.md](03_NSC_Werte.md)
+
+| Name | Volk | Rolle | Kurzbeschreibung |
+|---|---|---|---|
+| **Brakka Steinfaust** | Duergar | Ausbilderin, Auftraggeberin | Brummig, gerecht, raucht Pilzpfeife. Kam als Kind mit den Asylsuchenden. |
+| **Pipra Zwirn** | Rattenvolk | Quartiermeisterin | Formular-Fanatikerin, heimlich hilfsbereit |
+| **Erzmagistra Oriel Vanthe** | Munavri | Leiterin der Pfeilerwacht, Ethikrat | Würdevoll, weißhaarig, gelegentlich abwesend. Beherrscht. |
+| **Fürst Casimir Drevan** | Vampir | Herr von Varikanum | Bleibt im Hintergrund. Spricht nur durch Diener und Runen. |
+| **Mirsa Kieselweb** | Svirfneblin | Händlerin | Geizig, laut, mit gutem Herz – wenn man es findet |
+| **Velrith Jurakin** | Drow | Beschuldigter | Stiller Dichter, Haus Jurakin. Wird Freund oder Feind je nach Ausgang. |
+| **Thorgrim Aschhand** | Duergar | Schmiedemeister | Stolz auf die Lavaschmiede, misstraut Drow, respektiert Taten |
+| **Ilun Sareth** | Munavri | Verschollene Kundschafterin | Traumatisiert, Schlüsselzeugin |
+| **Kesrin Valdorn** | Drow | Ratsherr Illiatist | Diplomat, vorsichtig |
+| **Hulda Grauschmied** | Duergar | Rätin Drudanst | Laut, direkt |
+| **Aurelan Mysk** | Munavri | Vorsitz Ethikrat | Prinzipientreu, zu loyal |
+| **Bastrin Kieselgrund** | Svirfneblin | Obermagister, Vanthes Stellvertreter | Ehrgeizig, schlechter Lügner, Schmuggler – der zweite Verdächtige |
+| **Seren Halvaris** | Munavri | Rivale | Arroganter Truppenführer |
+
+---
+
+## 8. Offene Punkte & Ungereimtheiten in den Quellnotizen
+
+Beim Durchsehen deiner Notizen sind mir einige Widersprüche aufgefallen. Ich habe für die Kampagne jeweils eine Lösung angenommen – du kannst sie ändern:
+
+| Thema | In den Notizen | Angenommen |
+|---|---|---|
+| Name | Grovari / Gravori / Gnavori | **Grovari** (wie auf der Karte) |
+| Volk | Munavri / Monavri; Druegar / Duergar; Snirfneblin / Svirfneblin | **Munavri, Duergar, Svirfneblin** (offizielle Pathfinder-Schreibweise) |
+| Drow-Stadt | Illiatid / Illiatist | **Illiatist** (Karte und Stadtplan) |
+| Anzahl Höhlen | 4 („vier riesige Höhlen") vs. 5 | **5** – die fünfte wurde erst durch den Damm (Jahr 129) bzw. die Nordhöhle erschlossen |
+| Wehrpflicht | 3 Jahre (Zeitlinie, Jahr 28) vs. 4 Jahre (Wehrpflicht-Notiz) | Ursprünglich 3, **später auf 4 erweitert** |
+| Rat | 8 Personen = 1 je Volk + 1 je Höhle | Passt zu 4 Völkern + 4 Höhlen. Gelöst in 2.2c: Rattenvolk und Menschen haben keinen Völkersitz, die Osthöhle (Endstadt) keinen eigenen Höhlensitz – eingebaut als politischer Konflikt in Abenteuer 6. |
+| Vampirreich | Liegt einen Tagesmarsch entfernt, taucht in der Zeitlinie aber nicht auf | Gelöst in 2.4: Varikanum war bis Jahr 141 eine Duergar-Sklavenstadt, erst dann kam Drevan |
+| Schlacht Jahr 118 | „Ohne Probleme abgewehrt" | Umgedeutet in 2.5: ein teurer Sieg mit 412 Gefallenen |
+| Einwohner | Gesamtsumme 54.000 | Passt in etwa zu den Stadtsummen (52.600), Rest lebt verstreut in Dörfern und Festen. |
+
+---
+
+## 9. Ausblick: Was nach dem Test kommt
+
+Wenn die Kampagne gut ankommt, gibt es genug Fäden für eine lange Kampagne:
+- **Fürst Drevan** und der Feldzug gegen Varikanum
+- Das **Kloster der Wahrheit** – wer lebt dort, und welche Wahrheit hüten sie?
+- Die **Alten Ruinen** im Osten und Westen – älter als die Svirfneblin?
+- **Labyrinthe der Jäger** und **Teufelshöhlen** (Dämonen, wie in der Beschreibung erwähnt)
+- Die Frage, ob das **Vegepygmy-Abkommen** mit den Werten der Enklave vereinbar ist
+- Die **Ratswahl im Jahr 171** und ein Sitz für Rattenvolk und Menschen

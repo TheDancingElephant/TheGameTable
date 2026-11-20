@@ -1,0 +1,287 @@
+# Abenteuer 1 – Ratten unter dem Wall
+
+*Pathfinder 1e · 4 Charaktere der Stufe 1 · ein Spielabend (ca. 4 Std.) · Ort: Torstadt*
+
+Karte: [Karte_Zisternen_Torstadt.svg](Karte_Zisternen_Torstadt.svg) (1 Feld = 1,5 m)
+
+---
+
+## Überblick für die SL
+
+**Was wirklich los ist:** Vor drei Wochen hat ein beherrschter Lehrling der Pfeilerwacht einen **Gegenanker** – einen schwarzen Runenstein – am Fundament des Torstädter Zentralpfeilers versteckt. Es ist ein Test: Fürst Drevan will sehen, ob der Stein unbemerkt bleibt und ob er die Verstärkungsmagie „anzapfen" kann. Der Stein strahlt eine schwache, kalte Nekromantie aus. Die Ratten in den Zisternen werden davon angezogen, aggressiv und vermehren sich. Eine besonders große Ratte hat direkt am Stein ihr Nest gebaut.
+
+**Was die Spieler erleben:** Erste Mission als Truppe, ein bisschen Kasernenhumor, ein kleiner Dungeon mit Wasser, Enge und Dunkelheit – und am Ende ein seltsamer Fund, den sie pflichtbewusst abgeben. Und der dann verschwindet.
+
+**Ablauf**
+1. Szene 1 – Die Kaserne (Einführung, ca. 30 Min.)
+2. Szene 2 – Die Quartiermeisterin (Ausrüstung, Humor, ca. 15 Min.)
+3. Szene 3 – Am Wasserwerk (Auftrag, Infos, ca. 15 Min.)
+4. Szene 4 – Die Zisternen (Dungeon, 7 Bereiche, ca. 2,5 Std.)
+5. Szene 5 – Zurück an der Oberfläche (Abschluss & Aufhänger, ca. 15 Min.)
+
+---
+
+## Szene 1 – Die Kaserne
+
+> *Die Kaserne der Wehrpflicht liegt direkt hinter dem Großen Steinwall. Wenn man an der Mauer steht, spürt man das tiefe Grollen des Grovarie, der unter dem Wall hindurch in die Höhlen fließt. Auf dem Exerzierplatz brennen bläuliche Leuchtpilze in eisernen Körben. Ihr steht in einer Reihe – zum ersten Mal nicht als Rekruten, sondern als Truppe. Eure Truppe.*
+
+**Hauptfeldwebelin Brakka Steinfaust** (Duergar, Mitte 60, graue Haut, Pilzpfeife, brummige Stimme) schreitet die Reihe ab.
+
+> *„Drei Jahre lang habe ich euch angeschrien. Ab heute schreie ich euch nur noch an, wenn ihr Mist baut. Das Praxisjahr ist kein Spaziergang. Ihr bekommt echte Aufträge, und wenn ihr versagt, sterben vielleicht echte Leute. Wenn ihr gut seid – und ich meine* gut *–, bekommt ihr am Ende ein Angebot. Die anderen gehen nach Hause und züchten Pilze. Fragen? Nein? Gut."*
+
+**Spielt die Vorstellungsrunde:** Brakka ruft jeden Charakter einzeln auf und kommentiert sein Ausbildungszeugnis mit einem Satz. Lass die Spieler vorher eine Anekdote aus der Ausbildung erzählen, Brakka greift sie auf („Ah, du bist die, die beim Gewaltmarsch die Pilzration des Ausbilders gegessen hat.").
+
+**Die Rivalen:** Auf der anderen Seite des Platzes steht die Truppe von **Seren Halvaris** (Munavri, schneeweißes Haar, perfekte Uniform, herablassend).
+> *„Oh, ihr seid die Truppe mit dem Rattenauftrag? Wir sollen eine Duergar-Spähergruppe am Westtor abfangen. Na ja – jemand muss ja auch die Keller putzen."*
+
+*(Seren ist kein Bösewicht, nur ein eitler Konkurrent. Er taucht in späteren Abenteuern wieder auf.)*
+
+---
+
+## Szene 2 – Die Quartiermeisterin
+
+**Pipra Zwirn** (Rattenvolk, winzig, Lesebrille, Federkiel hinter dem Ohr) gibt Ausrüstung aus – gegen Formular.
+
+> *„Name, Truppe, Dienstnummer. Hier unterschreiben. Und hier. Und hier – nein, das ist der Durchschlag, der kommt nach Grovaristadt. Ach, ihr geht in die Zisternen? Dann braucht ihr Formular 14-B, ‚Antrag auf feuchtigkeitsbedingten Ausrüstungsverschleiß'."*
+
+**Kostenlos gestellt (gegen Unterschrift):**
+- 1 Seil (15 m), 1 Brecheisen, 2 Fackeln oder 1 Sturmlaterne mit Öl, 4 Tagesrationen
+- 1 **Heiltrank (Leichte Wunden heilen)** pro Truppe
+- 2 Fläschchen **Alchemistenfeuer** – nur wenn ein Charakter freundlich zu Pipra ist oder das Formular fehlerfrei ausfüllt (Diplomatie SG 10 oder Weisheitswurf SG 10, wer ehrlich nachfragt)
+
+> **SL-Tipp:** Das Alchemistenfeuer ist wichtig gegen den Rattenschwarm in Bereich 5. Wenn die Gruppe es nicht bekommt, gib ihnen eine andere Möglichkeit (Öl in Bereich 4).
+
+**Pipra-Gerücht** (wenn man sie nett behandelt):
+> *„Die Wasserwerker sagen, das Wasser aus der Hauptzisterne schmeckt seit ein paar Wochen nach Eisen. Und nach Kälte, sagt der alte Dorrin. Wie Kälte schmeckt, weiß ich nicht. Aber Dorrin ist seit vierzig Jahren dabei."*
+
+---
+
+## Szene 3 – Am Wasserwerk
+
+Das Wasserwerk liegt direkt am Fuß des Torstädter Zentralpfeilers, einer gewaltigen Felssäule, die die Höhlendecke stützt. Rund um die Säule sind kleine blaue Runensteine in den Fels eingelassen (die Verstärkungsmagie der Pfeilerwacht, Zauberkunde SG 15: „starke Bannmagie, sehr alt, sehr gut gemacht").
+
+**Vorarbeiter Dorrin Kalkbart** (Svirfneblin, alt, nervös, nass bis zu den Knien) erklärt:
+> *„Vor drei Wochen fing es an. Erst ein paar Ratten, dann Dutzende. Riesige Viecher. Letzte Woche haben sie Hennik gebissen, er liegt mit Fieber im Hospiz. Seitdem geht keiner mehr runter. Und Tamla … Tamla ist vorgestern runter, um die Schleusen zu prüfen, und nicht wieder hoch. Ihr müsst sie finden!"*
+
+**Was Dorrin weiß** (auf Nachfrage):
+- Die Zisternen sind alt, älter als die Munavri – Svirfneblin-Bauwerk.
+- **Weg:** Treppe → Pumpenkammer → von dort ein schmaler Wartungsschacht nach Süden zur Hauptzisterne, und ein Gang nach Westen zum Überlaufbecken. Vom Überlaufbecken kommt man durch einen **gefluteten Durchgang** auch in die Hauptzisterne („aber nur, wenn man schwimmen kann und die Luft anhält").
+- Im Osten liegt der Geräteraum der Wasserwerker.
+- Die Hauptzisterne reicht bis ans Fundament des Pfeilers.
+- „Vor ein paar Wochen war jemand von der Pfeilerwacht hier unten. Ein junger Kerl. Hat irgendwas nachgemessen. Haben wir nicht weiter drüber nachgedacht." Er hatte einen Auftrag dabei – Dorrin hat ihn noch: **unterschrieben von Obermagister Bastrin Kieselgrund**, dem Stellvertreter der Erzmagistra. *(Falsche Spur, siehe Kampagnenbuch 3.4: Bastrin unterschreibt alle Routineaufträge.)*
+
+**Auftrag:** Tamla finden, die Rattenplage beseitigen, die Ursache herausfinden. Belohnung der Wasserwerker-Gilde: 50 GM pro Kopf.
+
+---
+
+## Szene 4 – Die Zisternen
+
+### Allgemeine Eigenschaften
+- **Licht:** Völlige Dunkelheit (nur Dunkelsicht oder eigene Lichtquellen).
+- **Wände:** Behauener Stein, feucht und glitschig. Klettern SG 20.
+- **Boden:** Nass. Wer rennt oder einen Sturmangriff macht: Akrobatik SG 10, sonst liegend.
+- **Wasser:** Flache Bereiche (hellblau auf der Karte, 30–60 cm) zählen als schwieriges Gelände. Tiefe Bereiche (dunkelblau, über 1,5 m) erfordern Schwimmen SG 10.
+- **Geräusche:** Das ständige Rauschen des Flusses gibt –2 auf Wahrnehmungswürfe, die auf Hören basieren.
+- **Krankheit:** Jeder Rattenbiss kann **Schmutzfieber** übertragen (siehe Werte). Das ist der eigentliche Gegner dieses Abenteuers – heile die Charaktere nach dem Abenteuer im Hospiz, aber lass sie die Sorge spüren.
+
+---
+
+### Bereich 1 – Einstiegsschacht
+
+> *Eine schmale, steile Wendeltreppe führt hinab in die Dunkelheit. Die Stufen sind glitschig vom Kondenswasser. Von unten weht euch kalte, modrige Luft entgegen – und ein leises, vielstimmiges Fiepen.*
+
+- Die Treppe ist 9 m tief. Wer ohne Vorsicht hinabsteigt: Akrobatik SG 8, sonst Rutschen (1W3 nichttödlicher Schaden) und Lärm → die Ratten in Bereich 2 sind vorgewarnt (kein Überraschungsmoment).
+- Am Fuß der Treppe: eine zerbissene Laterne. Tamlas.
+
+---
+
+### Bereich 2 – Pumpenkammer (Kampf, HG 1)
+
+> *Eine gewölbte Halle, beherrscht von einer gewaltigen Pumpe aus Bronze und Stein: Kettenräder, Kolben und Rohre, die in der Decke verschwinden. Der Mechanismus steht still. Zwischen den Zahnrädern bewegt sich etwas – Augen, die das Licht reflektieren.*
+
+**Kreaturen:** 3 **Schreckensratten** (Werte unten). Sie verstecken sich im Mechanismus und auf den Rohren (Heimlichkeit +11). Sie greifen an, sobald jemand die Raummitte erreicht.
+
+**Taktik:** Die Ratten nutzen ihre Klettergeschwindigkeit, um von den Rohren auf die Charaktere zu springen. Bei unter 2 TP fliehen sie in den Wartungsschacht (Bereich 5) – und alarmieren so den Schwarm.
+
+**Besonderheit:** Ein Hebel an der Pumpe (Mechanismus ausschalten SG 12 oder Stärke SG 14) setzt die Pumpe in Gang. Folge: Der Wasserspiegel in Bereich 6 sinkt in 10 Minuten um 1 m. Das macht Bereich 6 leichter (kein tiefes Wasser mehr außer im Kanal) und den gefluteten Durchgang zwischen 3 und 6 begehbar. **Belohne kluges Erkunden.**
+
+---
+
+### Bereich 3 – Überlaufbecken
+
+> *Ein großer Raum, fast vollständig mit schwarzem, stehendem Wasser gefüllt. Nur an der Nordseite verläuft ein schmaler Steinsims. Auf dem Wasser treiben tote Ratten – Dutzende. Sie sehen aus, als wären sie erfroren.*
+
+- Die Ratten sind ertrunken, aber ihr Fell ist mit Reif überzogen. Heilkunde oder Wissen (Natur) SG 12: „Diese Tiere sind nicht an Kälte gestorben – sie sind ertrunken, und *danach* ist etwas Kaltes an ihnen vorbeigetrieben." Wissen (Religion) SG 15: „Das ist der Rest negativer Energie. Nekromantie." (Erster Hinweis!)
+- **Gefluteter Durchgang** an der Südwand: 6 m Tauchstrecke bis zur Hauptzisterne (Bereich 6). Schwimmen SG 10, Luft anhalten (Konstitution × 2 Runden). Wenn die Pumpe läuft (Bereich 2): Durchgang nur noch hüfthoch, kein Wurf nötig.
+- Wer den Durchgang nutzt, umgeht den Rattenschwarm in Bereich 5 und erreicht Bereich 6 von Westen.
+- **Die Gedenktafel:** An der Nordwand, über dem Sims, hängt eine Bronzetafel mit zwölf Namen. Der oberste: *Feldwebel Tamrin Kalkbart*. Darunter: *„Sie hielten die Tiefe, damit der Wall hielt. Jahr 118."* Wissen (Geschichte oder Lokales) SG 10: Die Zwölf fluteten in der Schlacht am Steinwall die Tunnel und ertranken mit den Drow-Infiltratoren. Wer Dorrin danach auf die Tafel anspricht: *„Tamrin war mein Großvater. Deshalb gehe ich da runter. Jeden Tag."*
+
+---
+
+### Bereich 4 – Geräteraum der Wasserwerker
+
+> *Ein kleiner, verhältnismäßig trockener Raum. Werkzeuge hängen ordentlich an Haken, Fässer stehen an der Wand. Die Tür war von innen verbarrikadiert – mit einem Fass, das jetzt umgestoßen ist. Aus einer Ecke hört ihr leises, zitterndes Atmen.*
+
+**Tamla Grünschiefer** (Svirfneblin, Wasserwerkerin, jung, verängstigt) hat sich hier versteckt. Sie wurde gebissen und hat Fieber (Schmutzfieber, 1 Tag).
+
+- Sie hält die Charaktere zuerst für Ratten und wirft einen Schraubenschlüssel (harmlos, sorgt für einen Lacher).
+- Sie hat etwas gesehen: *„Ganz hinten an der Säule, wo das Fundament ins Wasser geht. Da ist ein Nest. Und mittendrin eine Ratte, so groß wie ein Hund. Und es war so kalt da … als ob die Säule selbst friert."*
+- Sie braucht Hilfe nach oben. Entweder begleitet sie ein Charakter zurück (die Gruppe ist kurz kleiner) oder die Gruppe nimmt sie mit (dann muss man sie in Kämpfen schützen). Oder man lässt sie mit Vorräten hier, verbarrikadiert (vernünftig, aber Brakka fragt später nach).
+
+**Fundstücke:** 1 Krug **Lampenöl** (3 Anwendungen, als improvisiertes Wurfgeschoss: 1W3 Feuer, bei Treffer brennt es 1 weitere Runde), 1 Fischernetz (kann als Netz benutzt werden), Wasserwerker-Stiefel mit Spikes (+2 auf Akrobatik gegen Ausrutschen).
+
+---
+
+### Bereich 5 – Der enge Schacht (Kampf, HG 2)
+
+> *Ein Wartungsschacht, kaum breiter als eure Schultern, führt steil nach unten. Die Wände sind mit Kratzspuren übersät. Von unten dringt ein Geräusch herauf, das wie Regen klingt – das Kratzen hunderter kleiner Krallen.*
+
+- Der Schacht ist 1 Feld breit, 10 m lang, fällt leicht ab. Mittelgroße Charaktere bewegen sich **gequetscht** (–4 auf Angriffswürfe und RK, halbe Bewegung). Kleine Charaktere (Svirfneblin, Rattenvolk) nicht. Lass sie das genießen.
+- **Kreatur:** 1 **Rattenschwarm** sitzt in einer Ausbuchtung in der Mitte des Schachts.
+
+> **Achtung – gefährlicher Kampf:** Ein Rattenschwarm (HG 2) ist für Stufe-1-Gruppen hart, weil normale Waffen nur halben Schaden machen. Lösungen: Alchemistenfeuer, Öl, Fackel als Waffe (1W3 Feuer), Flächenzauber (*Brennende Hände*, *Farbenspiel*), *Kanalisieren*. Wenn die Gruppe keine Mittel hat, **zieh dich zurück**: Der Schwarm verfolgt sie nur bis in Bereich 2 und zieht sich dann zurück – die Spieler können den Weg über Bereich 3 nehmen.
+
+- Wer den Schwarm besiegt: Am Boden liegt ein **abgerissener Stoffstreifen** mit einem eingestickten Symbol – eine stilisierte Säule. Wissen (Lokales) SG 10: Das ist das Abzeichen der **Pfeilerwacht**. (Zweiter Hinweis!)
+
+---
+
+### Bereich 6 – Die Hauptzisterne
+
+> *Der Schacht öffnet sich in eine gewaltige Halle. Säulenreihen tragen ein Gewölbe, das sich im Dunkel verliert. Der Boden ist ein einziger flacher See, durch den ein tiefer Kanal läuft. Euer Atem bildet weiße Wölkchen. Es ist kalt hier. Viel zu kalt.*
+
+- Temperatur deutlich unter dem Rest der Höhle (keine Regelwirkung, nur Atmosphäre).
+- Über die Halle verteilt treiben **Rattenkadaver**, manche angefressen.
+- **Der Kanal** (tiefes Wasser, 2 Felder breit) muss überquert werden: schwimmen (SG 10) oder über einen schmalen **Steg** (Akrobatik SG 10, bei Fehlschlag ins Wasser; um 5 oder mehr verfehlt: Lärm → Bereich 7 ist gewarnt).
+- Wenn die Pumpe läuft: Der Kanal ist nur noch hüfthoch, der Steg unnötig.
+- **Optionale Begegnung:** Wenn die Ratten aus Bereich 2 geflohen sind, warten sie hier (1–2 verletzte Schreckensratten).
+- **Säulenfuß im Nordosten:** In eine Säule sind Kreidemarkierungen gezeichnet – Zahlen und ein Pfeil Richtung Pfeilerfundament. Wer die Markierungen untersucht (Wahrnehmung SG 12), erkennt die **Handschrift eines Gelehrten**, ordentlich und geübt. Wissen (Arkanes) SG 15: Das sind Messwerte für Magieresonanz. Jemand hat hier etwas *ausgerichtet*. (Dritter Hinweis!)
+
+---
+
+### Bereich 7 – Das Pfeilerfundament (Bosskampf, HG 2)
+
+> *Die Halle endet an einer Wand aus rohem, schwarzem Fels – dem Fuß des Zentralpfeilers selbst, so breit, dass ihr seine Rundung kaum erkennt. Blaue Runen glimmen darin, schwach und gleichmäßig wie ein Herzschlag. Davor, auf einer Insel aus Schlamm, Knochen und Stofffetzen, liegt ein Nest. Darin bewegt sich etwas Großes. Und mitten im Nest, kalt wie der Tod, liegt ein faustgroßer schwarzer Stein.*
+
+**Kreaturen:** Die **Rattenmutter** (Werte unten) und 2 **Schreckensratten**.
+
+**Taktik:**
+- Die Ratten greifen sofort an. Die Rattenmutter bleibt zunächst auf dem Nest und verteidigt es.
+- Die Rattenmutter wird von dem Stein gestärkt (siehe Werte: *Kalte Kraft*). Sobald jemand den Stein aus dem Nest entfernt (Bewegungsaktion im Nachbarfeld, provoziert Gelegenheitsangriff), verliert sie diesen Bonus – und wird verzweifelt-aggressiv.
+- Die Rattenmutter kämpft bis zum Tod, die normalen Ratten fliehen bei 1 TP.
+
+**Gelände:**
+- Das Nest ist schwieriges Gelände.
+- Rund um die Insel: flaches Wasser.
+- Die Runen der Säule glimmen in einem Rhythmus. Wer bei einer Fertigkeit gut würfelt (Wahrnehmung SG 15 während des Kampfs, freie Aktion), bemerkt: **Jedes Mal, wenn der schwarze Stein pulsiert, flackern die blauen Runen.** Als würde etwas daran ziehen.
+
+---
+
+### Der schwarze Runenstein
+
+- **Aussehen:** Faustgroß, glatter schwarzer Stein (gehärteter Schwarzstein), eiskalt, eine einzelne eingravierte Rune, die sich nicht direkt ansehen lässt (Blick rutscht ab).
+- **Magie entdecken:** Schwache Aura – *Nekromantie* und *Bannmagie*, die sich gegenseitig „überlagern".
+- **Zauberkunde SG 20:** Die Bannmagie ist **umgekehrt**. Statt etwas zu schützen, *saugt* sie Schutz ab. Der Stein ist darauf „gestimmt", die Verstärkungsrunen des Pfeilers zu schwächen. Aber er ist viel zu klein, um wirklich etwas anzurichten – ein Test? Ein Prototyp?
+- **Zauberkunde SG 25** (kaum erreichbar, aber wer es schafft, soll belohnt werden): Die Rune trägt eine Signatur, wie eine Unterschrift. Eine Handschrift, die man wiedererkennen würde, wenn man sie einmal gesehen hat. (Wird im Finale relevant: Es ist Vanthes Zauberschrift.)
+- Wer den Stein länger als 1 Stunde am Körper trägt: Willen SG 11 oder 1 Punkt Weisheitsschaden und Albträume von einer bleichen Gestalt, die „Bald" flüstert.
+
+---
+
+## Szene 5 – Zurück an der Oberfläche
+
+Dorrin ist überglücklich (besonders, wenn Tamla lebt). Die Wasserwerker-Gilde zahlt.
+
+**Brakka** kommt persönlich zum Wasserwerk, wenn die Spieler den Stein erwähnen.
+
+> *„Zeigt her."* Sie hält den Stein lange in der Hand, die Pfeife erlischt. *„Das ist keine Duergar-Arbeit. Und keine von euch. Das gehört in die Hände von Leuten, die von so was Ahnung haben. Ich bringe es selbst zur Pfeilerwacht. Gute Arbeit. Ehrlich."*
+
+- Wenn die Spieler misstrauisch sind und den Stein nicht abgeben wollen: Brakka besteht darauf (Dienstweg!). Gute Argumente (Diplomatie SG 20) überzeugen sie, zusammen mit der Gruppe zu gehen. Dann treffen sie in der Torstädter Pfeilerwacht-Kanzlei einen freundlichen, älteren Magier, der den Stein dankend entgegennimmt und eine Untersuchung verspricht. Er sagt, er werde „Erzmagistra Vanthe persönlich" informieren.
+- **So oder so:** Wenn die Gruppe Wochen später nachfragt, gibt es den Stein angeblich nicht. „Kein Eintrag im Verzeichnis." Der junge Magier, der unten Messungen gemacht hat, ist „auf Expedition".
+
+**Abschluss:**
+> *Brakka klopft euch auf die Schultern – so fest, dass ihr fast in die Knie geht. „Erste Mission, keiner tot. Für Praxisjahr-Truppen ist das ein guter Anfang. Ruht euch aus. Übermorgen geht es nach Tiefenburg. Eine Händlerin braucht Geleitschutz, und die Händlerin ist schlimmer als jede Ratte."*
+
+**→ Weiter mit Abenteuer 2: Geleit nach Grovaristadt**
+
+---
+
+## Belohnungen
+
+**Erfahrung (wenn mit EP gespielt):**
+| Begegnung | EP gesamt |
+|---|---|
+| Bereich 2 (3 Schreckensratten) | 400 |
+| Bereich 5 (Rattenschwarm) | 600 |
+| Bereich 7 (Rattenmutter + 2 Ratten) | 670 |
+| Tamla gerettet | 400 |
+| Runenstein analysiert (Zauberkunde SG 20) | 200 |
+| Pumpe in Gang gesetzt | 100 |
+
+Bei Meilenstein-Aufstieg: Am Ende des Abenteuers Stufe 2.
+
+**Schätze:**
+- Belohnung der Wasserwerker-Gilde: 50 GM pro Charakter
+- Im Nest (Bereich 7, Suchen Wahrnehmung SG 12): die Habseligkeiten früherer Rattenopfer – 63 GM in gemischten Münzen, ein Svirfneblin-Edelstein (Spinell, 100 GM), ein **Trank: Leichte Wunden heilen**, ein **Trank: Krankheit kurieren** (selten! Nützlich gegen Schmutzfieber)
+- Tamlas Dank (wenn gerettet): Ihre Familie schenkt der Truppe eine **Meisterarbeits-Diebeswerkzeug**-Rolle oder einen **Meisterarbeits-Dolch** (Svirfneblin-Handwerk)
+
+**Ehrenmarke:** Wenn die Gruppe Tamla rettet *und* sie sicher nach oben bringt, bevor sie den Boss angeht → 1 Ehrenmarke.
+
+---
+
+## Werte
+
+### Schreckensratte (HG 1/3, 135 EP)
+N Kleines Tier · **INI** +3; **Sinne** Dämmersicht, Geruchssinn; Wahrnehmung +4
+
+**RK** 14, Berührung 14, auf dem falschen Fuß 11 (+3 GE, +1 Größe) · **TP** 5 (1W8+1) · **REF** +5, **WIL** +1, **ZÄH** +3
+
+**Bewegung** 12 m, Klettern 6 m, Schwimmen 6 m · **Nahkampf** Biss +1 (1W4 plus Krankheit)
+
+**ST** 10, **GE** 17, **KO** 13, **IN** 2, **WE** 13, **CH** 4 · **GAB** +0; **KMB** –1; **KMV** 12 · **Talente** Waffenfinesse · **Fertigkeiten** Heimlichkeit +11, Klettern +11, Schwimmen +11
+
+**Schmutzfieber** (Krankheit): Biss – Verletzung; *RW* Zähigkeit SG 11; *Inkubationszeit* 1W3 Tage; *Frequenz* 1/Tag; *Effekt* 1W3 GE- und 1W3 KO-Schaden; *Heilung* 2 aufeinanderfolgende Rettungswürfe.
+
+---
+
+### Rattenschwarm (HG 2, 600 EP)
+N Sehr kleines Tier (Schwarm) · **INI** +6; **Sinne** Dämmersicht, Geruchssinn; Wahrnehmung +8
+
+**RK** 14, Berührung 14, auf dem falschen Fuß 12 (+2 GE, +2 Größe) · **TP** 16 (3W8+3) · **REF** +5, **WIL** +2, **ZÄH** +4 · **Verteidigung** Schwarmeigenschaften (halber Schaden durch Hieb- und Stichwaffen, immun gegen Kampfmanöver und Effekte, die ein Einzelziel betreffen, verwundbar gegen Flächeneffekte: +50 % Schaden)
+
+**Bewegung** 4,5 m, Klettern 4,5 m, Schwimmen 4,5 m · **Nahkampf** Schwarm (1W6 plus Krankheit) · **Angriffsfläche** 3 m; **Reichweite** 0 m · **Besondere Angriffe** Krankheit (Schmutzfieber, SG 12), Ablenkung (SG 12)
+
+**ST** 2, **GE** 15, **KO** 13, **IN** 2, **WE** 13, **CH** 2 · **Talente** Fertigkeitsfokus (Wahrnehmung), Verbesserte Initiative · **Fertigkeiten** Akrobatik +6, Heimlichkeit +14, Klettern +10, Schwimmen +10
+
+**Ablenkung:** Wer zu Beginn seines Zuges im Schwarm steht und Schaden nimmt: Zähigkeit SG 12 oder 1 Runde übelkeitserregt.
+
+---
+
+### Die Rattenmutter (HG 1, 400 EP)
+*Schreckensratte mit Riesig-Schablone und zusätzlichem TW*
+
+N Mittelgroßes Tier · **INI** +2; **Sinne** Dämmersicht, Geruchssinn; Wahrnehmung +5
+
+**RK** 15, Berührung 12, auf dem falschen Fuß 13 (+2 GE, +3 natürlich) · **TP** 18 (2W8+9) · **REF** +5, **WIL** +1, **ZÄH** +6
+
+**Bewegung** 12 m, Klettern 6 m, Schwimmen 6 m · **Nahkampf** Biss +3 (1W6+3 plus Krankheit)
+
+**ST** 14, **GE** 15, **KO** 17, **IN** 2, **WE** 13, **CH** 4 · **GAB** +1; **KMB** +3; **KMV** 15 · **Talente** Abhärtung · **Fertigkeiten** Heimlichkeit +6, Klettern +10, Schwimmen +10
+
+**Schmutzfieber:** wie oben, aber SG 14.
+
+**Kalte Kraft:** Solange der schwarze Runenstein im Nest liegt und die Rattenmutter im Nest steht, erhält sie **Schnelle Heilung 1** und Biss-Treffer verursachen zusätzlich 1 Kälteschaden.
+
+**Verzweiflung:** Wenn der Stein aus dem Nest entfernt wird, verliert sie *Kalte Kraft*, erhält aber +2 auf Angriffswürfe, –2 auf RK und verfolgt den Charakter, der den Stein trägt.
+
+---
+
+### Tamla Grünschiefer
+Svirfneblin, Bürgerin 1 · TP 6 (aktuell 2) · kann nicht kämpfen, aber Fackeln halten und Türen kennen. Fiebrig (–2 auf alles).
+
+---
+
+## Wenn etwas schiefgeht
+
+- **Gruppe zu schwach / mehrere Charaktere fast tot:** Brakka hat eine zweite Truppe als Reserve beim Wasserwerk postiert. Ein Hornsignal holt Hilfe – aber das kostet Ansehen (Seren Halvaris erfährt davon).
+- **Gruppe ignoriert den Stein:** Tamla oder Dorrin findet ihn später und bringt ihn zu Brakka. Der Hinweis geht nicht verloren, die Spieler erfahren es in Abenteuer 2 als Gerücht.
+- **Gruppe will den Stein zerstören:** Er ist härter als Stahl (Härte 10, 20 TP). Wenn es gelingt: Die Runen am Pfeiler leuchten kurz hell auf, und irgendwo in Grovaristadt fährt eine Erzmagistra aus dem Schlaf. Die Verschwörung weiß jetzt, dass jemand den Test entdeckt hat. Nutze das: In Abenteuer 2 werden die Ghule gezielter.
+- **Schmutzfieber:** Das Hospiz von Torstadt heilt Wehrpflichtige kostenlos (*Krankheit kurieren*), aber erst nach 1 Tag Wartezeit. Gut für Rollenspiel im Krankensaal (Hennik, der erste Gebissene, liegt im Nachbarbett und erzählt von „einem jungen Magier mit einem Kasten voller Messgeräte").

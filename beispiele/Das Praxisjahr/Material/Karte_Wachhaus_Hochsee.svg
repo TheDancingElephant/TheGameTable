@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 780" width="720" height="780" font-family="Georgia, serif">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse" x="40" y="40">
+      <path d="M20 0 L0 0 0 20" fill="none" stroke="#000" stroke-opacity="0.16" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="720" height="780" fill="#3b3530"/>
+  <text x="360" y="28" text-anchor="middle" fill="#efe6d2" font-size="20" font-weight="bold">Illiatist – Wachhaus, Wehrturm und Seepfeiler</text>
+
+  <!-- Hochsee -->
+  <rect x="40" y="40" width="640" height="180" fill="#2f6f8f"/>
+  <text x="120" y="90" fill="#dbeef6" font-size="16" font-style="italic">Hochsee</text>
+
+  <!-- Kaimauer -->
+  <rect x="40" y="220" width="640" height="40" fill="#b9ad94"/>
+  <text x="90" y="245" fill="#3b3530" font-size="11">Kaimauer</text>
+
+  <!-- Steg -->
+  <rect x="300" y="120" width="20" height="100" fill="#8a6a42"/>
+  <text x="326" y="135" fill="#efe6d2" font-size="11">Steg</text>
+
+  <!-- Seepfeiler -->
+  <circle cx="570" cy="140" r="78" fill="#2b2622" stroke="#4a443d" stroke-width="4"/>
+  <g fill="#6fb6ff">
+    <circle cx="570" cy="70" r="4"/><circle cx="625" cy="95" r="4"/><circle cx="640" cy="150" r="4"/>
+    <circle cx="510" cy="100" r="4"/><circle cx="500" cy="160" r="4"/><circle cx="600" cy="205" r="4"/>
+  </g>
+  <text x="570" y="145" text-anchor="middle" fill="#efe6d2" font-size="13">Seepfeiler</text>
+
+  <!-- Wehrturm -->
+  <circle cx="480" cy="250" r="46" fill="#d9cfb8" stroke="#4a443d" stroke-width="6"/>
+  <path d="M480 296 L470 280 L486 266 L474 250 L490 236 L482 222" fill="none" stroke="#8a2d2d" stroke-width="3"/>
+  <g stroke="#6b5f4e" stroke-width="2">
+    <line x1="455" y1="240" x2="475" y2="240"/><line x1="455" y1="248" x2="475" y2="248"/>
+    <line x1="455" y1="256" x2="475" y2="256"/><line x1="455" y1="264" x2="475" y2="264"/>
+  </g>
+  <text x="465" y="280" text-anchor="middle" font-size="9" fill="#3b3530">Keller ↓</text>
+  <!-- Fuge mit Gegenanker -->
+  <circle cx="524" cy="206" r="8" fill="#000" stroke="#cfe3ff" stroke-width="2"/>
+
+  <!-- Wachhaus -->
+  <rect x="80" y="280" width="340" height="240" fill="#d9cfb8" stroke="#4a443d" stroke-width="6"/>
+  <!-- Innenwände -->
+  <g stroke="#4a443d" stroke-width="4">
+    <line x1="220" y1="280" x2="220" y2="520"/>
+    <line x1="80" y1="400" x2="220" y2="400"/>
+    <line x1="220" y1="340" x2="420" y2="340"/>
+    <line x1="220" y1="420" x2="420" y2="420"/>
+    <line x1="270" y1="340" x2="270" y2="420"/><line x1="320" y1="340" x2="320" y2="420"/><line x1="370" y1="340" x2="370" y2="420"/>
+  </g>
+  <!-- Zellengitter -->
+  <g stroke="#2c3731" stroke-width="2" stroke-dasharray="3 3">
+    <line x1="224" y1="340" x2="266" y2="340"/><line x1="274" y1="340" x2="316" y2="340"/>
+    <line x1="324" y1="340" x2="366" y2="340"/><line x1="374" y1="340" x2="416" y2="340"/>
+  </g>
+  <!-- Türen -->
+  <g fill="#8a6a42">
+    <rect x="216" y="300" width="8" height="24"/>
+    <rect x="216" y="450" width="8" height="24"/>
+    <rect x="140" y="396" width="24" height="8"/>
+    <rect x="300" y="416" width="24" height="8"/>
+    <rect x="280" y="516" width="40" height="8"/>
+  </g>
+  <!-- Möbel -->
+  <rect x="110" y="320" width="60" height="30" fill="#9c7b4f"/><text x="140" y="372" text-anchor="middle" font-size="10" fill="#3b3530">Tisch</text>
+  <g fill="#7d766b"><rect x="95" y="420" width="14" height="80"/><rect x="190" y="420" width="14" height="80"/></g>
+  <!-- Dachluke -->
+  <rect x="384" y="296" width="24" height="24" fill="none" stroke="#8a2d2d" stroke-width="2" stroke-dasharray="4 2"/>
+  <!-- Zellennamen -->
+  <g font-size="11" fill="#3b3530" text-anchor="middle">
+    <text x="245" y="385">Z1</text><text x="295" y="385">Z2</text><text x="345" y="385">Z3</text><text x="395" y="385">Z4</text>
+  </g>
+  <text x="345" y="400" text-anchor="middle" font-size="9" fill="#8a2d2d">Velrith</text>
+  <text x="320" y="475" text-anchor="middle" font-size="12" fill="#3b3530" font-style="italic">Hof</text>
+
+  <!-- Straße -->
+  <rect x="40" y="540" width="640" height="40" fill="#c9bea6"/>
+  <text x="360" y="565" text-anchor="middle" font-size="12" fill="#3b3530" font-style="italic">Hafengasse → Platz der Häuser</text>
+  <rect x="300" y="520" width="20" height="20" fill="#c9bea6"/>
+
+  <!-- Raster -->
+  <rect x="40" y="40" width="640" height="540" fill="url(#grid)"/>
+
+  <!-- Nummern -->
+  <g font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">
+    <circle cx="250" cy="470" r="12" fill="#8a2d2d"/><text x="250" y="475">1</text>
+    <circle cx="150" cy="300" r="12" fill="#8a2d2d"/><text x="150" y="305">2</text>
+    <circle cx="300" cy="310" r="12" fill="#8a2d2d"/><text x="300" y="315">3</text>
+    <circle cx="396" cy="282" r="12" fill="#8a2d2d"/><text x="396" y="287">4</text>
+    <circle cx="440" cy="212" r="12" fill="#8a2d2d"/><text x="440" y="217">5</text>
+    <circle cx="545" cy="235" r="12" fill="#8a2d2d"/><text x="545" y="240">6</text>
+    <circle cx="610" cy="40" r="0"/>
+    <circle cx="285" cy="150" r="12" fill="#8a2d2d"/><text x="285" y="155">7</text>
+    <circle cx="150" cy="460" r="12" fill="#8a2d2d"/><text x="150" y="465">8</text>
+  </g>
+
+  <!-- Kompass & Maßstab -->
+  <g transform="translate(660,560)" fill="#efe6d2" text-anchor="middle">
+    <polygon points="0,-20 5,0 0,-5 -5,0"/><text y="-24" font-size="12">N</text>
+  </g>
+  <g transform="translate(40,600)" fill="#efe6d2" font-size="11">
+    <rect x="0" y="0" width="20" height="6" fill="#efe6d2"/><rect x="20" y="0" width="20" height="6" fill="#8a8173"/>
+    <rect x="40" y="0" width="20" height="6" fill="#efe6d2"/><rect x="60" y="0" width="20" height="6" fill="#8a8173"/>
+    <text x="0" y="20">0</text><text x="74" y="20">6 m</text><text x="100" y="8">1 Feld = 1,5 m</text>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(40,640)" font-size="12" fill="#efe6d2">
+    <text x="0" y="0"><tspan font-weight="bold">1</tspan> Hof – Ablenkung durch die Schläger</text>
+    <text x="0" y="18"><tspan font-weight="bold">2</tspan> Wachstube (Nachtwache)</text>
+    <text x="0" y="36"><tspan font-weight="bold">3</tspan> Zellengang, Zellen Z1–Z4 (Velrith in Z3)</text>
+    <text x="0" y="54"><tspan font-weight="bold">4</tspan> Dachluke – Ilvraes Weg hinein und hinaus</text>
+    <text x="340" y="0"><tspan font-weight="bold">5</tspan> Wehrturm mit Riss (Treppe zum Keller)</text>
+    <text x="340" y="18"><tspan font-weight="bold">6</tspan> Turmkeller am Seepfeiler – Tatort</text>
+    <text x="340" y="36"><tspan font-weight="bold">7</tspan> Steg – hier saßen Velrith und Ithiel</text>
+    <text x="340" y="54"><tspan font-weight="bold">8</tspan> Waffenkammer</text>
+    <circle cx="348" cy="84" r="6" fill="#000" stroke="#cfe3ff" stroke-width="2"/><text x="362" y="88">Fuge mit dem zweiten Gegenanker</text>
+    <rect x="0" y="78" width="14" height="10" fill="none" stroke="#e08a8a" stroke-dasharray="3 2"/><text x="20" y="88">Dachluke (auf dem Dach)</text>
+    <text x="0" y="116" font-size="11" fill="#bfb5a2">Der Turmkeller liegt unter dem Turm (5); der Seepfeiler tritt dort durch das Fundament. Der rote Riss zeigt die Explosion von unten.</text>
+  </g>
+</svg>

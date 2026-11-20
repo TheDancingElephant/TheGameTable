@@ -101,6 +101,9 @@ Hauptfensters alle Spielfenster zu, und die Server, die die Zentrale gestartet h
 
 1. Zentrale → **„+ Neue Kampagne“**.
 2. **Name** eintragen. Ordnername und Port sind optional (der Port wird automatisch frei gewählt).
+   Wer erst einmal ausprobieren will: unter **„Beispiel“** die mitgelieferte Kampagne „Das Praxisjahr“ wählen (Name
+   darf dann leer bleiben). Sie bringt Abenteuertexte, SL-Notizen, Karten mit Sichtnebel, vier Test-Charaktere und eine
+   fertige Startszene mit – nach „Anlegen“ nur noch **Starten** drücken.
 3. **Abenteuer-PDFs** mit „PDFs auswählen …“ hinzufügen. Sie werden nach `Material\` kopiert; ihr Text wird für den
    SL-Agenten nach `sl\quellen\` übernommen (mit Seitenzahlen).
 4. Optional **„Datei-Sperre“**: Der SL-Agent darf dann nur über die Spieltisch-Werkzeuge arbeiten, nicht direkt in den

@@ -4,7 +4,8 @@
 
 Enthalten (Ordner „Spieltisch/“ im ZIP): Programmdateien (*.py ohne dieses Skript), web/, mcp/ (ohne Entwickler-Patches),
 daten/ (Regeldaten: zauber.json, zauber_prd.json mit LIZENZ-ZAUBER.txt), regeln/regeln.sqlite mit
-regeln/LIZENZ-REGELN.txt (Regeldatenbank; ohne regeln/cache und regeln/md), vorlage/, ANLEITUNG.md/.pdf, AGENT.md, README.md, einrichten.bat, start.bat, zentrale.bat,
+regeln/LIZENZ-REGELN.txt (Regeldatenbank; ohne regeln/cache und regeln/md), vorlage/, beispiele/ (Beispielkampagnen
+ohne Spielprotokoll und Schlüssel), ANLEITUNG.md/.pdf, AGENT.md, README.md, einrichten.bat, start.bat, zentrale.bat,
 python_finden.bat. Nicht enthalten: Kampagnen, _sicherung-*, __pycache__, *.bak*, Logs, Schlüssel, zentrale.json,
 python-pfad.txt, Verknüpfungen (*.lnk), dist/. Das Ergebnis wird auf Pfade/Namen dieses Rechners geprüft.
 
@@ -23,7 +24,7 @@ BASIS = Path(__file__).resolve().parent
 
 DATEIEN = ["ANLEITUNG.md", "ANLEITUNG.pdf", "AGENT.md", "README.md", "LICENSE", "ARCHITEKTUR.md", "STYLEGUIDE.md",
            "einrichten.bat", "start.bat", "zentrale.bat", "python_finden.bat"]
-ORDNER = ["web", "mcp", "daten", "vorlage", "bereiche"]
+ORDNER = ["web", "mcp", "daten", "vorlage", "beispiele", "bereiche"]
 # Regeldatenbank: nur Datenbank + Lizenz (Cache und Markdown-Ausgabe entstehen auf dem Zielrechner bei Bedarf)
 REGELN = ["regeln/regeln.sqlite", "regeln/LIZENZ-REGELN.txt"]
 # Ohne diese Dateien wird nicht gebaut (die PRD-Daten dürfen nur mit Lizenztext weitergegeben werden)
@@ -33,7 +34,7 @@ PFLICHT = ["bereiche/wissen/zauber_db.py", "daten/zauber.json", "daten/zauber_pr
 OHNE_PY = {"paket_bauen.py", "anleitung_pdf.py"}
 AUSSCHLUSS = [r"(^|/)__pycache__/", r"(^|/)_sicherung", r"\.bak", r"\.log$", r"\.lnk$", r"(^|/)Thumbs\.db$",
               r"(^|/)desktop\.ini$", r"(^|/)schluessel\.txt$", r"(^|/)zentrale\.json$", r"(^|/)python-pfad\.txt$",
-              r"\.patch$", r"(^|/)\.~lock", r"\.pyc$", r"(^|/)\.claude/", r"(^|/)\.mcp\.json$"]
+              r"\.patch$", r"(^|/)protokoll\.jsonl$", r"(^|/)\.sicherung/", r"(^|/)\.~lock", r"\.pyc$", r"(^|/)\.claude/", r"(^|/)\.mcp\.json$"]
 TEXT = {".py", ".md", ".json", ".bat", ".html", ".js", ".css", ".txt"}
 
 

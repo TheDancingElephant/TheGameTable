@@ -1,0 +1,36 @@
+{
+ "id": "grimbar",
+ "name": "Grimbar Aschbart",
+ "klasse": "Kämpfer 1",
+ "stufe": 1,
+ "volk": "Duergar",
+ "groesse": "Mittel",
+ "gesinnung": "RN",
+ "gottheit": "Torag",
+ "farbe": "#3a7bd5",
+ "attribute": {"ST": 16, "GE": 13, "KO": 16, "IN": 10, "WE": 14, "CH": 6},
+ "tp": {"max": 14, "aktuell": 14},
+ "rk": {"normal": 18, "beruehrung": 11, "adff": 17},
+ "ini": 1,
+ "gab": 1,
+ "kmb": 4,
+ "kmv": 15,
+ "rw": {"REF": 1, "WIL": 2, "ZAEH": 5},
+ "bewegung": 6,
+ "angriffe": [
+  {"name": "Streitaxt", "bonus": 5, "schaden": "1W8+3", "krit": "x3", "art": "H"},
+  {"name": "Schwere Armbrust", "bonus": 2, "schaden": "1W10", "krit": "19-20/x2", "art": "S", "fernkampf": true, "inkrement": 36}
+ ],
+ "fertigkeiten": [
+  {"name": "Einschüchtern", "bonus": 2, "klasse": true},
+  {"name": "Klettern", "bonus": 1, "klasse": true},
+  {"name": "Schwimmen", "bonus": -3, "klasse": true},
+  {"name": "Überlebenskunst", "bonus": 3, "klasse": true},
+  {"name": "Wahrnehmung", "bonus": 2, "klasse": false}
+ ],
+ "talente": "Heftiger Angriff, Waffenfokus (Streitaxt)",
+ "wesenszuege": "Wehrpflichtiger der Grovari (Überlebenskunst +1, Klassenfertigkeit)",
+ "faehigkeiten": "Test-SC (Probe-Charakter der Beispielkampagne).\nDunkelsicht 36 m, Lichtempfindlichkeit (geblendet in hellem Licht).\nDuergar-Immunitäten: Lähmung, Phantasmen, Gift; +2 auf Rettungswürfe gegen Zauber und zauberähnliche Fähigkeiten.\nStabilität: +4 KMV gegen Ansturm und Zu-Fall-bringen.\nZauberähnliche Fähigkeiten 1/Tag (ZS 2): Person vergrößern (nur selbst), Unsichtbarkeit (nur selbst).\nBewegungsrate 6 m, auch in mittelschwerer/schwerer Rüstung.",
+ "ausruestung": "Schuppenpanzer, schwerer Stahlschild, Streitaxt, schwere Armbrust mit 20 Bolzen, Rucksack, Feuerstein und Stahl, Pilzpfeife",
+ "ep": 0
+}

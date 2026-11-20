@@ -1,0 +1,398 @@
+# NSC-Werte – Das Praxisjahr
+
+*Pathfinder 1e · Begleitband zum Kampagnenbuch*
+
+Alle Werte sind auf den Moment gerechnet, in dem der NSC voraussichtlich ins Spiel kommt. Wenn deine Gruppe stärker oder schwächer ist, nutze die Anpassungstipps unter den Blöcken.
+
+**Munavri** sind hier wie im Spielerhandout gebaut (spielbare Version: +2 GE, +2 IN, –2 ST, Dunkelsicht 36 m, Lichtblindheit, Telepathie 18 m mit anderen Munavri, *Objektlesen* 3/Tag, Erweitertes Objektlesen 1/Tag). Wer lieber die offiziellen Werte aus dem *Occult Bestiary* nutzt, erhöht den HG jedes Munavri-NSCs um 1.
+
+---
+
+## Inhalt
+
+**Kampf-NSCs**
+1. Brakka Steinfaust – Ausbilderin (HG 4)
+2. Seren Halvaris – Rivale (HG 1)
+3. Pfeilerwacht-Lehrling, beherrscht (HG 1)
+4. Kell Morrow – menschlicher Ghulführer (HG 1)
+5. Ilvrae Xun – Drow-Spion (HG 2)
+6. Der Bleiche Hund – Vampirbrut-Jäger (HG 4)
+7. Erzmagistra Oriel Vanthe (HG 8)
+7b. Obermagister Bastrin Kieselgrund – der zweite Verdächtige (HG 6)
+8. Fürst Casimir Drevan (keine Werte – bleibt im Hintergrund)
+
+**Unterstützende NSCs** (Kurzwerte)
+9. Thorgrim Aschhand · Ilun Sareth · Tamla Grünschiefer
+
+**Rollenspiel-NSCs** (soziale Werte als Tabelle)
+
+---
+
+## 1. Brakka Steinfaust (HG 4, 1.200 EP)
+
+*Duergar, Kämpferin 5 · RN Mittelgroße Humanoide (Zwerg)*
+
+> Grauhäutig, breit wie ein Fass, kurz geschorenes weißes Haar, eine Pilzpfeife, die nie ganz ausgeht. Kam als Kind mit den Duergar-Asylsuchenden nach Torstadt. Brummig, gerecht, steht hinter ihren Leuten.
+
+**INI** +1; **Sinne** Dunkelsicht 36 m; Wahrnehmung +6
+
+**Verteidigung**
+**RK** 19, Berührung 11, auf dem falschen Fuß 18 (+6 Rüstung, +1 GE, +2 Schild)
+**TP** 47 (5W10+15)
+**REF** +2, **WIL** +2 (+1 gegen Furcht), **ZÄH** +7; +2 gegen Zauber und zauberähnliche Fähigkeiten
+**Immunität** Gifte, Lähmung, Trugbilder (Phantasmen)
+**Schwäche** Lichtempfindlichkeit
+
+**Angriff**
+**Bewegung** 6 m (wird durch Rüstung nicht verringert)
+**Nahkampf** Meisterarbeits-Kriegshammer +11 (1W8+6/×3)
+**Fernkampf** leichte Armbrust +6 (1W8/19–20)
+**Zauberähnliche Fähigkeiten** (ZS 5) 1/Tag – *Person vergrößern* (nur selbst), *Unsichtbarkeit* (nur selbst)
+
+**Spielwerte**
+**ST** 16, **GE** 12, **KO** 16, **IN** 13, **WE** 12, **CH** 4
+**GAB** +5; **KMB** +8; **KMV** 19 (23 gegen Ansturm und Zu-Fall-bringen)
+**Talente** Doppelschlag, Eiserner Wille, Heftiger Angriff (–2/+4), Schildfokus, Waffenfokus (Kriegshammer), Waffenspezialisierung (Kriegshammer)
+**Fertigkeiten** Einschüchtern +5, Wahrnehmung +6, Wissen (Gewölbe) +9
+**Sprachen** Gemeinsprache, Terranisch, Undercommon, Zwergisch
+**Besondere Eigenschaften** Rüstungstraining 1, Tapferkeit +1, Waffentraining (Hämmer +1), Standfestigkeit
+**Ausrüstung** Meisterarbeits-Brustplatte, schwerer Stahlschild, Meisterarbeits-Kriegshammer, leichte Armbrust mit 20 Bolzen, 2 Tränke *Mittelschwere Wunden heilen*, Pilzpfeife
+
+**Taktik:** Brakka greift nur im Notfall ein (Rettung aus Abenteuer 1, Belagerung im Finale). Sie stellt sich vor die schwächsten Wehrpflichtigen, nutzt *Person vergrößern* in der ersten Runde und hält die Stellung.
+
+**Im Spiel:** Brakka sollte die Gruppe nie überstrahlen. Wenn sie kämpft, dann am Rand des Geschehens – „Ich halte die Treppe, ihr holt den Stein!"
+
+---
+
+## 2. Seren Halvaris (HG 1, 400 EP)
+
+*Munavri, Magier 2 (Hervorrufer) · RG Mittelgroße Humanoide (Munavri)*
+
+> Schneeweißes Haar, makellose Uniform, die Stimme eines Mannes, der sich selbst gern reden hört. Hält Zauberkundige für die eigentliche Elite der Wehrpflicht. Im Kern kein schlechter Kerl – er hat nur noch nie verloren.
+
+**INI** +2; **Sinne** Dunkelsicht 36 m; Wahrnehmung +0
+
+**Verteidigung**
+**RK** 12, Berührung 12, auf dem falschen Fuß 10 (+2 GE); 16 mit *Magierrüstung*
+**TP** 11 (2W6+2)
+**REF** +2, **WIL** +3, **ZÄH** +1
+**Schwäche** Lichtblindheit
+
+**Angriff**
+**Bewegung** 9 m
+**Nahkampf** Dolch +0 (1W4–1/19–20)
+**Fernkampf** Leichte Armbrust +3 (1W8/19–20)
+**Zauberähnliche Schulfähigkeit** (ZS 2, 6/Tag) Kraftgeschoss (1W4+1, trifft automatisch)
+**Vorbereitete Magierzauber** (ZS 2; Konzentration +5)
+1. Grad – *Brennende Hände* (SG 15) (Schulplatz), *Magierrüstung*, *Magisches Geschoss* (2×)
+0. Grad – *Benommenheit* (SG 13), *Licht*, *Säurespritzer*, *Magie entdecken*
+**Verbotene Schulen** Verzauberung, Nekromantie
+
+**Spielwerte**
+**ST** 8, **GE** 14, **KO** 12, **IN** 17, **WE** 10, **CH** 13
+**GAB** +1; **KMB** +0; **KMV** 12
+**Talente** Schriftrolle anfertigen, Zauberfokus (Hervorrufung)
+**Fertigkeiten** Diplomatie +3, Wissen (Arkanes) +8, Wissen (Gewölbe) +8, Wissen (Lokales) +8, Zauberkunde +8
+**Besondere Eigenschaften** Arkane Bindung (Ring), Intensive Zauber (+1 Schaden bei Hervorrufungen), Telepathie 18 m (Munavri), *Objektlesen* 3/Tag, Erweitertes Objektlesen 1/Tag
+**Eigenart:** Munavri sprechen untereinander kaum laut. Seren redet trotzdem ständig laut – er findet, seine Stimme sei ein Geschenk an die Welt. Andere Munavri finden das peinlich.
+**Ausrüstung** Dolch, leichte Armbrust, Zauberbuch, Schriftrolle *Schild*, Uniform mit Silberknöpfen (10 GM)
+
+**Seine Truppe:** Seren führt eine Standardtruppe aus vier weiteren Wehrpflichtigen. Nutze dafür Kämpfer 1, Druide 1, Kleriker 1 und Schurke 1 aus dem NSC-Kodex oder einfache Krieger 1 (HG 1/2).
+
+**Mitwachsen:** Seren steigt zusammen mit der Gruppe auf. Pro Abenteuer +1 Stufe und neue Zauber: Stufe 3 *Sengender Strahl*, Stufe 5 *Feuerball*. Wenn er im Finale neben der Gruppe kämpft (und sie respektiert), ist das ein schöner Abschluss für den Rivalen.
+
+---
+
+## 3. Pfeilerwacht-Lehrling, beherrscht (HG 1, 400 EP)
+
+*Munavri, Magier 2 (Bannmagier) · NG (zurzeit beherrscht) Mittelgroße Humanoide (Munavri)*
+
+> Junge Gesichter in grauen Gildenroben mit dem Säulen-Abzeichen. Ihre Augen sind glasig, ihre Bewegungen ein winziges bisschen zu langsam.
+
+**INI** +1; **Sinne** Dunkelsicht 36 m; Wahrnehmung +1
+
+**Verteidigung**
+**RK** 15, Berührung 11, auf dem falschen Fuß 14 (+4 *Magierrüstung*, +1 GE)
+**TP** 14 (2W6+5)
+**REF** +1, **WIL** +4, **ZÄH** +1
+**Resistenz** Säure 5 (Bannmagier-Resistenz)
+**Schwäche** Lichtblindheit
+
+**Angriff**
+**Bewegung** 9 m
+**Nahkampf** Kampfstab +0 (1W6–1)
+**Zauberähnliche Schulfähigkeit** (ZS 2, 6/Tag) Schutzschild (+1 RK für 1 Runde, als Schnelle Aktion; gegen Fernkampf zusätzlich Abwehr)
+**Vorbereitete Magierzauber** (ZS 2; Konzentration +5)
+1. Grad – *Schlaf* (SG 14), *Schmierfett* (SG 14), *Magisches Geschoss*, *Schild* (Schulplatz)
+0. Grad – *Benommenheit* (SG 13), *Kältestrahl*, *Magie entdecken*, *Lesen magischer Schrift*
+
+**Spielwerte**
+**ST** 8, **GE** 12, **KO** 12, **IN** 16, **WE** 12, **CH** 10
+**GAB** +1; **KMB** +0; **KMV** 11
+**Talente** Abhärtung, Schriftrolle anfertigen
+**Fertigkeiten** Wissen (Arkanes) +8, Wissen (Gewölbe) +8, Wissen (Ingenieurwesen) +8, Zauberkunde +8
+**Besondere Eigenschaften** Telepathie 18 m (Munavri), *Objektlesen* 3/Tag
+**Ausrüstung** Kampfstab, Gildenrobe, Messinstrumente, Zauberbuch
+
+**Beherrscht:** Die Lehrlinge stehen unter der Beherrschung des Vampirs (wie *Person beherrschen*). Jede Runde, in der ein Lehrling einem Freund oder Ausbilder gegenübersteht, der ihn mit Namen anspricht und eine Diplomatie-Probe gegen SG 15 schafft, erhält er einen neuen Willenswurf (SG 15). Bei Erfolg bricht er zusammen und weint – er kämpft nicht weiter.
+*Schutz vor Bösem* (auch auf den Lehrling gewirkt) unterdrückt die Beherrschung sofort.
+
+**Ehrenmarke:** Wer im Finale alle Lehrlinge lebend überwältigt (nichttödlicher Schaden, *Schlaf*, Ringkampf), erhält eine Ehrenmarke.
+
+---
+
+## 4. Kell Morrow (HG 1, 400 EP)
+
+*Mensch, Schurke 2 · NB Mittelgroßer Humanoide (Mensch)*
+
+> Hager, vermummt, ein Gesicht voller Pockennarben. Ein menschlicher Diener des Vampirreichs, der darauf hofft, eines Tages selbst „erhoben" zu werden. Er führt die Ghule im Überfall von Abenteuer 2.
+
+**INI** +3; **Sinne** Wahrnehmung +6
+
+**Verteidigung**
+**RK** 16, Berührung 13, auf dem falschen Fuß 13 (+3 Rüstung, +3 GE)
+**TP** 16 (2W8+4)
+**REF** +6, **WIL** +0, **ZÄH** +2
+**Verteidigungsfähigkeiten** Entrinnen
+
+**Angriff**
+**Bewegung** 9 m
+**Nahkampf** Kurzschwert +4 (1W6/19–20)
+**Fernkampf** leichte Armbrust +4 (1W8/19–20)
+**Besondere Angriffe** Hinterhältiger Angriff +1W6
+
+**Spielwerte**
+**ST** 10, **GE** 16, **KO** 14, **IN** 12, **WE** 10, **CH** 8
+**GAB** +1; **KMB** +1; **KMV** 14
+**Talente** Waffenfinesse
+**Fertigkeiten** Bluffen +4, Einschüchtern +4, Heimlichkeit +8, Mechanismus ausschalten +8, Mit Tieren umgehen +1 (kommandiert Ghule), Wahrnehmung +6, Akrobatik +8
+**Sprachen** Gemeinsprache, Undercommon
+**Besondere Eigenschaften** Fallenfinder +1, Schurkentrick (Schnelle Heimlichkeit)
+**Ausrüstung** beschlagene Lederrüstung, Kurzschwert, leichte Armbrust mit 10 Bolzen, Trank *Unsichtbarkeit*, Säckchen mit Ghul-Futter (stinkend), Brief mit dem Siegelabdruck einer Säule (Hinweis!)
+
+**Taktik:** Kell schickt die Ghule voraus und schießt aus dem Dunkeln. Bei unter 6 TP trinkt er den Trank *Unsichtbarkeit* und flieht. Gefangen genommen redet er nur unter Einschüchterung (SG 15) oder Zauberei – er fürchtet seinen Herrn mehr als die Truppe.
+
+---
+
+## 5. Ilvrae Xun (HG 2, 600 EP)
+
+*Drow, Schurke 3 · NB Mittelgroßer Humanoide (Elf)*
+
+> Schlank, unauffällig, trägt die schlichte Kleidung eines Pilzbauern aus Illiatist. Lebt seit acht Jahren als „Flüchtling" in der Stadt. Er ist der einzige echte Spion in Abenteuer 3 – und er wurde nicht von den Drow-Häusern gekauft, sondern vom Vampirreich.
+
+**INI** +4; **Sinne** Dunkelsicht 36 m; Wahrnehmung +8
+
+**Verteidigung**
+**RK** 17, Berührung 14, auf dem falschen Fuß 13 (+3 Rüstung, +4 GE)
+**TP** 20 (3W8+3)
+**REF** +7, **WIL** +1, **ZÄH** +1; +2 gegen Verzauberung
+**Verteidigungsfähigkeiten** Entrinnen, Fallengespür +1; **Immunität** Schlaf; **ZR** 9
+**Schwäche** Lichtblindheit
+
+**Angriff**
+**Bewegung** 9 m
+**Nahkampf** Meisterarbeits-Kurzschwert +7 (1W6/19–20 plus Gift)
+**Fernkampf** Handarmbrust +6 (1W4/19–20 plus Gift)
+**Besondere Angriffe** Hinterhältiger Angriff +2W6
+**Zauberähnliche Fähigkeiten** (ZS 3) 1/Tag – *Dunkelheit*, *Feenfeuer*, *Tanzende Lichter*
+
+**Spielwerte**
+**ST** 10, **GE** 19, **KO** 10, **IN** 12, **WE** 10, **CH** 12
+**GAB** +2; **KMB** +2; **KMV** 16
+**Talente** Abhärtung, Waffenfinesse
+**Fertigkeiten** Akrobatik +10, Bluffen +7, Fingerfertigkeit +10, Heimlichkeit +10, Mechanismus ausschalten +10, Motiv erkennen +6, Verkleiden +7, Wahrnehmung +8
+**Sprachen** Elfisch, Gemeinsprache, Undercommon
+**Besondere Eigenschaften** Fallenfinder +1, Giftgebrauch, Schurkentrick (Schnelle Heimlichkeit)
+**Ausrüstung** Meisterarbeits-beschlagene Lederrüstung, Meisterarbeits-Kurzschwert, Handarmbrust mit 10 Bolzen, 3 Dosen **Drow-Gift**, 1 Dosis **Riesenhundertfüßer-Gift** (für Velrith), Dietriche, 40 GM, ein Fläschchen Silberstaub-Tinte (Beweis!)
+
+**Drow-Gift** (Verletzung): Zähigkeit SG 13; Frequenz 1/Minute für 2 Minuten; Effekt 1 Minute bewusstlos, dann 2W4 Stunden bewusstlos; Heilung 1 Rettungswurf.
+**Riesenhundertfüßer-Gift** (Verletzung): Zähigkeit SG 13; Frequenz 1/Runde für 6 Runden; Effekt 1W3 GE-Schaden; Heilung 1 Rettungswurf.
+
+**Taktik:** Ilvrae kommt nachts in den Kerker, um Velrith mit Hundertfüßer-Gift zu „beruhigen" (es soll wie ein Herzstillstand aussehen). Wird er gestört: *Dunkelheit* auf die Laterne, dann Handarmbrust auf den Zauberkundigen, dann Hinterhältige Angriffe im Dunkeln (er sieht, die meisten anderen nicht). Er flieht über die Dächer, wenn er unter 8 TP fällt.
+
+**Lebend gefangen:** Ilvrae ist kein Fanatiker. Er verrät gegen Zusicherung von Asyl (!) den Satz *„Der Befehl kam mit dem Siegel der Säule."* Ironie, die die Spieler genießen sollten: Ein echter Spion bittet um genau den Schutz, den die Enklave allen gewährt.
+
+---
+
+## 6. Der Bleiche Hund (HG 4, 1.200 EP)
+
+*Vampirbrut · CB Mittelgroßer Untoter*
+
+> Einst ein menschlicher Fährtenleser der Wehrpflicht, vor Jahren verschollen. Jetzt ein bleiches, abgemagertes Ding mit zu langen Fingern, das auf allen vieren läuft und Witterung aufnimmt. Er erinnert sich an die Tunnel der Höhlen – und das macht ihn gefährlich.
+
+**INI** +6; **Sinne** Dunkelsicht 18 m, Geruchssinn; Wahrnehmung +11
+
+**Verteidigung**
+**RK** 18, Berührung 13, auf dem falschen Fuß 15 (+2 GE, +1 Ausweichen, +5 natürlich)
+**TP** 30 (4W8+12); **Schnelle Heilung** 2
+**REF** +3, **WIL** +5, **ZÄH** +4
+**Verteidigungsfähigkeiten** Resistenz gegen Fokussieren +2; **SR** 5/Silber; **Immunität** wie Untote; **Resistenzen** Elektrizität 10, Kälte 10
+**Schwächen** Vampirschwächen (siehe unten)
+
+**Angriff**
+**Bewegung** 9 m, Klettern 6 m
+**Nahkampf** Hieb +6 (1W4+4 plus Energieentzug)
+**Besondere Angriffe** Blut saugen, Energieentzug (1 negative Stufe, SG 15), Beherrschen (SG 15)
+
+**Spielwerte**
+**ST** 16, **GE** 14, **KO** –, **IN** 11, **WE** 13, **CH** 16
+**GAB** +3; **KMB** +6 (+8 Ringkampf); **KMV** 19
+**Talente** Ausweichen, Verbesserte Initiative, Wachsamkeit, Verbesserter Ringkampf (Bonustalent)
+**Fertigkeiten** Heimlichkeit +11, Klettern +14, Motiv erkennen +11, Überlebenskunst +8 (+12 beim Verfolgen mit Geruchssinn), Wahrnehmung +11
+**Sprachen** Gemeinsprache, Undercommon (spricht kaum noch)
+
+**Besondere Fähigkeiten**
+- **Blut saugen (AF):** Wenn er ein Ringkampf-Ziel festhält: 1W4 KO-Schaden, er heilt 5 TP.
+- **Energieentzug (ÜF):** Ein Hieb-Treffer verursacht 1 negative Stufe. Rettungswurf zum Entfernen nach 24 Stunden: Zähigkeit SG 15.
+- **Beherrschen (ÜF):** Blickangriff als Standard-Aktion, Ziel in 9 m: Willen SG 15 oder wie *Person beherrschen* (ZS 4), nur 1 Ziel gleichzeitig. Er nutzt das, um einen Kämpfer gegen die eigenen Leute zu wenden.
+- **Vampirschwächen:** Kann sich *Knoblauch* und vorgehaltenen heiligen Symbolen nicht nähern (Willen SG 15 jede Runde für ihn, sonst muss er 1,5 m Abstand halten). **Fließendes Wasser:** Taucht er in fließendes Wasser ein, verliert er pro Runde ⅓ seiner maximalen TP. → Der Grovarie ist auf der Flucht in Abenteuer 5 die **Rettung** der Gruppe: Wer über den Fluss kommt, ist sicher.
+
+**Taktik:**
+- *Abenteuer 5:* Er jagt, spielt mit der Gruppe, greift den Letzten in der Reihe an, zieht sich zurück, kommt wieder. Wenn er unter 10 TP fällt, flieht er (Schnelle Heilung!).
+- *Finale:* Er kämpft bis zur Vernichtung. Vor dem Finale hat die Gruppe Zeit, sich vorzubereiten – Silberwaffen aus der Lavaschmiede (Thorgrims Gefallen!), Weihwasser, Knoblauch.
+
+> **Anpassung:** Wenn die Gruppe keinen Kleriker hat, ersetze Energieentzug durch 1W4 Stärkeschaden (Zähigkeit SG 15 halbiert). Wenn sie sehr stark ist, gib ihm einen zweiten Vampirbrut-Begleiter im Finale.
+
+---
+
+## 7. Erzmagistra Oriel Vanthe (HG 8, 4.800 EP)
+
+*Munavri, Magierin 9 (Bannmagierin) · NG (beherrscht) Mittelgroße Humanoide (Munavri)*
+
+> Hochgewachsen, mit langem schneeweißem Haar und einer Haltung, die Respekt einfordert. Sie spricht leise und bedacht, verliert aber manchmal mitten im Satz den Faden und starrt ins Leere. Wer sie lange kennt, sagt: „Seit der Expedition ist sie nicht mehr dieselbe."
+
+**INI** +1; **Sinne** Dunkelsicht 36 m; Wahrnehmung +12
+
+**Verteidigung**
+**RK** 16, Berührung 12, auf dem falschen Fuß 15 (+4 *Magierrüstung*, +1 Ablenkung, +1 GE)
+**TP** 61 (9W6+27)
+**REF** +6, **WIL** +12, **ZÄH** +7
+**Resistenz** Feuer 5 (Bannmagier-Resistenz), Energieabsorption 27 Punkte/Tag
+**Schwäche** Lichtblindheit
+
+**Angriff**
+**Bewegung** 9 m
+**Nahkampf** Kampfstab +3 (1W6–1)
+**Zauberähnliche Schulfähigkeit** (ZS 9) Schutzschild 9/Tag
+**Vorbereitete Magierzauber** (ZS 9; Konzentration +15; Auswahl)
+5. Grad – *Wand aus Kraft*, *Teleportieren*, *Verzauberung brechen* *
+4. Grad – *Mächtige Unsichtbarkeit*, *Steinhaut* *, *Schwarze Tentakel*, *Geringe Kugel der Unverwundbarkeit*
+3. Grad – *Magie bannen* (2×), *Schutz vor Energien*, *Hast*, *Fliegen*, *Langsam* (SG 19)
+2. Grad – *Unsichtbarkeit*, *Spiegelbilder*, *Glitzerstaub* (SG 18), *Sengender Strahl*, *Widerstand gegen Energien* (2×)
+1. Grad – *Magierrüstung*, *Schild*, *Magisches Geschoss* (3×), *Federfall*, *Alarm*
+0. Grad – *Licht*, *Magie entdecken*, *Lesen magischer Schrift*, *Magierhand*
+(* Schulzauber)
+**Verbotene Schulen** Nekromantie, Verzauberung
+
+**Spielwerte**
+**ST** 8, **GE** 12, **KO** 14, **IN** 23, **WE** 14, **CH** 12
+**GAB** +4; **KMB** +3; **KMV** 15
+**Talente** Abhärtung, Eiserner Wille, Erhöhter Zauberfokus (Bannmagie), Erweiterter Zauber, Schriftrolle anfertigen, Wundersamen Gegenstand herstellen, Zauberfokus (Bannmagie)
+**Fertigkeiten** Diplomatie +8, Motiv erkennen +10, Wahrnehmung +12, Wissen (Arkanes) +18, Wissen (Gewölbe) +18, Wissen (Ingenieurwesen) +18, Wissen (Lokales) +12, Zauberkunde +18
+**Sprachen** Aklo, Elfisch, Gemeinsprache, Gnomisch, Terranisch, Undercommon, Zwergisch
+**Ausrüstung** *Stirnreif des Intellekts +2*, *Umhang des Widerstands +2*, *Schutzring +1*, Kampfstab, Zauberbuch, Siegel der Pfeilerwacht, Schlüssel zu allen fünf Pfeilerkammern
+
+**Die Beherrschung**
+- Vanthe steht unter der Beherrschung von Fürst Drevan (wie *Person beherrschen*, ZS 12). Sie wird alle paar Wochen erneuert, über einen Kontaktspiegel in ihrem Arbeitszimmer.
+- *Böses entdecken* zeigt nichts – sie ist nicht böse.
+- **Telepathie-Hinweis:** Munavri sprechen mit Vanthe in Gedanken. Ein Munavri-Charakter, der telepathisch mit ihr redet, spürt etwas Fremdes: *eine zweite, kalte Stimme hinter ihrer, wie ein Echo, das einen Herzschlag zu spät kommt.* Motiv erkennen SG 15 statt 25, um die Beeinflussung zu erkennen. Deshalb meidet Vanthe seit ihrer Rückkehr Telepathie – und ihre Munavri-Kollegen im Ethikrat haben das bemerkt, aber als Trauma gedeutet.
+- *Schutz vor Bösem* auf Vanthe unterdrückt die Beherrschung für die Wirkungsdauer: Sie ist bei klarem Verstand, verzweifelt, und erzählt in kurzen, gehetzten Sätzen alles, was sie weiß (Torstädter Säule, „heute Nacht", der Bleiche Hund).
+- *Magie bannen* gegen ZS 12 (Wurf 1W20 + ZS gegen SG 23) beendet die Beherrschung dauerhaft.
+- Im Ethikrat gilt sie als unantastbar. Jede Anschuldigung ohne Beweise kostet die Gruppe Ansehen.
+
+**Taktik (wenn es doch zum Kampf kommt):** Die Beherrschung zwingt Vanthe, sich zu wehren, aber ein Teil von ihr kämpft dagegen an. **Würfle zu Beginn jeder ihrer Runden 1W6: Bei 1–2 handelt sie nicht** (sie zittert, ringt mit sich). Sie wirkt keine Schadenszauber auf Wehrpflichtige, sondern nur *Langsam*, *Schwarze Tentakel*, *Glitzerstaub* und *Wand aus Kraft* – oder *Teleportieren* – sie will fliehen, nicht töten. Sinkt sie unter 25 TP, bricht sie zusammen.
+
+> **SL-Hinweis:** Vanthe ist mit HG 8 viel zu stark für eine Gruppe der Stufe 5 – das ist Absicht. Die Lösung ist nicht der Kampf, sondern der richtige Zauber (*Schutz vor Bösem* ist ein Grad-1-Zauber, den Kleriker, Paladine und Magier haben) oder eine Schriftrolle davon, die die Gruppe vom Ethikrat bekommen kann.
+
+---
+
+## 7b. Obermagister Bastrin Kieselgrund (HG 6, 2.400 EP)
+
+*Svirfneblin, Magier (Illusionist) 7 · N Kleiner Humanoide (Gnom)*
+
+> Klein, hager, mit grauem Spitzbart und Tintenflecken an allen Fingern. Redet schnell, unterbricht gern, und sein linkes Augenlid zuckt, wenn er lügt. Vanthes Stellvertreter und der zweite Verdächtige (Kampagnenbuch 3.4).
+
+**INI** +2; **Sinne** Dunkelsicht 36 m; Wahrnehmung +4
+
+**Verteidigung**
+**RK** 15, Berührung 15, auf dem falschen Fuß 11 (+2 GE, +2 Ausweichen, +1 Größe); 19 mit *Magierrüstung*
+**TP** 34 (7W6+7)
+**REF** +7, **WIL** +10, **ZÄH** +6 (inkl. Svirfneblin-Bonus +2)
+**ZR** 18
+
+**Angriff**
+**Bewegung** 6 m
+**Nahkampf** Dolch +3 (1W3–1/19–20)
+**Zauberähnliche Fähigkeiten** (ZS 7) Dauerhaft – *Unauffindbarkeit*; 1/Tag – *Blindheit/Taubheit* (SG 10), *Verschwimmen*, *Selbstverkleidung*
+**Vorbereitete Magierzauber** (ZS 7; Konzentration +11; Auswahl)
+4. Grad – *Mächtige Unsichtbarkeit*, *Schattenbeschwörung* (SG 20)
+3. Grad – *Magie bannen*, *Hast*, *Stinkende Wolke* (SG 17), *Hauch der Unsichtbarkeit*
+2. Grad – *Spiegelbilder*, *Unsichtbarkeit*, *Glitzerstaub* (SG 16), *Klopfen*
+1. Grad – *Magierrüstung*, *Farbenspiel* (SG 17), *Stilles Trugbild* (SG 17), *Magisches Geschoss* (2×)
+**Verbotene Schulen** Nekromantie, Verzauberung
+
+**Spielwerte**
+**ST** 8, **GE** 14, **KO** 12, **IN** 18, **WE** 14, **CH** 6
+**GAB** +3; **KMB** +1; **KMV** 15
+**Talente** Kampfzauberei, Zauberfokus (Illusion), Erhöhter Zauberfokus (Illusion), Schriftrolle anfertigen, Wundersamen Gegenstand herstellen
+**Fertigkeiten** Bluffen –2 (!), Diplomatie +2, Heimlichkeit +12, Motiv erkennen +6, Wissen (Arkanes) +14, Wissen (Gewölbe) +14, Wissen (Ingenieurwesen) +14, Zauberkunde +14
+**Ausrüstung** *Umhang des Widerstands +1*, Zauberstab *Magisches Geschoss* (12 Ladungen), Schlüssel zur Kanzlei und zur Siegelkammer, Geheimfach im Schreibtisch mit Abrechnungen über Schattenkristalle – und **die gestohlene Seite von Jahr 156**
+
+**Wichtig:** Bastrin ist **nicht** beherrscht und **nicht** böse. *Böses entdecken* zeigt nichts, *Schutz vor Bösem* ändert nichts. Motiv erkennen SG 12 genügt, um zu merken, dass er etwas verbirgt – das macht ihn so verdächtig.
+
+**Taktik (falls es zum Kampf kommt):** Bastrin kämpft nicht gern. *Spiegelbilder*, dann *Mächtige Unsichtbarkeit*, dann Flucht. Wird er gestellt, ergibt er sich und verlangt einen Anwalt der Svirfneblin-Gilde.
+
+---
+
+## 8. Fürst Casimir Drevan
+
+*Vampir, Herr von Varikanum · ca. HG 12–14*
+
+Drevan tritt in dieser Kampagne **nicht persönlich auf**. Er spricht nur:
+- durch den Kontaktspiegel in Vanthes Arbeitszimmer (Grovaristadt),
+- durch die Rune im Torstädter Pfeiler (Finale): eine kalte, amüsierte, sehr höfliche Stimme.
+
+> *„Wie ungewöhnlich. Wehrpflichtige. Ich hatte mit Generälen gerechnet. Nun – auch Bauern sind wertvoll. Lebendig. Wir sehen uns."*
+
+Für eine Fortsetzungskampagne: Werte nach Monsterhandbuch (Vampir-Schablone) auf einen Magier oder Aristokraten der Stufe 10–12 setzen.
+
+---
+
+## 9. Unterstützende NSCs (Kurzwerte)
+
+### Thorgrim Aschhand (HG 4)
+*Duergar, Experte 6 · RN* · **RK** 13 · **TP** 39 · **ZÄH** +5, **REF** +2, **WIL** +7
+**Nahkampf** Schmiedehammer +6 (1W8+2) · **Immunität** Gift, Lähmung, Trugbilder
+**Fertigkeiten** Handwerk (Waffenschmied) +16, Handwerk (Rüstungsschmied) +16, Wissen (Ingenieurwesen) +12, Wissen (Gewölbe) +10, Schätzen +12, Motiv erkennen +9
+**Geheimnis:** Thorgrim fand vor zwanzig Jahren das Tagebuch des Baumeisters Hargrim Erzfaust und weiß seitdem, dass die Lavaschmiede mit einem Dämonenpakt erkauft wurde. Er bringt die jährliche Gabe an die Teufelshöhlen – in diesem Jahr weigert er sich. Motiv erkennen SG 20: Er trägt eine schwere Last. Er spricht nur darüber, wenn die Gruppe sein volles Vertrauen hat **und** verspricht, dass nicht alle Duergar dafür bezahlen.
+**Gefallen:** Fertigt der Gruppe nach Abenteuer 4 kostenlos: eine Waffe mit *+1* Verzauberung **oder** zwei Waffen aus **Alchemistensilber** (wichtig gegen den Bleichen Hund!) **oder** eine Meisterarbeits-Rüstung.
+
+### Ilun Sareth (HG 3)
+*Munavri, Waldläuferin 4 · NG* · Zurzeit **erschöpft** und auf 8 von 34 TP · **RK** 12 (ohne Rüstung)
+**Fertigkeiten** Überlebenskunst +10, Heimlichkeit +9, Wahrnehmung +10, Wissen (Gewölbe) +9
+**Erzfeind** Untote +2 · **Bevorzugtes Gelände** Unterirdisch +2
+Nach einer Nacht Rast und Heilung kann sie mit Kurzbogen (+7, 1W6) mitkämpfen und kennt einen Schleichweg zurück zur Bastion (Überlebenskunst-Bonus +4 für die Gruppe bei der Flucht).
+
+### Tamla Grünschiefer (HG 1/4)
+*Svirfneblin, Bürgerin 1* · **TP** 6 · fiebrig: –2 auf alles · kennt jede Schleuse der Zisternen. Steht in Abenteuer 1 ausführlicher.
+
+---
+
+## 10. Rollenspiel-NSCs – Soziale Werte
+
+Für NSCs, die (fast) nie kämpfen. **Einstellung** = Ausgangseinstellung gegenüber der Truppe (Diplomatie-Regeln des Grundregelwerks). **Motiv erkennen** ist der Wert, gegen den Bluffen-Würfe der Spieler gehen.
+
+| NSC | Volk / Rolle | Einstellung | Motiv erkennen | Willen | Was sie wollen | Wie man sie gewinnt |
+|---|---|---|---|---|---|---|
+| **Pipra Zwirn** | Rattenvolk, Quartiermeisterin | Gleichgültig | +6 | +2 | Ordnung, korrekte Formulare | Formulare ausfüllen, Gebäck, ehrliches Interesse |
+| **Dorrin Kalkbart** | Svirfneblin, Vorarbeiter | Freundlich | +4 | +3 | Seine Leute in Sicherheit | Tamla retten |
+| **Mirsa Kieselweb** | Svirfneblin, Händlerin | Unfreundlich | +9 | +4 | Gewinn, Pünktlichkeit | Ladung retten, sie feilschen lassen (und verlieren lassen) |
+| **Velrith Jurakin** | Drow, Dichter, Beschuldigter | Unfreundlich (Angst) | +5 | +2 | Freispruch, Würde | Ihn wie jeden anderen behandeln |
+| **Kesrin Valdorn** | Drow, Ratsherr Illiatist | Gleichgültig | +12 | +8 | Ruhe für seine Stadt, keine Vorverurteilung | Velriths Unschuld beweisen |
+| **Hulda Grauschmied** | Duergar, Rätin Drudanst | Gleichgültig | +7 | +6 | Respekt für Duergar, Wiedergutmachung für den Diebstahl | Barren zurückbringen, Thorgrims Fürsprache |
+| **Aurelan Mysk** | Munavri, Vorsitz Ethikrat | Gleichgültig, wird **Unfreundlich** bei Vorwürfen gegen Vanthe | +14 | +10 | Den Ruf der Enklave schützen | Harte Beweise (mind. 3 Hinweise), *Zone der Wahrheit* |
+| **Sprecher von Endstadt** (Rattenvolk) | Rattenvolk, Händlergildenmeister **Ratzek Lauffuß** | Gleichgültig | +8 | +3 | Einen eigenen Ratssitz für Rattenvolk und Menschen | Versprechen, sich dafür einzusetzen (wird später eingefordert!) |
+| **Brakka Steinfaust** | Duergar, Ausbilderin | Freundlich | +6 | +4 | Dass ihre Truppe überlebt und glänzt | Ehrlichkeit, Disziplin |
+| **Oriel Vanthe** (sozial) | Munavri, Erzmagistra | Freundlich (gespielt) | +10 | +11 | (beherrscht) Ablenken, Zeit gewinnen | – |
+
+**Hinweis Vanthe im Gespräch:** Wer mit ihr spricht und eine Probe auf **Motiv erkennen SG 25** schafft (oder SG 15 mit dem Hinweis aus Abenteuer 5), bemerkt eine **Beeinflussung** (Sonderanwendung von Motiv erkennen). Dann weiß die Gruppe: Sie handelt nicht freiwillig.

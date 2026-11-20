@@ -1,0 +1,731 @@
+# Die Umgebung der Grovari-Höhlen
+
+*Pathfinder 1e · Regionalband für die SL · Grundlage: `Karte2.png`*
+
+Dieser Band beschreibt alles, was auf der Karte außerhalb der sechs Städte liegt: die Festen und Dörfer innerhalb der Enklave und die Regionen außerhalb der Mauern. Jede Region hat Bewohner, Gefahren, ein Geheimnis und Abenteueraufhänger, damit du sie spontan bespielen kannst.
+
+---
+
+## Inhalt
+
+1. Reisen in Sekamina (Regeln, Entfernungen)
+2. Innerhalb der Enklave – Festen, Dörfer, Seen
+3. Außerhalb der Mauern – die Regionen
+   - Westen: Das Vampirreich & Varikanum · Die Alten Ruinen (West) · Das Echsenvolk
+   - Süden: Das Land der Untoten · Die Winzlinge · Das Land der Tausende · Das Land der Spinnen
+   - Norden: Die Labyrinthe der Jäger · Die Teufelshöhlen · Der Lavafluss
+   - Mitte & Osten: Die Finsterhöhlen · Das Kloster der Wahrheit · Die Alten Ruinen (Ost) · Die Vegepygmy-Lande
+   - Jenseits der Karte
+4. Wer mit wem – Beziehungen der Mächte
+5. Abenteueraufhänger (W20)
+6. Anmerkungen zur Karte
+
+---
+
+## 1. Reisen in Sekamina
+
+### Grundregeln
+- **Kein Tag, keine Nacht.** Die Enklave misst die Zeit mit Wasseruhren und dem Rhythmus der **Leuchtpilze**, die in einem etwa 24-stündigen Zyklus heller und dunkler werden. Außerhalb der Höhlen gibt es nicht einmal das.
+- **Licht:** In den Städten schwaches Licht (Leuchtpilze, Laternen). In den Verbindungstunneln der Enklave hängen alle 100 m Leuchtpilz-Laternen (schwaches Licht). **Außerhalb: völlige Dunkelheit.** Licht macht sichtbar – wer eine Fackel trägt, wird in den Finsterlanden auf 300 m gesehen.
+- **Geschwindigkeit** (Grundregelwerk, Überlandbewegung, angepasst):
+
+| Gelände | Faktor | Beispiel |
+|---|---|---|
+| Straße der Enklave (Fluss-Straße, gepflasterte Tunnel) | ×1 | Torstadt–Tiefenburg |
+| Normaler Höhlengang | ×¾ | Weg zur Bastion der Lebenden |
+| Enges, verwinkeltes Labyrinth | ×½ | Finsterhöhlen, Labyrinthe der Jäger |
+| Klettern, Wasser, Geröll | ×¼ | Teufelshöhlen, Land der Spinnen |
+
+Eine Gruppe mit Bewegungsrate 9 m schafft auf der Straße etwa **30 km pro Reisetag** (8 Stunden), in Labyrinthen nur **15 km**. Lastkäfer-Karawanen sind langsamer (etwa 3 km/h).
+
+### Gefahren unterwegs
+- **Beben:** Einmal pro Reisetag W20 – bei 1 ein Beben: Reflex SG 13, sonst 2W6 Schaden durch Steinschlag. Innerhalb der Enklave halbiert sich die Gefahr durch die Verstärkungsrunen (nur bei 1 auf W20 **und** einer weiteren 1–10 auf W20).
+- **Faule Luft:** In tiefen Senken und Sackgassen. Zähigkeit SG 12 pro Stunde, sonst erschöpft. Die Duergar halten Wachsamkeits-Schnecken in Käfigen – wenn sie sich zusammenrollen, sollte man umkehren.
+- **Sich verirren:** Außerhalb der Straßen. Überlebenskunst SG 15 einmal pro Tag (SG 20 in Labyrinthen), sonst verliert die Gruppe 1W4 Stunden. Ein **Höhlenscout** gibt +4 – deshalb ist er Pflicht.
+- **Wasser & Nahrung:** Innerhalb der Enklave kein Problem. Außerhalb: Überlebenskunst SG 15 für Pilze und Wasser. Ein Druide findet immer genug (*Gutbeeren*-artige Pilze nach SL-Ermessen).
+
+### Entfernungen (Maßstab der Karte: 25 km-Balken)
+
+| Von → Nach | Entfernung | Reisezeit (Fußgruppe) |
+|---|---|---|
+| Torstadt → Tiefenburg | ca. 32 km (Fluss-Straße) | 1 Tag |
+| Tiefenburg → Grovaristadt (über Spierest) | ca. 32 km | 1 Tag (Karawane: 2 Tage) |
+| Grovaristadt → Endstadt | ca. 45 km (Fluss-Straße) | 1½ Tage |
+| Tiefenburg → Illiatist (über Wasserfallfeste) | ca. 22 km | 1 Tag |
+| Illiatist → Drudanst (am Hochsee entlang, über Morbar und die Feste der Dunkelheit) | ca. 35 km | 1½ Tage |
+| Drudanst → Grovaristadt (über Südfeste, Nordfeste) | ca. 25 km | 1 Tag |
+| Drudanst → Lavaschmiede | ca. 11 km | ½ Tag |
+| Grovaristadt → Kloster der Wahrheit | ca. 14 km | ½ Tag (Labyrinth: 1 Tag) |
+| Tiefenburg → Bastion der Lebenden | ca. 9 km | ½ Tag |
+| Bastion der Lebenden → Land der Untoten | ca. 8 km | ½ Tag |
+| **Torstadt → Varikanum** | **ca. 20 km** | **1 Tag** |
+| Endstadt → Vegepygmy-Lande | ca. 15 km | ½–1 Tag |
+
+> **Merke:** Varikanum liegt nur einen Tagesmarsch vom Tor entfernt. Das ist der Grund, warum Torstadt eine Garnisonsstadt ist.
+
+---
+
+## 2. Innerhalb der Enklave – Festen, Dörfer, Seen
+
+Die Enklave hat nur **einen großen Zugang** (Torstadt). Aber Dutzende kleiner Tunnel führen nach außen – zu schmal für eine Armee, breit genug für Spione, Monster und Flüchtlinge. Jeder dieser Tunnel wird von einer **Feste** bewacht.
+
+### Die Festen (Übersicht)
+
+| Feste | Lage | Besatzung | Bewacht | Besonderheit |
+|---|---|---|---|---|
+| **Großer Steinwall & Torstadt** | Westen | 400 + Reserve | Das Haupttor | Siehe Kampagnenbuch |
+| **Wasserfallfeste** | Zwischen Torstadt und Tiefenburg, wo der Fluss aus Illiatist in den Grovarie stürzt | 30 | Die Straße nach Illiatist | Ein Wasserfall, 20 m hoch, die Feste ist in die Felswand dahinter gebaut. Laut – Wachen verständigen sich mit Handzeichen |
+| **Bastion der Lebenden** | Südlich von Tiefenburg | **200** (davon 30 Kleriker und Paladine) | Die Tunnel ins Land der Untoten | **Die stärkste Feste der Enklave.** Dreifacher Wall, geweihter Boden, ein vorgelagerter Außenposten (die **Knochenwacht**). Hier dienen nur Veteranen nach dem Praxisjahr. Siehe Land der Untoten |
+| **Spierest** | Am Grovarie zwischen Tiefenburg und Grovaristadt | 8 + Turm | Flussbiegung, Straße | Siehe Abenteuer 2 |
+| **Sporenfeste (bei Tiefenburg)** | Östlich von Tiefenburg | 25 (Druiden, „Brenner", Wachen) | **Hält den Intelligenten Pilzwald auf** | Brandschneisen, Ölgräben, Feuerkäfer-Zucht. Siehe „Das Myzel" und Abenteuer 2 |
+| **Sporenfeste (bei Illiatist)** | Unmittelbar westlich vor den Mauern von Illiatist | 25, fast alle Drow | **Hält den zweiten Pilzwald auf** – keinen Kilometer von der Stadt entfernt | Die Drow-Brenner nutzen Gift und Feuer. Fällt diese Feste, steht das Myzel an den Mauern von Illiatist. Siehe „Das Myzel" |
+| **Feste der Dunkelheit** | Südöstlicher Ausgang der Nordhöhle, hinter Morbar | 40, fast alle Drow | Den Weg in die Finsterhöhlen | Die Drow nennen sie selbstironisch so. Sie kennen die Dunkelheit besser als jeder andere |
+| **Westfeste** | Westlich von Drudanst | 20 Duergar | Die Teufelshöhlen | Dämonenabwehr, geweihte Tore |
+| **Südfeste** | Südlich von Drudanst | 20 Duergar | Straße nach Grovaristadt, Finsterhöhlen und den **Bruch** (Trümmer der ersten Siedlung) | Sammelpunkt für Karawanen; Zoll gegen Schmuggler, die den Bruch als Abkürzung nutzen |
+| **Ostfeste** | Östlich von Drudanst | 15 Duergar | Den Weg zu den Alten Ruinen (Ost) | Abenteuer 4 beginnt hier |
+| **Lavaschmiede** | Nördlich von Drudanst, am Lavafluss | 50 Schmiede, 20 Wachen | Den Lavafluss | Siehe Kampagnenbuch und unten |
+| **Nordfeste** | Nördlich von Grovaristadt | 30 | Straße nach Drudanst | Wegkreuzung, Zollstation |
+| **Pilzwaldfeste** | Nördlich von Grovaristadt | 40 | **Hält den dritten Pilzwald auf** – den, der der Hauptstadt am nächsten ist | Druiden-Hauptquartier der Wehrpflicht: Alle Druiden werden hier ausgebildet – an der Front. Die Bibliothek der Feste hütet die alten Svirfneblin-Warnungen über das Myzel |
+| **Damm von Grovaristadt** | Ostende des Grovarimeers | 30 | Den Damm, den Abfluss nach Endstadt | Wichtigstes Bauwerk der Enklave nach dem Steinwall. Ein Bruch würde Endstadt überfluten |
+
+### Die Vorhöhle von Torstadt
+
+Westlich des Steinwalls liegt eine große Höhle **außerhalb** der Mauer, durch die der Grovarie in die Enklave fließt. Hier stehen verlassene Gehöfte aus den ersten Jahren (vor Jahr 35), Schanzgräben und ein Feld aus angespitzten Stalagmiten. Patrouillen gehen hier täglich – es ist das **Niemandsland** zwischen Enklave und Vampirreich.
+- **Aufhänger:** Ein Flüchtlingstreck (Svirfneblin aus Varikanum) erscheint in der Vorhöhle, verfolgt von Vampirbrut. Tor auf oder zu?
+
+### Dörfer
+
+| Dorf | Lage | Bewohner | Kurz |
+|---|---|---|---|
+| **Drizzat** | Nordufer des Hochsees bei Illiatist | 400 Drow, einige Svirfneblin | Fischerdorf, die ältesten Drow-Familien der Enklave (Haus Jurakin) |
+| **Morbar** | Südostufer des Hochsees, am Weg zur Feste der Dunkelheit | 300 Drow | Pilzbauern und Fischer. Hier lebt Ilvrae Xun (Abenteuer 3) |
+| **Parasal** | Fluss-Straße südlich von Endstadt | 600 Rattenvolk | Flusshafen, Schmuggler |
+| **Frindorf** | Fluss-Straße, Richtung Grovaristadt | 400 Menschen, Rattenvolk | Ackerbau mit Pilzen und Höhlenmoos; der „Friedensort", wo Händler Streit schlichten |
+| **Rudiapest** | Östlich von Endstadt, am Rand | 300 Rattenvolk | Ärmstes Dorf der Enklave. Grenzt an die Vegepygmy-Lande. Der Name ist ein Rattenvolk-Witz, den niemand mehr erklären kann |
+
+### Die Seen
+
+- **Felsensee** (Tiefenburg) – Klar und kalt. Die Svirfneblin fischen blinde Höhlenfische. Im See lebt eine Kolonie von **Riesen-Flusskrebsen**, die gelegentlich Boote angreifen.
+- **Hochsee** (Illiatist) – Liegt höher als die anderen Seen, sein Abfluss bildet den Wasserfall an der Wasserfallfeste. Die Drow erzählen von **„der alten Dame"**, einem riesigen, langhalsigen Wesen, das alle paar Jahre auftaucht. Ob es existiert? Die Karte zeigt etwas im See … (Zwei Möglichkeiten, eine davon hochstufig: siehe Abschnitt 3b.)
+- **Grovarimeer** (Grovaristadt) – Künstlich gestaut seit Jahr 129. Darin leben mehrere **Höhlen-Plesiosaurier** (die violetten Wesen auf der Karte), die mit dem Stau aus einem unterirdischen Zufluss gekommen sind. Die Fischer haben sich mit ihnen arrangiert: Man füttert sie mit Fischabfällen, sie halten Raubfische fern. **Aufhänger:** Ein Plesiosaurier greift plötzlich Boote an – er ist krank. Oder vergiftet?
+
+### Die Intelligenten Pilzwälder – „Das Myzel"
+
+> *Die Luft wird warm, feucht und süß. Vor euch wächst ein Wald aus Pilzen – faustgroß, mannshoch, haushoch –, und ihre Hüte pulsieren in langsamem Blau und Violett, als würden sie atmen. Zwischen den Stämmen steht eine Gestalt in Wehrpflicht-Uniform, reglos, den Kopf zur Seite geneigt. Aus ihren Augenhöhlen wachsen weiße Fäden. Und in eurem Kopf flüstert eine Stimme, sanft wie ein Wiegenlied: „Ruht euch aus. Hier ist es warm."*
+
+**Wichtig – nicht alle Pilzwesen sind eine Bedrohung.** Es gibt drei ganz verschiedene Dinge:
+- **Pilzfelder** (Südufer des Grovarimeers, Westrand von Endstadt, Pilzgehöfte bei Tiefenburg) sind **gezüchtete Nahrung**. Zahm, harmlos, das Brot der Enklave.
+- **Die Vegepygmys** (südlich von Endstadt) sind ein eigenes Volk und **Verbündete der Enklave** durch das Abkommen von Jahr 129. Sie helfen bei den Pilzkulturen – und sie sind die besten Kenner des Myzels, das sie selbst fürchten (siehe unten).
+- **Die Intelligenten Pilzwälder** (bei Tiefenburg, direkt vor Illiatist, nördlich von Grovaristadt) sind **wild, denkend und feindlich**. Gegen sie stehen die beiden **Sporenfesten** und die **Pilzwaldfeste**.
+
+**Was es ist:** Die drei Wälder sind **ein einziges Wesen**, unterirdisch durch kilometerlanges Geflecht verbunden. Die Svirfneblin nennen es **„das Myzel"**, die Druiden **„den Grünen Hunger"**. In der Tiefe ist es älter als jede Stadt der Enklave und viel größer als hier oben – in die Höhlen herauf wächst es erst seit rund 80 Jahren (siehe unten). Es ist telepathisch, geduldig und vollkommen fremdartig. Es hasst nicht – es **wächst**. Tiere und Leute sind für das Myzel Dünger, und Leichen sind der beste Boden.
+
+**Herkunft – aus der Tiefe heraufgewachsen:**
+- Das Myzel stammt aus den **tiefer gelegenen Höhlen** unter der Enklave, dem **Atemgrund**. Dort unten ist es **um ein Vielfaches umfangreicher** als oben: ein Geflecht, das ganze Höhlensysteme ausfüllt. Die drei Wälder in der Enklave sind nur seine Spitzen.
+- Das Myzel **wandelt CO₂ in Sauerstoff um**. Mit der Enklave wuchs die Zahl der Bewohner – und mit ihr der CO₂-Gehalt der Luft. Davon angezogen wächst das Myzel seit etwa **Jahr 90 n. B.** durch Spalten und Schlote nach oben in die Höhlen. Je mehr Leute, desto mehr CO₂, desto mehr Myzel.
+
+**Das Luft-Dilemma:**
+- Das Myzel ist die **Lunge der Enklave**. Ein ständiger Luftstrom zirkuliert zwischen den Höhlen der Enklave und dem Atemgrund: Die verbrauchte Luft sinkt hinab, das Myzel verwandelt sie, und frische, sauerstoffreiche Luft steigt wieder herauf. Ohne das Myzel hätten 54.000 Leute unter der Erde längst nicht mehr genug Luft zum Atmen.
+- **Zerstört man die Wälder**, verwandelt weniger Myzel die Luft – und der Brand selbst frisst Sauerstoff. **Die Enklave würde langsam ersticken.**
+- **Lässt man die Wälder in Ruhe**, wachsen sie mit jedem neuen Bewohner weiter – und werden stärker, hungriger, gefährlicher.
+- Die Enklave spielt deshalb ein **gefährliches Gleichgewicht**: Die Sporenfesten **schneiden zurück, aber sie reißen nicht aus**. Brandschneisen an den Rändern ja, Feuer im Kern niemals. Jede Feste hat **Luftwächter**, die mit Kerzen und Wachsamkeits-Schnecken messen, ob die Luft „dünn" wird – dann wird nicht mehr gebrannt, egal, wie nah das Myzel kommt.
+- Das Myzel **weiß** das. Es ist intelligent genug, um zu verstehen, dass die Enklave es braucht. Darin liegt seine Geduld – und eine stille Drohung: Was, wenn es eines Tages beschließt, **den Atem anzuhalten**?
+
+**Ein möglicher Ausweg:** Die **Lichthallen von Endstadt**. Pflanzen der Oberwelt, die unter Sonnensalz wachsen, verwandeln ebenfalls CO₂ in Sauerstoff. Genug Lichthallen in allen Höhlen könnten die Enklave **unabhängig vom Myzel** machen – dann könnte man es zurückdrängen, ohne zu ersticken. Genau das verhindert der **Lichtbann** von Drow und Munavri. Ob die Sieben vom Glaskolben das selbst schon wissen, entscheidest du.
+
+**Wie es angreift:**
+- **Wachstum:** Zentimeter für Zentimeter, jedes Jahr ein paar Meter. Ohne die Festen hätte es Tiefenburg in 50 Jahren erreicht.
+- **Sporenzungen:** Plötzliche Ausläufer, die über Nacht Straßen überwuchern.
+- **Lockruf (ÜF):** Telepathisches Flüstern in 30 m Umkreis um jeden Teil des Waldes. Willenswurf (SG nach Zone) oder der Charakter geht 1 Runde lang auf den Wald zu und „will sich nur kurz ausruhen". Ein neuer Wurf jede Runde. Wer im Wald einschläft, wacht nicht mehr auf. Geistesbeeinflussend.
+- **Sporenzombies:** Leichen, die das Myzel durchwächst und bewegt – Tiere, Flüchtlinge, gefallene Wehrpflichtige.
+- **Tief im Wald:** denkende Pilzwesen, die zu Kampf und Täuschung fähig sind.
+
+**Zonen:**
+
+| Zone | Tiefe | HG | Was dort lauert | Lockruf |
+|---|---|---|---|---|
+| **Rand („die Zunge")** | erste 200 m | 1–4 | Kreischer (HG 1), Violette Pilze (HG 3), Sporenzombies (HG 1/2) | Willen SG 13 |
+| **Dickicht** | 200 m bis 1 km | 5–8 | Basidironde (HG 5), Phykomide (HG 4), Rudel von Sporenzombies aus ehemaligen Wehrpflichtigen, vom Myzel durchwachsene Riesenkäfer und Höhlenbären (Pilz-Variante: +2 natürliche RK, Sporenwolke beim Tod) | Willen SG 17 |
+| **Kern – „das Denkende Herz"** | Zentrum jedes Waldes | 9–12 | Ein **Gehirnpilz** (*Cerebric Fungus*, HG 9) als Denkorgan, bewacht von 2–3 Basidironden. Die Luft ist voller Sporen: Zähigkeit SG 18 pro Minute oder 1 KO-Schaden. Wer hier stirbt, steht in 1W4 Stunden als Sporenzombie wieder auf | Willen SG 20 |
+
+**Die Sporenfesten – wie die Enklave sich wehrt:**
+- Besatzung je 25–40: **Druiden** (sie spüren, wo das Myzel wächst), **Brenner** (Alchemisten und Feuerzauberer) und Wachen.
+- Jede Woche wird eine **Brandschneise** gelegt. Gräben voller Tran-Öl umgeben die Feste.
+- **Feuerkäfer** werden in Pferchen gezüchtet und als lebende Fackeln in die Ausläufer getrieben.
+- **Sporenmasken** (Pilzfilz mit Kräuterfüllung): +4 auf Rettungswürfe gegen Sporen, 15 GM.
+- **Dienstzeit höchstens zwei Monate am Stück** – länger halten es die Leute nicht aus. Viele hören den Lockruf noch Wochen später im Schlaf.
+- **Eiserne Regel:** Niemand betritt den Wald ohne Befehl und ohne Seil am Gürtel.
+- **Zweite eiserne Regel:** **Kein Feuer im Kern.** Zurückschneiden, nie ausreißen – das Myzel ist die Lunge der Enklave (siehe Luft-Dilemma).
+
+**Geheimnisse:**
+- Das Myzel wächst seit etwa Jahr 145 **schneller**. Der Grund: Sein Geflecht reicht unterirdisch bis unter das **Land der Untoten** und nährt sich von den unzähligen Toten dort. Es ist Drevans **Konkurrent um Leichen** – und hasst die Untoten, weil sie „verdorbener Boden" sind. Ein sehr gefährlicher möglicher Verbündeter für eine hochstufige Gruppe.
+- In den Archiven der Pilzwaldfeste liegt eine uralte Svirfneblin-Warnung: Wo sich die drei Geflechte tief unter der Erde treffen, könnte das Myzel eines Tages zu einer **Mu-Spore** heranwachsen (HG 21) – einem Pilzkoloss, der ganze Städte verschlingt. Das ist das Ende einer epischen Kampagne, nicht dieser.
+- Die **Vegepygmys** und das Myzel sind **Rivalen**: Das Myzel würde auch sie verschlingen. Deshalb gehört zum Abkommen von Jahr 129 eine wenig bekannte Klausel: Die Vegepygmys warnen die Enklave, wenn sich das Myzel unterirdisch ausbreitet – sie spüren es durch den Boden. Jede Sporenfeste hat einen Vegepygmy-Späher als „Lauscher". Am Spieltisch heißt das: Vegepygmys können Verbündete gegen das Myzel sein, nicht Gegner.
+
+**Aufhänger:**
+- Eine Sporenzunge überwuchert über Nacht die Straße (Abenteuer 2).
+- Ein Brenner der Sporenfeste ist im Wald verschwunden. Sein Seil ist durchgeschnitten – von innen.
+- Das Myzel hat ein **gezüchtetes Pilzfeld** erreicht. In Grovaristadt schlafwandeln Leute nachts Richtung Norden.
+- **Hochstufig:** Eine Expedition ins Denkende Herz – nicht, um es zu verbrennen (das würde die Enklave ersticken), sondern um es zu **schwächen** oder mit ihm zu **verhandeln**, bevor eine Sporenfeste fällt.
+- **Hochstufig:** Abstieg in den **Atemgrund**, wo das Myzel um ein Vielfaches größer ist und die Luft der ganzen Enklave verwandelt. Was liegt dort unten – und lässt sich das Gleichgewicht anders lösen?
+- **Hochstufig:** Die Luftwächter melden, dass die Luft in Grovaristadt dünner wird, obwohl niemand gebrannt hat. Hält das Myzel absichtlich den Atem an – als Warnung, als Erpressung, oder weil Drevan ihm etwas angeboten hat?
+
+**Begegnungen (W6):**
+
+| W6 | Rand (HG 1–4) | Dickicht (HG 5–8) | Kern (HG 9–12) |
+|---|---|---|---|
+| 1 | 1W4+1 Sporenzombies | Basidirond (HG 5) | Gehirnpilz greift telepathisch an (Willen SG 20 oder verwirrt) |
+| 2 | Kreischer, lockt Sporenzombies an | 2 Phykomide (HG 6) | 2 Basidironde (HG 7) |
+| 3 | Violetter Pilz (HG 3) | Sporenzombie-Rudel (8 Stück, ehemalige Wehrpflichtige) (HG 6) | Sporensturm: Zähigkeit SG 20 oder 2W4 KO-Schaden |
+| 4 | Lockruf auf den Charakter mit dem niedrigsten Willen | Durchwachsener Höhlenbär (HG 5) | Ein Gefallener, der um Hilfe ruft – eine Falle |
+| 5 | Ein verirrter Wanderer, der „nur kurz ruhen" will | Basidirond mit 4 Sporenzombies (HG 7) | 3 Basidironde (HG 8) |
+| 6 | Brandschneise der Feste – Feuer! (Reflex SG 13, 2W6) | Lockruf SG 17 auf alle | Das Denkende Herz selbst (HG 11–12 mit Wächtern) |
+
+
+---
+
+## 3. Außerhalb der Mauern – die Regionen
+
+Jede Region folgt demselben Aufbau: **Eindruck · Bewohner · Gefahrenstufe · Geheimnis · Aufhänger · Begegnungen (W6)**.
+
+---
+
+## WESTEN
+
+### Das Vampirreich & Varikanum
+
+> *Die Höhle ist still. Nicht die Stille der Leere, sondern die Stille von Tausenden, die gelernt haben, nicht aufzufallen. Im Zentrum liegt eine Stadt aus schwarzem Stein, ein Kreuz aus vier ummauerten Vierteln um einen Turm. In jedem Viertel ein anderes Volk – Svirfneblin, Duergar, Drow, Munavri –, alle mit gesenkten Köpfen, alle in Ketten. Dieselben Völker wie in Grovaristadt. Nur getrennt durch Mauern statt verbunden durch Brücken.*
+
+**Eindruck:** Varikanum ist das **dunkle Spiegelbild der Enklave.** Dieselben Völker, dieselbe Vielfalt – aber nicht in Freiheit, sondern als Vieh. Um den Kern der Stadt liegen **vier Sklavenviertel**, je eines für **Svirfneblin, Duergar, Drow und Munavri**. Die Völker werden streng getrennt gehalten – Drevan weiß, dass gemeinsame Not gemeinsamen Widerstand gebiert. Wer sein Viertel ohne Erlaubnis verlässt, wird „zur Ader gelassen". In der Mitte steht der **Blutturm**, Sitz von Fürst Casimir Drevan. Ein See am Westrand liefert Wasser, ein Fluss fließt von Norden hinein.
+
+**Geschichte:** Bis Jahr 141 war Varikanum eine **Duergar-Sklavenstadt** – von hier kamen die Sklavenjäger, die in Jahr 27 die erste Mauer durchbrachen, und von hier flohen die ersten Duergar-Asylsuchenden in Jahr 31. Viele Duergar der Enklave haben Großeltern, die hier Aufseher waren. In Jahr 141 eroberte Drevan die Stadt in einer Nacht (der „Blutwechsel"). Die Sklavenviertel blieben, nur die Herren wechselten. Seit seinem gescheiterten Sturm auf den Steinwall in Jahr 152 („die Kalte Nacht") sucht er einen anderen Weg hinein.
+
+**Bewohner:**
+- **Fürst Casimir Drevan** (Vampir) und sein Hof aus **3 Vampiren** (die „Kelchträger") und etwa **30 Vampirbruten**.
+- **Ca. 4.000 Sklaven** aus allen vier Völkern. Sie werden *gepflegt*: gut ernährt, medizinisch versorgt, nie getötet. Sie sind Blutvieh. Drevan hält sich für einen guten Hirten.
+- **Menschliche Diener** wie Kell Morrow, die auf die „Erhebung" hoffen.
+- **Ghul-Rudel** als Jagdhunde und Wächter der Grenzen.
+
+**Drevans Ideologie:** *„Die Enklave behauptet, die Gesellschaft mache das Wesen. Sie hat recht. Ich bin der Beweis: In meiner Gesellschaft sind alle gleich – gleich wertvoll, gleich gehorsam."* Er sieht die Enklave nicht als Feind, sondern als **unordentliche Konkurrenz**: Er will sie nicht zerstören, sondern übernehmen – 54.000 neue Untertanen.
+
+**Gefahrenstufe:** HG 4–14. Ohne Tarnung und Plan: Selbstmord. Hochstufige Bewohner siehe 3b.
+
+**Geheimnis:**
+- Der Fluss, der durch Varikanum fließt, soll weiter unten in den Grovarie münden. Drevan könnte den Fluss der Enklave vergiften. Er tut es nicht – weil er keine toten Untertanen will.
+- Im Munavri-Viertel lebt eine Widerstandsgruppe unter **Sefa Lenn**, einer Munavri-Sklavin, die Vanthe in Gefangenschaft kannte. Sie weiß, was mit der Erzmagistra gemacht wurde.
+
+**Aufhänger:**
+- Fortsetzungskampagne: Infiltration Varikanums, Befreiung der Sklaven, Kampf gegen Drevan.
+- Ein Sklave flieht in die Vorhöhle von Torstadt und bittet um Asyl. Er trägt das Brandzeichen Drevans – und einen Spionageauftrag, von dem er selbst nichts weiß (beherrscht).
+
+**Begegnungen in der Umgebung von Varikanum (W6):**
+
+| W6 | Begegnung |
+|---|---|
+| 1 | 2W4 Ghule auf Patrouille (HG 1 je) |
+| 2 | 1 Vampirbrut mit 2 Ghulen auf der Jagd (HG 5) |
+| 3 | Sklaventrupp beim Pilzsammeln, bewacht von 1 Vampirbrut – Befreiungsgelegenheit! |
+| 4 | Ein menschlicher Diener mit Botschaft nach Osten (Spion, Schurke 2) |
+| 5 | Fledermausschwarm (HG 2) – Drevans Augen |
+| 6 | Ein „Kelchträger" (Vampir, HG 7+) – Flucht ist die richtige Wahl |
+
+---
+
+### Die Alten Ruinen (West)
+
+> *Eine quadratische Höhle, deren Wände unnatürlich glatt sind. In ihrer Mitte: ein Kreis aus schwarzem Stein, in den Muster eingelassen sind, die älter wirken als alles, was ihr kennt. In der Luft liegt ein leises Summen.*
+
+**Eindruck:** Südwestlich von Torstadt. Ein künstlich behauener Raum mit einem **Steinkreis** im Zentrum (das Symbol auf der Karte). Keiner der heutigen Völker hat ihn gebaut.
+
+**Bewohner:** Keine. Gelegentlich Höhlentiere, die sich nicht in den Kreis trauen.
+
+**Gefahrenstufe:** HG 1–3 (Umgebung), unbekannt (Kreis).
+
+**Geheimnis:** Der Steinkreis ist ein **schlafendes Portal** aus der Zeit vor dem Erdenfall – vermutlich ein Werk der **Serpentfolk** (Schlangenmenschen), deren Reich vor Jahrtausenden die Finsterlande beherrschte – oder einer noch älteren Rasse (SL-Entscheidung). Es lässt sich mit dem richtigen Schlüssel öffnen. Wohin? Das bleibt deine Entscheidung (Orv? Ein anderes Portal in den Alten Ruinen Ost?).
+- **Zauberkunde SG 25:** Die Muster entsprechen denen in den Alten Ruinen (Ost). Die beiden Orte gehören zusammen.
+
+**Aufhänger:**
+- Ein Gelehrter der Pfeilerwacht will die Ruinen untersuchen und braucht Geleitschutz – eine harmlose Mission, bis das Portal summt.
+- Drevan sucht ebenfalls einen Weg, die Mauern zu umgehen. Was, wenn er von dem Portal weiß?
+
+---
+
+### Das Echsenvolk
+
+> *Ein dunkler Teich in einer runden Höhle, umgeben von Hütten aus Pilzstämmen und Knochen. Am Ufer stehen schuppige Gestalten mit Speeren. Sie zischen – aber sie greifen nicht an.*
+
+**Eindruck:** Ein abgelegener Höhlenkomplex im Südwesten, durch lange Tunnel mit der Vorhöhle von Torstadt verbunden.
+
+**Bewohner:** Ein Stamm von etwa **80 Echsenmenschen** unter der Schamanin **Ssaruk-die-Wartende**. Sie leben vom Fischfang im Teich und der Jagd. Neutral, pragmatisch, misstrauisch gegenüber Warmblütern.
+
+**Gefahrenstufe:** HG 1–4.
+
+**Beziehungen:**
+- Zur Enklave: **neutral**, gelegentlicher Tauschhandel (Fische und Häute gegen Metall).
+- Zum Vampirreich: **feindlich**. Vampire trinken kein Echsenblut gern – also töten die Ghule die Echsen einfach. Der Stamm ist in den letzten 10 Jahren von 200 auf 80 geschrumpft.
+
+**Geheimnis:** Ssaruk hat Visionen von einem „Wurm aus Feuer", der im Süden erwacht (der Knochendrache im Land der Untoten?).
+
+**Aufhänger:** Das Echsenvolk bittet die Enklave um Asyl. Der Rat ist gespalten: Reptilien in der Stadt? Fressen die nicht Svirfneblin-Kinder? (Nein. Aber die Gerüchte sind schneller.) Ein Test für die Werte der Enklave.
+
+**Begegnungen (W6):** 1–2 Echsenmensch-Jäger (2W4, HG 1 je, verhandlungsbereit) · 3 Riesenfrosch (HG 1) · 4 Ghul-Spähtrupp, der Echsen jagt (HG 3) · 5 Krokodil (HG 2) im Teich · 6 Ssaruk selbst, auf der Suche nach Kräutern
+
+---
+
+## SÜDEN
+
+### Das Land der Untoten
+
+> *Der Tunnel öffnet sich in eine Landschaft aus grauem Staub und Knochen. Überall ragen schwarze Obelisken aus dem Boden, in die Gesichter gemeißelt sind – manche schreiend, manche schlafend. Ein Geruch nach altem Grab und kaltem Eisen. Weit hinten, in einer großen Höhle, glüht ein fahles grünes Licht. Und ihr hört es: ein leises, tausendfaches Scharren.*
+
+**Eindruck:** Der gefährlichste Ort in Reichweite der Enklave. Ein Verbund von Höhlen südlich von Tiefenburg, mit **Obelisken** (die Rauten-Symbole auf der Karte) und einem gewaltigen **Totenschädel** im Zentrum. Gerade weil von hier so viel Gefahr ausgeht, steht davor die **Bastion der Lebenden** – die stärkste Feste der Enklave.
+
+**Geschichte:** Das Land der Untoten ist **älter als Drevan**. Es war die Totenstadt der Duergar-Könige von Varikanum: Jahrhunderte lang begruben sie hier ihre Herrscher, Priester und Aufseher, und die Priester des **Droskar** stellten die Obelisken als Grabmale auf. Als Drevan in Jahr 141 Varikanum eroberte, fand er hier eine fertige Armee – und einen Bewohner, mit dem er teilen muss.
+
+**Gefahrenstufe:** HG 2 (äußerer Ring) bis HG 14 (Gruft). Eine Gruppe der Stufe 4 überlebt nur den äußeren Ring.
+
+#### Die Zonen
+
+| Zone | HG | Was dort ist |
+|---|---|---|
+| **1. Äußerer Ring** | 2–6 | Graue Ödnis direkt vor der Knochenwacht. Skelette, Zombies, Ghul-Rudel, Ghast-Rotten. Patrouillen der Bastion kommen bis hierher. **Abenteuer 5 spielt nur hier.** |
+| **2. Obeliskenfeld** | 5–9 | Höhlen voller Obelisken. Gespenster (*Wraiths*, HG 5), Mächtige Schatten (HG 8), **Mohrgs** (HG 8) als Drevans Unteroffiziere. Die Aura der Obelisken stärkt alle Untoten |
+| **3. Der Graue Hof** | 7–11 | Drevans **Heerlager**: rund 2.000 Untote in Reih und Glied. Kommandant ist der Kelchträger **Ser Morvath** (Vampir, Kämpfer 9, HG 10), dazu Ghast-Hauptmann **Kalkzahn** (Ghast, Kämpfer 4, HG 6) und ein Dutzend Vampirbruten. Hier liegt auch das Gefangenenlager aus Abenteuer 5 – am äußersten Rand |
+| **4. Höhle des Knochendrachen** | 7 / 13 | Das Skelett eines **ausgewachsenen Schwarzen Drachen** (Skelett-Schablone, ca. HG 7). Drevans Nekromanten versuchen, ihn mit einem Ritual zu einem vollwertigen untoten Drachen zu erheben (eigene Werte, ca. HG 13). Gelingt es, hat Drevan eine Belagerungswaffe gegen den Steinwall |
+| **5. Gruft der Eisenkönige** | 10–14 | Unter dem Totenschädel. Grabkammern, Fallen, Reliquien der Duergar-Dynastie. Hier herrscht der **Eisenkönig** (siehe unten) mit seiner Leibwache aus **Bodaks** (HG 8), **Schreckgespenstern** (*Dread Wraiths*, HG 9) und einem gefangenen **Seelenfresser** (*Devourer*, HG 11) als Torwächter |
+
+#### Der Eisenkönig
+
+**Durgrim Aschenherz** – Duergar-Lich, Kleriker des Droskar 11, **HG 12**.
+- Der letzte große König von Varikanum, gestorben um Jahr 90 und als Lich zurückgekehrt. Seine Nachfahren regierten Varikanum, bis Drevan sie in Jahr 141 abschlachtete.
+- Er duldet, dass Drevan seine Toten als Armee benutzt, weil Drevan ihm versprochen hat: **Nach dem Fall der Enklave bekommt Durgrim den Thron von Varikanum zurück.** Keiner der beiden glaubt dem anderen.
+- Sein besonderer Hass gilt den **Duergar der Enklave**: Ihre Vorfahren waren die Aufseher, die in Jahr 31 desertierten. Für ihn sind sie Verräter seines Volkes, und er will sie zurück – in Ketten.
+- **Für die SL:** Der Eisenkönig ist eine dritte Macht. Eine hochstufige Gruppe kann ihn gegen Drevan ausspielen – ein Pakt mit einem Lich gegen einen Vampir. Der Ethikrat würde das nie erlauben.
+
+#### Die Obelisken
+
+Jeder Obelisk ist ein **Fokus negativer Energie** (Aura wie *Entweihen*, 18 m). Untote im Umkreis erhalten +1 auf Angriffs-, Schadens- und Rettungswürfe; *Positive Energie fokussieren* ist um 3 SG erschwert. **Einen Obelisken zu zerstören** (Härte 8, 120 TP, oder *Weihen* wirken) schwächt die Armee spürbar. Auf dem Obeliskenfeld stehen 40 davon – ein lohnendes Ziel für eine Gruppe der Stufe 6–9.
+
+#### Die Bastion der Lebenden
+
+- **Besatzung:** 200 Veteranen (Stufe 3–7), davon 30 Kleriker und Paladine. Hier dienen nur Leute, die ihr Praxisjahr hinter sich haben.
+- **Bastionsmeisterin Hagra Lichtschild** – Duergar, Paladinin des Torag 9. Ihre Urgroßmutter liegt in der Gruft der Eisenkönige. Hagra hat geschworen, sie nie wieder aufstehen zu lassen.
+- **Aufbau:** Dreifacher Wall, ein Torweg mit permanent *geweihtem* Boden, Weihwasser-Gräben. Davor liegt der Außenposten **Knochenwacht** (40 Mann) – der Ort aus Abenteuer 5.
+- **Warum sie wichtig ist:** Fällt die Bastion, steht der Weg nach Tiefenburg offen – von der Seite, wo kein Steinwall schützt.
+
+**Geheimnis:** Nicht alle Toten hier sind Feinde. Unter ihnen liegen auch **Munavri und Svirfneblin aus der Gründungszeit**, verschleppt in Jahr 27 und in Varikanum gestorben. Ein *Mit Toten sprechen* kann Geschichte zum Leben erwecken.
+
+**Aufhänger:**
+- **Stufe 4:** Abenteuer 5 (äußerer Ring).
+- **Stufe 6–9:** Obelisken auf dem Obeliskenfeld zerstören; das Ritual am Knochendrachen sabotieren.
+- **Stufe 10–14:** In die Gruft der Eisenkönige eindringen – um den Lich zu vernichten oder um mit ihm zu verhandeln.
+
+**Begegnungen (W6):**
+
+| W6 | Äußerer Ring (HG 2–6) | Obeliskenfeld (HG 5–9) | Grauer Hof / Gruft (HG 9–14) |
+|---|---|---|---|
+| 1 | 2W6 menschliche Skelette | 2 Gespenster (HG 7) | Ser Morvath mit 4 Vampirbruten (HG 12) |
+| 2 | 1W6+2 menschliche Zombies | Mohrg mit 6 Zombies (HG 9) | 2 Bodaks (HG 10) |
+| 3 | 2W4 Ghule | Mächtiger Schatten (HG 8) | Schreckgespenst mit 4 Gespenstern (HG 11) |
+| 4 | Ghast mit 2 Ghulen (HG 4) | Vampirbrut-Patrouille (3 Bruten, HG 7) | Seelenfresser (HG 11) |
+| 5 | Schatten (HG 3) an einem Obelisken | Skelett-Riesen (2 Hügelriesen-Skelette, HG 6) | Untote Prozession: 200 Skelette auf dem Marsch – verstecken! |
+| 6 | Grabunhold (HG 3) – ein Gefallener aus Jahr 27 | Ghast-Hauptmann Kalkzahn mit Rotte (HG 8) | Der Eisenkönig selbst (HG 12 + Leibwache) |
+
+---
+
+### Die Winzlinge
+
+> *Eine kleine Höhle mit einem Tümpel. An den Wänden: hunderte winzige Löcher, aus denen Augen glitzern. Etwas kichert. Ein Steinchen fliegt euch an den Kopf.*
+
+**Eindruck:** Eine kleine Höhle südöstlich des Lands der Untoten.
+
+**Bewohner:** Ein Schwarm von etwa **150 Milben** (Mites) – winzige, blauhäutige Feenwesen, die Ungeziefer reiten und alle Größeren hassen. Ihr „König" **Gripgrip der Neunundzwanzigste** reitet einen Riesenhundertfüßer.
+
+**Gefahrenstufe:** HG 1–3.
+
+**Beziehungen:** Die Winzlinge hassen alle Größeren – aber die **Untoten hassen sie noch mehr**, weil Ghule ihre Höhle plündern. Sie sind die geborenen Verbündeten der Not: Sie kennen jeden Riss und Spalt im Land der Untoten und können die Gruppe auf Wegen führen, die keine Untoten kennen.
+- Verhandeln mit Milben: Einstellung Unfreundlich, Diplomatie SG 20. **Kleine Charaktere +2**, wer sich bückt oder kniet, +2. Wer sie „süß" nennt, scheitert automatisch.
+- Preis: Etwas Glänzendes. Und Rache an den Ghulen.
+
+**Aufhänger:** In Abenteuer 5 als alternativer Weg zum Gefangenenlager. Die Milben führen die Gruppe hin – und versuchen auf dem Rückweg, ihnen die Schuhe zu stehlen.
+
+---
+
+### Das Land der Tausende
+
+> *Das Rascheln beginnt leise. Dann wird es lauter. Dann seht ihr, dass der Boden sich bewegt – überall, so weit das Licht reicht. Tausende Beine.*
+
+**Eindruck:** Ein weites, verzweigtes Tunnelnetz südlich des Grovarimeers. Der Name ist eine Verkürzung aus dem Volksmund: **„Land der Tausendfüßer"**.
+
+**Bewohner:** Hundertfüßer und Tausendfüßer in allen Größen, bis hin zu einer **Riesen-Hundertfüßer-Königin** (Riesen-Hundertfüßer mit Riesig-Schablone, HG 5) in einer Brutkammer tief im Netz.
+
+**Gefahrenstufe:** HG 1–5.
+
+**Nutzen:** Die Panzer und das Gift der Hundertfüßer sind wertvoll. Alchemisten in Grovaristadt zahlen gut für Giftdrüsen (10 GM pro intakter Drüse eines Riesenhundertfüßers). Wehrpflicht-Truppen werden regelmäßig zur „Ausdünnung" geschickt – eine klassische Praxisjahr-Mission.
+
+**Geheimnis:** Die Hundertfüßer werden in letzter Zeit **mehr** und **aggressiver**. Der Grund: Die Milben (Winzlinge) züchten sie als Reittiere – und die Untoten haben die Milben aus ihren Weidegründen vertrieben. Alles hängt zusammen.
+
+**Begegnungen (W6):** 1–2 Riesenhundertfüßer (1W4+1, HG 1/2 je) · 3 Hundertfüßer-Schwarm (HG 4!) · 4 Riesenhundertfüßer-Wächter (Riesig, HG 1) · 5 Milben auf Hundertfüßer-Reittieren (HG 2) · 6 Leerer Panzer – etwas Größeres hat sich gehäutet …
+
+---
+
+### Das Land der Spinnen
+
+> *Netze. Überall Netze, von Wand zu Wand, von Boden zu Decke, dicht wie Nebel. In manchen hängen Kokons – manche so groß wie ein Schaf, manche so groß wie ein Mensch. Einer davon bewegt sich noch.*
+
+**Eindruck:** Ein dichtes, verworrenes Höhlennetz im äußersten Südosten, zwischen dem Land der Tausende und den Vegepygmy-Landen.
+
+**Bewohner:**
+- Riesenspinnen, Spinnenschwärme, **Ettercaps** (HG 3) als „Hirten" der Spinnen.
+- In der tiefsten Höhle: eine **Spinnenkreatur** (Drider, HG 7) namens **Ilythrae**, eine einstige Drow-Priesterin, die von ihrer Göttin verflucht wurde.
+
+**Gefahrenstufe:** HG 1–7 (Netze, Ettercaps, Drider) · HG 10 (das tiefste Nest, siehe 3b).
+
+**Geheimnis:** Ilythrae war vor 100 Jahren eine Priesterin des Hauses, das die Enklave in Jahr 118 angriff. Sie wurde für das Scheitern bestraft. Sie hasst ihre Göttin mehr als die Enklave – und weiß Dinge über die Drow-Häuser von Sekamina, die für Illiatist unbezahlbar wären. Sie könnte eine **sehr ungewöhnliche Verbündete** werden. Oder die Gruppe fressen.
+
+**Aufhänger:**
+- Eine Rattenvolk-Karawane aus Endstadt ist im Spinnenland verschwunden.
+- Drow aus Illiatist wollen eine Delegation zu Ilythrae schicken und brauchen Begleitschutz. Die Duergar halten das für Verrat.
+
+**Begegnungen (W6):** 1–2 Riesenspinne (1W3, HG 1 je) · 3 Spinnenschwarm (HG 1) · 4 Ettercap mit 2 Riesenspinnen (HG 4) · 5 Kokon mit lebendem Opfer (ein Rattenvolk-Händler) · 6 Phasenspinne (HG 5)
+
+---
+
+## NORDEN
+
+### Die Labyrinthe der Jäger
+
+> *Die Gänge verzweigen sich, und verzweigen sich wieder, und wieder. Nach einer Stunde wisst ihr nicht mehr, aus welcher Richtung ihr gekommen seid. An einer Wand: Kratzspuren, frisch. Und darunter, mit Blut gemalt, eine Strichliste.*
+
+**Eindruck:** Das riesige Tunnelnetz nördlich von Illiatist – das größte zusammenhängende Gebiet auf der Karte. Endlose Verzweigungen, Sackgassen, Schächte.
+
+**Bewohner:**
+- **Morlocks** – ein degenerierter Menschenstamm mit Hunderten Mitgliedern, der alles jagt, was sich bewegt. Sie sind „die Jäger".
+- **Höhlenfischer** und **Dunkelmäntel**, die an Decken lauern.
+- Gelegentlich **Drow-Jagdgesellschaften** der feindlichen Häuser, die die Labyrinthe als Jagdrevier nutzen – sie jagen Morlocks zum Vergnügen. Und alle anderen auch.
+
+**Gefahrenstufe:** HG 2–6 (äußere Gänge) · HG 7–12 (tiefe Gänge, siehe 3b).
+
+**Die Strichlisten:** Die Morlocks zählen ihre Beute an den Wänden. Jede Gruppe, die die Labyrinthe betritt, sieht neue Striche.
+
+**Der Jägergang:** Die Drow-Adelshäuser von Illiatist schicken ihre Jugendlichen in Dreiergruppen für drei „Nächte" in die Labyrinthe, um sie zu prüfen. Wer allein zurückkommt, hat versagt. Fast jedes Jahr kehrt eine Gruppe nicht vollständig zurück. Ausführlich im Städteband unter Illiatist.
+
+**Geheimnis:** Durch die Labyrinthe führt der **Geheimweg der Drow**: der Weg, auf dem das Haus Jurakin in Jahr 116 kam und auf dem seitdem einzelne Drow-Flüchtlinge nach Illiatist gelangen. Die Feste der Dunkelheit und das Dorf Drizzat bewachen ihn. Es ist auch der Weg, den echte Spione nehmen. Die Drow von Illiatist kennen ihn – und sie haben dem Rat nie verraten, wie genau er verläuft.
+
+**Aufhänger:**
+- Ein Drow-Flüchtling kommt halb tot aus den Labyrinthen. Er wird von Jägern verfolgt – von Morlocks *und* von Drow.
+- Eine Wehrpflicht-Truppe ist in den Labyrinthen verschollen. Seren Halvaris' Truppe?
+
+**Begegnungen (W6):** 1–2 Morlocks (1W4+1, HG 2 je) · 3 Höhlenfischer (HG 2) · 4 Dunkelmäntel (1W3, HG 1 je) · 5 Drow-Jagdgesellschaft (Drow-Krieger ×3 + Drow-Adliger, HG 5) · 6 Morlock-Kriegshaufen (2W6 Morlocks) – sofort fliehen!
+
+---
+
+### Die Teufelshöhlen
+
+> *Die Höhle ist durchlöchert wie ein Schwamm, und durch die Löcher steigt Hitze. Die Luft schmeckt nach Schwefel. Irgendwo lacht etwas, hoch und kindlich. Dann, ganz nah an eurem Ohr, eine Stimme: „Hallo."*
+
+**Eindruck:** Ein löchriges Höhlengebiet westlich der Lavaschmiede, direkt am Lavafluss. Die Duergar nennen es „Teufelshöhlen" – die Bewohner sind aber **Dämonen**, keine Teufel. Den Duergar ist der Unterschied egal.
+
+**Bewohner:**
+- **Dretches**, **Quasits** und andere niedere Dämonen.
+- Ein **Riss zum Abyss** tief in der zentralen Höhle – klein, instabil, seit Jahrhunderten offen. Die Lavahitze hält ihn „warm".
+- Ein **Babau** (HG 6) namens **Grinsender Vael**, der sich für den Herrn der Höhlen hält.
+
+**Gefahrenstufe:** HG 2–6 (äußere Höhlen) · HG 9–13 (am Riss, siehe 3b).
+
+**Geheimnis:** Die Westfeste wurde in Jahr 113 gebaut, als die Duergar die Lavaschmiede gründeten. Die Duergar haben damals einen **Pakt** mit dem Babau geschlossen: Er hält die anderen Dämonen in seinem Gebiet, die Duergar lassen ihn in Ruhe und bringen ihm einmal im Jahr eine Gabe (Waffen aus der Lavaschmiede). **Der Ethikrat weiß nichts davon.** Wenn es herauskommt, gibt es einen politischen Skandal um Drudanst.
+
+**Aufhänger:**
+- Ein Quasit schleicht sich in Drudanst ein und flüstert Lügen – über Drow, über Munavri, über den Rat.
+- Die jährliche Gabe an den Babau ist überfällig, weil Thorgrim sich weigert. Die Dämonen werden unruhig.
+
+**Begegnungen (W6):** 1–2 Dretch (1W3, HG 2 je) · 3 Quasit (HG 2) – unsichtbar, spricht mit einem Charakter · 4 Magmin (HG 3) aus dem Lavafluss · 5 **Abyssischer Hund** (Werte eines Höllenhunds, Gesinnung CB, HG 3) · 6 Babau (HG 6)
+
+---
+
+### Der Lavafluss
+
+**Eindruck:** Ein Fluss aus glühender Lava, der von Nordwesten nach Osten über die gesamte Karte fließt. Er beleuchtet seine Umgebung mit rotem Licht – der einzige natürlich helle Ort in Sekamina.
+
+**Gefahren:** Hitze (siehe Abenteuer 4), giftige Dämpfe (Zähigkeit SG 15, 1W6 Schaden pro Runde in direkter Nähe), Feuerelementare, Magmins, Salamander (HG 5).
+
+**Nutzen:** Die **Lavaschmiede** nutzt die Hitze. Ohne den Lavafluss keine Lavaschmiede, ohne Lavaschmiede keine Waffen der Enklave.
+
+**Geheimnis:** Der Lavafluss fließt nach Osten über den Kartenrand hinaus. Niemand in der Enklave hat je verfolgt, wohin. Die Duergar erzählen von einer **Stadt der Feuerriesen** dort. Ob das stimmt?
+
+---
+
+## MITTE & OSTEN
+
+### Die Finsterhöhlen
+
+> *Eure Lichter werden schwächer. Nicht die Flamme – das Licht selbst, als würde die Dunkelheit es auffressen. Selbst Dunkelsicht reicht hier nur ein paar Schritte weit.*
+
+**Eindruck:** Ein dichtes Labyrinth zwischen Illiatist, Drudanst und Grovaristadt. Mitten in der Enklave – und doch Niemandsland.
+
+**Besonderheit:** In den Wänden wachsen **Schattenkristalle**, die Licht absorbieren. In den Finsterhöhlen gilt:
+- Alle Lichtquellen haben nur den **halben Radius**.
+- **Dunkelsicht reicht nur 9 m** (statt 18 oder 36).
+- Heimlichkeit +4, Wahrnehmung –2.
+
+**Bewohner:** Ghul-Rudel (Abenteuer 4), **Grick** (HG 3), **Dunkelmäntel**, gelegentlich Schmuggler, die den Zoll der Nordfeste umgehen.
+
+**Gefahrenstufe:** HG 1–4.
+
+**Geheimnis:** Schattenkristalle sind wertvoll – Magier zahlen 50 GM pro Stück. Die Pfeilerwacht hat ein Monopol auf ihren Abbau. Vanthes beherrschte Lehrlinge nutzen die Finsterhöhlen als **Versteck für das Material der Gegenanker** (Abenteuer 4).
+
+**Aufhänger:** Schmuggler bauen illegal Schattenkristalle ab. Wer steckt dahinter? (Obermagister **Bastrin Kieselgrund** von der Pfeilerwacht, der mit dem Geld seine Wahl zum Erzmagister vorbereitet – der zweite Verdächtige der Kampagne, siehe Kampagnenbuch 3.4.)
+
+---
+
+### Das Kloster der Wahrheit
+
+> *Eine runde Höhle, still und sauber gefegt. In ihrer Mitte erhebt sich ein Bau aus konzentrischen Mauern, wie eine steinerne Schnecke. Ein Mönch, barfuß, in grauer Kutte, wartet am Eingang. Er lächelt. „Ihr dürft eintreten. Aber wisst: Hier drin kann niemand lügen."*
+
+**Eindruck:** Eine Höhle nordöstlich von Grovaristadt, erreichbar durch ein schmales Labyrinth. Das Symbol auf der Karte zeigt die **Spiralform** des Klosters.
+
+**Bewohner:** Etwa **40 Mönche** aller Völker unter Abt **Bruder Ondrin** (Svirfneblin, Mönch 8). Sie folgen **Irori** und dem Pfad der Selbsterkenntnis. Das Kloster ist **älter als die Enklave** – die Svirfneblin kannten es schon, bevor die Munavri kamen.
+
+**Die Wahrheit:** Das gesamte Kloster liegt unter einer permanenten *Zone der Wahrheit* (Willen SG 17). Wer drinnen lügen will, muss den Rettungswurf schaffen – und alle sehen, ob jemand ihn würfelt.
+
+**Beziehung zur Enklave:** Das Kloster ist **unabhängig** und gehört nicht zur Enklave. Aber der **Ethikrat** nutzt es für schwere Fälle: Wer eines schweren Verbrechens angeklagt ist, kann verlangen, im Kloster befragt zu werden. Die Mönche verlangen keinen Lohn, nur Respekt vor ihrer Ruhe.
+
+**Gefahrenstufe:** Keine – solange man sich benimmt.
+
+**Geheimnis:** Bruder Ondrin hat Vanthe nach ihrer Rückkehr vor 14 Jahren angeboten, ins Kloster zu kommen, „um Frieden zu finden". Sie hat abgelehnt – zu schnell, findet er heute. Er hat einen Verdacht, aber keine Beweise. **Wenn die Gruppe Vanthe ins Kloster bringen kann, enthüllt die Zone der Wahrheit alles.**
+
+**Aufhänger:**
+- Abenteuer 6: Das Kloster als Weg, Vanthes Beherrschung vor dem Ethikrat zu beweisen.
+- Ein Mönch ist verschwunden. Er hatte geschworen, nie die Höhle zu verlassen.
+
+---
+
+### Die Alten Ruinen (Ost)
+
+> *Ein Gewirr aus Mauern, Gängen und Kammern, das in den Fels selbst gehauen ist – ein Labyrinth, das jemand mit Absicht gebaut hat. Davor stehen seltsame Monumente: ein Kreis mit einem Kreuz, ein spitzes Zelt aus Stein, ein Rad mit Speichen.*
+
+**Eindruck:** Nördlich des Klosters der Wahrheit und westlich von Endstadt, erreichbar über die Ostfeste. Ein gebautes Labyrinth mit drei Monumenten (die Symbole auf der Karte).
+
+**Bewohner:** Unbekannt. Die Ostfeste meldet gelegentlich **Lichter** aus den Ruinen. Expeditionen kamen selten zurück – und die, die zurückkamen, wussten nicht mehr, was sie gesehen hatten.
+
+**Gefahrenstufe:** HG 3–8 (Außenbereich: Fallen, Konstrukte) · HG 11–12 (Kern, siehe 3b).
+
+**Geheimnis:** Die Ruinen sind das **Gegenstück zum Portal in den Alten Ruinen (West)**. Die drei Monumente sind Schlösser. Wer sie in der richtigen Reihenfolge aktiviert, öffnet beide Portale gleichzeitig – und schafft einen Weg quer unter der Enklave hindurch. **Ein zweiter Zugang für eine Armee.** Das ist ein perfekter Aufhänger für eine Fortsetzung: Drevan sucht nach einem neuen Weg, nachdem der Pfeilerplan gescheitert ist.
+
+**Wächter:** Steinwächter (Steingolem-ähnliche Konstrukte, HG 5–7), magische Fallen, ein **Gedächtnisfluch** (Willen SG 16 beim Verlassen, sonst *Gedächtnis verändern*-artiger Verlust der letzten Stunden).
+
+---
+
+### Die Vegepygmy-Lande
+
+> *Grünes, wucherndes Gewächs an Wänden und Decke – Moos, Pilze, Ranken, die in der Dunkelheit wachsen, wo nichts wachsen sollte. Kleine Gestalten aus Pflanzenfasern stehen reglos zwischen den Stämmen. Erst als ihr näher kommt, dreht sich einer zu euch. Er hat keine Augen. Er braucht keine.*
+
+**Eindruck:** Ein grünes Höhlengebiet südlich von Endstadt (Karte: „Vegepygmy").
+
+**Bewohner:** Ein Volk von **Vegepygmys** (HG 1 je), einige **Vegepygmy-Häuptlinge** (HG 3) und ihre gezähmten **Dornenhunde**. Sie verständigen sich mit Klopfzeichen. Ihr Anführer ist der **Alte Wurzelvater**, ein Vegepygmy-Häuptling, der älter ist als Endstadt.
+
+**Das Abkommen (Jahr 129):** Die Enklave übergibt den Vegepygmys Mörder und zum Tode Verurteilte. Die Vegepygmys **nutzen sie als Nährboden**: Die Verurteilten werden mit Russet-Schimmel infiziert und werden selbst zu Vegepygmys. Dafür helfen die Vegepygmys beim Anbau der Pilzkulturen, die die Enklave ernähren.
+
+**Das moralische Problem:** Die Enklave sagt, sie sei „neutral bis gut". Das Abkommen ist eine **Todesstrafe, die schlimmer ist als der Tod**. Der Ethikrat hat es mehrmals überprüft und mit knapper Mehrheit bestätigt – weil die Enklave sonst hungern würde. Viele junge Leute (und vielleicht die Spieler) finden das unerträglich.
+
+**Gefahrenstufe:** HG 1–4 (für Gäste: keine, solange das Abkommen gilt).
+
+**Geheimnis:** Die neu entstandenen Vegepygmys **erinnern sich**. Schwach, bruchstückhaft, aber sie erinnern sich an ihr früheres Leben. Der Alte Wurzelvater weiß das. Er hat es nie erzählt, weil niemand gefragt hat.
+
+**Aufhänger:**
+- Das Zwischenspiel „Das Abkommen" (Kampagnenbuch).
+- Eine Vegepygmy erscheint in Endstadt und klopft an die Tür einer Familie – die Familie eines vor Jahren Verurteilten.
+- Die Pilzernte bricht ein. Die Vegepygmys verlangen mehr Verurteilte. Der Rat diskutiert, ob man das Strafmaß für Diebstahl erhöhen soll …
+
+---
+
+## 3b. Hochstufige Bedrohungen – der tiefe Kern jeder Region
+
+Die Grovari-Höhlen sind von Mächten umgeben, gegen die eine Wehrpflicht-Truppe im Praxisjahr keine Chance hätte. Das ist Absicht: Die Spieler sollen spüren, **warum** es Festen, Mauern und eine Wehrpflicht gibt. Und eine Fortsetzungskampagne hat Gegner bis Stufe 15.
+
+### Gefahrenübersicht
+
+| Region | Rand | Tiefe | Kern (Spitze) | Wer hält es auf |
+|---|---|---|---|---|
+| **Land der Untoten** | 2–6 | 5–11 | **14** (Eisenkönig, Gruft) | Bastion der Lebenden |
+| **Vampirreich / Varikanum** | 4–7 | 7–11 | **14** (Fürst Drevan) | Großer Steinwall, Torstadt |
+| **Intelligente Pilzwälder** | 1–4 | 5–8 | **12** (Denkendes Herz) | Zwei Sporenfesten, Pilzwaldfeste |
+| **Teufelshöhlen** | 2–6 | 6–9 | **13** (Glabrezu am Riss) | Westfeste |
+| **Labyrinthe der Jäger** | 2–6 | 7–10 | **12** (Purpurwurm) | Feste der Dunkelheit, Drizzat |
+| **Alte Ruinen (Ost)** | 3–8 | 8–11 | **12** (Schlangenpriester) | Ostfeste |
+| **Lavafluss** | 3–5 | 6–9 | **14** (der Rote Schläfer, ein Magmawurm) · 12 (Feuerriesen-Vorposten) | Lavaschmiede |
+| **Land der Spinnen** | 1–4 | 5–7 | **10** (Bebilith) | – (niemand; die Enklave meidet es) |
+| **Hochsee** | – | – | **7–12** (je nach Wahl, siehe unten) | Drizzat, Illiatist |
+| Land der Tausende, Echsenvolk, Winzlinge, Finsterhöhlen | 1–5 | – | 5 | Patrouillen |
+| *Vegepygmy-Lande* | *keine Gefahr für Gäste, solange das Abkommen gilt* | – | – | *Verbündete* |
+
+### Vampirreich – der Hof von Varikanum
+
+| Name | Werte | HG | Rolle |
+|---|---|---|---|
+| **Fürst Casimir Drevan** | Vampir, Magier (Nekromant) 12 | 14 | Herr von Varikanum. Kämpft nie, wenn er nicht muss. Besitzt drei Särge an drei geheimen Orten – erst wenn alle drei gefunden sind, lässt er sich endgültig vernichten |
+| **Lady Isvane** | Vampir, Hexenmeisterin (Blutlinie: Untote) 8 | 9 | Erste Kelchträgerin. Hält die vier Sklavenviertel in Angst. Drevans Geliebte und Rivalin |
+| **Ser Morvath** | Vampir, Kämpfer 9 | 10 | Zweiter Kelchträger, Feldherr im Grauen Hof |
+| **Der Stumme Kanzler** | Vampir, Magier (Erkenntnis) 8 | 9 | Dritter Kelchträger. Spionagemeister. Führt die menschlichen Diener wie Kell Morrow. Hat die Zunge verloren, spricht nur durch Diener |
+
+### Teufelshöhlen – der Riss
+
+- Der Babau **Grinsender Vael** (HG 6) ist nur das Sprachrohr. Hinter dem Riss zum Abyss wartet der eigentliche Herr: **Xal'thuun**, ein **Glabrezu** (HG 13) – ein Dämon, der Wünsche gewährt und sie verdreht.
+- **Das große Geheimnis von Drudanst:** In Jahr 113 fanden die Duergar den Weg zum Lavastrom nicht durch Glück. Ein verzweifelter Duergar-Baumeister handelte mit Xal'thuun – ein Wunsch für den Ort der Lavaschmiede. Der Preis: die jährliche Gabe, und eine Schuld, die noch nicht eingefordert wurde. **Die Lavaschmiede, der Stolz der Enklave, ist mit einem Dämonenpakt erkauft.** Der **Einsturz der alten Siedlung in Jahr 123** war Xal'thuuns erste Mahnung, als der Baumeister Hargrim Erzfaust aufhören wollte. Heute wissen nur Thorgrim Aschhand, zwei Alte der Amboss-Versammlung – und über einen Quasit auch Fürst Drevan davon. Die Mitwisser schweigen aus Angst, dass sonst alle Duergar dafür büßen (Fünfhunderter-Regel). Ausführlich im Städteband unter Drudanst.
+- Am Riss wachen 2 **Vrocks** (HG 9 je). Wird der Riss weiter geöffnet, kommt ein **Hezrou** (HG 11) durch.
+
+### Labyrinthe der Jäger – der Mahlende
+
+- Die Labyrinthe sind kein natürliches Höhlennetz. Sie sind die Gänge eines **Purpurwurms** – der **Mahlende** (HG 12) –, der seit Jahrhunderten durch den Fels zieht. Die Beben in der Enklave sind oft er. Die Morlocks verehren ihn als Gott und opfern ihm.
+- Tief in den Gängen jagt eine **Rotte Gugs** (3 Gugs, HG 10).
+- **Zesstra Vel'Ashar** (Drow-Adlige, Waldläuferin 10, ca. HG 11) führt die Jagdgesellschaften ihres Hauses. Sie jagt Flüchtlinge, die nach Illiatist wollen – und sie würde gern einmal einen Wehrpflichtigen jagen. Ihre liebste Beute sind die Jugendlichen aus Illiatist auf dem **Jägergang**: Wen sie lebend fängt, macht sie über Jahre zum Spion und lässt ihn dann „fliehen".
+
+### Alte Ruinen (Ost) – der Schläfer
+
+- Zwei **Steingolems** (HG 11 je) bewachen das innerste Tor.
+- Dahinter, in einer Kammer außerhalb der Zeit: ein **Schlangenmensch-Priesterkönig** (Serpentfolk, Kleriker 10, ca. HG 12) in magischem Schlaf. Er wartet darauf, dass jemand die drei Schlösser öffnet.
+- **Wohin das Portal führt:** in die Tiefe von **Orv** – ans Lichtlose Meer, die alte Heimat der Munavri, wo die Alghollthus herrschen. Für die Munavri der Enklave wäre das eine Rückkehr in den Albtraum, vor dem ihr Volk geflohen ist.
+
+### Lavafluss – die Glutzinne
+
+- Flussaufwärts, wo der Lavafluss die Karte verlässt, liegt die **Glutzinne**: ein Vorposten der **Feuerriesen** (2 Feuerriesen und 4 Höllenhunde, HG 12). Sie betrachten die Lavaschmiede als Diebstahl an ihrem Fluss.
+- Im Lavastrom selbst lebt ein **Ältester Feuerelementar** (HG 11), den die Duergar „den alten Ofen" nennen und mit Opfergaben ruhig halten.
+
+### Lavafluss – der Rote Schläfer (Magmawurm, HG 14)
+
+*Idee des Autors für hochstufigen Inhalt nahe der Lavaschmiede. Grundlage: der **Crimson Worm** (PF1-Werte, d20pfsrd.com) bzw. **Magma Worm** (Pathfinder-Wiki; in PF2 heißt der Karminwurm so: Bestiary 2E, Monster Core). Laut Golarion-Kanon sind diese Würmer an vulkanische Umgebungen angepasst: **Feuer und Magma heilen sie, und sie speien Feuer.**
+
+> *Zuerst ist es nur ein Zittern in den Werkzeugen. Dann klirren die Ketten an den Essen, und aus der Tiefe kommt ein Geräusch wie ein Steinbruch, der atmet. Die alten Schmiede legen die Hämmer nieder, ohne dass jemand es befiehlt. Einer flüstert: „Er dreht sich im Schlaf."*
+
+**Was er ist:** Ein **Magmawurm** (auch Karminwurm) – ein roter, noch gewaltigerer Verwandter des Purpurwurms, bedeckt mit karminroten Chitinplatten, mit einem Maul, in das ein Ochse passt. Er ist ein Geschöpf vulkanischer Hitze: Lava ist für ihn kein Hindernis, sondern Nahrung und Heilung. Er schläft seit Jahrhunderten zusammengerollt in einer Kaverne **unter dem Lavafluss**, ein paar Kilometer flussaufwärts von der Lavaschmiede. Die Duergar nennen ihn **den Roten Schläfer**.
+
+**Warum er gerade hier ist:**
+- Die **Hitze** des Lavastroms nährt ihn. Satt und gewärmt schläft er – wie eine Schlange auf einem warmen Stein. Je heißer es um ihn ist, desto stärker ist er, wenn er erwacht.
+- Er spürt Erschütterungen über große Entfernung (Erschütterungssinn). Das **rhythmische Hämmern der Lavaschmiede** dringt bis zu ihm hinunter.
+- Deshalb gibt es in der Lavaschmiede einen uralten Brauch, den Fremde für Aberglauben halten: die **Stunden der Stille**. Zweimal am Tag ruhen alle Hämmer für eine Stunde. „Damit der Schläfer weiterschläft." Er ist kein Aberglaube.
+
+**Die Karminplatten:** Vor rund 150 Jahren fanden Duergar-Erzsucher die abgeworfenen Chitinplatten eines jungen Karminwurms. Daraus wurden die legendären **Karminpanzer** der Lavaschmiede – nur drei existieren. Einer hängt in der Gewölbehalle von Drudanst, einer gehört Bastionsmeisterin Hagra Lichtschild. Der dritte gilt als verschollen. *(Werte nach SL-Ermessen, z. B. +2 Brustplatte mit Feuerresistenz 10.)*
+
+**Was ihn wecken kann (Aufhänger für hohe Stufen):**
+- **Die Feuerriesen der Glutzinne** wollen die Lavaschmiede loswerden. Sie wissen vom Schläfer – und dass ihn genug Lärm und Hitze wecken. Ein Ritual mit Feuerelementaren an seiner Kaverne würde ihn rasend machen und in Richtung Lavaschmiede treiben.
+- **Xal'thuun** könnte den Schläfer als Druckmittel nutzen, wenn Thorgrim die Gabe weiter verweigert: „Ein Wunsch hat euch den Weg zur Lava gezeigt. Ein Beben kann ihn wieder verschließen."
+- **Die Lavaschmiede selbst:** Unter dem Druck des Krieges gegen Drevan wird die Stunde der Stille gestrichen, um mehr Waffen zu schmieden …
+
+**Was passiert, wenn er erwacht:** Er gräbt sich durch den Fels zur Quelle der Erschütterungen. Erst zur **Lavaschmiede** (ein Angriff, der sie in einer Nacht zerstören kann), dann durch den **Lavatunnel nach Süden auf Drudanst** zu, wo die Gewölbestadt zittert. Ein Karminwurm in der Drudanst-Höhle wäre ein zweiter Einsturz von Jahr 123 – nur schlimmer.
+
+**Wie eine Gruppe ihn besiegen kann (Stufe 12–15):**
+- **Kampf:** Ein HG-14-Gegner, allein, aber verheerend: Feueratem, Verschlingen, Giftstachel, gewaltige Reichweite. Im engen Lavatunnel kann er sich kaum drehen – ein Vorteil für die Gruppe. **Aber:** Feuer heilt ihn. Die Brenner der Sporenfesten und jeder Feuermagier sind hier nutzlos oder schlimmer – und ein Kampf an der Lava ist ein Kampf, den er gewinnt. Kluge Gruppen locken ihn weg von der Hitze, in kalten Fels, und setzen auf Kälte, Säure oder Waffen.
+- **Umlenken:** Erschütterungen anderswo erzeugen (Sprengungen, Erdbebenzauber, die Lastkäfer-Herden von Endstadt …), um ihn von Drudanst wegzulocken – vielleicht sogar **gegen die Glutzinne** der Feuerriesen, die ihn geweckt haben.
+- **Wieder einschläfern:** Hitze und Stille – in seiner Kaverne unter der Lava schläft er satt wieder ein. Die Svirfneblin-Illusionisten von Tiefenburg und ein Druide mit *Tiere besänftigen*-Magie auf höchster Stufe könnten ihn zurück in seine Kaverne locken.
+- **Belohnung:** Karminplatten für neue Panzer – und die Dankbarkeit von Drudanst, die im Akt „Der Pakt" viel wert sein kann.
+
+**Werte (Kurzfassung, PF1 – Crimson Worm mit den Magmawurm-Eigenschaften):**
+HG 14 (Grundwerte HG 13) · 38.400 EP · N Kolossale magische Bestie · **INI** –2 · **Sinne** Dunkelsicht 18 m, Erschütterungssinn 18 m; Wahrnehmung +18
+**RK** 25, Berührung 0, auf dem falschen Fuß 25 · **TP** 232 (16W10+144) · **REF** +8, **WIL** +5, **ZÄH** +19
+**Bewegung** 6 m, Graben 6 m, Schwimmen 3 m · **Nahkampf** Biss +21 (8W6+12/19–20 plus Ergreifen), Stachel +21 (4W6+12 plus Gift) · **Angriffsfläche** 6 m; **Reichweite** 4,5 m
+**Besondere Angriffe** Verschlingen (8W6+18 Wuchtschaden, RK 21, 20 TP)
+**Gift** (Stachel – Verletzung): Zähigkeit SG 27; Frequenz 1/Runde für 6 Runden; Effekt 1W4 ST-Schaden; Heilung 3 aufeinanderfolgende Rettungswürfe
+**ST** 35, **GE** 6, **KO** 25, **IN** 1, **WE** 8, **CH** 8 · **GAB** +16; **KMB** +38 (+42 Ringkampf); **KMV** 45 (kann nicht zu Fall gebracht werden)
+**Talente** Fokussierter kritischer Treffer, Heftiger Angriff, Mächtiger Schlag, Verbesserter Ansturm, Verbesserter Kritischer Treffer (Biss), Waffenfokus (Biss, Stachel), Wankender kritischer Treffer · **Fertigkeiten** Schwimmen +22, Wahrnehmung +18
+**Magmawurm-Eigenschaften** (nach Golarion-Kanon, für PF1 übertragen – deshalb HG 14):
+- **Kind des Feuers (AF):** Immunität gegen Feuer. Feuerschaden, Lava und magisches Feuer **heilen** ihn um 1 TP je 3 Punkte Feuerschaden, den er sonst erlitten hätte. Er kann sich in Lava bewegen wie in Wasser (Schwimmen 3 m) und gräbt sich durch Gestein nahe Lava ohne Abzug.
+- **Feueratem (ÜF):** Alle 1W4 Runden, Kegel 18 m, 12W6 Feuerschaden, Reflex SG 25 halbiert (Konstitution).
+- **Empfindlichkeit gegen Kälte:** +50 % Schaden durch Kältezauber und -effekte. *(Hausregel als Ausgleich – nicht kanonisch.)*
+
+### Land der Spinnen – die Weberin aus dem Abgrund
+
+- Im tiefsten Nest lebt keine gewöhnliche Spinne, sondern ein **Bebilith** (HG 10) – ein Dämon in Spinnengestalt, der vor Jahrzehnten aus dem Riss der Teufelshöhlen entkam. Er jagt Dämonen und alles andere.
+- Die Drider **Ilythrae** (HG 7) und der Bebilith sind Todfeinde. Wer Ilythrae hilft, hat einen Bebilith gegen sich.
+
+### Hochsee – die alte Dame (zwei Möglichkeiten)
+
+| Möglichkeit | Was es ist | HG | Folge |
+|---|---|---|---|
+| **A – harmlos** | Ein uralter **Elasmosaurus**, scheu, hält sich von Booten fern | 7 | Eine Legende, ein Tourismusziel, ein schöner Moment |
+| **B – Albtraum** | Ein **Aboleth** (HG 7), der seit Jahrzehnten im Hochsee schläft und langsam erwacht. Er beherrscht bereits einzelne Drow-Fischer aus Drizzat und hat eine Handvoll **Ulat-Kini** (Fischmenschen, HG 2) als Diener. Für eine Fortsetzung: ein Aboleth-Ältester mit Klassenstufen (HG 12) | 7 / 12 | Aboleths (Alghollthus) sind die Urfeinde der Munavri. Dass einer mitten in der Enklave lebt, wäre für die Munavri ein Schock – und für Drevan eine Gelegenheit |
+
+### Fortsetzungskampagne: Stufe 6–15 (Skizze)
+
+| Akt | Stufe | Titel | Worum es geht |
+|---|---|---|---|
+| I | 6–8 | **Der Grüne Hunger** | Eine Sporenfeste fällt. Die Truppe muss das Myzel zurückdrängen, **ohne die Luft der Enklave zu zerstören**, entdeckt den Atemgrund – und dass die Lichthallen von Endstadt die Lösung sein könnten, die der Lichtbann verhindert |
+| II | 8–10 | **Der Pakt** | Xal'thuun fordert seine Schuld ein, Drevan droht den Pakt öffentlich zu machen. Die Truppe muss entscheiden: das Geheimnis aufdecken (und riskieren, dass die Enklave sich gegen alle Duergar wendet) – oder es mit Thorgrim still lösen, den Beschwörungskreis im Bruch finden, Xal'thuun bannen (und damit den Ethikrat hintergehen). Nebenbei: ein Bebilith im Spinnenland |
+| III | 10–12 | **Die Gruft der Eisenkönige** | Das Ritual am Knochendrachen muss gestoppt werden. Der Eisenkönig bietet einen Pakt gegen Drevan an – zu welchem Preis? |
+| IV | 12–14 | **Die Sklavenviertel** | Infiltration Varikanums, Aufstand mit Sefa Lenn, die drei Kelchträger |
+| (Neben-Akt) | 12–14 | **Der Rote Schläfer** | Die Feuerriesen der Glutzinne wecken den Magmawurm unter dem Lavafluss. Er gräbt sich auf die Lavaschmiede und Drudanst zu. Kämpfen, umlenken oder wieder einschläfern |
+| Finale | 14–15 | **Der Blutturm** | Fürst Drevan. Und danach? Ein Portal nach Orv, das sich von selbst öffnet … |
+
+---
+
+### Jenseits der Karte
+
+| Richtung | Was dort liegt (Golarion-Kanon + Vorschlag) |
+|---|---|
+| **Oben** | **Nar-Voth**, die oberste Schicht der Finsterlande. Von dort kamen die Munavri ursprünglich? (In Golarion leben Munavri eher tief, aber SL-Entscheidung.) Darüber: die Oberfläche. Welche Region die Höhlen auf der Oberfläche überdecken, kannst du offen lassen – oder sie z. B. unter die **Fünf Königreiche** oder **Nirmathas** legen. |
+| **Unten** | **Orv**, die tiefste und älteste Schicht. Uralte Gewölbe, Wesen wie Neothelids und Alghollthus. Der Steinkreis in den Alten Ruinen könnte dorthin führen. |
+| **Nordwesten** | Der Fluss, der nach Varikanum fließt, kommt aus dem Norden. Dort: das Gebiet der Drow-Häuser, die die Enklave in Jahr 118 angriffen. |
+| **Osten** | Der Lavafluss verlässt die Karte nach Osten. Angeblich eine Feuerriesen-Festung. |
+| **Süden** | Hinter dem Land der Spinnen: Duergar-Reiche, aus denen die Asylsuchenden flohen. Die Sklavenjäger kommen von dort. |
+
+---
+
+## 4. Wer mit wem – Beziehungen der Mächte
+
+| | Enklave | Vampirreich | Echsenvolk | Winzlinge | Pilzwald | Kloster | Vegepygmys | Babau (Teufelshöhlen) | Morlocks |
+|---|---|---|---|---|---|---|---|---|---|
+| **Enklave** | – | Krieg | Neutral, Handel | Unbekannt | Krieg (Eindämmung) | Respekt | Abkommen | Geheimer Pakt (nur Drudanst) | Feind |
+| **Vampirreich** | Will übernehmen | – | Vernichtet sie | Plündert sie | Konkurrent um Leichen | Ignoriert es | Gleichgültig | Misstrauen | Nutzt sie als Futter |
+| **Echsenvolk** | Hofft auf Asyl | Todfeind | – | Gleichgültig | Gleichgültig | – | – | – | Feind |
+| **Winzlinge** | Misstrauen | Hass | Gleichgültig | – | Meiden ihn | – | Gleichgültig | – | Feind |
+
+**Merksatz für die SL:** Das Vampirreich bedroht **alle**. Deshalb kann die Enklave Verbündete gewinnen, wo sie keine erwartet – Echsenvolk, Winzlinge, sogar die verfluchte Drow-Priesterin im Spinnenland. Genau das passt zum Leitmotiv: *Jeder ist wichtig.*
+
+---
+
+## 5. Abenteueraufhänger (W20)
+
+Für spontane Missionen, Zwischenspiele oder eine längere Kampagne nach dem Praxisjahr.
+
+| W20 | Aufhänger | Region | HG |
+|---|---|---|---|
+| 1 | Ein Plesiosaurier im Grovarimeer greift Boote an. Er ist vergiftet – womit? | Grovarimeer | 3 |
+| 2 | Flüchtlinge aus Varikanum erscheinen in der Vorhöhle, verfolgt von Vampirbrut | Vorhöhle | 4 |
+| 3 | Eine Wehrpflicht-Truppe ist in den Labyrinthen der Jäger verschollen | Labyrinthe | 3 |
+| 4 | Ein Quasit verbreitet Lügen in Drudanst | Drudanst / Teufelshöhlen | 2 |
+| 5 | Hundertfüßer-Plage in den Pilzfeldern am Südufer des Grovarimeers | Land der Tausende | 2 |
+| 6 | Das Echsenvolk bittet um Asyl – der Rat schickt die Truppe als Gesandte | Echsenvolk | 1 |
+| 7 | Eine Rattenvolk-Karawane ist im Land der Spinnen verschwunden | Land der Spinnen | 3 |
+| 8 | Schmuggler bauen in den Finsterhöhlen Schattenkristalle ab | Finsterhöhlen | 2 |
+| 9 | Ein Gelehrter will die Alten Ruinen (West) erforschen | Alte Ruinen West | 2 |
+| 10 | Ein Mönch des Klosters der Wahrheit ist verschwunden | Kloster | 3 |
+| 11 | Die jährliche Gabe an den Babau ist überfällig | Teufelshöhlen | 5 |
+| 12 | Eine Vegepygmy klopft an eine Tür in Endstadt | Vegepygmy-Lande | 1 |
+| 13 | Lichter in den Alten Ruinen (Ost) – die Ostfeste bittet um Aufklärung | Alte Ruinen Ost | 4 |
+| 14 | Einen Obelisken im Land der Untoten zerstören | Land der Untoten | 4 |
+| 15 | Die Milben bieten einen Handel an: Weg zu den Gefangenen gegen Rache an den Ghulen | Winzlinge | 2 |
+| 16 | „Die alte Dame" wurde im Hochsee gesehen – die Drow wollen sie in Ruhe lassen, die Fischer jagen | Hochsee | 3 |
+| 17 | Ein Drow-Flüchtling wird durch die Labyrinthe gejagt | Labyrinthe | 3 |
+| 18 | Ein Beben öffnet einen neuen Tunnel aus dem Damm – wohin führt er? | Damm | 3 |
+| 19 | Die Pilzernte in Endstadt bricht ein – die Vegepygmys verlangen mehr | Vegepygmy-Lande | 2 |
+| 20 | Eine Gesandtschaft zu Ilythrae, der Drider im Spinnenland | Land der Spinnen | 6 |
+
+---
+
+## 6. Anmerkungen zur Karte
+
+Beim Lesen der Karte im Detail ist mir Folgendes aufgefallen:
+
+| Beobachtung | Was ich daraus gemacht habe |
+|---|---|
+| Die Vampirstadt heißt auf der Karte **Varikanum** (nicht Varskanum, wie ich vorher geschrieben hatte) | In allen Dateien korrigiert |
+| Varikanum hat **vier Sklavenviertel**, beschriftet mit Svirfneblin, Druegar, Drow, Munarvri | Als „dunkles Spiegelbild der Enklave" ausgebaut: dieselben Völker, aber versklavt und streng nach Viertel getrennt |
+| Es gibt **zwei Sporenfesten** (bei Tiefenburg und bei Illiatist) und eine Pilzwaldfeste, jeweils an einem Intelligenten Pilzwald | **Korrigiert:** Die Festen stehen *gegen* die Pilzwälder. Die drei Wälder sind ein einziges, feindliches Wesen („das Myzel"). Die gezüchteten Pilzfelder sind etwas anderes |
+| Dunkle, gitterartige Fläche im Südwesten der Drudanst-Höhle bei der Südfeste | **Der Bruch**: Trümmer der ersten Duergar-Siedlung, eingestürzt in Jahr 123 (Idee des Autors). Siehe Städteband |
+| **Karte2:** Illiatist liegt jetzt am Südwestende des Hochsees, Morbar am Südostufer; Maßstab 0–30 km | Alle Texte angepasst. Neu: Illiatist liegt direkt am Pilzwald – die Drow halten dort die Front gegen das Myzel (und die Duergar-Warnung von Jahr 154 bekommt einen Grund) |
+| Das Land der Untoten wird durch eine eigene Feste abgeschirmt | Ausgebaut zur gefährlichsten Region (bis HG 14) mit der Bastion der Lebenden als stärkster Feste der Enklave |
+| **„Land der Tausende"** – der Name scheint abgeschnitten | Als „Land der Tausendfüßer" interpretiert. Wenn du etwas anderes gemeint hast, sag Bescheid |
+| Im **Land der Untoten** ist ein geflügeltes Wesen gezeichnet | Als Skelett eines jungen Schwarzen Drachen interpretiert |
+| Im **Hochsee** und im **Grovarimeer** sind Wesen gezeichnet | Als „die alte Dame" (Hochsee) und Höhlen-Plesiosaurier (Grovarimeer) interpretiert |
+| Die **Alten Ruinen (Ost)** haben drei Symbole (Kreis mit Kreuz, Zelt/Pyramide, Rad) | Als drei Schlösser eines Portals interpretiert, gekoppelt mit dem Steinkreis der Alten Ruinen (West) |
+| Westlich des Steinwalls liegt eine **große Höhle außerhalb** der Mauer | Als „Vorhöhle von Torstadt" (Niemandsland) ausgebaut |
+| Die Beschreibung erwähnt **Purpurwürmer** | Nur als ferne Bedrohung genutzt (Beben, Zufallsbegegnung) – zu stark für die Testkampagne |

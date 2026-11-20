@@ -86,6 +86,9 @@ footer label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
 <div class="dialog-hg" id="neuDialog" hidden>
   <form class="dialog" id="neuForm" autocomplete="off">
     <h3>Neue Kampagne</h3>
+    <div class="feld" id="nBeispielFeld" hidden><label for="nBeispiel">Beispiel (optional)</label>
+      <select id="nBeispiel"><option value="">– leere Kampagne –</option></select>
+      <small id="nBeispielText"></small></div>
     <div class="feld"><label for="nName">Name</label><input type="text" id="nName" required placeholder="z. B. Das Erwachen der Runenherrscher"></div>
     <div class="reihe">
       <div class="feld"><label for="nOrdner">Ordnername (optional)</label><input type="text" id="nOrdner" placeholder="aus dem Namen"></div>
@@ -226,9 +229,23 @@ $("pdfPfad").onkeydown = (ev) => {
   const p = $("pdfPfad").value.trim().replace(/^"|"$/g, ""); if (p && !pdfs.includes(p)) pdfs.push(p);
   $("pdfPfad").value = ""; pdfsZeigen();
 };
-$("neuKnopf").onclick = () => {
+let beispiele = [];
+const beispielWaehlen = () => {
+  const b = beispiele.find((x) => x.ordner === $("nBeispiel").value);
+  $("nBeispielText").textContent = b ? b.beschreibung : "";
+  $("nName").required = !b;
+  $("nName").placeholder = b ? b.name : "z. B. Das Erwachen der Runenherrscher";
+};
+$("nBeispiel").onchange = beispielWaehlen;
+$("neuKnopf").onclick = async () => {
   $("neuForm").reset(); pdfs = []; pdfsZeigen(); $("neuErgebnis").hidden = true; $("neuAnlegen").disabled = false;
   $("neuDialog").hidden = false; $("nName").focus();
+  try {
+    beispiele = (await api("/api/z/beispiele")).beispiele || [];
+    $("nBeispiel").replaceChildren(new Option("– leere Kampagne –", ""), ...beispiele.map((b) => new Option(b.name, b.ordner)));
+    $("nBeispielFeld").hidden = !beispiele.length;
+  } catch (e) { beispiele = []; $("nBeispielFeld").hidden = true; }
+  beispielWaehlen();
 };
 $("neuAbbrechen").onclick = () => $("neuDialog").hidden = true;
 $("neuForm").onsubmit = async (ev) => {
@@ -236,7 +253,8 @@ $("neuForm").onsubmit = async (ev) => {
   const knopf = $("neuAnlegen"); knopf.disabled = true; knopf.textContent = "Lege an …";
   try {
     const r = await api("/api/z/neu", {name: $("nName").value.trim(), ordnerName: $("nOrdner").value.trim(),
-      port: +$("nPort").value || null, epTempo: $("nTempo").value, sperre: $("nSperre").checked, pdfs});
+      port: +$("nPort").value || null, epTempo: $("nTempo").value, sperre: $("nSperre").checked, pdfs,
+      beispiel: $("nBeispiel").value || null});
     $("neuErgebnis").textContent = r.text; $("neuErgebnis").hidden = false; toast("Kampagne angelegt"); laden();
   } catch (e) { toast(e.message, true); knopf.disabled = false; }
   knopf.textContent = "Anlegen";

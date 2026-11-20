@@ -1,0 +1,48 @@
+{
+ "id": "nissa",
+ "name": "Nissa Moosgrund",
+ "klasse": "Druide 1",
+ "stufe": 1,
+ "volk": "Svirfneblin",
+ "groesse": "Klein",
+ "gesinnung": "N",
+ "gottheit": "Nivi Rhombodazzle",
+ "farbe": "#3ad57a",
+ "attribute": {"ST": 6, "GE": 14, "KO": 15, "IN": 11, "WE": 18, "CH": 6},
+ "tp": {"max": 11, "aktuell": 11},
+ "rk": {"normal": 19, "beruehrung": 15, "adff": 15},
+ "ini": 2,
+ "gab": 0,
+ "kmb": -3,
+ "kmv": 11,
+ "rw": {"REF": 4, "WIL": 8, "ZAEH": 6},
+ "bewegung": 6,
+ "angriffe": [
+  {"name": "Sichel", "bonus": -1, "schaden": "1W4-2", "krit": "x2", "art": "H"},
+  {"name": "Schleuder", "bonus": 3, "schaden": "1W3-2", "krit": "x2", "art": "W", "fernkampf": true, "inkrement": 15}
+ ],
+ "fertigkeiten": [
+  {"name": "Heilkunde", "bonus": 8, "klasse": true},
+  {"name": "Heimlichkeit", "bonus": 5, "klasse": false},
+  {"name": "Klettern", "bonus": -5, "klasse": true},
+  {"name": "Schwimmen", "bonus": -5, "klasse": true},
+  {"name": "Überlebenskunst", "bonus": 11, "klasse": true},
+  {"name": "Wahrnehmung", "bonus": 10, "klasse": true},
+  {"name": "Wissen (Natur)", "bonus": 6, "klasse": true}
+ ],
+ "talente": "Zauberfokus (Beschwörung)",
+ "wesenszuege": "Wehrpflichtiger der Grovari (Überlebenskunst +1, Klassenfertigkeit)",
+ "faehigkeiten": "Test-SC (Probe-Charakter der Beispielkampagne).\nDunkelsicht 36 m, Dämmersicht.\nSvirfneblin: Defensives Training (+2 Ausweichbonus auf RK, eingerechnet), +2 auf alle Rettungswürfe (eingerechnet), Zauberresistenz 12, Steingespür, +2 Heimlichkeit (+4 in steiniger Umgebung).\nZauberähnliche Fähigkeiten (ZS 1): konstant Unauffindbarkeit; 1/Tag Blind- oder Taubheit verursachen, Verschwimmen, Selbstverkleidung.\nDruide: Naturverbundenheit (Domäne Erde), Naturgespür (+2 Wissen [Natur], Überlebenskunst), Tierempathie, Spurloser Schritt (ab Stufe 2).\nKlein: gequetscht erst in Gängen unter 0,75 m.",
+ "zauberKlasse": "Druide",
+ "zauberattribut": "WE",
+ "zauberliste": [
+  {"name": "Licht", "grad": 0},
+  {"name": "Göttliche Führung", "grad": 0},
+  {"name": "Stabilisieren", "grad": 0},
+  {"name": "Leichte Wunden heilen", "grad": 1, "proTag": 1, "verbraucht": 0},
+  {"name": "Verstricken", "grad": 1, "proTag": 1, "verbraucht": 0},
+  {"name": "Magischer Stein", "grad": 1, "proTag": 1, "verbraucht": 0, "domaene": true}
+ ],
+ "ausruestung": "Fellrüstung, Sichel, Schleuder mit 10 Kugeln, Stechpalme und Mistel, Kräuterbeutel, Sporenmaske, Seil (15 m) am Gürtel",
+ "ep": 0
+}

@@ -29,6 +29,10 @@ python <Programmordner>\sl.py --kampagne "<Kampagnenordner>" stand
 Aus dem Kampagnenordner heraus (Claude-Sitzung dort) genügt `python <Programmordner>\sl.py stand`.
 Verschiedene Kampagnen brauchen verschiedene Ports (in `kampagne.json`), dann können sie parallel laufen.
 Neue Kampagne: Zentrale „+ Neue Kampagne“ oder MCP `kampagne_neu` (Gerüst aus `vorlage/`, ältere Installationen: `<Kampagnen-Ordner>/_Vorlage`).
+Mitgelieferte **Beispielkampagnen** liegen in `beispiele/<Name>/` (derzeit „Das Praxisjahr“, siehe dessen `BEISPIEL.md`):
+fertiger Kampagnenordner mit Notizen, Quellen, Karten (exakte Wände), Test-SC und Startzustand (`sl/zustand.json`), ohne
+Protokoll und Schlüssel. `kampagne_neu(…, beispiel="Das Praxisjahr")` (Zentrale: Feld „Beispiel“, MCP: `beispiel`) kopiert
+ihn in eine neue Kampagne; `kampagnenregeln.md` landet im Abschnitt „Kampagnenregeln“ von `CLAUDE.md`/`AGENTS.md`.
 
 ## Aufbau des Programms (Kurzfassung, Details in ARCHITEKTUR.md)
 - `server.py` (Shell: HTTP, Sperre, Speichern), `sl_api.py` / `sl.py` / `mcp_server.py` (SL-Zugriff), `zentrale.py`.
@@ -339,6 +343,7 @@ einem eigenen Tab (immer demselben). Mit SL-Schlüssel (`?sl=…`, wird vom Spie
 - **Product Identity / Marken:** Der Spieltisch ist ein inoffizielles, kostenloses Fan-Werkzeug, *kompatibel mit dem
   Pathfinder-Rollenspiel (1. Edition)*. Pathfinder ist eine Marke von Paizo Inc., die deutsche Übersetzung stammt von
   Ulisses Spiele; das Tool ist von beiden weder veröffentlicht noch unterstützt. Eigennamen der Spielwelt (Orte,
-  Gottheiten, Figuren) sind kein Open Content und gehören nicht in Code, Vorlagen oder Beispiele; Kampagnendaten
-  liegen außerhalb des Repos.
+  Gottheiten, Figuren) sind kein Open Content und gehören nicht in Code oder Vorlagen; Kampagnendaten liegen
+  außerhalb des Repos. Ausnahme: die Beispielkampagne `beispiele/Das Praxisjahr` (eigenes Werk, Fan-Material im Sinne
+  der Paizo Community Use Policy, Hinweis in ihrer `BEISPIEL.md`).
 - Abruf der PRD-Seiten nur mit Pause (1 s) und lokalem Cache, siehe `bereiche/wissen/regeln_abruf.py`.

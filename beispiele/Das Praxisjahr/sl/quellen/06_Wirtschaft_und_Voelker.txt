@@ -1,0 +1,198 @@
+# Wirtschaft und Völker der Grovari-Höhlen
+
+*Pathfinder 1e · Hintergrundband für die SL*
+
+Dieser Band beantwortet zwei Fragen, die am Tisch früher oder später kommen: **Wovon leben 54.000 Leute unter der Erde?** und **Was wollen die einzelnen Völker eigentlich?** Beides liefert Konflikte und Abenteuer.
+
+---
+
+## Teil 1 – Wirtschaft
+
+### 1.1 Wer stellt was her?
+
+| Stadt | Stellt her / liefert | Braucht von außen | Typische Händler |
+|---|---|---|---|
+| **Torstadt** | Ausbildung, Sicherheit, Armbrüste und Bolzen (Duergar-Werkstätten), Leder (Handel mit dem Echsenvolk) | Fast alles: Nahrung, Metall, Edelsteine | Quartiermeister, Waffenhändler, Flüchtlingshelfer |
+| **Tiefenburg** | Geschliffene Edelsteine, Werkzeug, Laternen, Linsen, Fisch aus dem Felsensee | Erz und Eisen (Drudanst), Pilze | Svirfneblin-Händlerfamilien (z. B. Kieselweb) |
+| **Illiatist** | **Spinnenseide** (gezähmte Riesenspinnen), Arzneigifte und Gegengifte, Pilzwein, Schattenkristall-Verarbeitung | Metall, Bausteine, Getreideersatz | Drow-Weberhäuser, Alchemisten |
+| **Drudanst** | Erz (Eisen, Kupfer, etwas Silber), Waffen und Rüstungen aus der **Lavaschmiede**, Steinbau, Salz aus einem kleinen Salzstollen | Nahrung, Stoffe | Duergar-Schmiedegilden |
+| **Grovaristadt** | Verwaltung, Magie (Pfeilerwacht, Schriftrollen, Tränke), Fisch aus dem Grovarimeer, Pilzfelder am Südufer des Grovarimeers, Bücher | Alles, was zum Leben einer Hauptstadt gehört | Handelsgilden, Magier, Schreiber |
+| **Endstadt** | **Das Brot der Enklave:** Pilzkulturen (mit Hilfe der Vegepygmys), Höhlenmoos, Lastkäfer-Zucht, Höhlenziegen | Werkzeug, Medizin, Geld | Rattenvolk-Zwischenhändler, Käferzüchter |
+
+**Der Kern des Problems:** Endstadt ernährt die Enklave – und war jahrzehntelang ihre ärmste Stadt. Die Pilze werden billig an die Händler der Großen Höhle verkauft, die sie mit Gewinn weiterverteilen. Endstadt hat keinen eigenen Ratssitz, der das ändern könnte.
+
+### 1.1b Der Aufschwung von Endstadt – das Sonnensalz
+
+Seit etwa Jahr 164 hat sich das Bild verschoben: Die **Alchemisten des Rattenvolks** haben mit dem **Sonnensalz** künstliches Sonnenlicht erfunden. In den **Lichthallen** von Endstadt wächst seitdem **Gemüse der Oberwelt** (Kartoffeln, Bohnen, Kohl, Zwiebeln, Kräuter), gezogen aus Saatgut der Kalkstiege-Expeditionen.
+
+- **Endstadt verkauft das Gemüse selbst** – über eigene Kontore, nicht mehr über die Gilden von Grovaristadt. Geld fließt zum ersten Mal in die Osthöhle.
+- **Das Rezept ist geheim.** Nur die „Sieben vom Glaskolben" kennen es. Sonnensalz selbst wird kaum verkauft.
+- **Folgen:** Die Gilden verlieren Einfluss und Geld, Endstadt gewinnt Selbstbewusstsein. Wer Gemüse aus Endstadt isst, bleibt gesünder: Die schleichenden Mangelkrankheiten der Höhlenbewohner gehen zurück.
+
+| Ware | Preis | Bemerkung |
+|---|---|---|
+| Oberwelt-Gemüse (1 Pfund) | 5 SM | In Endstadt 2 SM. Luxus für Hauptstädter |
+| Kräuter der Oberwelt (Bund) | 1 GM | Heilkunde +1, wenn bei der Behandlung verwendet |
+| Sonnensalz-Kugel | nicht käuflich | Schwarzmarkt Parasal ca. 500 GM – und lebensgefährlich, sie zu besitzen |
+
+### 1.2 Wovon sich 54.000 Leute ernähren
+
+| Quelle | Anteil | Herkunft |
+|---|---|---|
+| Pilze (Speisepilze, Pilzbrot, Pilzbrei) | ca. 60 % | Endstadt, Pilzfelder am Südufer des Grovarimeers, Pilzgehöfte bei Tiefenburg |
+| Fisch und Krebse | ca. 20 % | Grovarimeer, Felsensee, Hochsee, Grovarie |
+| Fleisch (Höhlenziegen, Käferlarven, Echsen) | ca. 10 % | Endstadt, Handel mit dem Echsenvolk |
+| Moos, Flechten, Wurzeln | ca. 10 % | Überall, Notnahrung |
+
+**Die Abhängigkeit:** Ohne die Vegepygmys würde die Pilzernte um etwa ein Drittel sinken. Das ist der Grund, warum der Ethikrat das umstrittene Abkommen immer wieder knapp bestätigt.
+
+### 1.3 Was knapp ist
+
+Manche Dinge gibt es unter der Erde kaum. Sie sind teuer und begehrt – und gute Belohnungen.
+
+| Gut | Warum knapp | Ersatz in der Enklave |
+|---|---|---|
+| **Holz** | Keine Bäume | Pilzholz (leicht, brüchig), Stein, Knochen. Echtes Holz ist Luxus |
+| **Fackeln** | Kein Holz | Laternen mit Höhlenfisch-Tran |
+| **Silber** | Wenig Vorkommen in Drudanst | Wird vor allem von der Pfeilerwacht und für Waffen gegen Untote gebraucht. Deshalb ist der Raub des Silberstaubs (Abenteuer 2) so schmerzhaft |
+| **Papier** | Kein Holz | Pilzpapier (gelblich, hält 20 Jahre) |
+| **Wein, Gewürze, Getreide** | Nur von der Oberfläche | Pilzwein, Moosbier. **Neu:** Gemüse der Oberwelt aus den Lichthallen von Endstadt (siehe 1.1b) |
+| **Weihwasser** | Braucht Kleriker und Silber | Wird vor allem für die Bastion der Lebenden hergestellt |
+
+### 1.4 Preise (Abweichungen vom Grundregelwerk)
+
+| Gegenstand | Preis | Begründung |
+|---|---|---|
+| Fackel | ×3 (3 KM) | Kein Holz |
+| Laterne (Abblend- oder Sturm-) | ×0,75 | Tiefenburg stellt sie massenhaft her |
+| Lampenöl (Tran) | normal | Fischtran |
+| Holzwaffen (Kampfstab, Speer, Bögen, Pfeile, Bolzen mit Holzschaft) | ×2 | Holz ist knapp; Bolzen mit Pilzholzschaft: normaler Preis, aber –1 auf Schaden |
+| Waffen und Rüstungen aus Metall | ×0,9 in Drudanst, sonst normal | Lavaschmiede |
+| Silberwaffen (Alchemistensilber) | ×1,5 | Silber ist knapp |
+| Seil (Spinnenseide) | ×2, aber Härte 2 und 6 TP statt 0/2 | Illiatist-Ware |
+| Kleidung | normal (Pilzfilz) oder ×3 (Spinnenseide) | – |
+| Edelsteine | ×0,8 in Tiefenburg | Direkt beim Hersteller |
+| Weihwasser | ×1,5 | Silber und Kleriker knapp |
+| Rationen (Pilzbrot, getrockneter Fisch) | ×0,5 | Grundnahrung |
+| Wein von der Oberfläche | ×10 | Luxus |
+
+### 1.5 Geld und Steuern
+
+- **Münzen:** Die Enklave prägt eigene Münzen in Grovaristadt, nach dem üblichen Gewichtsstandard: **Säulentaler** (Gold), **Seemark** (Silber), **Kiesel** (Kupfer). Fremde Münzen werden nach Gewicht angenommen.
+- **Der Zehnte:** Jeder Haushalt gibt ein Zehntel seiner Erzeugnisse an die **Speicher des Rates** ab – als Ware, nicht als Geld. Damit werden Wehrpflicht, Pfeilerwacht und Notvorräte bezahlt. Die Steuereintreiber gehen von Tür zu Tür. Daher der Volksspruch.
+- **Wehrpflichtige** bekommen keinen Sold, sondern Unterkunft, Verpflegung und Ausrüstung. Belohnungen von Auftraggebern (wie die 50 GM der Wasserwerker) dürfen sie behalten.
+
+### 1.6 Handelswege
+
+| Weg | Strecke | Gefahr | Bemerkung |
+|---|---|---|---|
+| **Die Fluss-Straße** | Torstadt – Tiefenburg – Spierest – Grovaristadt – Frindorf – Endstadt | Gering | Lebensader der Enklave. Alle 100 m Leuchtpilz-Laternen |
+| **Der Wasserfallweg** | Tiefenburg – Wasserfallfeste – Illiatist | Gering | Steil, für Karawanen nur mit Seilwinden am Wasserfall |
+| **Der Schmiedeweg** | Grovaristadt – Nordfeste – Südfeste – Drudanst – Lavaschmiede | Mittel | Führt am Rand der Finsterhöhlen vorbei; Ghule |
+| **Der Drow-Pfad** | Illiatist – Feste der Dunkelheit – Finsterhöhlen – Drudanst | Mittel | Kurz, aber dunkel. Schmuggler |
+| **Der Echsenpfad** | Vorhöhle von Torstadt – Echsenvolk | Hoch | Durch Gebiet, in dem Ghule jagen |
+| **Die Kalkstiege** | Von den Labyrinthen der Jäger nach oben, nach Nar-Voth | Sehr hoch | Einmal alle zwei Jahre zieht eine Svirfneblin-Expedition hinauf und tauscht Edelsteine gegen Holz, Wein und Getreide. Wer mitzieht, wird reich – oder kommt nicht zurück |
+
+### 1.7 Abenteuer aus der Wirtschaft (W6)
+
+| W6 | Aufhänger |
+|---|---|
+| 1 | Die Kalkstiege-Expedition sucht Wehrpflichtige als Geleitschutz – zwei Monate hin und zurück |
+| 2 | Pilzfäule in Endstadt. Die Händler in Grovaristadt horten Vorräte und treiben die Preise hoch |
+| 3 | Jemand verkauft gefälschtes Alchemistensilber an die Bastion der Lebenden. Die Waffen versagen gegen Untote |
+| 4 | Eine Drow-Weberin wird beschuldigt, Spinnen auszusetzen, die Tiefenburger Fischernetze zerfressen |
+| 5 | Ein Steuereintreiber ist verschwunden. Niemand vermisst ihn. Trotzdem muss man ihn finden |
+| 6 | Die Duergar wollen den Salzpreis verdoppeln. Die Fischer drohen mit Streik |
+
+---
+
+## Teil 2 – Die Völker
+
+Jedes Volk hat einen **Groll** (was es stört) und einen **Wunsch** (was es will). Das gibt NSCs Antrieb und macht die Enklave lebendig. Dazu das typische **Vorurteil**, das die anderen über dieses Volk haben – und was davon stimmt.
+
+### Svirfneblin (20.000)
+
+- **Selbstbild:** Die eigentlichen Herren der Höhlen. Sie waren zuerst da – Tiefenburg wurde um 600 v. B. gegründet und ist heute rund 770 Jahre alt –, sie haben ihr Versteck für die Enklave aufgegeben und sogar ihre Erbfeinde, die Duergar, aufgenommen.
+- **Kanon:** Tiefengnome aus der Ersten Welt, gefeit gegen das Bleichen, oft gefühlsarm mit plötzlichen Ausbrüchen. Glaube: **Nivi Rhombodazzle**. Erbfeinde: Duergar und Drow. Ausführlich im Städteband unter Tiefenburg.
+- **Groll:** Sie stellen fast 40 % der Bevölkerung und haben **einen** Völkersitz – genauso viel wie die 8.000 Duergar. Und im Ethikrat sitzen drei Munavri. „Gäste, die das Haus übernommen haben."
+- **Wunsch:** Mehr Sitze nach Bevölkerung. Und dass jemand endlich anerkennt, wer die Enklave möglich gemacht hat.
+- **Der alte Schatten:** Die Erbfeindschaft mit den Duergar ist nicht vergessen. Die Fünfhunderter-Regel ist zur Hälfte eine Svirfneblin-Idee – Vertrauen ja, aber mit Aufsicht.
+- **Vorurteil der anderen:** „Geizig, verschlossen, reden nur über Preise." – *Teilweise wahr: Svirfneblin sind sparsam und misstrauen Fremden. Aber ihre Gastfreundschaft gegenüber Freunden ist legendär.*
+- **Ratsmitglied (Völkersitz):** **Edda Glimmerstein**, alte Edelsteinschleiferin, scharfzüngig, will die Sitzverteilung bei der Wahl 171 zum Thema machen.
+
+### Munavri (9.000)
+
+- **Selbstbild:** Die Gründer und das moralische Gewissen der Enklave. Ohne ihre Vision gäbe es nur eine weitere Svirfneblin-Stadt.
+- **Groll:** Sie werden für hochmütig gehalten, weil sie untereinander telepathisch sprechen. Und sie spüren, dass ihr Einfluss schrumpft – sie sind nur noch das viertgrößte Volk.
+- **Wunsch:** Dass die Enklave ihre Werte behält, auch wenn die Munavri irgendwann nicht mehr die Mehrheit im Ethikrat haben. Viele haben Angst, dass die Enklave „verflacht".
+- **Aktuell:** Gemeinsam mit den Drow treiben sie den **Lichtbann** voran: Das Sonnensalz aus Endstadt soll die Osthöhle nicht verlassen. Offiziell wegen der Lichtblindheit beider Völker – manche fürchten auch, dass ein reiches Endstadt die Macht der Gründervölker schmälert.
+- **Vorurteil der anderen:** „Halten sich für etwas Besseres, flüstern hinter unserem Rücken in Gedanken." – *Teilweise wahr: Manche Munavri (wie Seren Halvaris) sind tatsächlich hochnäsig. Die meisten finden laute Gespräche nur anstrengend.*
+- **Ratsmitglied (Völkersitz):** **Sorel Ithane**, ernst, bedächtig, ein Vermittler.
+
+### Drow (10.000)
+
+- **Selbstbild:** Überlebende. Sie haben alles hinter sich gelassen, um hier zu leben, und müssen trotzdem jeden Tag beweisen, dass sie keine Verräter sind.
+- **Groll:** Ständiges Misstrauen. Bei jedem Verbrechen fällt der erste Blick auf Illiatist. Die Gefallenen des Hauses Jurakin auf der Mauer der Namen haben daran wenig geändert. Und seit Jahr 157 halten die Drow fast allein die Sporenfeste vor ihrer Stadt gegen das Myzel – ohne dass es in Grovaristadt jemand zur Kenntnis nimmt.
+- **Groll (2):** Die **Fünfhunderter-Regel**: In Illiatist leben 500 Munavri und 500 Svirfneblin als Aufpasser. Die Drow nennen sie höflich „unsere Gäste" und meinen das Gegenteil.
+- **Wunsch:** Normalität. Einfach Bürger sein, nicht „die guten Drow" – und keine Aufpasser mehr in der eigenen Stadt.
+- **Tradition:** Der **Jägergang** – die Adelshäuser prüfen ihre Jugendlichen in Dreiergruppen in den Labyrinthen der Jäger. Wer allein zurückkommt, hat versagt. Der Ethikrat sieht darin einen Rest grausamer Drow-Kultur, die Drow ein Bekenntnis: „Wir sind nicht wie sie."
+- **Aktuell:** Gemeinsam mit den Munavri wollen sie, dass das **Sonnensalz in der Osthöhle bleibt** (Lichtbann-Antrag von Jahr 169) – grelles Licht blendet sie, und in falschen Händen wäre es eine Waffe gegen sie. Ausgerechnet die Drow-Brenner der Sporenfeste bei Illiatist sehen das anders.
+- **Vorurteil der anderen:** „Unter jedem dritten Drow steckt ein Spion." – *Ein Körnchen Wahrheit: Es gab Spione, es gibt noch welche. Aber Illiatist entlarvt selbst die meisten, weil die Drow dort Spione besser erkennen als jeder andere.*
+- **Ratsmitglied (Völkersitz):** **Nymra Jurakin**, Matriarchin des Hauses Jurakin, alt, würdevoll, Velriths Großtante.
+
+### Duergar (8.000)
+
+- **Selbstbild:** Die Schmiede und Erbauer der Enklave. Ohne den Steinwall und die Lavaschmiede wären alle längst tot oder versklavt.
+- **Groll:** Sie werden gebraucht, aber nicht geliebt. Und sie tragen ein altes Erbe: Viele ihrer Großeltern waren **Aufseher in Varikanum**, als es noch eine Duergar-Sklavenstadt war. Das sagt niemand laut – aber jeder weiß es.
+- **Groll (2):** Die **Fünfhunderter-Regel**: 500 Munavri und 500 Svirfneblin leben in Drudanst, um sie zu überwachen. Seit fast sechzig Jahren.
+- **Wunsch:** Respekt – und das Ende der Fünfhunderter-Regel. Und eine Möglichkeit, die Schuld ihrer Vorfahren zu tilgen. Viele Duergar wünschen sich einen Feldzug gegen Varikanum, um die Sklaven dort zu befreien.
+- **Geheimnis:** Die Lavaschmiede wurde mit einem Dämonenpakt erkauft, und der Einsturz von Jahr 123 war die Mahnung des Dämons (siehe Städteband, Drudanst). Den Pakt schloss ein einzelner Baumeister – aber die wenigen Mitwisser schweigen, weil er jedes Vorurteil bestätigen würde. Gerade die Fünfhunderter-Regel macht das Geständnis unmöglich.
+- **Vorurteil der anderen:** „Grob, verbittert, halten Sklaverei immer noch insgeheim für normal." – *Falsch, aber die alten Schatten sind real.*
+- **Ratsmitglieder:** **Borin Rußbart** (Völkersitz, ruhiger Steinmetz) und **Hulda Grauschmied** (Höhlensitz Drudanst, laut und direkt).
+
+### Rattenvolk (5.000)
+
+- **Selbstbild:** Die, die die Arbeit machen. Händler, Träger, Bauern in Endstadt.
+- **Groll:** **Kein eigener Sitz.** Sie gelten als „nachgekommenes" Volk, obwohl die ersten Rattenvolk-Familien schon vor 100 Jahren kamen. Sechzig Jahre lebten sie als winzige Minderheit am Rand von Torstadt und Tiefenburg, bis sie in Jahr 129 in die frisch geöffnete Osthöhle zogen und Endstadt gründeten. Endstadt ist arm, obwohl es die Enklave ernährt.
+- **Wunsch:** Ein Völkersitz für das Rattenvolk und ein Höhlensitz für die Osthöhle. Bei der Wahl 171 wollen sie beides erzwingen – notfalls mit einem **Erntestreik**. Seit dem Sonnensalz haben sie dafür auch das Geld und das Selbstbewusstsein.
+- **Stolz:** Das **Sonnensalz** – künstliches Sonnenlicht, erfunden von Rattenvolk-Alchemisten. Ein Volk, das jahrzehntelang Kanäle gereinigt hat, besitzt jetzt das wertvollste Geheimnis der Enklave.
+- **Vorurteil der anderen:** „Diebe und Schmuggler." – *Es gibt Schmuggler in Parasal. Aber die meisten Rattenvolk-Händler sind ehrlicher als die Gildenhändler in Grovaristadt.*
+- **Sprecher:** **Ratzek Lauffuß**, Gildenmeister der Endstädter Händler (siehe NSC-Werte).
+
+### Menschen (2.000)
+
+- **Selbstbild:** Gestrandete. Die meisten stammen von Sklaven ab, die vor Generationen aus den Finsterlanden oder von der Oberfläche verschleppt wurden und aus Drow-Karawanen oder Varikanum entkamen. Wie das Rattenvolk lebten sie lange als kleine Minderheit am Rand und zogen ab Jahr 129 mehrheitlich nach Endstadt, wo sie zum ersten Mal Licht in den Straßen hatten.
+- **Groll:** Sie haben keine Dunkelsicht. Die Enklave ist für sie buchstäblich zu dunkel. Laternen in Wohnvierteln werden nachts gelöscht, „weil sie die anderen stören".
+- **Wunsch:** Sichtbarkeit – im wörtlichen und politischen Sinn. Und einige, vor allem junge Menschen, wollen zurück an die Oberfläche, die sie nur aus Geschichten kennen.
+- **Gefahr:** Genau diese Sehnsucht nutzt Drevan. Seine menschlichen Diener (wie Kell Morrow) werben gezielt unter jungen Menschen mit dem Versprechen eines Wegs nach oben – oder der „Erhebung".
+- **Vorurteil der anderen:** „Kurzlebig, laut, ungeschickt im Dunkeln." – *Kurzlebig: ja. Der Rest: Ansichtssache.*
+- **Sprecherin:** **Mara Lichtweg**, Laternenmacherin in Frindorf, Leiterin des „Laternenbunds", der sich für mehr Licht in den Straßen einsetzt.
+
+---
+
+## Teil 3 – Der Rat und der Ethikrat (Besetzung im Jahr 170)
+
+**Rat der Höhlen (8 Sitze)**
+
+| Sitz | Name | Volk | Haltung |
+|---|---|---|---|
+| Svirfneblin | Edda Glimmerstein | Svirfneblin | Will Sitzreform |
+| Munavri | Sorel Ithane | Munavri | Vermittler |
+| Duergar | Borin Rußbart | Duergar | Ruhig, will Feldzug gegen Varikanum |
+| Drow | Nymra Jurakin | Drow | Würdevoll, vorsichtig |
+| Westhöhle | **Toma Brennquell** | Svirfneblin | Ehemaliger Wallmarschall, Hardliner gegen das Vampirreich |
+| Nordhöhle | Kesrin Valdorn | Drow | Diplomat |
+| Drudanst | Hulda Grauschmied | Duergar | Laut, direkt |
+| Große Höhle | **Liane Aster** | Munavri | Elegant, Händlerfamilie, gegen einen Sitz für Endstadt (weil ihr Sitz dann kleiner würde) |
+
+→ Die Munavri haben damit zwei der acht Sitze, obwohl sie nur ein Sechstel der Bevölkerung stellen.
+
+**Ethikrat – die drei Munavri-Ämter**
+
+| Amt | Name | Haltung |
+|---|---|---|
+| **Azatum** (Vorsitz) | Aurelan Mysk | Prinzipientreu, zu loyal gegenüber Vanthe |
+| **Archum** | Oriel Vanthe | (beherrscht) |
+| **Agathum** | **Selis Varn** | Jung, idealistisch, erst seit 166 im Amt. Bewundert Vanthe – merkt aber, dass sie seit Jahren jede telepathische Berührung meidet. **Mögliche Verbündete in Abenteuer 6.** |
+
+Die übrigen sieben Ethikrat-Sitze besetzt du nach Bedarf. Faustregel: Jedes Volk schickt jemanden, der ein bisschen frömmer und ein bisschen sturer ist als sein Ratsmitglied.

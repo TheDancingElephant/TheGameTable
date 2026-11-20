@@ -1,0 +1,43 @@
+{
+ "id": "zikko",
+ "name": "Zikko Flinkfell",
+ "klasse": "Schurke 1",
+ "stufe": 1,
+ "volk": "Rattenvolk",
+ "groesse": "Klein",
+ "gesinnung": "CG",
+ "gottheit": "Desna",
+ "farbe": "#d5a03a",
+ "attribute": {"ST": 8, "GE": 18, "KO": 12, "IN": 14, "WE": 13, "CH": 13},
+ "tp": {"max": 10, "aktuell": 10},
+ "rk": {"normal": 18, "beruehrung": 15, "adff": 14},
+ "ini": 4,
+ "gab": 0,
+ "kmb": -2,
+ "kmv": 12,
+ "rw": {"REF": 6, "WIL": 1, "ZAEH": 1},
+ "bewegung": 6,
+ "angriffe": [
+  {"name": "Kurzschwert", "bonus": 5, "schaden": "1W4-1", "krit": "19-20/x2", "art": "S"},
+  {"name": "Kurzbogen", "bonus": 5, "schaden": "1W4", "krit": "x3", "art": "S", "fernkampf": true, "inkrement": 18}
+ ],
+ "fertigkeiten": [
+  {"name": "Akrobatik", "bonus": 7, "klasse": true},
+  {"name": "Bluffen", "bonus": 5, "klasse": true},
+  {"name": "Entfesselungskunst", "bonus": 3, "klasse": true},
+  {"name": "Fingerfertigkeit", "bonus": 7, "klasse": true},
+  {"name": "Heimlichkeit", "bonus": 11, "klasse": true},
+  {"name": "Klettern", "bonus": 2, "klasse": true},
+  {"name": "Mechanismus ausschalten", "bonus": 8, "klasse": true},
+  {"name": "Motiv erkennen", "bonus": 5, "klasse": true},
+  {"name": "Schwimmen", "bonus": 2, "klasse": true},
+  {"name": "Überlebenskunst", "bonus": 2, "klasse": true},
+  {"name": "Wahrnehmung", "bonus": 7, "klasse": true},
+  {"name": "Wissen (Lokales)", "bonus": 6, "klasse": true}
+ ],
+ "talente": "Waffenfinesse",
+ "wesenszuege": "Wehrpflichtiger der Grovari (Überlebenskunst +1, Klassenfertigkeit)",
+ "faehigkeiten": "Test-SC (Probe-Charakter der Beispielkampagne).\nDunkelsicht 18 m.\nRattenvolk: Nagerempathie (+4 Mit Tieren umgehen bei Nagetieren), Schwärmen (darf mit einem anderen Rattenvolk ein Feld teilen; beide flankieren dann gemeinsam), Tüftler (+2 Handwerk [Alchemie], Wahrnehmung, Magischen Gegenstand benutzen).\nSchurke: Hinterhältiger Angriff +1W6, Fallen finden (+1 Wahrnehmung gegen Fallen, +1 Mechanismus ausschalten).\nKlein: gequetscht erst in Gängen unter 0,75 m.",
+ "ausruestung": "Beschlagene Lederrüstung, Kurzschwert, Kurzbogen mit 20 Pfeilen, Diebeswerkzeug, Kreide, Brecheisen, kleiner Spiegel",
+ "ep": 0
+}

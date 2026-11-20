@@ -127,7 +127,8 @@ def liste():
              "vonZentrale": proc is not None, "mcp": (p / ".mcp.json").is_file(), "pfadeOk": sl_api.pfade_ok(p) is not False,
              "sperre": (p / ".claude" / "settings.json").is_file(),
              "charaktere": len(list((p / "daten" / "charaktere").glob("*.json"))),
-             "karten": len(list((p / "sl" / "karten").glob("*.png"))),
+             "karten": len([d for d in (p / "sl" / "karten").glob("*.*")
+                            if d.suffix.lower() in (".png", ".jpg", ".jpeg")]),
              "quellen": len(list((p / "sl" / "quellen").glob("*.txt"))),
              "logFehler": False}
         log = p / "sl" / "server.log"
@@ -328,6 +329,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self.senden(200, (BASIS / "web" / "zentrale.html").read_bytes(), "text/html; charset=utf-8")
             if u.path == "/api/z/liste":
                 return self.senden(200, liste())
+            if u.path == "/api/z/beispiele":
+                return self.senden(200, {"beispiele": sl_api.kampagne.beispiele_liste()})
             if u.path == "/api/z/protokoll":
                 return self.senden(200, {"text": protokoll(q.get("ordner", [""])[0])})
             return self.senden(404, {"fehler": "nicht gefunden"})
@@ -368,7 +371,8 @@ class Handler(BaseHTTPRequestHandler):
             if u.path == "/api/z/neu":
                 pdfs = [x for x in (b.get("pdfs") or []) if str(x).strip()]
                 text = sl_api.kampagne_neu(wurzel(), b.get("name", ""), b.get("ordnerName") or None, b.get("port") or None,
-                                           pdfs, True, bool(b.get("sperre")), b.get("epTempo") or "mittel")
+                                           pdfs, True, bool(b.get("sperre")), b.get("epTempo") or "mittel",
+                                           b.get("beispiel") or None)
                 return self.senden(200, {"text": text})
             return self.senden(404, {"fehler": "nicht gefunden"})
         except (ZFehler, sl_api.SLFehler) as e:

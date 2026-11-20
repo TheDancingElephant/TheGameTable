@@ -175,6 +175,8 @@ Angriffsmenü), `karte.js` (Zeichnen, Maus, Werkzeuge), `magie.js` (Zauber/Fähi
 | `sl/hausregeln.md` | Hausregeln (eine Überschrift je Regel) | Nutzer |
 | `sl/schluessel.txt` | SL-Schlüssel | Server (beim ersten Start) |
 
+**Beispielkampagnen** (`beispiele/<Name>/`): ein vollständiger Kampagnenordner in diesem Format (inklusive Startzustand `sl/zustand.json`, ohne Protokoll und Schlüssel) plus `BEISPIEL.md` (Beschreibung, erster Absatz erscheint in der Zentrale) und `kampagnenregeln.md` (wird in `CLAUDE.md`/`AGENTS.md` eingesetzt). `bereiche/kampagne.beispiel_uebernehmen` kopiert ihn beim Anlegen (`kampagne_neu(beispiel=…)`); `tests/test_beispiele.py` prüft ihn.
+
 Neue Felder: optional, mit Standardwert beim Lesen; nie ein bestehendes Feld umdeuten. Abgeleitete Werte
 (`_d`, `_ep`, `_wirkung`, `_basis` …) beginnen mit Unterstrich und werden nie gespeichert.
 
