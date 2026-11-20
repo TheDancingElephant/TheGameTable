@@ -268,7 +268,7 @@ Damit der SL-Agent Regeln nicht im Web suchen muss: `regeln/regeln.sqlite` enth�
   Kampf- und Rollenspielhinweisen; Kürzel „NSC“) für `monster_info`. Auf der Nachschlage-Seite nur für den SL; in der
   Suche hinter den Regelbüchern (gleichnamige Kapitel wie „Duellant“ beschreiben NSC, nicht die Klasse).
 - **Abenteurerkompendium:** soweit im PRD vorhanden (Archetypen, Klassenoptionen, Talente, Prestigeklassen;
-  das PRD enthält das Buch nur teilweise). Markierung „AK“.
+  das PRD enthält das Buch nur teilweise: 6 Talente, 2 Zauber, die Seite „Ausrüstung“ fehlt). Markierung „AK“.
 - **Private PDFs** (eigene, gekaufte Regel- und Weltbücher, z. B. Almanache, Ausbauregeln IX): eigener Index
   `regeln/privat.sqlite` (`bereiche/wissen/regeln_pdf.py`), **nicht** im Git-Repo (.gitignore) und **nicht** im ZIP.
   Aufbau: `sl.py regeln-pdf "<Ordner>" [--ohne Muster …]` (MCP `regeln_pdf`), ca. 1 Minute je PDF; erneut ohne

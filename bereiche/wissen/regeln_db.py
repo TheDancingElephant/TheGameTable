@@ -354,6 +354,10 @@ def typ_bestimmen(kapitel, a, seiten_titel=""):
     if kapitel in ("Talente", "Legendäre Talente") and a["pfad"] and "Talentarten" not in a["pfad"] \
             and re.search(r"\*\*(Vorteil|Voraussetzung)", a.get("text") or ""):
         return "talent"  # Ausbauregeln III–VII: nach Volk gruppiert bzw. ohne Überschrift „Talentbeschreibungen“
+    if kapitel == "Talente" and not a["pfad"] and a["stufe"] >= 2 and not a.get("erster") \
+            and not t.startswith("Talent") \
+            and re.search(r"\*\*(Vorteil|Voraussetzung)", a.get("text") or ""):
+        return "talent"  # Abenteurerkompendium: Talente direkt unter der Seitenüberschrift
     if a["pfad"] and a["pfad"][-1].lower().endswith("talente") and a["pfad"][-1] != "Talentarten" \
             and re.search(r"\*\*(Vorteil|Voraussetzung)", a.get("text") or ""):
         return "talent"  # Talente mitten in einem Kapitel („Gesinnungstalente“, Alternativregeln)

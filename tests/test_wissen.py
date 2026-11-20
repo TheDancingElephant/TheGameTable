@@ -44,6 +44,7 @@ class WissenTest(unittest.TestCase):
         self.assertIn("Verletzungsstufen", self.tk.st.regel_suchen("Verletzungsstufen"))
         self.assertIn("Grundregelwerk", self.tk.st.regel_schnell("fertigkeit", "Akrobatik"))
         self.assertIn("Expertenregeln", self.tk.st.regel_schnell("talent", "Heldenglück"))  # Heldenpunkt-Talente
+        self.assertIn("Abenteurerkompendium", self.tk.st.regel_schnell("talent", "Wesen ohne Namen"))
         # Ausbauregeln VIII: Intrigen
         self.assertIn("Wortgefechte", self.tk.st.regel_suchen("Gesellschaftlicher Kampf Wortgefecht"))
         self.assertIn("Vigilant", self.tk.st.regel_suchen("Vigilant", typ="klasse"))
