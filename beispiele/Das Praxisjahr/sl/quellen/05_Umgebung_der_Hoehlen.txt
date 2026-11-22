@@ -472,7 +472,7 @@ Jeder Obelisk ist ein **Fokus negativer Energie** (Aura wie *Entweihen*, 18 m). 
 
 **Gefahrenstufe:** HG 1–4.
 
-**Geheimnis:** Schattenkristalle sind wertvoll – Magier zahlen 50 GM pro Stück. Die Pfeilerwacht hat ein Monopol auf ihren Abbau. Vanthes beherrschte Lehrlinge nutzen die Finsterhöhlen als **Versteck für das Material der Gegenanker** (Abenteuer 4).
+**Geheimnis:** Schattenkristalle sind wertvoll – Magier zahlen 50 GM pro Stück. Die Pfeilerwacht hat ein Monopol auf ihren Abbau. Vanthes beherrschte Lehrlinge nutzen die Finsterhöhlen als **Versteck für das Material der Lauschsteine** (Abenteuer 4).
 
 **Aufhänger:** Schmuggler bauen illegal Schattenkristalle ab. Wer steckt dahinter? (Obermagister **Bastrin Kieselgrund** von der Pfeilerwacht, der mit dem Geld seine Wahl zum Erzmagister vorbereitet – der zweite Verdächtige der Kampagne, siehe Kampagnenbuch 3.4.)
 
@@ -510,7 +510,7 @@ Jeder Obelisk ist ein **Fokus negativer Energie** (Aura wie *Entweihen*, 18 m). 
 
 **Gefahrenstufe:** HG 3–8 (Außenbereich: Fallen, Konstrukte) · HG 11–12 (Kern, siehe 3b).
 
-**Geheimnis:** Die Ruinen sind das **Gegenstück zum Portal in den Alten Ruinen (West)**. Die drei Monumente sind Schlösser. Wer sie in der richtigen Reihenfolge aktiviert, öffnet beide Portale gleichzeitig – und schafft einen Weg quer unter der Enklave hindurch. **Ein zweiter Zugang für eine Armee.** Das ist ein perfekter Aufhänger für eine Fortsetzung: Drevan sucht nach einem neuen Weg, nachdem der Pfeilerplan gescheitert ist.
+**Geheimnis:** Die Ruinen sind das **Gegenstück zum Portal in den Alten Ruinen (West)**. Die drei Monumente sind Schlösser. Wer sie in der richtigen Reihenfolge aktiviert, öffnet beide Portale gleichzeitig – und schafft einen Weg quer unter der Enklave hindurch. **Ein zweiter Zugang für eine Armee.** Das ist ein perfekter Aufhänger für eine Fortsetzung: Drevan sucht nach einem neuen Weg, nachdem seine Spaltung des Bundes gescheitert ist.
 
 **Wächter:** Steinwächter (Steingolem-ähnliche Konstrukte, HG 5–7), magische Fallen, ein **Gedächtnisfluch** (Willen SG 16 beim Verlassen, sonst *Gedächtnis verändern*-artiger Verlust der letzten Stunden).
 

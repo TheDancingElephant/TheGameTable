@@ -69,7 +69,11 @@ def main():
         st.bekannt("torstadt", legende="orte-torstadt")
         st.bekannt("grovaristadt", legende="orte-grovaristadt")
         st.bekannt("hoehlen")
-        print(st.karte_import(datei="Material/karten/wachhaus.karte.json"))
+        for kid in ("wachhaus", "runenwerkstatt", "gefangenenlager", "torhaus"):
+            print(st.karte_import(datei=f"Material/karten/{kid}.karte.json"))
+        # Torhaus: Schlachtfeld in der eigenen Stadt – Wände/Tore ja, Nebel nein (der Wall hat zwei Ebenen)
+        st.raster(karte="torhaus", nebel_auto="aus")
+        st.nebel(True, "alles", karte="torhaus")
         print(st.karte_import(datei="Material/karten/zisternen.karte.json", aktiv=True))
         for name, x, y, tid, werte in GEGNER:
             st.token("gegner", name, x, y, id=tid, **werte)

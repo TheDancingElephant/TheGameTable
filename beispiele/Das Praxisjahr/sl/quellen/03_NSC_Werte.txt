@@ -218,7 +218,7 @@ Alle Werte sind auf den Moment gerechnet, in dem der NSC voraussichtlich ins Spi
 
 *Vampirbrut · CB Mittelgroßer Untoter*
 
-> Einst ein menschlicher Fährtenleser der Wehrpflicht, vor Jahren verschollen. Jetzt ein bleiches, abgemagertes Ding mit zu langen Fingern, das auf allen vieren läuft und Witterung aufnimmt. Er erinnert sich an die Tunnel der Höhlen – und das macht ihn gefährlich.
+> Einst **Danek Fährtfind**, ein menschlicher Fährtenleser der Wehrpflicht, vor Jahren verschollen. Jetzt ein bleiches, abgemagertes Ding mit zu langen Fingern, das auf allen vieren läuft und Witterung aufnimmt. Er erinnert sich an die Tunnel der Höhlen – und das macht ihn gefährlich.
 
 **INI** +6; **Sinne** Dunkelsicht 18 m, Geruchssinn; Wahrnehmung +11
 
@@ -245,7 +245,7 @@ Alle Werte sind auf den Moment gerechnet, in dem der NSC voraussichtlich ins Spi
 - **Blut saugen (AF):** Wenn er ein Ringkampf-Ziel festhält: 1W4 KO-Schaden, er heilt 5 TP.
 - **Energieentzug (ÜF):** Ein Hieb-Treffer verursacht 1 negative Stufe. Rettungswurf zum Entfernen nach 24 Stunden: Zähigkeit SG 15.
 - **Beherrschen (ÜF):** Blickangriff als Standard-Aktion, Ziel in 9 m: Willen SG 15 oder wie *Person beherrschen* (ZS 4), nur 1 Ziel gleichzeitig. Er nutzt das, um einen Kämpfer gegen die eigenen Leute zu wenden.
-- **Vampirschwächen:** Kann sich *Knoblauch* und vorgehaltenen heiligen Symbolen nicht nähern (Willen SG 15 jede Runde für ihn, sonst muss er 1,5 m Abstand halten). **Fließendes Wasser:** Taucht er in fließendes Wasser ein, verliert er pro Runde ⅓ seiner maximalen TP. → Der Grovarie ist auf der Flucht in Abenteuer 5 die **Rettung** der Gruppe: Wer über den Fluss kommt, ist sicher.
+- **Vampirschwächen:** Kann sich *Knoblauch* und vorgehaltenen heiligen Symbolen nicht nähern (Willen SG 15 jede Runde für ihn, sonst muss er 1,5 m Abstand halten). **Fließendes Wasser:** Taucht er in fließendes Wasser ein, verliert er pro Runde ⅓ seiner maximalen TP. → Der **Klagebach** zwischen Gefangenenlager und Knochenwacht ist auf der Flucht in Abenteuer 5 die **Rettung** der Gruppe: Wer über den Bach kommt, ist sicher.
 
 **Taktik:**
 - *Abenteuer 5:* Er jagt, spielt mit der Gruppe, greift den Letzten in der Reihe an, zieht sich zurück, kommt wieder. Wenn er unter 10 TP fällt, flieht er (Schnelle Heilung!).
@@ -275,7 +275,7 @@ Alle Werte sind auf den Moment gerechnet, in dem der NSC voraussichtlich ins Spi
 **Nahkampf** Kampfstab +3 (1W6–1)
 **Zauberähnliche Schulfähigkeit** (ZS 9) Schutzschild 9/Tag
 **Vorbereitete Magierzauber** (ZS 9; Konzentration +15; Auswahl)
-5. Grad – *Wand aus Kraft*, *Teleportieren*, *Verzauberung brechen* *
+5. Grad – *Teleportieren* (2×, im Finale – siehe Abenteuer 6; sonst *Wand aus Kraft* statt eines davon), *Verzauberung brechen* *
 4. Grad – *Mächtige Unsichtbarkeit*, *Steinhaut* *, *Schwarze Tentakel*, *Geringe Kugel der Unverwundbarkeit*
 3. Grad – *Magie bannen* (2×), *Schutz vor Energien*, *Hast*, *Fliegen*, *Langsam* (SG 19)
 2. Grad – *Unsichtbarkeit*, *Spiegelbilder*, *Glitzerstaub* (SG 18), *Sengender Strahl*, *Widerstand gegen Energien* (2×)
@@ -296,7 +296,7 @@ Alle Werte sind auf den Moment gerechnet, in dem der NSC voraussichtlich ins Spi
 - Vanthe steht unter der Beherrschung von Fürst Drevan (wie *Person beherrschen*, ZS 12). Sie wird alle paar Wochen erneuert, über einen Kontaktspiegel in ihrem Arbeitszimmer.
 - *Böses entdecken* zeigt nichts – sie ist nicht böse.
 - **Telepathie-Hinweis:** Munavri sprechen mit Vanthe in Gedanken. Ein Munavri-Charakter, der telepathisch mit ihr redet, spürt etwas Fremdes: *eine zweite, kalte Stimme hinter ihrer, wie ein Echo, das einen Herzschlag zu spät kommt.* Motiv erkennen SG 15 statt 25, um die Beeinflussung zu erkennen. Deshalb meidet Vanthe seit ihrer Rückkehr Telepathie – und ihre Munavri-Kollegen im Ethikrat haben das bemerkt, aber als Trauma gedeutet.
-- *Schutz vor Bösem* auf Vanthe unterdrückt die Beherrschung für die Wirkungsdauer: Sie ist bei klarem Verstand, verzweifelt, und erzählt in kurzen, gehetzten Sätzen alles, was sie weiß (Torstädter Säule, „heute Nacht", der Bleiche Hund).
+- *Schutz vor Bösem* auf Vanthe unterdrückt die Beherrschung für die Wirkungsdauer: Sie ist bei klarem Verstand, verzweifelt, und erzählt in kurzen, gehetzten Sätzen alles, was sie weiß (die verschärften Berichte, die Lauschsteine in den Pfeilern, die Notstandsmaßnahme, der Verrat am Tor, der Bleiche Hund).
 - *Magie bannen* gegen ZS 12 (Wurf 1W20 + ZS gegen SG 23) beendet die Beherrschung dauerhaft.
 - Im Ethikrat gilt sie als unantastbar. Jede Anschuldigung ohne Beweise kostet die Gruppe Ansehen.
 
@@ -350,7 +350,7 @@ Alle Werte sind auf den Moment gerechnet, in dem der NSC voraussichtlich ins Spi
 
 Drevan tritt in dieser Kampagne **nicht persönlich auf**. Er spricht nur:
 - durch den Kontaktspiegel in Vanthes Arbeitszimmer (Grovaristadt),
-- durch die Rune im Torstädter Pfeiler (Finale): eine kalte, amüsierte, sehr höfliche Stimme.
+- durch die Lauschsteine in den Pfeilern (im Finale aus dem Torstädter Pfeiler): eine kalte, amüsierte, sehr höfliche Stimme.
 
 > *„Wie ungewöhnlich. Wehrpflichtige. Ich hatte mit Generälen gerechnet. Nun – auch Bauern sind wertvoll. Lebendig. Wir sehen uns."*
 

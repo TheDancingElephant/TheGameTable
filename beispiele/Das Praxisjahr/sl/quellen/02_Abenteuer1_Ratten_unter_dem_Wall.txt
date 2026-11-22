@@ -8,7 +8,7 @@ Karte: [Karte_Zisternen_Torstadt.svg](Karte_Zisternen_Torstadt.svg) (1 Feld = 1,
 
 ## Überblick für die SL
 
-**Was wirklich los ist:** Vor drei Wochen hat ein beherrschter Lehrling der Pfeilerwacht einen **Gegenanker** – einen schwarzen Runenstein – am Fundament des Torstädter Zentralpfeilers versteckt. Es ist ein Test: Fürst Drevan will sehen, ob der Stein unbemerkt bleibt und ob er die Verstärkungsmagie „anzapfen" kann. Der Stein strahlt eine schwache, kalte Nekromantie aus. Die Ratten in den Zisternen werden davon angezogen, aggressiv und vermehren sich. Eine besonders große Ratte hat direkt am Stein ihr Nest gebaut.
+**Was wirklich los ist:** Vor drei Wochen hat ein beherrschter Lehrling der Pfeilerwacht einen **Lauschstein** – einen schwarzen Runenstein – am Fundament des Torstädter Zentralpfeilers versteckt. Es ist ein Test: Fürst Drevan will sehen, ob der Stein unbemerkt bleibt und ob er durch den Pfeiler hindurch **hören** kann, was in Torstadt gesprochen wird. Der Stein strahlt eine schwache, kalte Nekromantie aus und eine **Aura der Zwietracht**, die Lebewesen in seiner Nähe gereizt und aggressiv macht. Die Ratten in den Zisternen werden davon angezogen, werden bissig und vermehren sich. Eine besonders große Ratte hat direkt am Stein ihr Nest gebaut.
 
 **Was die Spieler erleben:** Erste Mission als Truppe, ein bisschen Kasernenhumor, ein kleiner Dungeon mit Wasser, Enge und Dunkelheit – und am Ende ein seltsamer Fund, den sie pflichtbewusst abgeben. Und der dann verschwindet.
 
@@ -180,7 +180,7 @@ Das Wasserwerk liegt direkt am Fuß des Torstädter Zentralpfeilers, einer gewal
 
 - **Aussehen:** Faustgroß, glatter schwarzer Stein (gehärteter Schwarzstein), eiskalt, eine einzelne eingravierte Rune, die sich nicht direkt ansehen lässt (Blick rutscht ab).
 - **Magie entdecken:** Schwache Aura – *Nekromantie* und *Bannmagie*, die sich gegenseitig „überlagern".
-- **Zauberkunde SG 20:** Die Bannmagie ist **umgekehrt**. Statt etwas zu schützen, *saugt* sie Schutz ab. Der Stein ist darauf „gestimmt", die Verstärkungsrunen des Pfeilers zu schwächen. Aber er ist viel zu klein, um wirklich etwas anzurichten – ein Test? Ein Prototyp?
+- **Zauberkunde SG 20:** Erkenntnismagie, verwoben mit Verzauberung und einem Hauch Nekromantie. Der Stein nutzt den Pfeiler wie einen **Resonanzkörper** – er *lauscht*. Und er gibt etwas zurück: eine leise Unruhe, die Lebewesen in seiner Nähe gereizt macht. Wozu? Und für wen?
 - **Zauberkunde SG 25** (kaum erreichbar, aber wer es schafft, soll belohnt werden): Die Rune trägt eine Signatur, wie eine Unterschrift. Eine Handschrift, die man wiedererkennen würde, wenn man sie einmal gesehen hat. (Wird im Finale relevant: Es ist Vanthes Zauberschrift.)
 - Wer den Stein länger als 1 Stunde am Körper trägt: Willen SG 11 oder 1 Punkt Weisheitsschaden und Albträume von einer bleichen Gestalt, die „Bald" flüstert.
 

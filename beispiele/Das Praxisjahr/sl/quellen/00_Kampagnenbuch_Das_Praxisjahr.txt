@@ -21,7 +21,7 @@
 
 ## 1. Die Prämisse in drei Sätzen
 
-Die Spielercharaktere sind **Wehrpflichtige im vierten Jahr – dem Praxisjahr**. Sie wurden zu einer *Standardtruppe* zusammengestellt (Kämpfer, Druide, Zauberkundiger, Schurke, ggf. Höhlenscout) und werden von Einsatz zu Einsatz quer durch die Höhlen geschickt. Hinter scheinbar unzusammenhängenden Aufträgen steckt ein Plan des **Vampirreichs** im Westen: die magischen **Deckenverstärkungen** der Höhlen zu sabotieren, um den Großen Steinwall von Torstadt im Moment eines Untoten-Angriffs einstürzen zu lassen.
+Die Spielercharaktere sind **Wehrpflichtige im vierten Jahr – dem Praxisjahr**. Sie wurden zu einer *Standardtruppe* zusammengestellt (Kämpfer, Druide, Zauberkundiger, Schurke, ggf. Höhlenscout) und werden von Einsatz zu Einsatz quer durch die Höhlen geschickt. Hinter scheinbar unzusammenhängenden Aufträgen steckt ein Plan des **Vampirreichs** im Westen: die **Völker der Höhlen gegeneinander aufzuwiegeln**, bis der Bund zerbricht – und eine gespaltene Enklave ihr Tor nicht mehr gemeinsam halten kann. Fürst Drevan will die Höhlen nicht zerstören, sondern **unversehrt erobern**.
 
 ---
 
@@ -65,7 +65,7 @@ Die Grovari-Höhlen liegen in **Sekamina**, der mittleren Schicht der Finsterlan
 - **Telepathie:** Munavri sprechen untereinander in Gedanken, laut nur mit anderen Völkern. In der Enklave hat das zu einem Missverständnis geführt, das bis heute besteht: Andere Völker halten Munavri für schweigsam und hochmütig, Munavri halten das laute Reden der anderen für anstrengend.
 - **Glaube:** Munavri verehren die **Empyreischen Fürsten, besonders die Azatas** (Götter der Freiheit und Güte). Das prägt die Enklave: Freiheit, Asyl, Gleichwertigkeit sind letztlich Azata-Werte.
 - **Die drei Ämter:** Munavri-Gemeinden werden von drei geistlichen Ämtern geführt: **Agathum**, **Archum** und **Azatum** (das Azatum ist meist das einflussreichste). In der Enklave lebt das im **Ethikrat** weiter: Der Munavri-Sitz und die zwei zusätzlichen Munavri-Sitze sind genau diese drei Ämter. **Aurelan Mysk**, der Vorsitzende, ist das amtierende **Azatum**.
-- **Jade:** In Orv schützt Jade die Munavri vor den Alghollthus, auf eine Weise, die sie selbst nicht verstehen. *Vorschlag für die Kampagne:* Die Verstärkungsrunen der Pfeilerwacht sind mit Jadestaub geschrieben – deshalb braucht der Gegenanker Schwarzstein, das „Gegenstück" zu Jade.
+- **Jade:** In Orv schützt Jade die Munavri vor den Alghollthus, auf eine Weise, die sie selbst nicht verstehen. *Vorschlag für die Kampagne:* Die Verstärkungsrunen der Pfeilerwacht sind mit Jadestaub geschrieben – deshalb braucht der Lauschstein Schwarzstein, das „Gegenstück" zu Jade.
 - **Erbe:** Elfenbeinfarbene Schiffe mit violetten Segeln. Auf dem Grovarimeer fahren heute einige wenige Munavri-Boote dieser Art – ein Stück Heimat.
 
 ### 2.2c Rat und Ethikrat – Zusammensetzung und Befugnisse
@@ -165,7 +165,7 @@ Deine Zeitlinie, ergänzt um die Geschichte des Vampirreichs und die Jahre bis z
 | 166 | **[neu]** Zweite Wahl. **Aurelan Mysk** wird Azatum und Vorsitzender des Ethikrats. Endstadt beantragt erstmals einen eigenen Sitz – abgelehnt. |
 | 168 | **[neu]** Ein höflicher menschlicher Gesandter Drevans erscheint vor dem Tor und bietet „Schutz" gegen einen jährlichen Tribut „aus Freiwilligen". Der Rat lehnt einstimmig ab. Seitdem nimmt die Bewegung im Land der Untoten zu. |
 | 169 | **[neu]** Drow und Munavri beantragen im Rat einen **Lichtbann**: Das Sonnensalz soll in der Osthöhle bleiben. Vier von acht Stimmen – zu wenig für einen Beschluss, genug für eine Blockade. |
-| 169 | **[neu]** Vanthe ordnet eine **„Große Prüfung aller Pfeiler"** an. Lehrlinge der Pfeilerwacht besuchen jeden Zentralpfeiler. *(In Wahrheit: Vorbereitung der Gegenanker.)* |
+| 169 | **[neu]** Vanthe ordnet eine **„Große Prüfung aller Pfeiler"** an. Lehrlinge der Pfeilerwacht besuchen jeden Zentralpfeiler. *(In Wahrheit: Lehrlinge verstecken in jedem Zentralpfeiler einen Lauschstein. Seitdem nehmen Streit und Misstrauen in der Enklave spürbar zu.)* |
 | **170** | **Kampagnenbeginn.** Die nächste Ratswahl ist im Jahr 171. |
 
 ### 2.5 Die Schlacht am Steinwall (Jahr 118)
@@ -194,23 +194,38 @@ Die **Pfeilerwacht** ist die Gilde der Magier, die seit Jahr 127/128 die Deckenv
 
 **Erzmagistra Oriel Vanthe** (Munavri), Leiterin der Pfeilerwacht und Mitglied des Ethikrats, geriet vor 14 Jahren bei einer Expedition in Gefangenschaft des Vampirreichs und kehrte „wie durch ein Wunder" zurück. Seitdem steht sie unter der Herrschaft von **Fürst Casimir Drevan**, Vampir und Herr von Varikanum. Sie weiß selbst nur in lichten Momenten, was sie tut (*dominiert*, nicht verwandelt – deshalb erkennt sie kein Ethikrat).
 
-**Drevans Plan:**
-1. In jedem Zentralpfeiler einen **Gegenanker** platzieren – eine Schwarzstein-Rune, die den Verstärkungszauber umkehren kann.
-2. Für die Runen braucht man **in der Lavaschmiede gehärteten Schwarzstein** → Diebstahl in Drudanst.
-3. Den Verdacht auf die **Drow von Illiatist** lenken – die Enklave soll sich selbst zerfleischen, Rufe nach „Tore schließen!" werden laut.
-4. In der Nacht des Angriffs der Untotenarmee aus dem Land der Untoten: Aktivierung des Gegenankers im **Torstädter Pfeiler**. Der Große Steinwall stürzt ein, das Tor ist offen.
-5. Ziel: Sklaven und Blut für das Vampirreich (siehe Kartenlegende: *„ein Vampir-Reich, welches alle Wesen der Höhlen versklaven will"*).
+**Drevans Ziel:** Er will die Enklave **erobern, nicht zerstören** – 54.000 Untertanen, gesund und gehorsam, wie in den Sklavenvierteln von Varikanum (siehe Kartenlegende: *„ein Vampir-Reich, welches alle Wesen der Höhlen versklaven will"*).
+
+**Was er gelernt hat:** Zweimal ist ein Heer am Großen Steinwall zerschellt – 118 die Drow, 152 Drevans eigene Untote. Beide Male hielten **alle Völker gemeinsam** die Mauer: Svirfneblin-Wasserwerker in den Zisternen, Jurakin-Drow auf dem Wall, Duergar an den Armbrüsten. Daraus zieht Drevan seinen Schluss:
+
+> *„Einen Bund, der sich vertraut, kann man nicht stürmen. Einen Bund, der sich hasst, muss man nicht stürmen. Er öffnet sein Tor selbst."*
+
+**Der Plan – „Die Spaltung":**
+1. **Die Stimme im Ethikrat:** Vanthe ist als **Archum** Teil des Ethikrats, und alle Berichte der Fünfhundert laufen durch ihre Hände. Sie **verschärft** Berichte über Drow und Duergar, schürt den **Lichtbann**-Streit mit Endstadt und spricht sich bei jeder Krise für härtere Maßnahmen aus – immer leise, immer vernünftig klingend.
+2. **Die Lauschsteine:** Unter dem Vorwand der **Großen Pfeilerprüfung** (seit 169) verstecken beherrschte Lehrlinge in jedem der fünf Zentralpfeiler einen **schwarzen Runenstein**. Der Stein nutzt den Pfeiler wie einen Resonanzkörper:
+   - Drevan **hört**, was in der Höhle gesprochen wird – Ratsbeschlüsse, Streit, Geheimnisse. So weiß er alles, was er braucht, um die richtigen Wunden aufzureißen.
+   - Der Stein strahlt eine schwache **Aura der Zwietracht** aus: Wer lange in seiner Nähe lebt, wird gereizter, misstrauischer, schneller wütend. Seit 169 nehmen Streit und Schlägereien in der ganzen Enklave zu – niemand weiß, warum.
+   - Die Steine bestehen aus **Schwarzstein aus der Lavaschmiede** (Duergar-Material) und werden mit **Silberstaub-Tinte** beschriftet. Wer einen findet und nicht genau hinsieht, verdächtigt die Duergar – auch das ist gewollt.
+3. **Zwischenfälle, die je einem Volk angehängt werden:**
+   - Abenteuer 2: Der Silberstaub-Raub → „Drow-Banditen".
+   - Abenteuer 3: Der Anschlag am Wehrturm → ein Drow-Verräter.
+   - Abenteuer 4: Der Diebstahl in der Lavaschmiede → die Duergar beschuldigen die Drow.
+   - Später: eine Sonnensalz-Kugel auf dem Markt von Illiatist → Drow gegen Rattenvolk; und, zur richtigen Zeit, die **Enthüllung des Duergar-Dämonenpakts** (Drevan kennt ihn) → alle gegen die Duergar.
+4. **Der Höhepunkt (Abenteuer 6):** In den Wochen vor der Wahl 171 lässt Drevan alles gleichzeitig hochgehen. Der Pakt wird öffentlich, Illiatist brennt vor Wut, Endstadt droht mit dem Erntestreik, der Rat ist gelähmt. Auf Vanthes Antrag beschließt der Ethikrat eine **Notstandsmaßnahme**: Die **Drow- und Duergar-Einheiten in Torstadt** – ein Drittel der Wallbesatzung – werden „bis zur Klärung" entwaffnet und in die Kasernen gesperrt.
+5. **Das Tor öffnet sich von innen:** In derselben Nacht steht die Untotenarmee vor dem Wall. Ein Gesandter Drevans hat den eingesperrten, gedemütigten Duergar ein Angebot gemacht: Wer das Tor öffnet, dessen Volk wird verschont und darf in Varikanum herrschen – im Namen des **Eisenkönigs**, ihres alten Herrn. Drevan muss keine Mauer brechen. Er wartet nur darauf, dass der Bund sich selbst verrät.
+
+**Warum das funktioniert:** Jeder einzelne Zwischenfall bestätigt ein Vorurteil, das es ohnehin gibt (siehe Völkerband). Drevan erfindet keinen Hass – er gießt nur Öl in Feuer, die schon brennen. Darum ist die Kampagne ein Test ihres eigenen Leitmotivs: *Jeder ist wichtig* – oder jeder ist verdächtig.
 
 ### 3.2 Die Hinweiskette
 
 | Abenteuer | Hinweis, den die Spieler finden können |
 |---|---|
-| 1 | Ein kleiner schwarzer Runenstein in der Zisterne unter dem Steinwall (der erste Test-Anker). Niemand kann ihn lesen. |
+| 1 | Ein kleiner schwarzer Runenstein in der Zisterne unter dem Steinwall (der erste Lauschstein, ein Test). Die Ratten um ihn herum sind auffallend aggressiv. Niemand kann ihn lesen. |
 | 2 | Ein ausgeraubter Händlerzug hatte **Silberstaub für die Pfeilerwacht** geladen; der Überlebende erinnert sich an „bleiche Männer, die das Licht scheuten". |
-| 3 | Der beschuldigte Drow ist unschuldig; die gefälschten Beweise tragen die **Siegeltinte der Pfeilerwacht**; im Torbuch steht ein Pfeilerwacht-Lehrling; am Seepfeiler steckt ein **zweiter Gegenanker**; die Berichte der Fünfhundert wurden auf dem Weg durch das Archum verschärft. |
-| 4 | Die gestohlenen Schwarzstein-Barren werden in den Finsterhöhlen an Ghoule übergeben. Eine Lieferliste nennt fünf Ziele: *„die fünf Säulen"*. |
+| 3 | Der beschuldigte Drow ist unschuldig; die gefälschten Beweise tragen die **Siegeltinte der Pfeilerwacht**; im Torbuch steht ein Pfeilerwacht-Lehrling; am Seepfeiler steckt ein **zweiter Lauschstein**; die Berichte der Fünfhundert wurden auf dem Weg durch das Archum verschärft. |
+| 4 | Die gestohlenen Schwarzstein-Barren werden in den Finsterhöhlen an Ghule übergeben. Eine Lieferliste: *„Fünf Säulen, fünf Ohren. Vor der Wahl braucht jedes Volk einen Feind."* |
 | 5 | Im Land der Untoten: eine gefangene Munavri-Kundschafterin erzählt, dass Vanthe vor 14 Jahren „nicht entkam, sondern freigelassen wurde". |
-| 6 | Zusammensetzen im Rat → Konfrontation, Finale in Torstadt. |
+| 6 | Alle Hinweise zusammen beweisen vor dem Rat, dass die Zwischenfälle inszeniert waren – und dass Vanthe beherrscht ist. Dann: die Nacht am Tor. |
 
 **Grundregel:** Fehlt ein Hinweis, kann ihn ein späteres Abenteuer nachliefern. Die Kampagne darf nicht an einem verpassten Wurf scheitern.
 
@@ -290,7 +305,7 @@ Die falsche Fährte hat **zwei Schichten**: Erst verdächtigen alle die Drow (Ab
 
 ### Abenteuer 3 – „Der Schatten über dem Hochsee" (Illiatist · Stufe 2–3)
 
-> **Spielfertig ausgearbeitet:** [08_Abenteuer3_Der_Schatten_ueber_dem_Hochsee.md](08_Abenteuer3_Der_Schatten_ueber_dem_Hochsee.md) mit Karte [Karte_Wachhaus_Hochsee.svg](Karte_Wachhaus_Hochsee.svg). Die Ausarbeitung erweitert die Skizze unten: Der Täter war ein beherrschter Lehrling, der am Seepfeiler einen **zweiten Gegenanker** versteckte; Velriths Alibi ist die Munavri-Schreiberin Ithiel Sarn; der Gegendruck kommt von der Svirfneblin-Stadtwache und Duergar-Händlern; das Finale ist eine Anhörung vor dem Stillen Kreis.
+> **Spielfertig ausgearbeitet:** [08_Abenteuer3_Der_Schatten_ueber_dem_Hochsee.md](08_Abenteuer3_Der_Schatten_ueber_dem_Hochsee.md) mit Karte [Karte_Wachhaus_Hochsee.svg](Karte_Wachhaus_Hochsee.svg). Die Ausarbeitung erweitert die Skizze unten: Der Täter war ein beherrschter Lehrling, der am Seepfeiler einen **zweiten Lauschstein** versteckte; Velriths Alibi ist die Munavri-Schreiberin Ithiel Sarn; der Gegendruck kommt von der Svirfneblin-Stadtwache und Duergar-Händlern; das Finale ist eine Anhörung vor dem Stillen Kreis.
 
 **Einsatzbefehl:** In Illiatist wurde ein Wehrturm am Hochsee nachts beschädigt, ein Wachposten liegt im Koma. Verhaftet wurde **Velrith Jurakin**, Nachfahre des Asylhauses Jurakin. Die Truppe soll „den Fall abschließen". Der Unterton: Die Obrigkeit will einen schnellen Schuldigen.
 
@@ -311,13 +326,15 @@ Die falsche Fährte hat **zwei Schichten**: Erst verdächtigen alle die Drow (Ab
 
 ### Abenteuer 4 – „Feuer aus der Tiefe" (Drudanst · Lavaschmiede · Finsterhöhlen · Stufe 3)
 
-**Einsatzbefehl:** Aus der Lavaschmiede wurden zwölf Barren **gehärteter Schwarzstein** gestohlen – ein Material, das nur für Runenmagie taugt. Die Duergar sind wütend und beschuldigen (natürlich) die Drow.
+> **Spielfertig ausgearbeitet:** [09_Abenteuer4_Feuer_aus_der_Tiefe.md](09_Abenteuer4_Feuer_aus_der_Tiefe.md) mit Karte [Karte_Runenwerkstatt.svg](Karte_Runenwerkstatt.svg). Die Ausarbeitung präzisiert die Skizze unten: Die Barren werden aus dem **Schwarzsteinlager am Gedenktor** gestohlen (nicht aus der Lavaschmiede selbst); ein beherrschter Munavri-Lehrling öffnet in der Stunde der Stille die Hintertür; Duergar, Svirfneblin-Stadtwache und eine Drow-Händlerin verdächtigen sich gegenseitig; das Versteck ist die **Runenwerkstatt**, in der die Lauschsteine entstehen; das Finale ist die Amboss-Versammlung.
+
+**Einsatzbefehl:** In Drudanst wurden zwölf Barren **gehärteter Schwarzstein** aus der Lavaschmiede gestohlen – ein Material, das nur für Runenmagie taugt. Die Duergar sind wütend und beschuldigen (natürlich) die Drow.
 
 **Ablauf**
 1. **Drudanst & Lavaschmiede** – Der Tunnel zum Lavastrom, Hitze (Grundregelwerk: Hitzegefahren, Zähigkeit SG 15 + 1 je Wurf, sonst nichttödlicher Schaden), Duergar-Schmiedemeister **Thorgrim Aschhand**: grimmig, stolz, ehrlich. Er erzählt vom Einsturz in Jahr 123 und dass „die Pfeilerwacht danach jede Woche hier war".
 2. **Die Spur** – Schleifspuren führen durch den **Bruch** (die Trümmer des alten Drudanst, siehe Städteband – mit Steinschlag und einem Ungeborgenen) in die **Finsterhöhlen** (Labyrinth, Pflicht: Höhlenscout!). Spielt das Labyrinth als Fertigkeitsherausforderung (3 Erfolge vor 3 Fehlschlägen, Überlebenskunst/Wissen [Gewölbe]/Wahrnehmung SG 15; Fehlschläge = Erschöpfung oder Zufallsbegegnung).
-3. **Das Versteck** – Eine Höhle mit 3 Ghulen und einem **Ghast** (HG 2) als Anführer. Hier werden die Barren gerade verladen.
-4. **Der Fund** – Eine **Lieferliste** auf Ghulhaut: *„Zwölf Barren. Fünf Säulen. Die erste in Torstadt – wenn der Mond der Toten steht."* Dazu das Siegel der Pfeilerwacht.
+3. **Das Versteck** – Die Runenwerkstatt mit 2 Ghulen und einem **Ghast** (HG 2) als Anführer. Hier werden die Barren gerade verladen, und auf der Werkbank liegen halbfertige Lauschsteine.
+4. **Der Fund** – Eine **Lieferliste** auf Ghulhaut: *„Zwölf Barren. Fünf Säulen, fünf Ohren. Vor der Wahl braucht jedes Volk einen Feind."* Dazu das Siegel der Pfeilerwacht. *(Die Duergar sollen glauben, die Drow hätten gestohlen – und die Drow, die Duergar hätten den Diebstahl erfunden.)*
 5. **Rückkehr** – Thorgrim schuldet der Gruppe einen Gefallen (später: magische Waffe oder Rüstungsverbesserung aus der Lavaschmiede als Belohnung).
 
 **Testet:** Umweltgefahren, Fertigkeitsherausforderung, härtere Kämpfe.
@@ -334,6 +351,8 @@ Kurzer Einsatz für einen Abend: Die Truppe eskortiert einen zum Tode Verurteilt
 
 ### Abenteuer 5 – „Bastion der Lebenden" (Südwesten · Land der Untoten · Stufe 4)
 
+> **Spielfertig ausgearbeitet:** [10_Abenteuer5_Bastion_der_Lebenden.md](10_Abenteuer5_Bastion_der_Lebenden.md) mit Karte [Karte_Gefangenenlager.svg](Karte_Gefangenenlager.svg). Die Ausarbeitung ergänzt die Skizze unten: Ein Befehl aus Vanthes Kanzlei hat Drow und Duergar in der Knochenwacht getrennt eingeteilt – genau diese Lücke nutzten die Untoten; im Lager belauscht die Gruppe die Klerikerin Mutter Asch und einen Herold des Eisenkönigs über „ein Angebot an die Duergar in Torstadt" (Saat für das Finale); die Flucht endet am **Klagebach**, nicht am Grovarie; der Bleiche Hund war einst der Wehrpflichtige Danek Fährtfind.
+
 **Einsatzbefehl:** Der Kontakt zur **Knochenwacht** ist abgerissen, dem Außenposten vor der Bastion der Lebenden. Die Bastion selbst kann keine Leute entbehren – deshalb wird eine Wehrpflicht-Truppe geschickt. Aufklärung, ggf. Entsatz.
 
 > **Wichtig:** Die Gruppe betritt nur den **äußeren Ring** des Landes der Untoten (HG 2–6). Was dahinter liegt (bis HG 14, siehe Regionalband), soll sie nur **sehen**: das Obeliskenfeld, das grüne Licht des Grauen Hofs, die Armee. Bastionsmeisterin Hagra Lichtschild stellt klar: „Weiter als bis zum Lager geht ihr nicht. Niemand kommt von dort zurück."
@@ -343,7 +362,7 @@ Kurzer Einsatz für einen Abend: Die Truppe eskortiert einen zum Tode Verurteilt
 2. **Blick ins Land der Untoten** – Von der Bastion aus sieht man es: Eine **Armee** sammelt sich. Hunderte Untote, Banner von Varikanum. Der Angriff ist nicht weit.
 3. **Rettungsmission** – Eine Gruppe Gefangener wird in einem Lager zwischen Bastion und Land der Untoten festgehalten. Darunter **Kundschafterin Ilun Sareth** (Munavri), seit Monaten verschollen.
 4. **Die Wahrheit** – Ilun war in Varikanum gefangen und hörte die Wachen lachen: *„Die weiße Magistra? Die haben wir nicht verloren – die haben wir zurückgeschickt."*
-5. **Flucht** – Tipp: Vampire vertragen kein fließendes Wasser – wer den Grovarie durchquert, entkommt. Verfolgungsjagd zurück zur Bastion (Verfolgungsregeln aus dem Spielleiterhandbuch oder einfache Kartenkette) mit einem **Vampirbrut-Jäger** (Vampirbrut, HG 4) im Nacken. Achtung: Seine Stufenentzug-Attacke ist für Stufe-4-Gruppen hart – nur einsetzen, wenn ein Kleriker *Wiederherstellung* o. ä. erreichbar ist. Er sollte entkommen können, wenn der Kampf schlecht läuft – er kehrt im Finale zurück.
+5. **Flucht** – Tipp: Vampire vertragen kein fließendes Wasser – wer den **Klagebach** zwischen Lager und Knochenwacht überquert, entkommt. Verfolgungsjagd zurück zur Bastion (Verfolgungsregeln aus dem Spielleiterhandbuch oder einfache Kartenkette) mit einem **Vampirbrut-Jäger** (Vampirbrut, HG 4) im Nacken. Achtung: Seine Stufenentzug-Attacke ist für Stufe-4-Gruppen hart – nur einsetzen, wenn ein Kleriker *Wiederherstellung* o. ä. erreichbar ist. Er sollte entkommen können, wenn der Kampf schlecht läuft – er kehrt im Finale zurück.
 
 **Testet:** Taktik, Ressourcenmanagement, Klerikermagie gegen Untote, Dramatik.
 
@@ -351,24 +370,40 @@ Kurzer Einsatz für einen Abend: Die Truppe eskortiert einen zum Tode Verurteilt
 
 ### Abenteuer 6 + Finale – „Die fünf Säulen" (Grovaristadt → Torstadt · Stufe 5)
 
-**Teil 1: Vor dem Rat (Grovaristadt)**
-- Die Gruppe hat Hinweise – aber gegen eine Ethikrätin vorzugehen, ist politisch gefährlich. Wer im Rat hilft? Wer blockiert?
-  - **Ratsherr Kesrin Valdorn** (Drow, Illiatist): Verbündeter, wenn Abenteuer 3 gut lief.
-  - **Rätin Hulda Grauschmied** (Duergar): Verbündete, wenn Abenteuer 4 gut lief.
-  - **Ethikrat-Vorsitzender Aurelan Mysk** (Munavri): Vanthes alter Freund, blockiert zuerst.
-  - **Obermagister Bastrin Kieselgrund** (Svirfneblin): Der zweite Verdächtige (3.4). Unter Druck bietet er die gestohlene Seite von Jahr 156 an – gegen Straffreiheit und Unterstützung für seine Wahl.
-  - **Rattenvolk & Menschen** aus Endstadt haben *keinen* eigenen Sitz (siehe 2.2c) – ein Sprecher bietet Hilfe gegen das Versprechen, sich für einen Sitz einzusetzen.
-- **Vanthe konfrontieren:** *Schutz vor Bösem* unterdrückt die Beherrschung (wie *Person beherrschen*, ZS 12) für die Wirkungsdauer, *Magie bannen* gegen ZS 12 kann sie beenden. *Böses entdecken* zeigt nichts – sie selbst ist nicht böse. Für einen Moment ist sie klar: *„Die Torstädter Säule … heute Nacht … haltet ihn auf."* Dann schlägt die Beherrschung zurück, sie flieht oder bricht zusammen.
+> **Spielfertig ausgearbeitet:** [11_Abenteuer6_Die_fuenf_Saeulen.md](11_Abenteuer6_Die_fuenf_Saeulen.md) mit Karte [Karte_Torhaus_Torstadt.svg](Karte_Torhaus_Torstadt.svg). Die Ausarbeitung setzt die Skizze unten um: In Grovaristadt hat die Gruppe **sechs Handlungen** bis zur Notsitzung (Verbündete, Beweise, der Lauschstein im Pfeiler, Vanthe), die Sitzung läuft über ein Punktesystem; in Torstadt entscheidet ein **Wellen-System** die Schlacht – jede Tat, die Völker zusammenbringt, macht den Wall stärker. Dazu ein Epilog zur Wahl 171 und die Angebote nach Ehrenmarken.
 
-**Teil 2: Die Nacht der Toten (Torstadt)**
-- Die Untotenarmee steht vor dem Tor. Die gesamte Wehrpflicht wird einberufen (Bauern mit Speeren, Jahr-118-Gefühl).
-- Die Truppe muss in den **Zentralpfeiler von Torstadt** (Kammer aus Jahr 127) und den Gegenanker entfernen, bevor er aktiviert wird.
-- **Endkampf:** Der Vampirbrut-Jäger aus Abenteuer 5 + 3 Pfeilerwacht-Lehrlinge unter Beherrschung (Magier 2; nicht töten = Bonus-Ehre!) + die Rune selbst als Gefahr (jede Runde ein Beben, Reflex SG 15 gegen 2W6 Steinschlag). Rune entschärfen: Mechanismus ausschalten SG 20 oder *Magie bannen*, mehrere Runden.
-- **Fürst Drevan** erscheint *nicht* persönlich – nur als Stimme in der Rune. Er bleibt Gegner für eine Fortsetzungskampagne.
+**Ausgangslage:** Drevans Spaltung erreicht ihren Höhepunkt (siehe 3.1, Punkt 4). In wenigen Tagen geschieht alles auf einmal:
+- Ein Quasit „verplaudert" sich in Drudanst: Der **Dämonenpakt der Lavaschmiede** wird öffentlich. Die halbe Enklave verlangt, Drudanst unter Aufsicht zu stellen.
+- Auf dem Markt von Illiatist explodiert eine **Sonnensalz-Kugel**; Dutzende Drow sind geblendet. Illiatist beschuldigt Endstadt, Endstadt beschuldigt Drevans Spione – niemand glaubt ihnen.
+- Der Rat ist gelähmt. Auf **Vanthes** Antrag setzt der Ethikrat eine **Notstandsmaßnahme** durch: Die Drow- und Duergar-Einheiten in Torstadt werden entwaffnet und in die Kasernen gesperrt – auch **Brakka Steinfaust**.
+- Späher melden: Die Untotenarmee aus dem Grauen Hof marschiert.
+
+**Teil 1: Die Wahrheit vor dem Rat (Grovaristadt)**
+- Die Gruppe muss beweisen, dass die Zwischenfälle **inszeniert** waren. Mögliche Beweise aus der Kampagne: die Lauschsteine (Abenteuer 1 und 3) mit Vanthes Zauberschrift, die Silberstaub-Tinte, Ilvraes Aussage, Ithiels Berichte, die Lieferliste, Iluns Aussage über Vanthes „Freilassung", Bastrins gestohlene Seite von Jahr 156.
+- Verbündete und Gegner im Rat:
+  - **Ratsherr Kesrin Valdorn** (Drow, Illiatist): Verbündeter, wenn Abenteuer 3 gut lief.
+  - **Rätin Hulda Grauschmied** (Duergar): Verbündete, wenn Abenteuer 4 gut lief – und verzweifelt, seit der Pakt bekannt ist.
+  - **Ethikrat-Vorsitzender Aurelan Mysk** (Munavri): Vanthes alter Freund, blockiert zuerst.
+  - **Agathum Selis Varn** (Munavri): Merkt, dass Vanthe Telepathie meidet – mögliche Verbündete.
+  - **Obermagister Bastrin Kieselgrund** (Svirfneblin): Der zweite Verdächtige (3.4). Unter Druck bietet er die gestohlene Seite von Jahr 156 an – gegen Straffreiheit und Unterstützung für seine Wahl.
+  - **Rattenvolk & Menschen** aus Endstadt haben *keinen* eigenen Sitz (siehe 2.2c) – Ratzek bietet Hilfe gegen das Versprechen, sich für einen Sitz einzusetzen.
+- **Der Lauschstein im Pfeiler von Grovaristadt:** Solange er im Zentralpfeiler unter dem Gildenhaus steckt, hört Drevan jedes Wort der Ratssitzung, und die Zwietracht-Aura lastet auf allen (alle Diplomatie-Würfe im Ratsviertel –2). Wer ihn findet und entfernt, nimmt Drevan die Ohren – und dem Rat die Gereiztheit.
+- **Vanthe befreien:** *Schutz vor Bösem* unterdrückt die Beherrschung (wie *Person beherrschen*, ZS 12) für die Wirkungsdauer, *Magie bannen* gegen ZS 12 beendet sie. *Böses entdecken* zeigt nichts – sie selbst ist nicht böse. Befreit, sagt sie vor dem Rat aus: *„Ich habe euch gegeneinander aufgehetzt. Jeder Bericht, jede Maßnahme. Er wollte, dass ihr euch selbst die Tore öffnet. – Und heute Nacht tut ihr es."*
+- **Erfolg im Rat:** Die Notstandsmaßnahme wird aufgehoben. Aber Torstadt ist eine Tagesreise entfernt, und die Untoten stehen schon vor dem Tor. Die befreite Vanthe – die einen Teleport-Zauber beherrscht – bringt die Gruppe mit dem Beschluss nach Torstadt. Ihre erste Tat als freie Frau.
+
+**Teil 2: Die Nacht am Tor (Torstadt)**
+- Die Untotenarmee greift an. Die Wallbesatzung ist ein Drittel zu schwach, weil Drow und Duergar noch eingesperrt sind – der Beschluss muss erst verkündet werden.
+- **Der Verrat am Tor:** Eine Gruppe gedemütigter Duergar-Soldaten unter **Feldwebel Gorm Aschgrau** hat Drevans Angebot angenommen und ist auf dem Weg zum Torhaus. Mit ihnen: der **Bleiche Hund** und die beherrschten **Pfeilerwacht-Lehrlinge** (darunter Aldren Vey aus Abenteuer 3), die die Torwache mit *Schlaf* und Illusionen ausschalten sollen.
+- **Was die Gruppe tun muss:**
+  1. Die eingesperrten Einheiten **befreien** und den Beschluss verkünden – Brakka übernimmt sofort das Kommando über die Duergar.
+  2. Am Torhaus die Verräter **aufhalten** – im Kampf oder mit Worten: Gorm und seine Leute sind verzweifelt, nicht böse. Wer ihnen beweist, dass der Bund sie nicht verstößt (Diplomatie SG 20; Brakka oder Hulda an der Seite der Gruppe: +4), bringt sie dazu, die Waffen zu senken.
+  3. Den **Bleichen Hund** vernichten, bevor er das Fallgitter hochzieht. Die Lehrlinge nach Möglichkeit lebend überwältigen (Ehrenmarke!).
+- **Das Bild zum Schluss:** Wie in Jahr 118 stehen alle Völker gemeinsam auf dem Wall – Drow neben Duergar, Svirfneblin neben Munavri, Rattenvolk-Träger mit Sonnensalz-Kugeln aus Endstadt, wenn die Gruppe Ratzek gewonnen hat. Die Untoten zerschellen.
+- **Fürst Drevan** erscheint *nicht* persönlich – nur als Stimme aus dem Lauschstein im Torstädter Pfeiler, kalt und höflich: *„Wie bedauerlich. Ihr habt euch wieder vertragen. – Das hält nie lange."* Er bleibt Gegner für eine Fortsetzungskampagne.
 
 **Ausgang**
-- Erfolg: Der Wall hält, der Angriff wird abgewehrt. Die Truppe erhält das Angebot: Dienst beim Militär (Spezialeinheit „Pfeilerwacht-Ermittler") oder freie Söldner.
-- Teilerfolg: Ein Teil des Walls stürzt, Torstadt wird teilweise überrannt – düstere, aber spannende Ausgangslage für eine Fortsetzung.
+- **Erfolg:** Das Tor bleibt geschlossen, der Bund hält. Bei der Wahl 171 werden die Fünfhunderter-Regel und die Ratssitze neu verhandelt. Die Truppe erhält das Angebot: Dienst beim Militär (Spezialeinheit „Wächter des Bundes") oder freie Söldner.
+- **Teilerfolg:** Das Tor wird kurz geöffnet, Torstadt teilweise überrannt, bevor es wieder geschlossen wird. Die Enklave überlebt – aber Drudanst erklärt sich für unabhängig, und Illiatist schließt seine Tore. Eine düstere, aber spannende Ausgangslage für eine Fortsetzung.
 
 ---
 

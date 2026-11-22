@@ -66,8 +66,16 @@ class BeispielInhaltTest(unittest.TestCase):
     def test_praxisjahr_startzustand(self):
         z = json.loads((PRAXISJAHR / "sl" / "zustand.json").read_text(encoding="utf-8"))
         self.assertEqual(z["karteAktiv"], "torstadt")
-        self.assertEqual({"zisternen", "wachhaus"} & set(z["karten"]), {"zisternen", "wachhaus"})
-        self.assertFalse(z["karten"]["zisternen"].get("bekannt"), "Zisternen dürfen nicht in den Spielerunterlagen sein")
+        einsatz = {"zisternen", "wachhaus", "runenwerkstatt", "gefangenenlager", "torhaus"}
+        self.assertEqual(einsatz & set(z["karten"]), einsatz)
+        for kid in einsatz:
+            self.assertFalse(z["karten"][kid].get("bekannt"), f"{kid} darf nicht in den Spielerunterlagen sein")
+            self.assertEqual(z["karten"][kid].get("nebelModus"), "sicht", kid)
+        self.assertFalse(z["karten"]["torhaus"].get("autoNebel"))
+        self.assertTrue(z["karten"]["torhaus"]["aufgedeckt"], "Torhaus ist ohne Nebel gedacht")
+        quellen = {p.stem for p in (PRAXISJAHR / "sl" / "quellen").glob("*.txt")}
+        for nr in ("02", "04", "08", "09", "10", "11"):  # alle sechs Abenteuer
+            self.assertTrue(any(q.startswith(nr + "_Abenteuer") for q in quellen), nr)
         gegner = [t for t in z["tokens"].values() if t["art"] != "sc"]
         self.assertTrue(gegner)
         self.assertTrue(all(not t["sichtbar"] and t["karte"] == "zisternen" for t in gegner))

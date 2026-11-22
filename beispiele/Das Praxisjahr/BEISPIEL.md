@@ -1,6 +1,6 @@
 # Beispielkampagne „Das Praxisjahr“
 
-Selbst geschriebene PF1-Testkampagne in den Grovari-Höhlen (Finsterlande): Wehrpflichtige im Praxisjahr, sechs Abenteuer plus Finale für Stufe 1–5, spielfertig ausgearbeitet sind Abenteuer 1–3. Mit vier Test-SC, Startszene in Torstadt und zwei Dungeonkarten mit exakten Wänden und Sichtnebel.
+Selbst geschriebene PF1-Kampagne in den Grovari-Höhlen (Finsterlande): Wehrpflichtige im Praxisjahr, sechs spielfertige Abenteuer bis zum Finale für Stufe 1–5. Mit vier Test-SC, Startszene in Torstadt und fünf Einsatzkarten mit exakten Wänden (vier davon mit Sichtnebel).
 
 ## Anlegen
 Zentrale → „+ Neue Kampagne“ → Feld „Beispiel“, oder MCP-Werkzeug `kampagne_neu` mit `beispiel: "Das Praxisjahr"`
@@ -9,11 +9,12 @@ Port, `.mcp.json`, `CLAUDE.md`/`AGENTS.md` (mit den Kampagnenregeln aus `kampagn
 Ordners ohne Spielstand-Reste. Danach Server starten und mit einer Claude-Sitzung im neuen Ordner spielen.
 
 ## Inhalt
-- `sl/quellen/` – Kampagnenbuch, Abenteuer 1–3, NSC-Werte, Umgebung, Wirtschaft/Völker, Städte (Markdown als .txt)
+- `sl/quellen/` – Kampagnenbuch, Abenteuer 1–6, NSC-Werte, Umgebung, Wirtschaft/Völker, Städte (Markdown als .txt)
 - `sl/notizen/kapitel1.md` – SL-Notizen mit Kartenübersicht, Koordinaten der Bereiche, SG, Gegnern, „Laufende Notizen“
 - `sl/hausregeln.md` – Munavri als Spielervolk, Bonus-Wesenszug, Meilenstein-Aufstieg, Ehrenmarken
 - `sl/karten/`, `sl/barrieren/`, `sl/zustand.json` – Startzustand: Karten `torstadt` (aktiv), `zisternen`, `wachhaus`,
-  `grovaristadt`, `hoehlen`, `tiefenburg`, `illiatist`; Unterlagen; Gegner in den Zisternen verborgen
+  `runenwerkstatt`, `gefangenenlager`, `torhaus`, `grovaristadt`, `hoehlen`, `tiefenburg`, `illiatist`; Unterlagen;
+  Gegner in den Zisternen verborgen
 - `daten/charaktere/` – vier Test-SC der Stufe 1 (Duergar-Kämpfer, Svirfneblin-Druidin, Munavri-Magier, Rattenvolk-Schurke)
 - `Material/` – Original-Karten (SVG, mit Raumnummern: nur für die SL), Kartenquellen im Spieltisch-Kartenformat,
   Handout-Texte, Bauskripte

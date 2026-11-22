@@ -15,7 +15,7 @@ NSC-Werte: [03_NSC_Werte.md](03_NSC_Werte.md) (Ilvrae Xun, Pfeilerwacht-Lehrling
 
 ### Was wirklich geschah
 
-Die **Große Pfeilerprüfung** (seit Jahr 169) ist die Tarnung, unter der Vanthes beherrschte Lehrlinge die Gegenanker in den Pfeilern der Enklave verstecken. Der Pfeiler der Nordhöhle ist der **Seepfeiler**: Er steigt direkt neben dem Hafen von Illiatist aus dem Hochsee auf. An seinem Fuß steht ein Wehrturm.
+Die **Große Pfeilerprüfung** (seit Jahr 169) ist die Tarnung, unter der Vanthes beherrschte Lehrlinge die Lauschsteine in den Pfeilern der Enklave verstecken. Der Pfeiler der Nordhöhle ist der **Seepfeiler**: Er steigt direkt neben dem Hafen von Illiatist aus dem Hochsee auf. An seinem Fuß steht ein Wehrturm.
 
 **Die Tatnacht (drei Nächte vor Ankunft der Truppe):**
 
@@ -29,6 +29,8 @@ Die **Große Pfeilerprüfung** (seit Jahr 169) ist die Tarnung, unter der Vanthe
 | Morgengrauen | Aldren verlässt die Stadt durch das Wassertor. Im Torbuch: „A. Vey, Prüfung beendet". |
 | Nächster Tag | **Ilvrae Xun**, der Spion des Vampirreichs, legt einen gefälschten Brief in Velriths Haus: Velrith biete dem feindlichen Haus Vel'Ashar die Schwächen der Hafenwehr an. Die Stadtwache „findet" ihn bei der Durchsuchung. |
 | Zwei Tage später | Der **Stille Kreis** bittet um Ermittler von außerhalb, weil die Stadtvorsteherin selbst aus Haus Jurakin stammt. |
+
+**Warum das alles?** Drevan will die Völker der Enklave gegeneinander aufbringen (Kampagnenbuch 3.1). Ein Jurakin als Verräter – ausgerechnet aus dem Haus, dessen Gefallene auf der Mauer der Namen stehen – würde das Vertrauen zwischen Drow und allen anderen zerstören. Der Lauschstein im Seepfeiler soll Drevan außerdem hören lassen, was in Illiatist gesprochen wird.
 
 **Warum Velrith?** Er ist ein bekannter Kritiker der Fünfhunderter-Regel – seine Gedichte über „die Gäste, die nie gehen" kennt jeder. Für die Svirfneblin-Wache ist er der perfekte Verdächtige. Für Drevan ist er der perfekte Sündenbock: Ein Jurakin als Verräter würde das Misstrauen zwischen Drow und allen anderen vertiefen.
 
@@ -87,8 +89,8 @@ Die Ermittlung ist **offen**. Die Spieler können die Orte in beliebiger Reihenf
 
 - **Der Riss** (Wahrnehmung SG 10): Er beginnt im **Keller**, nicht oben. Die Explosion kam von innen, von unten.
 - **Brandspuren im Keller** (Zauberkunde oder Wissen [Arkanes] SG 15): Reste einer arkanen Entladung – **Bannmagie**, wie sie die Pfeilerwacht benutzt. Keine Drow-Magie. SG 20: Eine Schriftrolle wurde benutzt; Reste des Pergaments liegen im Schutt (Pilzpapier, grau gefärbt – Gildenpapier der Pfeilerwacht).
-- **Die Fuge am Pfeiler** (Wahrnehmung SG 18, oder automatisch, wenn jemand die flackernden Runen untersucht): In einer Fuge, wo der Pfeiler durch das Kellerfundament tritt, steckt ein **faustgroßer schwarzer Stein**, eiskalt. **Der zweite Gegenanker.** Wer Abenteuer 1 erlebt hat, erkennt ihn sofort.
-  - *Magie entdecken:* Nekromantie und umgekehrte Bannmagie, wie in Abenteuer 1. Dieser Stein ist aber **ruhig**, „wie ein schlafendes Tier" – er wartet auf ein Signal.
+- **Die Fuge am Pfeiler** (Wahrnehmung SG 18, oder automatisch, wenn jemand die flackernden Runen untersucht): In einer Fuge, wo der Pfeiler durch das Kellerfundament tritt, steckt ein **faustgroßer schwarzer Stein**, eiskalt. **Der zweite Lauschstein.** Wer Abenteuer 1 erlebt hat, erkennt ihn sofort.
+  - *Magie entdecken:* Nekromantie und umgekehrte Bannmagie, wie in Abenteuer 1. Wer ihn länger ansieht, spürt eine leise, grundlose Gereiztheit. Zauberkunde SG 20: Er **lauscht** durch den Pfeiler – und gibt Unruhe zurück (siehe Abenteuer 1).
   - Herauslösen: Stärke SG 12 oder Mechanismus ausschalten SG 15. Wer ihn mit bloßen Händen anfasst: 1 Kälteschaden.
   - **Wem gibt die Gruppe den Stein?** Das ist eine echte Entscheidung (siehe „Der zweite Stein" unten).
 - **Fußspuren am Ufer** (Überlebenskunst SG 15, die Spuren sind drei Tage alt): Schmale Stiefel, mittelgroß, laufen nach Süden zum Wassertor. Daneben, Richtung Stadt: ein zweites Paar, kleiner, leichter, das in die Gassen des Munavri-Viertels führt (Ithiel).
@@ -135,7 +137,7 @@ Die Torwache (Svirfneblin, gelangweilt) führt ein Torbuch für alle, die nachts
 - Diplomatie SG 10 oder das Siegel des Stillen Kreises: Einblick.
 - **Einträge der Tatnacht:** „A. Vey, Pfeilerwacht, Große Prüfung, Seepfeiler" (Abend) und „A. Vey, Prüfung beendet" (Morgengrauen).
 - Die Wache erinnert sich (Diplomatie SG 12): „Ein junger Munavri. Höflich. Ein bisschen abwesend. Er hatte es eilig, raus zu kommen."
-- *Für die Kampagne:* **Aldren Vey** ist einer der beherrschten Lehrlinge, die im Finale im Torstädter Pfeiler auftauchen. Wer ihn dort wiedererkennt, hat einen starken Moment.
+- *Für die Kampagne:* **Aldren Vey** ist einer der beherrschten Lehrlinge, die im Finale am Torhaus von Torstadt auftauchen. Wer ihn dort wiedererkennt, hat einen starken Moment.
 
 ### F – Ithiel Sarn und die Fünfhundert
 
@@ -186,7 +188,7 @@ Für jede Schlussfolgerung gibt es mehrere Wege. Die Gruppe braucht nicht alle.
 | Schlussfolgerung | Hinweise (Ort) |
 |---|---|
 | **Velrith ist unschuldig** | Ithiels Alibi (F) · Fenjas Aussage: ein Munavri, kein Drow (D) · Handschrift und Inhalt des Briefs (C) · die Explosion kam von unten, Bannmagie (A) · Saelin und Merra (G) |
-| **Die Pfeilerwacht ist beteiligt** | Bannmagie und Gildenpapier im Keller (A) · Torbuch: „A. Vey, Pfeilerwacht" (E) · Silberstaub-Siegeltinte (C) · der Gegenanker am Seepfeiler (A) |
+| **Die Pfeilerwacht ist beteiligt** | Bannmagie und Gildenpapier im Keller (A) · Torbuch: „A. Vey, Pfeilerwacht" (E) · Silberstaub-Siegeltinte (C) · der Lauschstein am Seepfeiler (A) |
 | **Ilvrae Xun ist der Fälscher** | Thessa sieht ihn bei Velriths Haus (H) · Fundstücke in seiner Hütte (I) · die Jägergang-Geschichte (G) · der Anschlag im Kerker (Szene 4) |
 | **Die Berichte werden in Grovaristadt verfälscht** | Ithiels Abschriften gegen Gorriks Zusammenfassungen (F) |
 | *(Falsche Spur)* **Bastrin Kieselgrund?** | Die Siegeltinte wird in seiner Kanzlei verwahrt (C) · die Zusammenfassungen gehen durch die Kanzlei des Archums, die er als Stellvertreter mitverwaltet (F) |
@@ -270,7 +272,7 @@ Am **dritten Tag, vor Mittag**, tritt der **Stille Kreis** im Haus am Platz der 
 
 ---
 
-## Der zweite Stein – wem gibt die Gruppe den Gegenanker?
+## Der zweite Stein – wem gibt die Gruppe den Lauschstein?
 
 Aus Abenteuer 1 wissen die Spieler vielleicht, dass der erste Stein spurlos verschwand. Jetzt haben sie einen zweiten.
 
@@ -282,7 +284,7 @@ Aus Abenteuer 1 wissen die Spieler vielleicht, dass der erste Stein spurlos vers
 | **Die Gruppe behält ihn** | Möglich – aber wer ihn länger als einen Tag am Körper trägt: Willen SG 11 oder Albträume von einer bleichen Gestalt (wie Abenteuer 1). Und Drevan erfährt, wer ihn hat. In Abenteuer 4 oder 5 versucht ein Dieb, ihn zurückzuholen. |
 | **Zerstören** | Härte 10, 20 TP. Die Runen des Seepfeilers leuchten hell auf, und irgendwo in Grovaristadt erwacht eine Erzmagistra schweißgebadet. Drevan weiß jetzt, dass jemand die Steine findet – in Abenteuer 4 sind seine Diener vorsichtiger. |
 
-**Für das Finale wichtig:** Ein erhaltener zweiter Stein trägt dieselbe **Zauberschrift** wie der Gegenanker im Torstädter Pfeiler – und wie Vanthes Zauberbuch. Wer beide vergleicht (Zauberkunde SG 20), hat einen unwiderlegbaren Beweis.
+**Für das Finale wichtig:** Ein erhaltener zweiter Stein trägt dieselbe **Zauberschrift** wie die Lauschsteine in den anderen Pfeilern – und wie Vanthes Zauberbuch. Wer beide vergleicht (Zauberkunde SG 20), hat einen unwiderlegbaren Beweis.
 
 ---
 
@@ -293,7 +295,7 @@ Aus Abenteuer 1 wissen die Spieler vielleicht, dass der erste Stein spurlos vers
 | Erfolg | EP gesamt |
 |---|---|
 | Fenja geweckt | 400 |
-| Gegenanker am Seepfeiler gefunden | 400 |
+| Lauschstein am Seepfeiler gefunden | 400 |
 | Ithiels Alibi gewonnen | 400 |
 | Gegendruck ohne Schlägerei aufgelöst | 600 |
 | Morbar: Riesenspinne und Giftnadelfalle | 1.000 |
@@ -355,5 +357,5 @@ Svirfneblin, Kriegerin 2 · im Koma (negative Energie), siehe Ort D.
 - **Die Gruppe verdächtigt Ithiel** (Munavri, war am Tatort, lügt): Gute Wendung! Ihre Verzweiflung ist echt; Motiv erkennen zeigt Angst, nicht Schuld. Ihre Fußspuren führen von der Tat weg in ihr Viertel, nicht zum Wassertor.
 - **Die Gruppe verdächtigt Bastrin:** Das ist gewollt. Bastrin ist weit weg in Grovaristadt; die Spur zu ihm bleibt bis Abenteuer 6 offen.
 - **Ilvrae entkommt und die Anhörung droht zu scheitern:** Die Übungsblätter in seiner Hütte (Ort I) reichen als Beweis, dass er der Fälscher ist – auch ohne ihn.
-- **Die Gruppe findet den Gegenanker nicht:** Lass die Runen des Seepfeilers bei der Anhörung sichtbar flackern. Ein Munavri der Pfeilerwacht-Station meldet sich verwirrt: „Der Seepfeiler … schwankt. Das hat er noch nie getan." Ein Grund, noch einmal in den Keller zu gehen.
+- **Die Gruppe findet den Lauschstein nicht:** Lass die Runen des Seepfeilers bei der Anhörung sichtbar flackern. Ein Munavri der Pfeilerwacht-Station meldet sich verwirrt: „Der Seepfeiler … schwankt. Das hat er noch nie getan." Ein Grund, noch einmal in den Keller zu gehen.
 - **Die Gruppe ist zu schnell fertig:** Die Jägergang-Geschichte (G) kann in einen Abstecher in die Labyrinthe führen – eine überfällige Dreiergruppe Jugendlicher (siehe Städteband, Illiatist).

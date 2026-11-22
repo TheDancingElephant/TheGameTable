@@ -43,9 +43,10 @@ def raster_linien(svg):
         op = re.search(r'id="grid".*?stroke-opacity="([\d.]+)"', svg, re.S).group(1)
         linien = [f'<line x1="{x + i}" y1="{y}" x2="{x + i}" y2="{y + h}"/>' for i in range(0, int(w) + 1, 20)]
         linien += [f'<line x1="{x}" y1="{y + j}" x2="{x + w}" y2="{y + j}"/>' for j in range(0, int(h) + 1, 20)]
-        return f'<g stroke="#000" stroke-opacity="{op}" stroke-width="1">' + "".join(linien) + "</g>"
-    return re.sub(r'<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)" fill="url\(#grid\)"/>',
-                  ersetze, svg)
+        clip = f' clip-path="{m.group(5)}"' if m.group(5) else ""
+        return (f'<g stroke="#000" stroke-opacity="{op}" stroke-width="1"{clip}>' + "".join(linien) + "</g>")
+    return re.sub(r'<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)" fill="url\(#grid\)"'
+                  r'(?: clip-path="([^"]+)")?/>', ersetze, svg)
 
 
 def ohne_gruppe(svg, kommentar):
@@ -156,6 +157,103 @@ wachhaus = {
 }
 (MK / "wachhaus.karte.json").write_text(json.dumps(wachhaus, ensure_ascii=False, indent=1), encoding="utf-8")
 print("wachhaus", w, h)
+
+
+def felder(punkte, x0=40, y0=40):
+    """SVG-Punkte (20 px/Feld, Raster ab x0/y0) in Feldkoordinaten."""
+    return [[round((x - x0) / 20, 3), round((y - y0) / 20, 3)] for x, y in punkte]
+
+
+def pfad_punkte(d):
+    return [(float(a), float(b)) for a, b in re.findall(r"([\d.]+)\s+([\d.]+)", d)]
+
+
+def schreiben(k):
+    (MK / f"{k['id']}.karte.json").write_text(json.dumps(k, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+# ---------------------------------------------------------------- Runenwerkstatt (Abenteuer 4)
+svg = (Q / "Kampagne" / "Karte_Runenwerkstatt.svg").read_text(encoding="utf-8")
+boden = pfad_punkte(re.search(r'<clipPath id="floor">\s*<path d="([^"]+)"', svg).group(1))
+svg = ohne_gruppe(svg, "Nummern")
+svg = ohne_gruppe(svg, "Legende")
+svg = re.sub(r'<circle cx="(556|574|592)" cy="345"[^>]*/>', "", svg)      # halbfertige Lauschsteine
+svg = re.sub(r"<!-- Kreidezeichen am Zugang -->\s*<text[^>]*>[^<]*</text>", "", svg)
+svg = re.sub(r"<!-- Richtungen -->\s*<text[^>]*>[^<]*</text>\s*<text[^>]*>[^<]*</text>", "", svg)
+w, h = rendern(svg, MK / "runenwerkstatt.png", clip=pymupdf.Rect(40, 40, 700, 620))
+schreiben({"format": "spieltisch-karte", "version": 1, "id": "runenwerkstatt", "name": "Finsterhöhlen – Versteck",
+           "meterProFeld": 1.5, "bild": "Material/karten/runenwerkstatt.png", "zelle_px": 50, "versatz": [0, 0],
+           "raeume": [{"vieleck": felder(boden)}]})
+print("runenwerkstatt", w, h)
+
+# ---------------------------------------------------------------- Gefangenenlager (Abenteuer 5)
+svg = (Q / "Kampagne" / "Karte_Gefangenenlager.svg").read_text(encoding="utf-8")
+boden = pfad_punkte(re.search(r'<clipPath id="floor">\s*<path d="([^"]+)"', svg).group(1))
+svg = re.sub(r'<g font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">.*?</g>', "", svg, flags=re.S)
+svg = re.sub(r'<g transform="translate\(40,722\)".*?</g>', "", svg, flags=re.S)        # Legende
+svg = re.sub(r'<g font-size="10" fill="#2a2622" text-anchor="middle">.*?</g>', "", svg, flags=re.S)  # Pferch-Namen
+svg = re.sub(r'<text[^>]*>(Aura|Spalt der|Winzlinge)</text>', "", svg)
+# radialGradient rendert PyMuPDF schwarz: grünes Licht vom Grauen Hof als halbtransparente Ellipsen
+svg = re.sub(r'<rect[^>]*fill="url\(#glow\)"[^>]*/>',
+             '<g clip-path="url(#floor)" fill="#7bd88a"><ellipse cx="370" cy="660" rx="90" ry="110" fill-opacity="0.25"/>'
+             '<ellipse cx="370" cy="660" rx="50" ry="60" fill-opacity="0.3"/></g>', svg)
+svg = re.sub(r'<text x="(372|400)" y="(60|660)"[^>]*>[^<]*</text>', "", svg)            # Richtungen
+w, h = rendern(svg, MK / "gefangenenlager.png", clip=pymupdf.Rect(40, 40, 700, 660))
+# Spalt der Winzlinge: geheimer Zugang (nur die Milben kennen ihn) – Geheimtür auf der Kante (650,230)–(660,360)
+kante = lambda y: [round(30.5 + 0.5 * (y - 9.5) / 6.5, 3), y]  # noqa: E731
+spalt_a, spalt_b = kante(13.0), kante(14.8)
+pferche, tueren = [], []
+for i, y0 in enumerate((9.0, 13.5, 18.0), 1):  # Pferche 3,5–8 × y0–y0+3,5: Gitter (Fenster) mit Gattertür im Osten
+    tueren += [{"von": [3.5, y0], "bis": [8, y0], "typ": "fenster", "id": f"pferch{i}-n"},
+               {"von": [3.5, y0 + 3.5], "bis": [8, y0 + 3.5], "typ": "fenster", "id": f"pferch{i}-s"},
+               {"von": [3.5, y0], "bis": [3.5, y0 + 3.5], "typ": "fenster", "id": f"pferch{i}-w"},
+               {"von": [8, y0], "bis": [8, y0 + 1.25], "typ": "fenster", "id": f"pferch{i}-o1"},
+               {"von": [8, y0 + 1.25], "bis": [8, y0 + 2.25], "typ": "tuer", "offen": False, "id": f"pferch{i}"},
+               {"von": [8, y0 + 2.25], "bis": [8, y0 + 3.5], "typ": "fenster", "id": f"pferch{i}-o2"}]
+zelt = [[23.825, 11.725], [24, 10.5], [28, 10.5], [28.5, 14], [23.5, 14], [23.675, 12.775]]
+tueren += [{"von": zelt[-1], "bis": zelt[0], "typ": "tuer", "offen": False, "id": "zelt"},
+           {"von": spalt_a, "bis": spalt_b, "typ": "geheimtuer", "offen": False, "id": "spalt"}]
+schreiben({"format": "spieltisch-karte", "version": 1, "id": "gefangenenlager", "name": "Das Lager am Grauen Hof",
+           "meterProFeld": 1.5, "bild": "Material/karten/gefangenenlager.png", "zelle_px": 50, "versatz": [0, 0],
+           "raeume": [{"vieleck": felder(boden)},
+                      {"vieleck": [spalt_a, [32.5, 12.5], [33, 14.5], spalt_b]}],
+           "waende": [zelt,
+                      [[16, 12.8], [16.6, 14.5], [16, 16.2], [15.4, 14.5], [16, 12.8]],      # Obelisk
+                      [[12.5, 4.4], [13.5, 4.4]], [[16, 4.4], [17, 4.4]]],                   # Torpfosten
+           "tueren": tueren})
+print("gefangenenlager", w, h)
+
+# ---------------------------------------------------------------- Torhaus Torstadt (Abenteuer 6)
+svg = (Q / "Kampagne" / "Karte_Torhaus_Torstadt.svg").read_text(encoding="utf-8")
+svg = ohne_gruppe(svg, "Nummern")
+svg = ohne_gruppe(svg, "Legende")
+w, h = rendern(svg, MK / "torhaus.png", clip=pymupdf.Rect(40, 40, 680, 660))
+# Wall x 12,5–15 (Wehrgang oben, nur über die Treppe im Torhaus), Torhaus 11,5–18,5 × 12–19,5,
+# Torweg y 14,75–16,75 mit Fallgitter (x 13) und Tor (x 16), Windenraum 13,5–18 × 12,5–14,75, Treppe 17–18,5 × 16,75–18,5
+schreiben({"format": "spieltisch-karte", "version": 1, "id": "torhaus", "name": "Torstadt – Torhaus und Wall",
+           "meterProFeld": 1.5, "bild": "Material/karten/torhaus.png", "zelle_px": 50, "versatz": [0, 0],
+           "raeume": [{"rechteck": [0, 0, 32, 31]}],
+           "waende": [
+               [[12.5, 0], [12.5, 12]], [[12.5, 19.5], [12.5, 28.5]], [[12.5, 30], [12.5, 31]],
+               [[15, 0], [15, 12]], [[15, 19.5], [15, 28.5]], [[15, 30], [15, 31]],
+               [[11.5, 14.75], [11.5, 12], [18.5, 12], [18.5, 14.75]],              # Torhaus Nordteil
+               [[11.5, 16.75], [11.5, 19.5], [18.5, 19.5], [18.5, 16.75]],          # Torhaus Südteil
+               [[11.5, 14.75], [18.5, 14.75]], [[11.5, 16.75], [18.5, 16.75]],      # Torweg
+               [[13.5, 14.75], [13.5, 12.5], [18, 12.5], [18, 14.75]],              # Windenraum
+               [[17, 16.75], [17, 18.5], [18.5, 18.5]],                             # Treppe
+               [[21.5, 2], [30, 2], [30, 8], [21.5, 8], [21.5, 2]],                 # Kaserne
+               [[15.5, 20.5], [16, 20.5], [16, 25], [15.5, 25], [15.5, 20.5]],      # Mauer der Namen
+           ],
+           "tueren": [
+               {"von": [13, 14.75], "bis": [13, 16.75], "typ": "fenster", "id": "fallgitter"},
+               {"von": [16, 14.75], "bis": [16, 16.75], "typ": "tuer", "offen": False, "id": "tor"},
+               {"von": [16.5, 14.75], "bis": [17.5, 14.75], "typ": "tuer", "offen": True, "id": "windenraum"},
+               {"von": [25, 8], "bis": [26.5, 8], "typ": "tuer", "offen": False, "id": "kaserne"},
+               {"von": [12.5, 28.5], "bis": [12.5, 30], "typ": "fenster", "id": "wassertor-aussen"},
+               {"von": [15, 28.5], "bis": [15, 30], "typ": "fenster", "id": "wassertor-innen"},
+           ],
+           "oeffnungen": [{"von": [17, 16.75], "bis": [18, 16.75]}]})
+print("torhaus", w, h)
 
 # ---------------------------------------------------------------- Stadtpläne (ohne Nebel) und große Bilder
 for name in ("Torstadt", "Grovaristadt"):

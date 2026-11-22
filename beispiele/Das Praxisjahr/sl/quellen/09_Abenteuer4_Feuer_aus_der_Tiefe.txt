@@ -1,0 +1,351 @@
+# Abenteuer 4 – Feuer aus der Tiefe
+
+*Pathfinder 1e · 4 Charaktere der Stufe 3 · zwei Spielabende · Orte: Drudanst, Lavaschmiede, der Bruch, Finsterhöhlen*
+
+Karten: [Karte_Runenwerkstatt.svg](Karte_Runenwerkstatt.svg) (das Versteck in den Finsterhöhlen) · `Karte2.png` (Lage von Drudanst, Bruch, Lavaschmiede, Finsterhöhlen)
+NSC-Werte: [03_NSC_Werte.md](03_NSC_Werte.md) (Thorgrim Aschhand, Pfeilerwacht-Lehrling, Kell Morrow) · Hintergrund: Städteband, Abschnitt Drudanst; Regionalband, Finsterhöhlen und Teufelshöhlen
+
+---
+
+## Überblick für die SL
+
+**Worum es geht:** In Drudanst wurden zwölf Barren **gehärteter Schwarzstein** aus dem Lager am Gedenktor gestohlen – bestellt von der Pfeilerwacht, geschmiedet in der Lavaschmiede. Die Duergar beschuldigen eine Drow-Händlerin, die Svirfneblin-Stadtwache verdächtigt die Duergar selbst, und in drei Tagen will die Amboss-Versammlung den Drow-Pfad schließen. Die Truppe verfolgt die Spur durch die Trümmer des alten Drudanst in die Finsterhöhlen – und findet die Werkstatt, in der die Lauschsteine entstehen.
+
+**Testet:** Hitze und Umweltgefahren, eine Fertigkeitsherausforderung im Labyrinth, härtere Kämpfe gegen Untote – und wieder das Thema der Kampagne: Wer profitiert davon, dass alle einander verdächtigen?
+
+### Was wirklich geschah
+
+- Die **Pfeilerwacht** hat in der Lavaschmiede zwölf Barren gehärteten Schwarzstein bestellt, angeblich für Reparaturen an den Pfeilerrunen. Die Bestellung trägt **Obermagister Bastrin Kieselgrunds** Unterschrift (er unterschreibt alle Routineaufträge – die falsche Spur aus Kampagnenbuch 3.4).
+- Die Barren lagen fertig im **Schwarzsteinlager am Gedenktor** und warteten auf die Abholung.
+- **Mirel Taan**, ein junger Munavri-Lehrling der Pfeilerwacht-Station Drudanst, steht unter Vanthes Beherrschung. Er hatte als Gildenvertreter einen Schlüssel zum Lager, um die Barren zu prüfen. In der **ersten Stunde der Stille** vor drei Tagen – wenn die Hämmer ruhen und die Wachen am Lager ihre Pause machen – öffnete er die Hintertür zum Bruch.
+- **Zwei Ghule und ein Ghast** aus Drevans Diensten trugen die Barren in den Bruch und weiter in die Finsterhöhlen, in eine versteckte **Runenwerkstatt**, wo beherrschte Lehrlinge die Lauschsteine anfertigen.
+- Am Tatort ließen sie bewusst ein **Seil aus Spinnenseide** zurück – Illiatist-Ware. Die Duergar sollen glauben, die Drow hätten gestohlen.
+- Mirel kehrte in die Station zurück, als wäre nichts gewesen. Er erinnert sich nur an „eine kalte Stimme und ein Säulensiegel".
+
+**Warum das alles?** Drevans Spaltung (Kampagnenbuch 3.1): Schwarzstein für die Lauschsteine – und gleichzeitig ein Streit zwischen Duergar, Drow und Svirfneblin, der Drudanst monatelang beschäftigen wird.
+
+### Ablauf
+
+1. **Ankunft in Drudanst** – Das Dreieck des Misstrauens
+2. **Ermittlung** in Drudanst und an der Lavaschmiede (offen)
+3. **Der Bruch** – Spurensuche in den Trümmern des alten Drudanst
+4. **Die Finsterhöhlen** – Fertigkeitsherausforderung und Schmuggler
+5. **Die Runenwerkstatt** – Kampf gegen Ghast und Ghule, der Fund
+6. **Vor der Amboss-Versammlung** – die Wahrheit vor den Duergar
+
+### Der Zeitdruck
+
+- **Tag 1:** Ankunft. Die Spur ist drei Tage alt.
+- **Tag 3, Abend:** Die **Amboss-Versammlung** stimmt ab, ob der **Drow-Pfad** (der Handelsweg nach Illiatist) geschlossen und alle Drow-Händler ausgewiesen werden. Gleichzeitig will die Svirfneblin-Stadtwache die Werkstätten der Duergar durchsuchen. Wenn beides geschieht, gibt es in Drudanst Blut.
+- In der Runenwerkstatt werden die Barren nach und nach abtransportiert: Wer erst am dritten Tag ankommt, findet nur noch die Hälfte.
+
+---
+
+## Szene 1 – Ankunft in Drudanst
+
+> *Drudanst ist eine Stadt aus Bögen. Jedes Haus, jede Halle, jede Gasse wird von steinernen Gewölben getragen, Säule an Säule, als hätten die Erbauer der Decke nie wieder trauen wollen. Aus dem Norden dringt ein dumpfes Rot durch den langen Tunnel zur Lavaschmiede, und der Boden ist warm unter den Füßen. Dann wird es plötzlich still. Überall in der Stadt legen die Schmiede ihre Hämmer nieder. Ein Junge neben euch flüstert: „Stunde der Stille."*
+
+**Das Dreieck des Misstrauens** – drei NSCs erwarten die Truppe, und jeder hat eine andere Wahrheit:
+
+| Wer | Was sie glauben | Was sie wollen |
+|---|---|---|
+| **Hulda Grauschmied** (Duergar, Rätin für die Drudanst-Höhle) | „Die Drow waren es. Das Spinnenseil lag direkt an der Tür." | Den Drow-Pfad schließen, die Händlerin ausweisen |
+| **Hauptfrau Kessa Feuerstein** (Svirfneblin, Stadtwache, Fünfhundert) | „Kein Drow kommt unbemerkt ins Lager. Das war ein Innenauftrag – die Duergar haben die Barren selbst verschoben und schieben es den Drow zu." | Die Duergar-Werkstätten durchsuchen |
+| **Vaelis Duskryn** (Drow, Händlerin aus Illiatist, Haus Duskryn) | „Ich verkaufe Spinnenseide. Jeder in Drudanst hat Seile von mir. Ich bin die einzige Drow in der Stadt – also bin ich es gewesen." | Nach Hause, bevor man sie einsperrt |
+
+**Brakkas Rat** (aus ihrem Brief): „Nehmt einen Drow mit, wenn ihr einen habt." Ein Drow in der Gruppe hat es bei Vaelis leichter (+2 auf soziale Würfe) – und bei Hulda schwerer (–2).
+
+**Hulda** gibt der Truppe Zugang zum Lager und zur Lavaschmiede und die Frist: **Abend des dritten Tages**.
+
+---
+
+## Szene 2 – Ermittlung in Drudanst
+
+### A – Das Schwarzsteinlager am Gedenktor
+
+> *Ein niedriges Gewölbe direkt am Südtor der Stadt. Vor dem Tor hängen die Tafeln mit den Namen der Toten von Jahr 123 – und daneben eine leere Tafel. Hinter dem Lager beginnt das Geröll des Bruchs.*
+
+- **Die Vordertür** ist unbeschädigt und war verschlossen.
+- **Die Hintertür zum Bruch** (Wahrnehmung SG 12): Das Schloss wurde **mit einem Schlüssel geöffnet**, nicht aufgebrochen. Mechanismus ausschalten SG 15 oder ein Schurke erkennt das sofort.
+- **Das Spinnenseil** liegt noch da: hochwertige Illiatist-Ware. Wahrnehmung SG 15: Es ist **unbenutzt** – kein Knoten, kein Abrieb, kein Schmutz. Niemand hat daran je etwas gezogen. Es wurde hingelegt.
+- **Schleifspuren** führen von der Hintertür in den Bruch (Überlebenskunst SG 10). Daneben **Fußspuren**: barfüßig, langzehig, mit Krallen (Wissen [Religion] SG 12 oder Überlebenskunst SG 15: Ghule).
+- **Ein Geruch** (automatisch für jeden mit Geruchssinn, sonst Wahrnehmung SG 15): süßlich, faulig. Wer in Abenteuer 2 dabei war, erkennt ihn – Ghule.
+- **Das Lagerbuch:** Wer hatte Schlüssel? Der Lagermeister (Duergar), Thorgrim Aschhand (Lavaschmiede) und **„M. Taan, Pfeilerwacht, zur Prüfung der Bestellung"**.
+
+### B – Die Wachen und die Stunde der Stille
+
+- Die Wachen am Lager (zwei Duergar) geben zu (Diplomatie SG 12, oder Einschüchtern SG 14): In der ersten Stunde der Stille trinken sie immer einen Becher in der Wachstube nebenan. „Es ist still. Was soll passieren?"
+- **Hinweis:** Der Diebstahl geschah **genau in dieser Stunde**. Wer das wusste, kannte Drudanst gut – oder hatte jemanden, der es kannte.
+
+### C – Die Pfeilerwacht-Station und Mirel Taan
+
+Die Station liegt am Rand des Bruchs, nahe dem **Zentralpfeiler der Drudanst-Höhle** – der Pfeiler, um den herum einst die alte Siedlung stand und der heute einsam aus dem Geröll ragt.
+
+> *Ein junger Munavri mit hellen, wässrigen Augen sortiert Messinstrumente. Er lächelt höflich, als ihr eintretet, und lächelt weiter, ein bisschen zu lange.*
+
+- **Mirel Taan** (Werte wie Pfeilerwacht-Lehrling, NSC-Werte Nr. 3) bestätigt, dass er einen Schlüssel hat. Er war „in der Stunde der Stille in der Station, wie immer".
+- **Motiv erkennen SG 15** (wie bei Vanthe): Er steht unter einer **Beeinflussung**. Er lügt nicht – er weiß es wirklich nicht.
+- **Ein Munavri-Charakter**, der ihn telepathisch anspricht, spürt dasselbe wie bei Vanthe: eine zweite, kalte Stimme hinter seiner.
+- **Ihn befreien:** *Schutz vor Bösem* unterdrückt die Beherrschung. Er bricht zusammen und erinnert sich bruchstückhaft: *„Die Hintertür … ich habe sie aufgeschlossen. Eine Stimme hat es mir gesagt. Kalt. Und auf dem Brief war das Säulensiegel. Wie immer."* Mehr weiß er nicht – wer die Stimme ist, hat er nie erfahren.
+- **Die anderen Munavri der Station** („die Schreiber" der Fünfhundert) sind entsetzt und wollen Mirel sofort nach Grovaristadt schicken – ans Archum. *(Wenn die Gruppe das zulässt, verschwindet Mirel. Klügere Gruppen bringen ihn zu Thorgrim oder Hulda.)*
+- **Der Lauschstein im Pfeiler** (optional): Wer den Zentralpfeiler am Rand des Bruchs untersucht (Wahrnehmung SG 20, oder automatisch, wenn die Gruppe nach Abenteuer 1 und 3 gezielt danach sucht), findet in einer Fuge den **dritten Lauschstein**. Die Ungeborgenen im Bruch sind in seiner Nähe besonders unruhig.
+
+### D – Vaelis Duskryn
+
+Vaelis ist in ihrem Gasthaus unter Hausarrest, bewacht von zwei Duergar.
+- Sie ist wütend, stolz und hat Angst. Diplomatie SG 15 (Drow +2): Sie erzählt, dass ihr vor einer Woche ein Seil gestohlen wurde – von ihrem Marktstand, in der Stunde der Stille. „Ich dachte, ein Kind."
+- **Hinweis:** Wer das Seil am Tatort mit ihrer Ware vergleicht, sieht: Es ist ihres. Gestohlen, um sie zu belasten.
+
+### E – Kessa Feuerstein und die Durchsuchungen
+
+**Hauptfrau Kessa Feuerstein** ist überzeugt, dass die Duergar lügen. Svirfneblin und Duergar sind Erbfeinde – und Kessa vergisst das keinen Tag.
+- Sie hat eine eigene „Spur": Ein Duergar-Schmied hat letzte Woche Schwarzstein-Reste verkauft. (Stimmt, aber harmlos: Abfall, legal verkauft. Wissen [Ingenieurwesen] SG 12 oder Gespräch mit Thorgrim klärt das.)
+- **Wer Kessa beweist, dass Ghule am Werk waren**, bringt sie dazu, die Durchsuchungen abzusagen. Sie entschuldigt sich nicht – aber sie nickt.
+
+---
+
+## Szene 3 – Die Lavaschmiede (optional, aber empfohlen)
+
+11 km nach Norden durch den schnurgeraden **Lavatunnel**. Je weiter, desto heißer.
+
+> *Die Luft flimmert. Der Stein unter euren Füßen ist so warm, dass ihr ihn durch die Sohlen spürt. Dann öffnet sich der Tunnel, und vor euch liegt ein Fluss aus Feuer. An seinem Ufer stehen Essen, Ambosse und Kräne, schwarz vor dem roten Glühen, und überall hämmern Duergar mit nacktem Oberkörper. Der Lärm ist ohrenbetäubend.*
+
+**Hitze** (Grundregelwerk, Hitzegefahren): Im Lavatunnel und in der Schmiede ist es sehr heiß. Alle 10 Minuten ein Zähigkeitswurf (SG 15, +1 je vorherigem Wurf), sonst 1W4 nichttödlicher Schaden. Wer schwere Rüstung trägt, hat –4. Die Duergar geben Gästen Kühlwasser und Lederumhänge (Wurf nur jede Stunde).
+
+**Thorgrim Aschhand** (NSC-Werte) führt die Truppe herum.
+- Er bestätigt: Die Pfeilerwacht hat die Barren bestellt; Gehärteter Schwarzstein taugt „zu nichts außer Runenmagie". Er zeigt die Bestellung – **Bastrins Unterschrift** (falsche Spur).
+- Er erzählt, dass die Pfeilerwacht seit der Großen Pfeilerprüfung „ständig hier herumschnüffelt".
+- **Die Stunde der Stille:** Während des Rundgangs ruhen plötzlich alle Hämmer. Ein Lehrling hämmert weiter, weil er die Glocke nicht gehört hat. Thorgrim schlägt ihm den Hammer aus der Hand. Im selben Moment geht ein **Beben** durch den Boden – leise, tief, wie ein Atemzug. Alle erstarren. Dann ist es vorbei. Thorgrim: *„Er schläft. Und so bleibt es."* Mehr sagt er nicht. *(Der Rote Schläfer, siehe Regionalband.)*
+- **Thorgrims Geheimnis:** Motiv erkennen SG 20: Er trägt eine schwere Last. Er spricht in diesem Abenteuer **nicht** darüber. Aber:
+- **Der Quasit:** Während die Gruppe in der Schmiede ist, flüstert eine unsichtbare Stimme einem Charakter ins Ohr: *„Frag ihn, wem die Duergar ihre Lava verdanken. Frag ihn, wem er dieses Jahr die Gabe schuldig bleibt."* Dann ein kicherndes Lachen. (Ein Quasit aus den Teufelshöhlen, Wahrnehmung SG 22, um ihn zu bemerken; er flieht sofort.) Fragt die Gruppe Thorgrim danach, wird er bleich und schweigt. *(Saat für Abenteuer 6 und den Fortsetzungs-Akt „Der Pakt".)*
+
+---
+
+## Szene 4 – Der Bruch
+
+Die Schleifspuren führen von der Hintertür des Lagers in **den Bruch**, die Trümmer der ersten Siedlung (siehe Städteband).
+
+> *Zwischen den Felsblöcken öffnen sich Spalten, und dahinter: Gänge, Kammern, halbe Häuser, die schräg im Geröll stecken. Eine Tür steht noch in ihrem Rahmen, aber hinter ihr ist nur Stein. Irgendwo tropft Wasser. Und irgendwo, weit hinten, klopft jemand – dreimal, Pause, dreimal.*
+
+- **Die Spur verfolgen:** Überlebenskunst SG 13. Die Ghule haben die Barren auf einer Karre durch die engsten Gänge gezogen.
+- **Steinschlag** (unterwegs einmal): Reflex SG 14, sonst 2W6 Schaden. Wer laut ist (Kampf, Rufe), löst ihn aus.
+
+### Der Ungeborgene (Begegnung, HG 3)
+
+In einer halb verschütteten Kammer, durch die die Spur führt, wartet ein **Grabunhold** – ein Duergar, der in Jahr 123 hier starb und nie geborgen wurde.
+
+> *Eine Gestalt kniet im Geröll und gräbt mit bloßen, zerschundenen Händen. Als sie euch hört, richtet sie sich auf. Die Haut ist grau und eingefallen, die Augen glühen schwach. „Habt ihr sie gefunden? Meine Tochter war im Haus nebenan. Habt ihr sie gefunden?"*
+
+- **Er greift an**, wenn die Gruppe nicht antwortet oder ihn bedroht.
+- **Er hört auf**, wenn jemand **seinen Namen** sagt. Der Name steht auf den Tafeln am **Gedenktor**: Wer dort vorher gelesen hat (Wahrnehmung SG 10 beim Lager, oder ausdrücklich), kennt die Namen der Toten. Wissen (Lokales) SG 15 oder ein guter Einfall (die Namen der Reihe nach rufen – 3 Runden) genügt auch. Der Name: **Borri Steinhand**.
+- Hört er seinen Namen, sackt er zusammen und flüstert: *„Ihr seid nicht die Ersten heute Nacht. Die Grauen waren hier. Mit der Karre. Sie riechen wie wir."* Dann zerfällt er zu Staub. Seine Tochter liegt unter dem Geröll daneben – wer sie birgt und zum Gedenktor bringt, verdient eine **Ehrenmarke**.
+- **Werte:** siehe unten. Seinen Energieentzug setzt er erst ein, wenn er unter 10 TP fällt.
+
+---
+
+## Szene 5 – Die Finsterhöhlen
+
+Aus dem Bruch führt ein Spalt in die **Finsterhöhlen** – das Labyrinth, in dem die Schattenkristalle das Licht verschlucken.
+
+**Besondere Regeln** (siehe Regionalband):
+- Alle Lichtquellen haben nur den **halben Radius**.
+- **Dunkelsicht reicht nur 9 m.**
+- Heimlichkeit +4, Wahrnehmung –2.
+
+### Die Fertigkeitsherausforderung
+
+Die Gruppe muss **5 Erfolge vor 3 Fehlschlägen** sammeln. Jeder Charakter darf pro Runde einen Wurf machen oder einem anderen helfen; derselbe Fertigkeitswurf darf nicht zweimal hintereinander vom selben Charakter kommen.
+
+| Fertigkeit (SG 15) | Wie sie hilft |
+|---|---|
+| Überlebenskunst | Den Schleifspuren folgen |
+| Wissen (Gewölbe) | Die Richtung des Luftzugs deuten, Sackgassen erkennen |
+| Wahrnehmung | Kratzspuren der Karre an Engstellen finden |
+| Klettern | Eine Abkürzung über einen Felsabsatz nehmen |
+| Wissen (Arkanes) / Zauberkunde | Den Schattenkristallen folgen, die die Pfeilerwacht abgebaut hat (frische Bruchstellen) |
+| Heimlichkeit | Unentdeckt an einem Dunkelmantel-Nest vorbeikommen |
+
+**Der Höhlenscout** der Gruppe (Pflicht in unbekanntem Gelände!) gibt +2 auf alle Würfe.
+
+**Bei jedem Fehlschlag** würfle W4:
+1. Erschöpfung: Ein Charakter ist **erschöpft**, bis er 8 Stunden ruht.
+2. Ein **Dunkelmantel** (HG 1) fällt von der Decke.
+3. 1 Stunde verloren – die Ghule schaffen einen Barren mehr fort.
+4. Die Gruppe trifft auf die **Schmuggler** (siehe unten).
+
+### Die Schmuggler (Begegnung, kein Kampf nötig)
+
+Irgendwann – spätestens nach dem dritten Erfolg – stößt die Gruppe auf eine Gruppe Svirfneblin mit Spitzhacken und Kisten.
+
+> *Vier kleine Gestalten erstarren im schwachen Licht einer abgedunkelten Laterne. Auf ihren Kisten prangt das Säulen-Zeichen der Pfeilerwacht. Dann rennen sie.*
+
+- Es sind **Bastrins Kristallschmuggler** (Kampagnenbuch 3.4). Sie bauen heimlich Schattenkristalle ab und haben mit den Ghulen **nichts** zu tun – sie fürchten sie selbst.
+- Wer einen einholt (Akrobatik oder Stärke SG 13, er ist klein und kennt den Weg), erfährt nach etwas Druck (Einschüchtern SG 12): *„Wir arbeiten für einen Herrn in Grovaristadt. Keine Namen. Wir graben nur Kristalle. Die Toten? Die meiden wir. Die haben weiter hinten ein Lager, da, wo das Licht ganz aufhört."* Das ist der Weg zur Runenwerkstatt (+2 Erfolge für die Herausforderung).
+- **Falsche Spur:** Die Säulen-Kisten lassen die Gruppe glauben, die Pfeilerwacht stecke hinter allem – was stimmt, aber nicht so, wie sie denkt.
+
+---
+
+## Szene 6 – Die Runenwerkstatt (Karte)
+
+Am Ende der Spur liegt eine verborgene Höhlengruppe, in der Vanthes beherrschte Lehrlinge die Lauschsteine anfertigen. Die Lehrlinge sind gerade nicht hier – nur die Wächter.
+
+**Allgemein:** Die Finsterhöhlen-Regeln gelten (Licht halbiert, Dunkelsicht 9 m). Der Boden ist uneben; die Decke 4–6 m hoch.
+
+### Bereich 1 – Zugang
+
+> *Der Gang wird breiter. Die Schleifspuren der Karre sind hier tief in den Staub gegraben. An einer Wand hängt ein Säulen-Zeichen aus Kreide – und darunter, in Drow-Schrift, ein Wort: „Willkommen."*
+
+- Die Drow-Schrift ist Hohn – Wissen (Lokales) SG 12: Sie wurde von jemandem geschrieben, der die Schrift nur nachmalt. Noch ein falscher Hinweis für den Fall, dass jemand vor der Gruppe hierherkommt.
+
+### Bereich 2 – Der Kristallgang
+
+Ein schmaler Gang, in dessen Wänden große Schattenkristalle wachsen. Hier gilt sogar: **Dunkelsicht reicht nur 4,5 m**, Licht nur ein Viertel des Radius.
+- **1 Dunkelmantel** (HG 1) hängt an der Decke.
+- Die Kristalle sind wertvoll: Wer sich die Zeit nimmt (10 Minuten, Lärm!), bricht **4 Schattenkristalle** heraus (je 50 GM).
+
+### Bereich 3 – Die Fresskammer (Begegnung, Teil 1)
+
+> *Knochen. Überall Knochen, abgenagt und aufgeschichtet, dazwischen Fetzen von Kleidung. Zwei Gestalten hocken darüber und schmatzen.*
+
+- **2 Ghule**. Sie greifen sofort an und rufen dabei laut („Frisches Fleisch!") – der **Ghast** in Bereich 5 kommt in Runde 2 dazu.
+- **Elfen (Drow-Charaktere) sind gegen die Lähmung der Ghule immun** – gegen die des Ghasts aber nicht.
+
+### Bereich 4 – Der Ladeplatz
+
+- Eine **Karre** mit den **Schwarzstein-Barren**. Wie viele noch da sind, hängt von der Zeit ab: Ankunft am Tag 1: **10 Barren**; Tag 2: **7**; Tag 3: **5**. Jeder Barren wiegt 10 Pfund.
+- Ein Tunnel führt nach Süden – Wissen (Gewölbe) SG 15: Richtung Land der Untoten. Hier wurden die fehlenden Barren abtransportiert.
+
+### Bereich 5 – Die Runenwerkstatt (Begegnung, Teil 2)
+
+> *Eine Werkbank aus Stein, darauf Feilen, Meißel, Tiegel. In einer flachen Schale schimmert silbrige Tinte. Daneben liegen drei faustgroße schwarze Steine, halb fertig, mit eingeritzten Zeichen, die das Auge nicht festhalten will. Und vor der Werkbank steht etwas Großes, Graues, das sich langsam umdreht. Der Gestank trifft euch wie ein Schlag.*
+
+- **1 Ghast** (Werte unten), der Anführer. Er nennt sich **Grauzahn** und ist schlau genug zu reden: *„Ihr kommt zu spät. Die Säulen hören schon. Bald hört der Herr jedes Wort, das ihr flüstert – und jedes Wort, das ihr übereinander sagt."*
+- **Taktik:** Grauzahn nutzt seinen **Gestank** und versucht, den stärksten Kämpfer zu lähmen. Bei unter 6 TP flieht er durch den Südtunnel.
+- **Die Werkbank – der wichtigste Fund des Abenteuers:**
+  - **3 halbfertige Lauschsteine** – dieselben wie in Abenteuer 1 und 3, nur noch nicht vollendet (sie lauschen noch nicht). Zauberkunde SG 18: Die Zauberschrift ist dieselbe wie auf den fertigen Steinen.
+  - Eine Schale **Silberstaub-Tinte** – der gestohlene Silberstaub aus Abenteuer 2.
+  - Die **Lieferliste** auf gegerbter Ghulhaut, mit dem Siegel der Pfeilerwacht:
+    > *„Zwölf Barren. Fünf Säulen, fünf Ohren. Vor der Wahl braucht jedes Volk einen Feind."*
+  - Ein **Werkzeugkasten** mit eingebranntem Namen: *„A. Vey"* – der Lehrling aus Abenteuer 3.
+
+### Bereich 6 – Der Schmugglerstollen
+
+Ein enger Stollen nach Osten, mit frischen Hackspuren. Hier haben **Bastrins Schmuggler** Kristalle abgebaut – nur wenige Meter von der Werkstatt entfernt, ohne von ihr zu wissen. Zwei zurückgelassene Kisten mit dem Säulen-Zeichen (insgesamt 6 Schattenkristalle, 300 GM).
+
+---
+
+## Szene 7 – Vor der Amboss-Versammlung
+
+Am **Abend des dritten Tages** tritt die **Amboss-Versammlung** in der Gewölbehalle zusammen. Die Meister der Schmiede- und Baugilden, Hulda Grauschmied, Hauptfrau Kessa Feuerstein für die Stadtwache – und Vaelis Duskryn als Angeklagte.
+
+**So funktioniert die Versammlung** (wie die Anhörung in Abenteuer 3):
+- Jeder vorgelegte **Hinweis** zählt **1 Punkt**: das unbenutzte Seil, Vaelis' gestohlenes Seil, der Schlüssel statt Einbruch, die Ghul-Spuren, Mirels Aussage, die Aussage des Ungeborgenen, die Barren selbst, die Lieferliste, die halbfertigen Lauschsteine, der Werkzeugkasten von A. Vey.
+- **Thorgrim** als Zeuge (wenn die Gruppe die Lavaschmiede besucht hat): +1 Punkt.
+- Ein abschließender **Diplomatie-Wurf** (SG 15): Erfolg +1, um 5 übertroffen +2.
+
+| Punkte | Ergebnis |
+|---|---|
+| **0–3** | Der Drow-Pfad wird geschlossen, Vaelis ausgewiesen. Kessa durchsucht die Duergar-Werkstätten. In Drudanst gärt es – und in Abenteuer 6 steht Hulda nicht auf der Seite der Gruppe. |
+| **4–6** | Vaelis wird freigelassen, der Drow-Pfad bleibt offen. Aber Duergar und Svirfneblin misstrauen einander weiter. |
+| **7+** | Die Versammlung erkennt, dass jemand alle drei Völker gegeneinander ausspielen wollte. **Hulda** steht auf und sagt etwas, das in Drudanst lange niemand gesagt hat: *„Wir haben uns benutzen lassen. Alle."* Hulda wird in Abenteuer 6 eine **Verbündete**, Kessa sagt die Durchsuchungen ab. |
+
+**Nach der Versammlung:**
+- **Thorgrim** lädt die Gruppe in die Lavaschmiede ein und löst seinen Gefallen ein (siehe Belohnungen). Beim Abschied, leise: *„Ihr habt heute gesehen, wie leicht man uns gegeneinander aufbringt. Wenn eines Tages jemand ein Geheimnis über Drudanst ausplaudert – ein schlimmes Geheimnis –, dann denkt daran, wer davon profitiert."*
+- **Der Brief von Brakka:**
+  > *„Ein Ghast in den Finsterhöhlen? Gute Arbeit. – Und schlechte Nachrichten. Die Knochenwacht vor der Bastion der Lebenden meldet sich nicht mehr. Die Bastion kann niemanden entbehren. Ihr seid in der Nähe. Ihr wisst, was das heißt. – B."*
+
+**→ Weiter mit Abenteuer 5: Bastion der Lebenden**
+
+---
+
+## Was die Gruppe mit den Funden macht
+
+| Fund | Wenn die Gruppe ihn … |
+|---|---|
+| **Die halbfertigen Lauschsteine** | … der Pfeilerwacht-Station gibt, verschwinden sie. … Thorgrim gibt, schmilzt er sie in der Lavaschmiede ein (Drevan verliert drei „Ohren"). … behält oder Hulda gibt, bleiben sie als Beweis für Abenteuer 6. |
+| **Die Lieferliste** | … ist ein starker Beweis in Abenteuer 6 – „Vor der Wahl braucht jedes Volk einen Feind" erklärt, was Drevan vorhat. |
+| **Mirel Taan** | … nach Grovaristadt schickt, verschwindet er. … in Drudanst behält (bei Thorgrim oder Hulda), ist er in Abenteuer 6 ein Zeuge – und ein Beweis, dass die Lehrlinge beherrscht werden. |
+| **Die Barren** | … gehören der Pfeilerwacht. Wer sie Bastrins Kanzlei zurückgibt, unterstützt (ohne es zu wissen) Drevans Plan. Wer sie Thorgrim übergibt, behält sie in Drudanst – Thorgrim schmiedet daraus später etwas Nützliches. |
+
+---
+
+## Belohnungen
+
+**Erfahrung (wenn mit EP gespielt):**
+
+| Erfolg | EP gesamt |
+|---|---|
+| Hinweise am Lager und bei Vaelis | 400 |
+| Mirel Taans Beherrschung erkannt | 600 |
+| Der Ungeborgene (besiegt oder erlöst) | 800 |
+| Fertigkeitsherausforderung in den Finsterhöhlen | 800 |
+| Dunkelmantel (Bereich 2) | 400 |
+| Runenwerkstatt: 2 Ghule + Ghast | 1.400 |
+| Amboss-Versammlung: 7+ Punkte | 1.200 |
+
+Bei Meilenstein-Aufstieg: **Stufe 4** am Ende des Abenteuers.
+
+**Schätze:**
+- **Thorgrims Gefallen:** Jeder Charakter wählt **eines**: eine Waffe mit *+1*-Verzauberung, **oder** zwei Waffen aus **Alchemistensilber** (wichtig gegen den Bleichen Hund in Abenteuer 5!), **oder** eine Meisterarbeits-Rüstung mit Duergar-Gravur. *(Thorgrim arbeitet zwei Wochen daran.)*
+- Belohnung der Amboss-Versammlung: **200 GM pro Charakter** (bei 4–6 Punkten: 100 GM).
+- **Schattenkristalle:** bis zu 10 Stück (je 50 GM) aus Bereich 2 und 6 – offiziell Eigentum der Pfeilerwacht. Wer sie verkauft, macht sich zum Komplizen von Bastrins Schmuggel.
+- **Vermögensstand:** Damit erreicht die Gruppe ungefähr die Vermögenstabelle für Stufe 4 (6.000 GM pro Charakter).
+
+**Ehrenmarke** (höchstens eine): Borris Tochter geborgen **oder** Mirel Taan beschützt statt ausgeliefert.
+
+---
+
+## Werte
+
+### Ghul (HG 1)
+Werte siehe Abenteuer 2. **Elfen sind gegen die Lähmung immun.**
+
+### Grauzahn, Ghast (HG 2, 600 EP)
+CB Mittelgroßer Untoter · **INI** +3; **Sinne** Dunkelsicht 18 m; Wahrnehmung +9
+**Aura** Gestank (3 m, Zähigkeit SG 15 oder 1W6+4 Minuten kränkelnd)
+**RK** 17, Berührung 13, auf dem falschen Fuß 14 (+3 GE, +4 natürlich) · **TP** 17 (2W8+8) · **REF** +3, **WIL** +6, **ZÄH** +4 · **Verteidigungsfähigkeiten** Resistenz gegen Fokussieren +2; **Immunität** wie Untote
+**Bewegung** 9 m · **Nahkampf** Biss +5 (1W8+3 plus Krankheit und Lähmung), 2 Klauen +5 (1W6+3 plus Lähmung)
+**ST** 17, **GE** 17, **KO** –, **IN** 13, **WE** 14, **CH** 16 · **GAB** +1; **KMB** +4; **KMV** 17 · **Talente** Waffenfinesse · **Fertigkeiten** Akrobatik +7, Heimlichkeit +8, Klettern +8, Wahrnehmung +9 · **Sprachen** Gemeinsprache, Undercommon
+**Lähmung (ÜF):** Zähigkeit SG 15 oder 1W4+1 Runden gelähmt. **Wirkt auch gegen Elfen.**
+**Ghulfieber:** wie beim Ghul, SG 15.
+
+### Borri Steinhand, der Ungeborgene (Grabunhold, HG 3, 800 EP)
+RB Mittelgroßer Untoter · **INI** +1; **Sinne** Dunkelsicht 18 m; Wahrnehmung +11
+**RK** 15, Berührung 11, auf dem falschen Fuß 14 (+1 GE, +4 natürlich) · **TP** 26 (4W8+8) · **REF** +2, **WIL** +7, **ZÄH** +3 · **Immunität** wie Untote · **Schwäche** Verwundbarkeit gegen *Tote erwecken*
+**Bewegung** 9 m · **Nahkampf** Hieb +4 (1W4+1 plus Energieentzug)
+**Energieentzug (ÜF):** 1 negative Stufe, Zähigkeit SG 14 zum Entfernen. **Borri setzt ihn erst ein, wenn er unter 10 TP fällt.**
+**ST** 12, **GE** 12, **KO** –, **IN** 11, **WE** 13, **CH** 15 · **GAB** +3; **KMB** +4; **KMV** 15 · **Fertigkeiten** Heimlichkeit +16, Wahrnehmung +11, Wissen (Gewölbe) +7
+**Erlösung:** Wer seinen Namen ausspricht, beendet den Kampf (siehe Szene 4).
+
+### Dunkelmantel (HG 1)
+Monsterhandbuch. Wirkt einmal pro Tag *Dunkelheit*.
+
+### Mirel Taan
+Munavri, Magier 2 (Bannmagier), beherrscht – Werte wie **Pfeilerwacht-Lehrling** (NSC-Werte Nr. 3). Kämpft nicht, wenn er nicht muss.
+
+### Schmuggler
+4 Svirfneblin, Experten 2 · kämpfen nicht, fliehen. Werte bei Bedarf wie Bürger mit +2 auf Heimlichkeit und Klettern.
+
+---
+
+## Nichtspielercharaktere – Übersicht
+
+| Name | Volk | Rolle | Einstellung | Motiv erkennen | Kurz |
+|---|---|---|---|---|---|
+| **Hulda Grauschmied** | Duergar | Rätin der Drudanst-Höhle | Unfreundlich | +7 | Laut, direkt, glaubt an Drow-Schuld |
+| **Kessa Feuerstein** | Svirfneblin | Hauptfrau der Stadtwache (Fünfhundert) | Gleichgültig | +8 | Misstraut den Duergar aus Prinzip |
+| **Vaelis Duskryn** | Drow | Händlerin für Spinnenseide | Unfreundlich (Angst) | +5 | Stolz, wütend, unschuldig |
+| **Thorgrim Aschhand** | Duergar | Schmiedemeister der Lavaschmiede | Gleichgültig | +9 | Ehrlich, trägt ein schweres Geheimnis |
+| **Mirel Taan** | Munavri | Pfeilerwacht-Lehrling, beherrscht | Freundlich (gespielt) | +1 | Der unwissende Innentäter |
+| **Grauzahn** | Ghast | Anführer der Diebe | – | – | Spricht, höhnt, flieht |
+| **Borri Steinhand** | Duergar, Grabunhold | Ein Ungeborgener im Bruch | – | – | Sucht seine Tochter |
+
+---
+
+## Wenn etwas schiefgeht
+
+- **Die Gruppe glaubt an die Schuld der Drow:** Das unbenutzte Seil und Vaelis' Aussage über den Diebstahl ihres Seils sollten reichen. Wenn nicht: Kessa Feuerstein findet von sich aus die Ghul-Spuren an der Hintertür und stellt Hulda öffentlich bloß – dann streiten Duergar und Svirfneblin, und die Gruppe muss vermitteln.
+- **Die Gruppe verliert sich in den Finsterhöhlen** (3 Fehlschläge): Sie erreicht die Werkstatt trotzdem – aber einen Tag später (weniger Barren), erschöpft, und der Ghast ist vorgewarnt (er hat eine Überraschungsrunde).
+- **Die Ghul-Lähmung wird zu gefährlich:** Grauzahn will die Gruppe nicht töten, sondern vertreiben – gelähmte Charaktere lässt er liegen und flieht mit den restlichen Barren. Die Lieferliste und die halbfertigen Steine bleiben auf der Werkbank zurück.
+- **Die Gruppe schickt Mirel nach Grovaristadt:** Er verschwindet. In Abenteuer 6 kann er als einer der Lehrlinge am Torhaus wieder auftauchen.
+- **Die Gruppe will Thorgrims Geheimnis sofort aufdecken:** Thorgrim schweigt. Drängt die Gruppe, bittet er: *„Nicht jetzt. Nicht, solange die halbe Enklave einen Grund sucht, uns zu hassen."* – genau Drevans Rechnung.

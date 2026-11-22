@@ -1,0 +1,345 @@
+# Abenteuer 5 – Bastion der Lebenden
+
+*Pathfinder 1e · 4 Charaktere der Stufe 4 · zwei Spielabende · Orte: Bastion der Lebenden, Knochenwacht, äußerer Ring des Lands der Untoten*
+
+Karten: [Karte_Gefangenenlager.svg](Karte_Gefangenenlager.svg) (das Lager am Rand des Grauen Hofs) · `Karte2.png` (Lage von Bastion und Land der Untoten)
+NSC-Werte: [03_NSC_Werte.md](03_NSC_Werte.md) (Der Bleiche Hund, Ilun Sareth, Brakka Steinfaust) · Hintergrund: Regionalband, „Das Land der Untoten" und „Die Winzlinge"
+
+---
+
+## Überblick für die SL
+
+**Worum es geht:** Der Außenposten **Knochenwacht** vor der Bastion der Lebenden meldet sich nicht mehr. Die Truppe findet ihn halb überrannt, rettet die Überlebenden – und erfährt, dass die Untoten Gefangene in ein Lager am Rand des Grauen Hofs verschleppt haben. Gegen den ausdrücklichen Rat der Bastionsmeisterin (oder mit ihrem stillen Segen) holt die Truppe sie heraus. Unter den Gefangenen ist eine Kundschafterin, die seit Monaten als tot gilt – und die weiß, dass Erzmagistra Vanthe vor 14 Jahren nicht entkam, sondern **freigelassen** wurde.
+
+**Testet:** Kampf gegen Untote, Ressourcenmanagement, Heimlichkeit gegen Übermacht, eine Verfolgungsjagd – und das Gefühl, am Rand von etwas viel Größerem zu stehen.
+
+**Wichtig:** Die Gruppe bleibt im **äußeren Ring** des Lands der Untoten (HG 2–6). Das Obeliskenfeld, den Grauen Hof und die Armee soll sie nur **sehen**. Wer weitergeht, stirbt – und Hagra Lichtschild sagt das deutlich.
+
+### Was wirklich geschah
+
+- Vor einem Monat kam aus Grovaristadt ein Befehl des **Archums** (Vanthe), unterschrieben „im Namen des Ethikrats": In den Außenposten dürfen **Drow und Duergar nicht mehr gemeinsam Wache stehen** – „zur Vermeidung von Spannungen". Hagra Lichtschild protestierte und musste gehorchen.
+- In der Knochenwacht wurden daraufhin die Wachen nach Völkern getrennt eingeteilt. Die Nachtwache vor drei Nächten war dadurch halb so stark wie sonst – die Duergar-Schicht war gerade abgelöst, die Drow-Schicht noch nicht vollständig.
+- Genau in dieser Lücke griffen Untote aus dem Grauen Hof an. Sie wussten, wann. *(Über den Lauschstein im Torstädter Pfeiler und Vanthes Kanzlei kennt Drevan die Dienstpläne.)*
+- Die Hälfte der Besatzung wurde getötet oder verschleppt. Die Überlebenden haben sich in der Kapelle verbarrikadiert.
+- Die Gefangenen sitzen jetzt in einem **Lager am Rand des Grauen Hofs**. Von dort sollen sie nach Varikanum gebracht werden – als Blutvieh für die Sklavenviertel.
+- Im selben Lager sitzt seit drei Monaten **Ilun Sareth**, eine Munavri-Kundschafterin der Bastion. Sie war in Varikanum und wurde für die nächste „Lieferung" zurück ins Lager gebracht.
+
+### Ablauf
+
+1. **Die Bastion der Lebenden** – Hagra Lichtschild und der Auftrag
+2. **Die Knochenwacht** – drei Kämpfe, die Überlebenden in der Kapelle
+3. **Blick vom Kamm** – das Land der Untoten
+4. **Der Weg zum Lager** – direkt durch den äußeren Ring oder mit den Winzlingen
+5. **Das Gefangenenlager** – Heimlichkeit, Kampf, ein belauschtes Gespräch
+6. **Die Flucht** – Verfolgungsjagd mit dem Bleichen Hund, der Klagebach
+7. **Zurück an der Bastion** – was Ilun weiß
+
+### Der Zeitdruck
+
+- Die Gefangenen werden in **zwei Tagen** nach Varikanum abtransportiert. Danach sind sie verloren.
+- Die Truppe hat außerdem nur begrenzt Zauber und Heilung. Zwischen Knochenwacht und Lager gibt es keinen sicheren Ort für eine Rast – außer der Kapelle der Knochenwacht, wenn die Truppe sie gesichert hat.
+
+---
+
+## Szene 1 – Die Bastion der Lebenden
+
+> *Drei Mauern hintereinander, jede höher als die letzte, und zwischen ihnen Gräben, in denen Weihwasser glitzert. Über dem Tor brennt ein Licht, das nicht flackert – geweihter Boden, sagt man, auf dem kein Untoter stehen kann, ohne zu brennen. Die Soldaten auf den Wällen sind keine Wehrpflichtigen. Sie sind älter, schweigsamer, und jeder von ihnen hat Narben. Niemand lacht hier.*
+
+**Bastionsmeisterin Hagra Lichtschild** (Duergar, Paladinin des Torag 9) empfängt die Truppe. Sie trägt einen der drei legendären **Karminpanzer** aus der Lavaschmiede, rot wie getrocknetes Blut.
+
+> *„Ihr seid die Truppe, von der Brakka erzählt. Gut. – Die Knochenwacht meldet sich seit drei Nächten nicht. Vierzig Leute. Ich kann keinen einzigen von meinen entbehren, denn da draußen sammelt sich etwas, das ich noch nie gesehen habe. Ihr geht hin. Ihr seht nach. Ihr holt raus, wer noch lebt. Und dann kommt ihr zurück."*
+
+Wenn die Gruppe nach dem Befehl über die Wacheinteilung fragt (oder Hagra wütend wird, sobald die Knochenwacht erwähnt wird):
+> *„Ein Befehl aus Grovaristadt. Vom Archum. Drow und Duergar sollen nicht mehr gemeinsam Wache stehen – ‚zur Vermeidung von Spannungen'. Ich habe zurückgeschrieben, dass es auf meinen Wällen keine Spannungen gibt, nur Untote. Man hat mir geantwortet, das sei nicht meine Entscheidung."*
+*(Hinweis für Abenteuer 6: noch ein Befehl aus Vanthes Kanzlei, der die Völker trennt.)*
+
+**Ausrüstung von Hagra:**
+- 4 Fläschchen **Weihwasser** pro Charakter
+- 1 **Schriftrolle *Schutz vor Bösem*** und 2 **Tränke *Mittelschwere Wunden heilen*** für die Gruppe
+- Thorgrims Waffen aus Abenteuer 4 sind gerade rechtzeitig angekommen (wenn die Gruppe Alchemistensilber gewählt hat: Hagra nickt anerkennend)
+- Ein Signalhorn: Ein Stoß von der Knochenwacht aus, und die Bastion weiß, dass die Truppe lebt.
+
+---
+
+## Szene 2 – Die Knochenwacht
+
+Der Außenposten liegt eine Stunde südlich der Bastion auf einem Felsrücken: ein Turm, eine Kaserne, eine kleine Kapelle, umgeben von einer niedrigen Mauer mit einem Torhaus.
+
+> *Das Tor hängt schief in den Angeln. Auf dem Hof liegen Waffen, aber keine Leichen – nur dunkle Flecken und Schleifspuren nach Süden. Im Turm ist es still. Und aus der Kapelle hört ihr, ganz leise, jemanden singen. Ein Wiegenlied, auf Zwergisch, mit brüchiger Stimme.*
+
+### A – Der Hof (Begegnung, HG 4)
+
+- **8 menschliche Skelette** stehen reglos auf dem Hof – gefallene Verteidiger der Kalten Nacht von 152, die man hier begraben hatte und die jetzt wieder aufgestanden sind. Sie greifen an, sobald jemand das Tor durchschreitet.
+- **Kleriker glänzen hier:** *Positive Energie fokussieren* trifft alle auf einmal.
+- Wissen (Religion) SG 12: Die Skelette tragen Bastion-Abzeichen. Es sind die eigenen Toten.
+
+### B – Der Turm (Begegnung, HG 4)
+
+- **Bleichkiefer**, ein **Ghast** (Werte wie Grauzahn in Abenteuer 4) und **2 Ghule** haben sich im Turm eingenistet und fressen die Vorräte – und was sonst da ist.
+- Bleichkiefer ist der „Offizier" des Angriffs. Bei ihm: ein zerknittertes Blatt mit dem **Wachplan der Knochenwacht** – genau der Plan, nach dem Drow und Duergar getrennt eingeteilt waren, mit einem Kreis um die Nacht des Angriffs.
+- *Hinweis:* Woher hatten die Untoten den Wachplan? Er wurde nur in der Bastion und an das Archum in Grovaristadt geschickt.
+
+### C – Die Kapelle und die Überlebenden
+
+In der Kapelle haben sich **sieben Überlebende** verbarrikadiert, viele verwundet. Geweihter Boden hält die Untoten draußen – fast.
+- **Korporalin Hilde Rußbart** (Duergar) singt das Wiegenlied, um die Verwundeten ruhig zu halten.
+- **Feldwebel Tovan Myrrhane** (Drow) führt das Kommando. Er hat eine Schulterwunde und Fieber.
+- **Die beiden** haben sich vor dem Angriff kaum gekannt – sie standen nie gemeinsam Wache. Jetzt sitzen sie Rücken an Rücken.
+
+**Der Schatten (Begegnung, HG 3):** Ein **Schatten** gleitet immer wieder durch die Kapellenwand, wo der geweihte Boden endet, und zieht einem Verwundeten die Kraft aus dem Leib. Als die Gruppe kommt, greift er sie an. (Körperlos: nur magische Waffen treffen voll, Weihwasser und *Positive Energie fokussieren* wirken normal.)
+
+**Was die Überlebenden erzählen:**
+- Der Angriff kam genau in der Stunde, in der die Duergar-Schicht abgelöst war und die Drow-Schicht noch auf dem Weg. „Als hätten sie es gewusst."
+- **Neunzehn** Kameraden wurden nach Süden verschleppt – lebend. „Sie haben sie nicht gefressen. Sie haben sie gefesselt. Wie Vieh."
+- Tovan: *„Es gibt ein Lager, einen halben Tag südlich, am Rand des Grünen Lichts. Die Bastion hat es vor einem Jahr entdeckt. Niemand ist je hingegangen."*
+
+**Die Überlebenden in Sicherheit bringen:** Mit dem Signalhorn ruft die Gruppe einen Trupp der Bastion, der die Verwundeten holt – das kann Hagra entbehren. Die Gruppe kann sich in der gesicherten Kapelle **ausruhen** (die einzige sichere Rast bis zum Ende des Abenteuers).
+
+---
+
+## Szene 3 – Blick vom Kamm
+
+Südlich der Knochenwacht führt der Weg über einen Felskamm. Von dort sieht man in das Land der Untoten.
+
+> *Unter euch liegt eine graue Landschaft aus Staub und Knochen. Schwarze Obelisken ragen aus dem Boden, Dutzende, in Reihen, wie die Zähne eines gewaltigen Kiefers. Weit hinten, in einer großen Höhle, glüht ein fahles grünes Licht. Und davor bewegt sich etwas. Zuerst haltet ihr es für einen Fluss. Dann seht ihr, dass es Gestalten sind – Hunderte, Tausende, die in Reihen stehen. Über ihnen hängt ein Banner: ein schwarzer Kelch auf rotem Grund. Das Wappen von Varikanum.*
+
+- **Wissen (Religion) SG 15:** Mindestens tausend Untote, vermutlich mehr. Eine Armee, keine Horde – sie stehen in Formation.
+- **Wissen (Geschichte) SG 15:** Ganz am Rand, in einer eigenen Höhle, liegt etwas Riesiges mit Flügeln – ein Drachenskelett. Um es herum stehen Gestalten in Roben. *(Der Knochendrache, siehe Regionalband.)*
+- **Wahrnehmung SG 18:** Etwa einen halben Tag südlich, am Rand des grünen Lichts, ein kleineres Lager mit Pferchen. **Das Gefangenenlager.**
+- **Für die Spieler soll klar sein:** Das ist nichts, wogegen vier Wehrpflichtige kämpfen. Hagra hatte recht.
+
+---
+
+## Szene 4 – Der Weg zum Lager
+
+Zwei Wege führen zum Lager. Lass die Spieler wählen.
+
+### Weg A – Direkt durch den äußeren Ring
+
+Ein halber Tag durch die graue Ödnis. Würfle **zweimal** auf der Begegnungstabelle „Äußerer Ring" im Regionalband (HG 2–6), oder nimm diese:
+
+| W6 | Begegnung |
+|---|---|
+| 1–2 | 1W6+2 menschliche Zombies auf dem Weg zum Grauen Hof (HG 3) – ausweichen mit Heimlichkeit SG 10 |
+| 3 | 2 Ghule auf der Suche nach Aas (HG 3) |
+| 4 | Ein kleiner **Obelisk** am Weg – wer ihn berührt: Willen SG 13 oder 1 Runde wankend, und die Untoten der Umgebung wissen, dass jemand da ist |
+| 5 | Eine Patrouille: 4 Skelette und ein Ghast (HG 4) – lieber verstecken (Heimlichkeit gegen Wahrnehmung +9) |
+| 6 | Nichts. Und genau das ist unheimlich. |
+
+### Weg B – Mit den Winzlingen
+
+Einen kleinen Umweg nach Osten liegt die Höhle der **Winzlinge** – Milben, winzige, blauhäutige Feenwesen, die alle Größeren hassen, die Untoten aber noch mehr (siehe Regionalband).
+
+> *Ein Steinchen trifft euch an der Stirn. Dann noch eins. Aus hunderten winzigen Löchern in der Wand glitzern Augen, und eine piepsige Stimme ruft: „Riesen! Stinkende, laute Riesen! Was wollt ihr hier?"*
+
+- **Verhandeln:** Einstellung Unfreundlich, Diplomatie SG 20. Kleine Charaktere +2, wer sich hinkniet +2. **Wer sie „süß" nennt, scheitert automatisch.**
+- **König Gripgrip der Neunundzwanzigste** (auf einem Riesenhundertfüßer) verlangt: *„Etwas Glänzendes. Und ihr tötet die Grauen, die unsere Jungen fressen."* (Die Ghule am Lagertor.)
+- **Lohn:** Die Milben führen die Gruppe durch Spalten, die nur sie kennen, bis direkt hinter das Lager. Die Gruppe erreicht das Lager **unbemerkt** und bekommt in Szene 5 eine **Überraschungsrunde**. Außerdem stiften die Milben auf Wunsch Chaos (Ablenkung am Lagertor, siehe unten).
+- **Der Preis:** Auf dem Rückweg versuchen sie, der Gruppe die Schuhe zu stehlen (Wahrnehmung SG 18 bemerkt es). Wer es mit Humor nimmt, hat Freunde fürs Leben.
+
+---
+
+## Szene 5 – Das Gefangenenlager (Karte)
+
+> *Ein Talkessel am Rand des grünen Lichts. Pferche aus Knochen und Eisen, darin zusammengekauerte Gestalten. Ein schwarzer Obelisk in der Mitte, um den das Licht flackert, als würde es ertrinken. Zombies schleppen Säcke. An einem Feuer, das kalt und grün brennt, stehen zwei Gestalten und reden.*
+
+### Wer im Lager ist
+
+| Wo (Karte) | Wer | HG |
+|---|---|---|
+| 2 – Lagertor | **2 Ghule** am Wachfeuer | 3 |
+| 3 – Pferche | **19 Gefangene** aus der Knochenwacht, **Ilun Sareth**, ein **Echsenmensch** (Szar, Jäger des Echsenvolks) | – |
+| 4 – Obelisk | Ein kleiner **Obelisk** (Aura: Untote +1 auf Angriffs-, Schadens- und Rettungswürfe, *Positive Energie fokussieren* SG –3) | – |
+| 5 – Zelt | **Mutter Asch** (Menschliche Klerikerin der Urgathoa 4) und der **Herold in Eisen** (ein Duergar-Grabunhold, Gesandter des Eisenkönigs) | 3 + 3 |
+| 6 – Arbeitsplatz | **6 menschliche Zombies** | 3 |
+| 7 – Südausgang | Weg zum Grauen Hof. Von hier kommt der **Bleiche Hund** (siehe Szene 6) | – |
+
+**Gesamt-HG**, wenn alle auf einmal kommen: zu hoch. **Das ist Absicht.** Die Gruppe soll planen: schleichen, ablenken, einzeln ausschalten.
+
+### Das belauschte Gespräch (Bereich 5)
+
+Wer sich unbemerkt bis ans Zelt schleicht (Heimlichkeit gegen Wahrnehmung +6 bei Mutter Asch, +11 beim Herold; die Obelisk-Aura gibt den Untoten keinen Bonus auf Wahrnehmung), hört Mutter Asch und den Herold reden:
+
+> **Herold** *(mit einer Stimme wie rostiges Eisen):* „Mein König fragt, wann der Fürst sein Wort hält. Die Verräter von Drudanst gehören uns."
+> **Mutter Asch:** „Bald. Der Fürst sagt, sie werden sich selbst ausliefern. Wenn der Bund seine grauen Brüder einsperrt, weil er ihnen nicht mehr traut – wer, glaubst du, öffnet dann das Tor für uns?"
+> **Herold:** „Und dann?"
+> **Mutter Asch:** „Dann bekommt dein König seine Duergar zurück. Und der Fürst bekommt alle anderen."
+
+*(Das ist der wichtigste Hinweis auf den Plan für das Finale – siehe Kampagnenbuch 3.1, Punkt 5. Die Spieler werden ihn vielleicht nicht sofort verstehen. Das ist gut so: In Abenteuer 6, wenn die Duergar in Torstadt eingesperrt werden, erinnern sie sich.)*
+
+### Taktiken für die Gruppe
+
+- **Ablenkung:** Die Milben (Weg B) werfen Steine auf die Ghule am Tor und locken sie weg. Oder ein Illusionszauber, ein Feuer, ein Lärm in einer Ecke.
+- **Die Zombies** sind langsam und dumm. Wer an ihnen vorbeischleicht, braucht nur Heimlichkeit SG 10.
+- **Der Obelisk:** Ein kleiner Obelisk (Härte 8, **40 TP**). Wird er zerstört oder mit Weihwasser übergossen (4 Fläschchen, 1 Runde), erlischt die Aura – und alle Untoten im Lager sind 1 Runde lang verwirrt. **Ehrenmarke**, wenn die Gruppe es tut.
+- **Mutter Asch** kann Untote befehligen. Wird sie ausgeschaltet, kämpfen die Zombies weiter, aber planlos.
+- **Der Herold in Eisen** flieht beim ersten Kampflärm nach Süden. Er will nicht sterben, er will berichten. *(Wenn die Gruppe ihn trotzdem stellt: Er spricht wie ein alter Duergar-König und verachtet die Duergar der Enklave. „Ihr bewacht Verräter. Eines Tages werdet ihr sehen, wie leicht sie verraten.")*
+
+### Die Gefangenen befreien
+
+- Die Pferche sind mit Knochen und Eisenketten verschlossen: Mechanismus ausschalten SG 15 oder Stärke SG 18 je Pferch (3 Pferche).
+- **Ilun Sareth** ist erschöpft, aber klar. Sie flüstert: *„Ihr müsst mich hier rausbringen. Ich habe etwas gehört, das der Bund wissen muss."*
+- **Szar** (Echsenmensch) bietet seine Hilfe an: Er kennt den Weg nach Norden und kämpft mit. *(Ein Kontakt zum Echsenvolk, siehe Regionalband – das Echsenvolk bittet seit Langem um Asyl.)*
+- **Die neunzehn Soldaten** sind geschwächt, aber gehfähig. Zwei können kämpfen (Krieger 2), der Rest muss geführt werden.
+
+---
+
+## Szene 6 – Die Flucht
+
+Kaum sind die Gefangenen frei, hallt ein Heulen aus dem Süden. **Der Bleiche Hund** – ein Vampirbrut-Jäger, einst ein Fährtenleser der Wehrpflicht (NSC-Werte Nr. 6) – hat die Witterung aufgenommen.
+
+### Die Verfolgungsjagd
+
+**5 Etappen** bis zur Knochenwacht. In jeder Etappe braucht die Gruppe **mindestens 2 Erfolge** (jeder Charakter ein Wurf, SG 15). **Ilun** kennt einen Schleichweg: +4 auf alle Überlebenskunst-Würfe.
+
+| Etappe | Hindernis | Würfe |
+|---|---|---|
+| 1 | Aus dem Talkessel, die Gefangenen zur Eile antreiben | Diplomatie, Einschüchtern, Überlebenskunst |
+| 2 | Durch ein Feld aus Knochen – leise sein! | Heimlichkeit, Akrobatik |
+| 3 | Eine Engstelle, an der der Hund aufholt | Wahrnehmung (Hinterhalt erkennen), Klettern (Abkürzung) |
+| 4 | **Der Klagebach** (siehe unten) | Schwimmen, Stärke (Gefangene hinüberhelfen) |
+| 5 | Der Anstieg zur Knochenwacht | Konstitution, Klettern |
+
+**Bei einer gescheiterten Etappe** holt der Bleiche Hund auf und greift an: eine Runde Kampf gegen den letzten in der Reihe – oder einen Gefangenen. Er spielt mit der Gruppe, zieht sich zurück, kommt wieder.
+
+### Der Klagebach
+
+> *Vor euch rauscht Wasser. Ein schmaler, schneller Bach, kalt wie Eis, der aus der Felswand bricht und in einer Spalte verschwindet. Über ihn führt kein Steg, nur ein paar glatte Steine. Hinter euch heult es wieder. Ilun packt euren Arm: „Über das Wasser! Er kann nicht über fließendes Wasser!"*
+
+- **Vampire und fließendes Wasser:** Taucht der Bleiche Hund in fließendes Wasser ein, verliert er pro Runde ⅓ seiner maximalen TP. Er **folgt nicht** über den Bach.
+- Die Steine: Akrobatik SG 12 pro Person; wer scheitert, fällt ins Wasser (Schwimmen SG 15, sonst 1 Runde unter Wasser und mitgerissen). Die Gefangenen brauchen Hilfe (Stärke oder Seil).
+- **Sobald alle drüben sind, ist die Gruppe in Sicherheit.** Der Bleiche Hund steht am anderen Ufer, starrt herüber und spricht zum ersten Mal: *„Ich war auch mal einer von euch. Fragt in Torstadt nach Danek Fährtfind. Fragt, warum niemand nach mir gesucht hat."* Dann ist er weg.
+
+### Wenn die Gruppe kämpfen will
+
+Der Bleiche Hund (HG 4) ist für eine Gruppe der Stufe 4 eine harte, aber faire Begegnung – **wenn** sie Silberwaffen, Weihwasser und einen Kleriker hat. Er flieht bei unter 10 TP (Schnelle Heilung!) und kehrt im Finale zurück. **Wird er hier vernichtet,** ersetze ihn im Finale durch eine andere Vampirbrut.
+
+> **Achtung – Energieentzug:** Eine negative Stufe ist für Stufe-4-Charaktere schwer. In der Bastion gibt es Kleriker, die *Wiederherstellung* wirken können (Hagra bezahlt es). Sag das den Spielern, bevor sie sich auf den Kampf einlassen.
+
+---
+
+## Szene 7 – Zurück an der Bastion
+
+> *Als ihr durch das Tor der Bastion kommt, mit neunzehn Soldaten, einer Munavri und einem Echsenmenschen, ist es zum ersten Mal still auf den Wällen, weil niemand weiß, was er sagen soll. Dann schlägt jemand mit dem Schwert gegen den Schild. Dann ein zweiter. Dann alle.*
+
+**Hagra Lichtschild** empfängt die Gruppe – und tadelt sie, weil sie weitergegangen ist, als befohlen. Dann nimmt sie ihren Helm ab: *„Und ich danke euch. Im Namen von Torag und von jedem, der hier dient."*
+
+### Was Ilun weiß
+
+Nach einer Nacht Rast und Heilung erzählt **Ilun Sareth**:
+
+> *„Ich war drei Monate in Varikanum. In den Sklavenvierteln, im Munavri-Viertel. Die Wachen dort reden viel, weil sie denken, wir sind Vieh. Einmal haben sie über die Pfeilerwacht gelacht. Einer sagte: ‚Die weiße Magistra? Die haben wir nicht verloren. Die haben wir zurückgeschickt.' – Ich habe lange gebraucht, um zu verstehen, wen er meinte. Es gibt nur eine weiße Magistra in der Pfeilerwacht."*
+
+- **Das ist der Durchbruch:** Zum ersten Mal zeigt ein Hinweis direkt auf **Vanthe** – nicht auf „die Pfeilerwacht", nicht auf das Archum, sondern auf sie.
+- Ilun kennt auch eine Munavri-Sklavin in Varikanum, **Sefa Lenn**, die Vanthe in der Gefangenschaft gesehen hat. *(Aufhänger für eine Fortsetzung.)*
+- **Hagra** ist erschüttert. Sie kennt Vanthe seit Jahrzehnten. *„Wenn das stimmt … dann war jeder Befehl aus dem Archum … – Bringt das nach Grovaristadt. Aber seid vorsichtig, wem ihr es sagt. Wenn sie es ist, hört sie euch kommen."*
+
+### Der Brief von Brakka
+
+> *„Ich habe gehört, was ihr getan habt. Ich habe es nicht gemeldet, weil man euch sonst bestrafen müsste. – Kommt nach Grovaristadt, so schnell ihr könnt. In Drudanst geht ein Gerücht um, die Lavaschmiede sei mit einem Dämonenpakt erkauft. Die halbe Stadt glaubt es schon. In Illiatist ist auf dem Markt etwas explodiert. Der Rat tagt jeden Tag, und jeden Tag wird es lauter. Ich weiß nicht, was hier passiert. Aber es fühlt sich an wie die Nacht vor 152. – B."*
+
+**→ Weiter mit Abenteuer 6: Die fünf Säulen**
+
+---
+
+## Belohnungen
+
+**Erfahrung (wenn mit EP gespielt):**
+
+| Erfolg | EP gesamt |
+|---|---|
+| Knochenwacht: Hof (8 Skelette) | 1.080 |
+| Knochenwacht: Turm (Ghast + 2 Ghule) | 1.400 |
+| Knochenwacht: Schatten | 800 |
+| Winzlinge gewonnen | 600 |
+| Gefangenenlager: jede besiegte Gruppe | je 600–800 |
+| Obelisk zerstört | 400 |
+| Gespräch belauscht | 800 |
+| Gefangene befreit (alle 19) | 1.600 |
+| Flucht geschafft | 1.200 |
+
+Bei Meilenstein-Aufstieg: **Stufe 5** am Ende des Abenteuers.
+
+**Schätze:**
+- **Die Bastion der Lebenden** öffnet ihre Waffenkammer: Jeder Charakter wählt **einen** Gegenstand bis 2.000 GM (z. B. *Rüstung +1*, *Schild +1*, *Schutzring +1*, *Amulett der natürlichen Rüstung +1*, Zauberstab *Leichte Wunden heilen* mit 50 Ladungen).
+- **Kopfgeld des Rates** für die Rettung von neunzehn Soldaten: **1.000 GM pro Charakter** (wird in Grovaristadt ausgezahlt).
+- **Mutter Asch:** Meisterarbeits-Brustplatte, Meisterarbeits-Sense, unheiliges Symbol der Urgathoa, 2 Tränke *Leichte Wunden heilen*, 120 GM.
+- **Vermögensstand:** Damit erreicht die Gruppe ungefähr die Vermögenstabelle für Stufe 5 (10.500 GM pro Charakter).
+
+**Ehrenmarke** (höchstens eine): den Obelisk im Lager zerstört **oder** alle neunzehn Gefangenen lebend heimgebracht.
+
+---
+
+## Werte
+
+### Menschliches Skelett (HG 1/3, 135 EP)
+Monsterhandbuch. **SR** 5/Wuchtwaffen, Immunität gegen Kälte. Waffen: zerbrochene Krummsäbel.
+
+### Menschlicher Zombie (HG 1/2, 200 EP)
+Monsterhandbuch. **SR** 5/Hiebwaffen, wankend (nur eine Aktion pro Runde).
+
+### Ghul (HG 1) und Ghast „Bleichkiefer" (HG 2)
+Werte siehe Abenteuer 2 (Ghul) und Abenteuer 4 (Ghast „Grauzahn").
+
+### Schatten (HG 3, 800 EP)
+CB Mittelgroßer Untoter (körperlos) · **INI** +2; **Sinne** Dunkelsicht 18 m; Wahrnehmung +8
+**RK** 15, Berührung 15, auf dem falschen Fuß 13 (+2 Ablenkung, +2 GE, +1 Ausweichen) · **TP** 19 (3W8+6) · **REF** +3, **WIL** +4, **ZÄH** +3 · **Verteidigungsfähigkeiten** körperlos, Resistenz gegen Fokussieren +2; **Immunität** wie Untote
+**Bewegung** Fliegen 12 m (gut) · **Nahkampf** körperlose Berührung +4 (1W6 ST-Schaden)
+**Besondere Angriffe** Brut erschaffen (wer durch ST-Schaden auf 0 fällt, wird 1W4 Runden später zum Schatten)
+**ST** –, **GE** 14, **KO** –, **IN** 6, **WE** 12, **CH** 15 · **Fertigkeiten** Fliegen +11, Heimlichkeit +8 (+12 in schwachem Licht, –4 in hellem Licht), Wahrnehmung +8
+
+### Mutter Asch (HG 3, 800 EP)
+*Menschliche Klerikerin der Urgathoa 4 · NB Mittelgroße Humanoide (Mensch)*
+> Eine hagere Frau mit grau gefärbten Lippen und einem Kelch-Anhänger. Sie spricht sanft, fast mütterlich, mit den Untoten – und mit den Gefangenen.
+
+**INI** +1; **Sinne** Wahrnehmung +6
+**RK** 17, Berührung 11, auf dem falschen Fuß 16 (+6 Rüstung, +1 GE) · **TP** 29 (4W8+8) · **REF** +2, **WIL** +7, **ZÄH** +6
+**Bewegung** 6 m · **Nahkampf** Meisterarbeits-Sense +4 (2W4/×4)
+**Besondere Angriffe** *Negative Energie fokussieren* 5/Tag (2W6, SG 16; heilt Untote), Blutende Berührung (Todesdomäne)
+**Vorbereitete Klerikerzauber** (ZS 4; Konzentration +7)
+2. Grad – *Person festhalten* (SG 15), *Totenglocke*^D (SG 15), *Geistige Waffe*
+1. Grad – *Furcht verursachen*^D (SG 14), *Schutz vor Gutem*, *Leichte Wunden verursachen* (SG 14), *Untote verbergen*
+0. Grad – *Blutung*, *Göttliche Führung*, *Magie entdecken*, *Resistenz*
+^D Domänenzauber · **Domänen** Böses, Tod
+**ST** 10, **GE** 12, **KO** 14, **IN** 10, **WE** 16, **CH** 14 · **GAB** +3; **KMB** +3; **KMV** 14 · **Talente** Kampfzauberei, Untote befehligen, Verbessertes Fokussieren
+**Fertigkeiten** Wissen (Religion) +7, Zauberkunde +7, Motiv erkennen +8, Wahrnehmung +6
+**Taktik:** Sie fokussiert negative Energie, um ihre Untoten zu heilen, und hält einen Kämpfer mit *Person festhalten* fest. Bei unter 10 TP ergibt sie sich – und lügt dann, so gut sie kann.
+
+### Der Herold in Eisen (Grabunhold, HG 3)
+Duergar-Grabunhold in rostiger Rüstung, Gesandter des Eisenkönigs. Werte wie Borri Steinhand (Abenteuer 4), aber **RK 19** (Rüstung) und er setzt seinen Energieentzug sofort ein. Er flieht, sobald es Kampflärm gibt.
+
+### Kleiner Obelisk
+Härte 8, 40 TP. Aura (9 m): Untote +1 auf Angriffs-, Schadens- und Rettungswürfe; *Positive Energie fokussieren* gegen Untote in der Aura –3 auf den SG. Weihwasser (4 Fläschchen) oder *Weihen* löscht die Aura.
+
+### Milben (Winzlinge)
+Winzige Feenwesen (Mites), HG 1/4 je. Sie kämpfen nicht für die Gruppe, sie stiften Chaos: Ablenkung, Steinwürfe, Riesenhundertfüßer als Reittiere.
+
+### Szar (Echsenmensch)
+Monsterhandbuch (Echsenvolk, HG 1). Erschöpft, aber kampfbereit. Kennt die Wege nach Westen zu seinem Stamm.
+
+---
+
+## Nichtspielercharaktere – Übersicht
+
+| Name | Volk | Rolle | Kurz |
+|---|---|---|---|
+| **Hagra Lichtschild** | Duergar | Bastionsmeisterin, Paladinin des Torag 9 | Streng, gerecht, trägt einen Karminpanzer |
+| **Hilde Rußbart** | Duergar | Korporalin, Überlebende | Singt Wiegenlieder für die Verwundeten |
+| **Tovan Myrrhane** | Drow | Feldwebel, Überlebender | Fiebrig, entschlossen |
+| **Ilun Sareth** | Munavri | Kundschafterin, Gefangene | Weiß, dass Vanthe freigelassen wurde |
+| **Szar** | Echsenmensch | Gefangener Jäger | Möglicher Kontakt zum Echsenvolk |
+| **Mutter Asch** | Mensch | Klerikerin der Urgathoa, Lageraufseherin | Sanft, grausam |
+| **Der Herold in Eisen** | Duergar (Grabunhold) | Gesandter des Eisenkönigs | Verachtet die Duergar der Enklave |
+| **Gripgrip XXIX.** | Milbe | König der Winzlinge | Eitel, rachsüchtig, nützlich |
+| **Der Bleiche Hund** (Danek Fährtfind) | Vampirbrut | Jäger | War einst Wehrpflichtiger |
+
+---
+
+## Wenn etwas schiefgeht
+
+- **Die Gruppe will ins Obeliskenfeld oder zum Grauen Hof:** Lass sie einen Mohrg sehen, der zwanzig Zombies kommandiert, und ein Gespenst, das durch eine Felswand gleitet. Wenn sie trotzdem weitergehen: Hagras Trupp holt sie zurück, und die Gefangenen sind verloren.
+- **Die Gruppe wird im Lager entdeckt und ist überfordert:** Die Gefangenen greifen ein. Neunzehn Soldaten, auch geschwächt, reißen die Zombies um und werfen sich auf die Ghule. Einige sterben dabei – ein schwerer, aber würdiger Moment.
+- **Mutter Asch entkommt:** Sie berichtet dem Grauen Hof. Im Finale führt sie die Untoten vor dem Tor an.
+- **Ilun stirbt:** Einer der befreiten Soldaten hat Iluns Geschichte im Pferch gehört und erzählt sie weiter – weniger genau, aber ausreichend.
+- **Der Bleiche Hund holt die Gruppe ein, bevor sie den Bach erreicht:** Lass Szar oder Tovan den Hund aufhalten, damit die anderen fliehen können. Ein Opfer, über das die Gruppe in Torstadt noch sprechen wird.
+- **Die Gruppe versteht das belauschte Gespräch nicht:** Das ist in Ordnung. Hagra oder Brakka greifen es in Abenteuer 6 wieder auf, sobald die Duergar in Torstadt eingesperrt werden.

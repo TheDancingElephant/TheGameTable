@@ -1,0 +1,396 @@
+# Abenteuer 6 – Die fünf Säulen (Finale)
+
+*Pathfinder 1e · 4 Charaktere der Stufe 5 · zwei bis drei Spielabende · Orte: Grovaristadt, dann Torstadt*
+
+Karten: [Grovaristadt.svg](Grovaristadt.svg) (Stadtplan, Legende im Städteband) · [Karte_Torhaus_Torstadt.svg](Karte_Torhaus_Torstadt.svg) (Torhaus und Wall für das Finale) · [Torstadt.svg](Torstadt.svg)
+NSC-Werte: [03_NSC_Werte.md](03_NSC_Werte.md) (Vanthe, Bastrin, Brakka, Bleicher Hund, Lehrlinge, Seren) · Hintergrund: Kampagnenbuch 3.1 („Die Spaltung"), 3.4 (Bastrin), Städteband (Grovaristadt, Torstadt)
+
+---
+
+## Überblick für die SL
+
+**Worum es geht:** Drevans Spaltung erreicht ihren Höhepunkt. In wenigen Tagen bricht alles gleichzeitig los: Der Dämonenpakt von Drudanst wird öffentlich, auf dem Markt von Illiatist explodiert eine Sonnensalz-Kugel, der Rat ist gelähmt – und auf Vanthes Antrag werden die Drow- und Duergar-Einheiten in Torstadt entwaffnet und eingesperrt. In derselben Woche marschiert die Untotenarmee.
+
+Die Truppe muss in **Grovaristadt** beweisen, dass alles inszeniert war, Vanthe befreien und die Notstandsmaßnahme kippen. Dann bringt die befreite Erzmagistra sie nach **Torstadt**, wo in dieser Nacht die Untoten angreifen – und verzweifelte Duergar das Tor von innen öffnen wollen.
+
+**Das Thema des Finales:** Nicht die Gruppe allein gewinnt die Schlacht. **Die Einheit der Völker gewinnt sie.** Jede Tat der Gruppe, die Völker zusammenbringt, macht den Wall stärker.
+
+### Ablauf
+
+**Teil 1 – Grovaristadt (Tag 1–3)**
+1. Ankunft in einer Stadt am Rand des Aufruhrs
+2. Fäden sammeln: Verbündete, Beweise, der Lauschstein im Pfeiler
+3. Die Wahrheit über Vanthe
+4. Die Notsitzung des Rates
+
+**Teil 2 – Torstadt (eine Nacht)**
+5. Die Nacht am Tor: vier Phasen, vier Wellen, das Wellen-System
+6. Epilog: die Wahl 171 und die Angebote
+
+### Der Zeitdruck
+
+- **Tag 1:** Ankunft in Grovaristadt. Späher melden: Die Armee hat den Grauen Hof verlassen.
+- **Tag 2:** Die Armee erreicht die Vorhöhle von Torstadt.
+- **Tag 3, Abend:** Notsitzung des Rates. **In derselben Nacht** greifen die Untoten an.
+- Bis zur Notsitzung hat die Gruppe **sechs Handlungen** (je ein halber Tag: drei Tage × Vormittag/Nachmittag minus der Ankunft). Jede Handlung ist ein Ort oder eine Person aus Szene 2. Sie kann nicht alles tun – sie muss wählen.
+
+---
+
+# Teil 1 – Grovaristadt
+
+## Szene 1 – Ankunft
+
+> *Grovaristadt brennt nicht. Noch nicht. Aber auf der langen Brücke zur Insel stehen Soldaten, die jeden Drow und jeden Duergar zweimal anhalten. Am Platz der Gründer schreit eine Menge, und zwei andere Mengen schreien zurück. An den Wänden: Kreideschriften. „Teufelsschmiede!" neben einem Amboss. „Lichtdiebe!" neben einer Ratte. „Spione!" neben einer Spinne. Ein kleiner Junge malt eine Säule daneben und rennt weg.*
+
+**Was alle wissen** (Diplomatie SG 10, oder einfach zuhören):
+- Ein Quasit hat in Drudanst laut auf dem Markt gelacht: Die Lavaschmiede sei mit einem Dämonenpakt erkauft. Thorgrim Aschhand hat es nicht abgestritten. *(Er hat geschwiegen.)*
+- In Illiatist ist auf dem Markt eine Sonnensalz-Kugel explodiert. Dutzende Drow sind geblendet, drei für immer. Illiatist verlangt, dass Endstadt das Rezept herausgibt – oder bestraft wird.
+- Auf Antrag der **Erzmagistra Vanthe** (Archum) hat der Ethikrat eine **Notstandsmaßnahme** beschlossen: Alle Drow- und Duergar-Einheiten in Torstadt sind bis zur Klärung entwaffnet und in der Kaserne eingesperrt. **Auch Brakka Steinfaust.**
+- Morgen in drei Tagen tagt der Rat in einer Notsitzung. Hulda Grauschmied will sie nutzen, um die Maßnahme zu kippen. Liane Aster will sie ausweiten: auf Drudanst und Illiatist selbst.
+
+**Brakkas letzter Brief** wartet in der Garnison:
+> *„Ich sitze in meiner eigenen Kaserne fest, mit meinen eigenen Leuten, unter Bewachung von Leuten, die ich ausgebildet habe. Ich bin nicht wütend. Ich bin müde. – Draußen in der Vorhöhle bewegt sich etwas. Bringt den Rat zur Vernunft. Ihr habt drei Tage. – B."*
+
+**Die Zwietracht-Aura:** Im **Ratsviertel** von Grovaristadt (rund um den Zentralpfeiler) lastet die Aura des Lauschsteins. Alle Diplomatie-Würfe dort sind um **–2** erschwert, und NSCs sind gereizter. Lass die Spieler das spüren: Leute fallen sich ins Wort, ein Händler schlägt einen anderen wegen einer Kleinigkeit. *(Entfernt die Gruppe den Lauschstein – Ort E –, endet das.)*
+
+---
+
+## Szene 2 – Fäden sammeln (sechs Handlungen)
+
+Jeder Ort kostet **eine Handlung** (einen halben Tag). Die meisten liefern **Punkte für die Notsitzung** (Szene 4) oder **Wallstärke für das Finale** (Szene 5). Beides ist am Ende jedes Orts angegeben.
+
+### A – Kesrin Valdorn und Illiatists Wut
+
+**Ratsherr Kesrin Valdorn** (Drow, Höhlensitz Nordhöhle) ist zerrissen: Seine Stadt ist verletzt und will Rache an Endstadt.
+- Hat die Gruppe in **Abenteuer 3** Velrith entlastet: Kesrin ist sofort Verbündeter.
+- Die Gruppe kann ihm zeigen, dass die Sonnensalz-Explosion **inszeniert** war (siehe B). Dann wendet er sich gegen den Lichtbann-Streit – und gegen die Notstandsmaßnahme.
+- **Punkte:** +1 (Verbündeter in der Sitzung). **Wallstärke:** Kesrin schickt eine Botschaft an die Drow-Einheiten in Torstadt: „Wenn ihr freikommt, steht auf dem Wall." (+1, wenn die Drow befreit werden.)
+
+### B – Endstadt: Ratzek, Mara und die Kugel
+
+Die Endstädter sind in ihrer kleinen **Botschaft** (Stadtplan Nr. 13) in Grovaristadt. **Ratzek Lauffuß** und **Mara Lichtweg** sind wütend und verängstigt: Man beschuldigt Endstadt, Drow geblendet zu haben.
+- **Die Spur der Kugel:** Ratzek hat das Schwarzmarktbuch von Parasal einsehen lassen. Die Kugel wurde vor zwei Wochen gekauft – von einem Menschen, der mit Varikanum-Silber bezahlte. Beschreibung: hager, pockennarbig. **Kell Morrow** (Abenteuer 2), oder, wenn Kell gefangen ist, ein anderer menschlicher Diener mit Fledermaus-Anhänger.
+- **Der Preis für Endstadts Hilfe:** Das Versprechen der Gruppe, sich bei der Wahl 171 für einen Ratssitz für die Osthöhle einzusetzen.
+- **Punkte:** +1 (Beweis: die Explosion war ein Anschlag von Drevans Diener). **Wallstärke:** Endstadt schickt **Rattenvolk-Träger mit einer Kiste Sonnensalz-Kugeln** nach Torstadt – gegen Vampirbrut und Ghule eine Waffe, mit der Drevan nicht rechnet (+1). *Drow und Munavri auf dem Wall müssen dafür ihre Augen schützen – eine kleine Geste der Rücksicht, die die Gruppe einfordern kann.*
+
+### C – Hulda, Thorgrim und der Pakt
+
+**Hulda Grauschmied** und **Thorgrim Aschhand** sind nach Grovaristadt gekommen. Hulda kämpft im Rat, Thorgrim schweigt in seinem Gasthaus.
+- Hat die Gruppe in **Abenteuer 4** die Amboss-Versammlung gewonnen: Hulda ist Verbündete.
+- **Thorgrim:** Wenn die Gruppe sein Vertrauen hat (Abenteuer 4) und ihm verspricht, dass nicht alle Duergar dafür bezahlen, erzählt er die ganze Wahrheit: der Baumeister **Hargrim Erzfaust**, der Wunsch von Jahr 113, der Einsturz von 123, die Gabe, sein eigenes Schweigen.
+- **Die Wendung, die die Gruppe herausarbeiten kann:** *Wer hat es ausgeplaudert – und wann?* Ein Quasit, genau eine Woche vor der Notsitzung. Ein Wesen aus den Teufelshöhlen, das plötzlich in Drudanst auftaucht. Wer davon profitiert, dass Duergar und alle anderen sich gerade jetzt zerfleischen? *(Drevan. Er kennt den Pakt – über einen Quasit, der plaudert, und über den Lauschstein im Drudanster Pfeiler.)*
+- **Thorgrims Geständnis:** Die Gruppe kann ihn überzeugen, **selbst** vor dem Rat zu gestehen (Diplomatie SG 20; +4, wenn Hulda dabei ist). Ein Geständnis aus eigenem Willen nimmt Drevan die Waffe aus der Hand.
+- **Punkte:** +1 (Hulda als Verbündete), +2 (Thorgrims Geständnis vor dem Rat). **Wallstärke:** siehe Duergar in Szene 5.
+
+### D – Bastrin Kieselgrund und die gestohlene Seite
+
+**Obermagister Bastrin** (Kampagnenbuch 3.4) ist nervös. Mit Vanthe stimmt etwas nicht, das hat er schon lange gespürt – und jetzt bricht die Enklave auseinander.
+- Konfrontiert die Gruppe ihn mit seinem Schmuggel (Abenteuer 4: Schmuggler, Kisten mit Säulenzeichen), bietet er seinen Handel an: die **gestohlene Seite des Expeditionsberichts von Jahr 156** gegen Straffreiheit und die Unterstützung der Gruppe für seine Wahl zum Erzmagister.
+- Die Seite: *„Die Magistra wurde nicht befreit. Sie wurde zum Tor gebracht und gehen gelassen."*
+- **Die Entscheidung der Spieler:** Helfen sie einem Schmuggler zur Macht, um eine Verräterin zu entlarven? (Es gibt keinen richtigen Weg. Ohne Handel kann die Gruppe die Seite auch stehlen: Bastrins Schreibtisch, Geheimfach, Mechanismus ausschalten SG 22.)
+- **Punkte:** +2 (die Seite von Jahr 156).
+
+### E – Der Lauschstein im Zentralpfeiler (Begegnung, HG 5)
+
+Im Gildenhaus der Pfeilerwacht (Stadtplan Nr. 1) führt eine verschlossene Treppe in die **Kammer im Zentralpfeiler**. Dort steckt ein Lauschstein.
+- **Hineinkommen:** mit Bastrins Schlüssel (Ort D), mit Selis Varns Erlaubnis (Ort F) oder heimlich (Heimlichkeit SG 18 an der Kanzlei vorbei, Mechanismus ausschalten SG 22).
+- **Die Wächter:** **3 beherrschte Pfeilerwacht-Lehrlinge** (NSC-Werte Nr. 3) arbeiten in der Kammer an der „Großen Pfeilerprüfung". Sie kämpfen mit *Schlaf*, *Schmierfett* und Geschossen. Wer sie mit Namen und Diplomatie anspricht (siehe NSC-Werte), kann sie aus der Beherrschung holen. **Lebend überwältigt: Ehrenmarke.**
+- **Der Stein:** Er steckt in einer Fuge hinter dem Verstärkungszauber. Herauslösen: Stärke SG 15 oder Mechanismus ausschalten SG 18. Sobald er draußen ist, **flüstert** eine kalte Stimme aus ihm: *„Ah. Ihr. – Ihr werdet zu spät kommen. Aber ich danke euch für die Mühe."* Dann ist er still.
+- **Wirkung:** Die Zwietracht-Aura im Ratsviertel endet sofort. Leute schauen sich verwirrt an, als würden sie aus einem schlechten Traum erwachen. Und Drevan hört die Notsitzung nicht mehr.
+- **Punkte:** +1 (der Stein als Beweis – mit Vanthes Zauberschrift, Zauberkunde SG 20), und **keine –2** mehr auf Diplomatie in der Sitzung.
+
+### F – Selis Varn, das Agathum
+
+**Selis Varn** (Munavri, Agathum im Ethikrat) hat Angst – vor Vanthe, vor Aurelan, vor ihrem eigenen Verdacht.
+- Die Gruppe findet sie im **Leuchtpilzpark** (Stadtplan Nr. 15), wo sie vertrauliche Gespräche führt.
+- Sie erzählt: Vanthe **meidet jede telepathische Berührung**, seit 14 Jahren. Einmal, als Selis es versuchte, hörte sie „eine zweite Stimme. Kalt. Hinter ihrer." Sie hat es nie jemandem gesagt.
+- Selis kann der Gruppe Zugang zum Ethikrat-Archiv verschaffen (die Original-Berichte der Fünfhundert gegen Vanthes Fassungen) und zur Kammer im Pfeiler (Ort E).
+- **Ein Munavri-Charakter in der Gruppe** kann mit Selis telepathisch beraten. Sie bietet an, Vanthe in der Sitzung selbst telepathisch anzusprechen – vor allen –, wenn die Gruppe Vanthe dann mit *Schutz vor Bösem* schützt.
+- **Punkte:** +1 (Selis als Verbündete im Ethikrat), +1 (Archivvergleich, wenn die Gruppe in Abenteuer 3 Ithiels Abschriften bekommen hat).
+
+### G – Das Kloster der Wahrheit
+
+Ein halber Tag nordöstlich, in einer Höhle mit einer steinernen Spirale. **Abt Bruder Ondrin** (Svirfneblin, Mönch 8) hatte Vanthe vor 14 Jahren angeboten, ins Kloster zu kommen. Sie lehnte ab – zu schnell, findet er heute.
+- Ondrin bietet an, zur Notsitzung zu kommen und eine **Zone der Wahrheit** zu wirken (SG 17), unter der jeder sprechen muss, der befragt wird. Gegen Vanthes Beherrschung hilft das nicht – aber gegen jeden, der lügt, um sie zu schützen. Und es zeigt allen, dass die Gruppe nichts zu verbergen hat.
+- **Punkte:** +1 (Zone der Wahrheit in der Sitzung).
+
+### H – Aurelan Mysk, das Azatum
+
+**Aurelan Mysk**, Vorsitzender des Ethikrats und Vanthes ältester Freund, wird die Sitzung leiten. Er ist prinzipientreu und zu loyal.
+- Gesprächsversuch: Einstellung Unfreundlich, Diplomatie SG 20 (–2 im Ratsviertel, solange der Lauschstein steckt). Er hört zu, aber er glaubt nichts ohne Beweise.
+- Wenn die Gruppe ihm **mindestens drei Beweise** (aus A–G oder den früheren Abenteuern) vorlegt, wird er nachdenklich: *„Wenn ihr recht habt, habe ich vierzehn Jahre lang neben einer Gefangenen gesessen und es nicht bemerkt."* Er blockiert die Sitzung dann nicht mehr.
+- **Punkte:** Kein Punkt – aber ohne dieses Gespräch gibt es in der Sitzung **–2 Punkte** (Aurelan blockiert).
+
+---
+
+## Szene 3 – Die Wahrheit über Vanthe
+
+Irgendwann muss die Gruppe Vanthe gegenübertreten – in ihrem Arbeitszimmer im Gildenhaus, in der Sitzung oder an einem Ort ihrer Wahl.
+
+> *Vanthe steht am Fenster ihres Arbeitszimmers, die Hände auf dem Rücken. An der Wand hängt ein verhängter Spiegel. Als sie sich umdreht, lächelt sie, warm und müde. „Ihr seid gekommen, um mich zu beschuldigen. Ich weiß. Setzt euch. – Ich würde euch gern helfen. Ich weiß nur nicht, wie."*
+
+**Was die Gruppe weiß und einsetzen kann:**
+- *Schutz vor Bösem* – Vanthe selbst hat der Gruppe in Abenteuer 2 zwei Schriftrollen geschenkt. Ein Rest ihres freien Willens. Jetzt ist der Moment.
+- *Magie bannen* gegen ZS 12 (1W20 + ZS gegen SG 23) beendet die Beherrschung dauerhaft.
+- Telepathie durch einen Munavri-Charakter oder Selis Varn: die kalte Stimme hinter ihrer.
+- Motiv erkennen SG 15 (mit dem Hinweis aus Abenteuer 5): Sie handelt nicht freiwillig.
+
+**Wenn die Beherrschung bricht:**
+> *Vanthe zittert. Ihre Knie geben nach. Als sie aufschaut, sind ihre Augen klar – zum ersten Mal, seit ihr sie kennt. „Vierzehn Jahre. Vierzehn Jahre habe ich zugesehen, wie meine Hände Befehle schreiben, die ich nicht schreiben wollte. Ich habe euch gegeneinander aufgehetzt. Jeder Bericht, jede Maßnahme. Er wollte, dass ihr euch selbst die Tore öffnet." – Sie greift nach eurem Arm. „Und heute Nacht tut ihr es. Die Duergar in Torstadt. Er hat ihnen etwas versprochen."*
+
+**Der verhängte Spiegel:** Reißt jemand das Tuch herunter, sieht er für einen Herzschlag ein bleiches, schönes Gesicht mit amüsierten Augen. **Fürst Drevan.** *„Zu spät, meine Liebe. Aber tapfer."* Dann zerspringt der Spiegel. (Magie entdecken: starke Erkenntnismagie, jetzt erloschen.)
+
+**Wenn es zum Kampf kommt:** Siehe NSC-Werte Nr. 7. Die Beherrschung zwingt sie, sich zu wehren, aber bei 1–2 auf W6 handelt sie nicht. Sie wirkt keine Schadenszauber auf die Gruppe, sondern versucht zu fliehen. Sie ist mit HG 8 viel zu stark für einen offenen Kampf – die Lösung ist der richtige Zauber.
+
+**Vanthe bereitet heute zweimal *Teleportieren* vor.** Warum, weiß sie selbst nicht. Ein Teil von ihr hat es geahnt.
+
+---
+
+## Szene 4 – Die Notsitzung des Rates
+
+Am **Abend des dritten Tages** tritt der Rat in der Ratshalle zusammen, der Ethikrat auf der Galerie, und draußen auf dem **Platz der Gründer** drängen sich Tausende.
+
+> *Acht Sitze im Halbkreis. Auf der Galerie zehn weitere. Die Luft ist schwer von Kerzenrauch und Angst. Liane Aster hat die Hand erhoben, um die Ausweitung der Notstandsmaßnahme zu beantragen – auf Drudanst und Illiatist. Hulda Grauschmied ist aufgesprungen. Kesrin Valdorn sitzt sehr still. Und durch die offenen Türen hört ihr den Platz, wo die Menge Namen von Völkern ruft, als wären es Schimpfwörter.*
+
+### Das Punktesystem
+
+Die Gruppe trägt ihre Beweise vor. Zähle die **Punkte** aus Szene 2 und aus den früheren Abenteuern:
+
+| Beweis / Verbündeter | Punkte |
+|---|---|
+| Lauschsteine aus Abenteuer 1, 3 (falls erhalten), 4 (halbfertige) oder Szene 2E, mit Vanthes Zauberschrift | je 1 (höchstens 3) |
+| Silberstaub-Tinte, Lieferliste („Vor der Wahl braucht jedes Volk einen Feind") | je 1 |
+| Ilvrae Xuns Aussage (Abenteuer 3), Mirel Taans Aussage (Abenteuer 4) | je 1 |
+| Ithiels Berichte und der Archivvergleich (Abenteuer 3, Szene 2F) | 1 |
+| Der Wachplan der Knochenwacht und Hagras Bericht über den Trennungsbefehl (Abenteuer 5) | 1 |
+| Iluns Aussage: „Die haben wir zurückgeschickt" (Abenteuer 5) | 1 |
+| Das belauschte Gespräch über die Duergar in Torstadt (Abenteuer 5) | 1 |
+| Szene 2: Verbündete (Kesrin, Hulda, Selis), Thorgrims Geständnis, Bastrins Seite, Endstadts Beweis, Zone der Wahrheit, Lauschstein entfernt | siehe dort |
+| **Vanthe selbst sagt aus** (befreit) | **+4** |
+| Aurelan blockiert (Ort H nicht besucht) | –2 |
+| Lauschstein im Pfeiler noch aktiv | –2 auf den Diplomatie-Wurf |
+
+Zum Schluss ein **Diplomatie-Wurf** (SG 20) des Sprechers der Gruppe, andere helfen. Erfolg: +1, um 5 übertroffen: +2.
+
+| Punkte | Ergebnis |
+|---|---|
+| **0–5** | Der Rat ist gespalten. Die Notstandsmaßnahme bleibt. Die Gruppe reist ohne Beschluss nach Torstadt – sie muss die Kaserne gegen den Befehl öffnen (Szene 5, Phase 1 schwerer). |
+| **6–9** | Die Maßnahme wird aufgehoben, aber nur knapp. Liane Aster kündigt an, die Sache nach der Wahl wieder aufzurollen. |
+| **10+** | Die Maßnahme wird einstimmig aufgehoben. Aurelan Mysk steht auf und sagt: *„Der Ethikrat hat sich benutzen lassen. Ich trete zurück, sobald diese Nacht vorüber ist."* Draußen auf dem Platz wird es still. Dann beginnt jemand die Namen der Mauer der Namen zu rufen – erst einer, dann Hunderte. |
+
+### Die Nachricht aus Torstadt
+
+Mitten in der Sitzung stürzt ein Bote herein: *„Torstadt! Die Untoten greifen an! Jetzt!"*
+
+Torstadt ist eine Tagesreise entfernt. Vanthe – wenn befreit – steht auf: *„Ich habe zweimal Teleportieren vorbereitet. Ich wusste nicht, warum. Jetzt weiß ich es."* Jeder Sprung trägt sie und drei weitere. Zwei Sprünge: die Gruppe, und auf Wunsch Hulda und Kesrin (oder Selis, Ratzek, Thorgrim) mit dem Beschluss.
+
+**Wenn Vanthe nicht befreit ist:** Bastrin Kieselgrund hat in seinem Schreibtisch eine Schriftrolle *Teleportieren* (die er gestohlen hat, natürlich). Er liest sie selbst – sein Preis: die Gruppe schuldet ihm etwas. Er schafft nur einen Sprung (vier Personen).
+
+---
+
+# Teil 2 – Die Nacht am Tor
+
+## Szene 5 – Torstadt brennt nicht
+
+Vanthes Teleport setzt die Gruppe auf dem **Exerzierplatz** hinter dem Großen Steinwall ab.
+
+> *Lärm. Ein Brüllen von jenseits der Mauer, wie Brandung, aber es ist keine Brandung, es sind Tausende Kehlen, die nicht atmen. Auf dem Wall stehen zu wenige. Munavri mit Speeren, Svirfneblin mit Armbrüsten, Rattenvolk-Träger, die Bolzen schleppen, ein paar Menschen mit Fackeln. Die Lücken zwischen ihnen sind zu groß. Und aus der Kaserne neben euch hört ihr Fäuste gegen verschlossene Türen hämmern und eine bekannte, brummige Stimme, die schreit: „Lasst uns raus, ihr verdammten Narren, wir können helfen!"*
+
+### Das Wellen-System
+
+Die Schlacht am Wall läuft in **vier Phasen**. In jeder Phase kann die Gruppe **eine** Hauptaufgabe angehen (A–D unten). Am Ende jeder Phase greift eine **Welle** an.
+
+**Wallstärke (WS):** Wie gut der Wall hält. Sie beginnt bei **2** und steigt durch die Taten der Gruppe:
+
+| Tat | WS |
+|---|---|
+| Die **Duergar-Einheiten** befreit (Aufgabe A) | +2 |
+| Die **Drow-Einheiten** befreit (Aufgabe A) | +2 |
+| **Brakka** führt die Duergar (automatisch mit Aufgabe A) | +1 |
+| **Gorms** Duergar senken die Waffen und kämpfen mit (Aufgabe B, friedlich) | +1 |
+| Endstadts **Sonnensalz-Kugeln** sind da (Szene 2B) | +1 |
+| Kesrin hat die Drow vorbereitet (Szene 2A) | +1 |
+| Der **Lauschstein** im Torstädter Pfeiler ist entfernt (Aufgabe C) | +1 |
+| **Seren Halvaris** kämpft an der Seite der Gruppe (wenn die Gruppe ihn im Lauf der Kampagne respektiert hat) | +1 |
+| Hagra Lichtschild schickt einen Trupp der Bastion (wenn die Gruppe in Abenteuer 5 alle 19 Gefangenen gerettet hat) | +1 |
+
+**Wellenstärke:** Welle 1: **3** · Welle 2: **4** · Welle 3: **5** · Welle 4: **6** (+1, wenn der Knochendrache erhoben wurde – siehe Regionalband; nur, wenn die Gruppe ihn in keiner Weise aufgehalten hat).
+
+**Am Ende jeder Phase:** Ist **WS ≥ Wellenstärke**, hält der Wall. Ist **WS < Wellenstärke**, gibt es einen **Durchbruch**: Untote kommen über die Mauer, und die Gruppe muss die Bresche schließen (Begegnung **Bresche**, siehe unten), statt in der nächsten Phase eine Aufgabe anzugehen.
+
+**Wenn das Tor geöffnet wird** (Aufgabe B scheitert): Die nächste Welle bekommt **+3**, und Teile von Torstadt werden überrannt.
+
+### Aufgabe A – Die Kaserne öffnen
+
+Die Kaserne (Stadtplan Torstadt Nr. 3) wird von **Wachen** gehalten – Munavri und Svirfneblin der Wehrpflicht, die ihren Befehl befolgen.
+- **Mit dem Ratsbeschluss** (Notsitzung 6+): Diplomatie SG 10. Die Wachen sind erleichtert.
+- **Ohne Beschluss** (0–5): Diplomatie oder Einschüchtern SG 20 – oder die Gruppe öffnet die Türen mit Gewalt (die Wachen kämpfen nicht gegen Kameraden; sie treten zur Seite, wenn man ihnen eine Ausrede gibt).
+- **Brakka** stürmt heraus, nimmt einem Wachposten den Hammer aus der Hand und brüllt: *„Duergar! Auf den Wall! Die Mauer der Namen hat auch unsere Namen!"* Die Drow folgen, als **Tovan Myrrhane** (aus Abenteuer 5, wenn er überlebt hat) oder ein Drow-Feldwebel ruft: *„Rücken an Rücken. Wie in der Knochenwacht."*
+- **WS:** +2 (Duergar), +2 (Drow), +1 (Brakka).
+
+### Aufgabe B – Der Verrat am Tor (Begegnung, HG 6–7)
+
+**Feldwebel Gorm Aschgrau** und **6 Duergar-Soldaten** haben sich nicht in der Kaserne einschließen lassen – sie sind vorher geflohen. Ein Gesandter Drevans hat ihnen versprochen: Wer das Tor öffnet, dessen Volk wird verschont und darf in Varikanum herrschen, im Namen des **Eisenkönigs**. Mit ihnen auf dem Weg zum **Torhaus** (Karte): der **Bleiche Hund** und **2 beherrschte Lehrlinge** (darunter **Aldren Vey**), die die Torwache mit *Schlaf* ausschalten.
+
+> *Im Torhaus brennt eine einzelne Laterne. Die Winde für das Fallgitter ist so groß wie ein Mühlrad. Zwei Torwachen liegen schlafend daneben. Und um die Winde stehen Duergar in Uniformen der Wehrpflicht, die Hände schon an den Speichen. Ihr Anführer dreht sich um. Sein Gesicht ist nass. „Ihr habt uns eingesperrt", sagt er. „Ihr alle. Sagt mir, warum wir euch die Tür aufhalten sollten."*
+
+**Gorm und seine Leute sind verzweifelt, nicht böse.** Die Gruppe kann sie umstimmen:
+- **Diplomatie SG 20.** +4, wenn Brakka oder Hulda dabei ist (Aufgabe A vorher erledigt oder Hulda teleportiert mit). +2, wenn die Gruppe den **Ratsbeschluss** vorzeigt. +2, wenn **Thorgrim gestanden** hat (Gorm: „Er hat es selbst gesagt? Vor allen?"). +2, wenn ein Duergar-Charakter spricht. +2, wenn die Gruppe von dem **belauschten Gespräch** aus Abenteuer 5 erzählt: *„Der Eisenkönig will euch nicht befreien. Er will euch zurück. In Ketten."*
+- **Erfolg:** Gorm nimmt die Hände von der Winde. Seine Duergar wenden sich gegen den Bleichen Hund. **WS +1.**
+- **Misserfolg:** Kampf. Gorm und die Duergar kämpfen halbherzig (–2 auf Angriffe) und ergeben sich, sobald Gorm fällt.
+
+**Der Bleiche Hund** (Danek Fährtfind) kämpft in jedem Fall – bis zur Vernichtung. Er versucht, die Winde selbst zu drehen (3 volle Aktionen hebt das Fallgitter halb; 6 ganz). **Silberwaffen** aus der Lavaschmiede und **Sonnensalz-Kugeln** sind hier entscheidend. *(Wie Sonnensalz auf Vampire wirkt, legt die SL fest – siehe Städteband, Endstadt. Vorschlag für das Finale: 3 Runden lang Licht wie Tageslicht; der Hund ist darin geblendet und verliert seine Schnelle Heilung.)*
+
+**Die Lehrlinge:** Aldren Vey und ein zweiter Lehrling. Wer sie mit Namen anspricht und Diplomatie SG 15 schafft, gibt ihnen einen neuen Willenswurf (SG 15). **Lebend überwältigt: Ehrenmarke.** Aldren erinnert sich, wenn er befreit ist, an Illiatist: *„Der Wehrturm … die Wache … ich wollte das nicht."*
+
+**Wenn das Tor geöffnet wird:** Die nächste Welle +3. Die Gruppe kann das Fallgitter in der nächsten Phase wieder senken (Aufgabe B wiederholen, jetzt mit 4 Ghulen im Torweg zusätzlich).
+
+### Aufgabe C – Die Stimme im Pfeiler (optional)
+
+In der **Kammer des Torstädter Zentralpfeilers** (über die Kanzlei der Pfeilerwacht, Stadtplan Nr. 7) steckt ein Lauschstein. Hier ist Drevan der Schlacht am nächsten.
+- Keine Wächter – nur die Kälte und die Stimme.
+- Wer die Kammer betritt, hört Drevan. Er ist höflich, neugierig, beinahe freundlich:
+  > *„Ah, die Wehrpflichtigen. Ich habe euch zugehört, wisst ihr. In den Zisternen, am Hochsee, in Drudanst. Ihr seid gut. Ihr wärt in Varikanum sehr wertvoll. – Ihr fragt euch, warum ich mir die Mühe mache? Weil ich nichts zerstören will. Ich will nur, dass ihr mir gehört. Und ein Volk, das sich selbst nicht traut, gehört schon dem, der es am besten belügt."*
+- Wer den Stein herauslöst (Stärke SG 15), beendet die Zwietracht-Aura in Torstadt. Auf dem Wall merkt man es sofort: Leute, die sich angeschrien haben, stehen plötzlich Schulter an Schulter. **WS +1.**
+- Drevans letzte Worte aus dem Stein: *„Wie bedauerlich. Ihr habt euch wieder vertragen. – Das hält nie lange."*
+
+### Aufgabe D – Der Wall (letzte Phase, Begegnung HG 7)
+
+In der **vierten Phase** kommt die Gruppe auf den Wall, egal was sonst passiert ist. Die letzte Welle wird von **Kalkzahn** angeführt, dem Ghast-Hauptmann des Grauen Hofs, und **2 Ghulen**, die über eine Sturmleiter auf den Wehrgang klettern. Wenn **Mutter Asch** in Abenteuer 5 entkommen ist, steht sie unten vor der Mauer und heilt die Untoten mit negativer Energie.
+- **Verbündete** auf dem Wall kämpfen neben der Gruppe: Wer befreit wurde, ist da (Brakka, Tovan, Hulda, Gorm, Seren). Gib den Spielern das Gefühl, dass sie nicht allein sind – lass Verbündete Treffer abfangen oder Ghule von der Leiter stoßen.
+- **Kalkzahn** zu besiegen beendet die Welle, egal wie die Wallstärke steht.
+
+### Die Bresche (Begegnung bei Durchbruch, HG 5)
+
+Wenn eine Welle durchbricht: **6 menschliche Zombies** und **1 Ghast** kommen über die Mauer und dringen in die Gassen hinter dem Wall vor. Die Gruppe muss sie aufhalten, bevor sie die Häuser erreichen. Verbündete helfen, wenn sie befreit sind.
+
+### Das Bild zum Schluss
+
+> *Als der Morgen kommt – das Licht der Leuchtpilze wird heller, wie jeden Tag –, liegt die Vorhöhle voller zerbrochener Knochen. Auf dem Wall stehen sie alle: Duergar mit rußgeschwärzten Gesichtern, Drow mit verbundenen Augen gegen das Sonnensalz-Licht, Svirfneblin, Munavri, Rattenvolk, Menschen. Niemand jubelt. Brakka Steinfaust geht langsam die Mauer der Namen entlang, legt die Hand auf die Steine und sagt leise: „Noch nicht. Diesmal noch nicht."*
+
+---
+
+## Szene 6 – Epilog: die Wahl 171
+
+Wochen später. Die Enklave lebt, aber sie ist nicht mehr dieselbe.
+
+**Was sich ändert – je nachdem, was die Gruppe getan hat:**
+
+| Wenn … | dann … |
+|---|---|
+| Thorgrim hat selbst gestanden | Drudanst bleibt im Bund. Xal'thuun ist nicht gebannt – aber das Geheimnis hat keine Macht mehr. (Fortsetzungs-Akt „Der Pakt") |
+| Der Pakt kam nur durch den Quasit heraus | Drudanst steht unter Aufsicht. Viele Duergar denken über Unabhängigkeit nach. |
+| Endstadt hat geholfen und die Gruppe hat ihr Versprechen gehalten | Bei der Wahl 171 bekommt die **Osthöhle einen Höhlensitz**. Der Lichtbann wird aufgehoben, und die ersten Lichthallen entstehen in Torstadt und Illiatist – mit Vorhängen für die Drow. |
+| Bastrin hat seine Seite gegen Straffreiheit gegeben | Er wird zum ersten Erzmagister, der kein Munavri ist. Ob das gut ist, wird sich zeigen. |
+| Vanthe wurde befreit | Sie legt alle Ämter nieder und geht ins **Kloster der Wahrheit**. Bevor sie geht, gibt sie der Gruppe ihr Zauberbuch: „Für den Tag, an dem ihr nach Varikanum geht." |
+| Aurelan ist zurückgetreten | Selis Varn wird das neue Azatum. Die Fünfhunderter-Regel wird überprüft. |
+
+### Die Angebote
+
+Zähle die **Ehrenmarken** der Truppe (Kampagnenbuch, Kap. 5):
+
+| Ehrenmarken | Angebot |
+|---|---|
+| **0–2** | Ein ehrenvoller Abschied aus der Wehrpflicht. Brakka gibt jedem die Hand. |
+| **3–4** | Das Angebot, eine Spezialeinheit zu bilden: **die Wächter des Bundes** – Ermittler, die direkt dem Rat unterstehen und dort eingreifen, wo die Völker gegeneinander ausgespielt werden. |
+| **5+** | Die Wächter des Bundes – **und** ein Sitz als Beobachter im Ethikrat. Zum ersten Mal sitzen Leute im Ethikrat, die von keinem Volk und keiner Höhle gewählt wurden, sondern vom ganzen Bund. |
+
+**Alternative:** Freie Söldner. Hagra Lichtschild, Thorgrim, Kesrin und Ratzek würden sie alle anheuern.
+
+### Ausblick
+
+Fürst Drevan lebt. Die Kelchträger leben. Der Eisenkönig lebt. Der Rote Schläfer schläft. Und irgendwo in Varikanum steht eine Munavri-Sklavin namens **Sefa Lenn** am Fenster ihres Sklavenviertels und wartet auf jemanden, der kommt.
+
+→ Fortsetzung: siehe Regionalband, „Fortsetzungskampagne: Stufe 6–15".
+
+---
+
+## Belohnungen
+
+**Erfahrung (wenn mit EP gespielt):**
+
+| Erfolg | EP gesamt |
+|---|---|
+| Jede Handlung in Szene 2 mit Erfolg | je 400 |
+| Lauschstein im Pfeiler von Grovaristadt (3 Lehrlinge) | 1.200 |
+| Vanthe befreit | 2.400 |
+| Notsitzung: 10+ Punkte | 2.400 |
+| Aufgabe A | 800 |
+| Aufgabe B (Kampf oder friedlich) | 3.200 |
+| Aufgabe C | 800 |
+| Aufgabe D (Kalkzahn + 2 Ghule) | 3.200 |
+| Jede gehaltene Welle | 800 |
+
+Bei Meilenstein-Aufstieg: **Stufe 6** am Ende der Kampagne – bereit für eine Fortsetzung.
+
+**Schätze:**
+- **Der Rat** zahlt jedem Charakter **2.000 GM** „für die Verteidigung des Bundes".
+- **Kalkzahns** Ausrüstung: *Kriegsaxt +1*, Meisterarbeits-Brustplatte, ein Beutel mit Varikanum-Silbermünzen (300 GM).
+- **Vanthes Zauberbuch** (wenn befreit), für einen Magier der Gruppe.
+- **Thorgrim** schmiedet jedem Charakter, der in Abenteuer 4 eine Meisterarbeits-Waffe oder -Rüstung bekommen hat, eine *+1*-Verzauberung darauf.
+
+**Ehrenmarken** in diesem Abenteuer (je eine): Lehrlinge lebend überwältigt (E oder B) · Gorms Duergar friedlich umgestimmt · Thorgrim zum Geständnis gebracht, ohne dass Drudanst dafür büßt.
+
+---
+
+## Werte
+
+### Pfeilerwacht-Lehrling, Bleicher Hund, Vanthe, Bastrin, Brakka, Seren
+Siehe NSC-Werte (Nr. 3, 6, 7, 7b, 1, 2).
+
+### Feldwebel Gorm Aschgrau (HG 3, 800 EP)
+*Duergar, Kämpfer 4 · RN Mittelgroßer Humanoide (Zwerg)* · **INI** +1; **Sinne** Dunkelsicht 36 m; Wahrnehmung +4
+**RK** 19, Berührung 11, auf dem falschen Fuß 18 (+6 Rüstung, +1 GE, +2 Schild) · **TP** 42 (4W10+16) · **REF** +2, **WIL** +2 (+1 gegen Furcht), **ZÄH** +7; +2 gegen Zauber · **Immunität** Gift, Lähmung, Trugbilder · **Schwäche** Lichtempfindlichkeit
+**Bewegung** 6 m · **Nahkampf** Kriegshammer +9 (1W8+6/×3)
+**ST** 17, **GE** 12, **KO** 16, **IN** 10, **WE** 12, **CH** 4 · **GAB** +4; **KMB** +7; **KMV** 18 · **Talente** Abhärtung, Heftiger Angriff, Waffenfokus (Kriegshammer), Waffenspezialisierung (Kriegshammer)
+**Zauberähnliche Fähigkeiten** (ZS 4) 1/Tag – *Person vergrößern* (selbst), *Unsichtbarkeit* (selbst)
+
+### Duergar-Soldaten (HG 1/2, 200 EP)
+*Duergar, Krieger 2* · **RK** 17 · **TP** 15 · **Nahkampf** Kriegshammer +4 (1W8+1/×3) · **ZÄH** +5, **REF** +0, **WIL** +1 · Immunitäten und Schwäche wie Gorm.
+
+### Kalkzahn, Ghast-Hauptmann (HG 6, 2.400 EP)
+*Ghast, Kämpfer 4 · CB Mittelgroßer Untoter* *(Werte vereinfacht)*
+**INI** +7; **Sinne** Dunkelsicht 18 m; Wahrnehmung +11
+**Aura** Gestank (3 m, Zähigkeit SG 16 oder 1W6+4 Minuten kränkelnd)
+**RK** 23, Berührung 13, auf dem falschen Fuß 20 (+6 Rüstung, +3 GE, +4 natürlich) · **TP** 55 · **REF** +5, **WIL** +7, **ZÄH** +8 · **Verteidigungsfähigkeiten** Resistenz gegen Fokussieren +2; **Immunität** wie Untote
+**Bewegung** 9 m · **Nahkampf** *Kriegsaxt +1* +11 (1W8+8/×3), Biss +5 (1W8+2 plus Krankheit und Lähmung)
+**Lähmung** (Biss): Zähigkeit SG 16 oder 1W4+1 Runden gelähmt – wirkt auch gegen Elfen.
+**ST** 19, **GE** 17, **KO** –, **IN** 13, **WE** 14, **CH** 16 · **GAB** +5; **KMB** +9; **KMV** 22
+**Talente** Heftiger Angriff (–2/+4), Verbesserte Initiative, Waffenfokus (Kriegsaxt), Waffenspezialisierung (Kriegsaxt), Doppelschlag
+**Taktik:** Er stürmt den Wehrgang über die Sturmleiter, nutzt Heftigen Angriff gegen den stärksten Verteidiger und beißt, um zu lähmen. Er kämpft bis zur Vernichtung.
+
+### Ghul, Ghast, Zombie
+Siehe Abenteuer 2, 4 und 5.
+
+---
+
+## Nichtspielercharaktere – Übersicht
+
+| Name | Rolle im Finale |
+|---|---|
+| **Brakka Steinfaust** | Eingesperrt, führt nach der Befreiung die Duergar |
+| **Oriel Vanthe** | Beherrscht – oder befreit und teleportiert die Gruppe |
+| **Aurelan Mysk** | Leitet die Sitzung, blockiert ohne Beweise |
+| **Selis Varn** | Agathum, mögliche Verbündete, Telepathie |
+| **Bastrin Kieselgrund** | Der zweite Verdächtige, bietet die Seite von 156 |
+| **Hulda Grauschmied**, **Thorgrim Aschhand** | Drudanst, der Pakt |
+| **Kesrin Valdorn** | Illiatist |
+| **Ratzek Lauffuß**, **Mara Lichtweg** | Endstadt, Sonnensalz-Kugeln |
+| **Liane Aster** | Will die Notstandsmaßnahme ausweiten |
+| **Bruder Ondrin** | Kloster der Wahrheit, *Zone der Wahrheit* |
+| **Gorm Aschgrau** | Verzweifelter Duergar-Feldwebel am Tor |
+| **Der Bleiche Hund** | Am Tor, kämpft bis zum Ende |
+| **Aldren Vey** | Beherrschter Lehrling am Tor (aus Abenteuer 3) |
+| **Kalkzahn** | Ghast-Hauptmann der letzten Welle |
+| **Fürst Drevan** | Nur als Stimme im Spiegel und im Pfeiler |
+
+---
+
+## Wenn etwas schiefgeht
+
+- **Die Gruppe verliert sich in Grovaristadt und kommt mit zu wenigen Punkten zur Sitzung:** Das ist kein Ende. Die Maßnahme bleibt, aber die Gruppe kann trotzdem nach Torstadt (Bastrins Schriftrolle oder ein Gewaltmarsch, dann erst ab Phase 2) und die Kaserne gegen den Befehl öffnen. Das ist schwerer – und vielleicht der stärkste Moment der Kampagne: Wehrpflichtige, die einen falschen Befehl brechen, um das Richtige zu tun.
+- **Vanthe wird im Kampf getötet:** Tragisch, aber möglich. Ohne ihre Aussage fehlen 4 Punkte; Selis Varn oder Ilun können ihre Rolle als Zeuginnen teilweise übernehmen. Für den Teleport: Bastrins Schriftrolle.
+- **Die Gruppe öffnet den Lauschstein-Raum in Grovaristadt nicht:** Die Sitzung ist schwerer (–2), aber machbar.
+- **Das Tor wird geöffnet und die Gruppe kann es nicht wieder schließen:** Teilerfolg – Torstadt wird teilweise überrannt, bis Hagra mit der Bastion am Morgen eintrifft. Die Enklave überlebt, aber gespalten: Drudanst erklärt sich für unabhängig, Illiatist schließt seine Tore. Eine düstere, aber spannende Ausgangslage für eine Fortsetzung.
+- **Die Wellen sind zu stark:** Wenn die Gruppe zu wenige Verbündete hat, kann die SL Hagras Trupp aus der Bastion früher eintreffen lassen (WS +1) – aber nur, wenn die Gruppe in Abenteuer 5 Gutes getan hat. Belohne frühere Taten, nicht Glück.
+- **Die Spieler wollen Drevan jagen:** Nicht in dieser Kampagne. Er ist HG 14 und sitzt in Varikanum. Lass sie es wollen – das ist die Fortsetzung.

@@ -27,7 +27,7 @@ Die beiden Pläne sind schematisch: Die Häuserblöcke sind Füllmuster, wichtig
 | 5 | **Mauer der Namen** | Eine schwarze Steinwand direkt hinter dem Wall mit 412 eingemeißelten Namen der Gefallenen von Jahr 118 – und darunter, kleiner, die Namen der Kalten Nacht (Jahr 152). Frische Leuchtpilze werden jeden Tag davor gelegt | 1, Finale |
 | 6 | **Wasserwerk am Zentralpfeiler** | Pumpen, Schleusen, Einstieg in die Zisternen. Vorarbeiter Dorrin Kalkbart | 1 |
 | 7 | **Kanzlei der Pfeilerwacht** | Kleine Außenstelle der Gilde. Ein freundlicher älterer Magier, **Meister Halvin Dunst** (Mensch), verwaltet sie. Von hier führt eine verschlossene Treppe in die **Kammer im Zentralpfeiler** (Jahr 127) | 1, Finale |
-| — | **Zentralpfeiler** | Die Säule trägt die Decke über Torstadt. In ihrem Inneren, 20 m über dem Boden, liegt die Kammer mit dem Verstärkungszauber. Im Finale ist hier der Gegenanker versteckt | Finale |
+| — | **Zentralpfeiler** | Die Säule trägt die Decke über Torstadt. In ihrem Inneren, 20 m über dem Boden, liegt die Kammer mit dem Verstärkungszauber. Am Fundament steckte der erste Lauschstein (Abenteuer 1); im Finale spricht Drevan aus einem zweiten, der in der Kammer versteckt ist | Finale |
 | 8 | **Hospiz der Azatas** | Heilung für Wehrpflichtige kostenlos, für andere gegen Spende. Hennik (der erste Rattenbiss-Patient) liegt hier | 1 |
 | 9 | **Markt am Pfeiler** | Kleiner, voller Markt. Waffen, Proviant, Laternen, Glücksbringer für Wehrpflichtige | – |
 | 10 | **Haus des Wallmarschalls** | Sitz von **Wallmarschall Ormund Tiefgrund** (Svirfneblin, Kämpfer 9), Oberbefehlshaber der Wehrpflicht. Ein alter, müder Krieger, der seit der Kalten Nacht nicht mehr gut schläft | 6 |
@@ -50,9 +50,9 @@ Die beiden Pläne sind schematisch: Die Häuserblöcke sind Füllmuster, wichtig
 
 ### Torstadt im Finale
 
-- Die Untotenarmee greift am **Haupttor (1)** an. Brakka und die Wehrpflicht halten die Mauer.
-- Gleichzeitig versucht der Bleiche Hund, über das **Wassertor (2)** oder mithilfe der Lehrlinge über die **Kanzlei (7)** in den **Zentralpfeiler** zu gelangen.
-- Die Spieler müssen von der Mauer zum Pfeiler: durch die Stadt, über die Pfeilerbrücke (14) oder durch die Zisternen (Karte aus Abenteuer 1). Kluge Gruppen erinnern sich an den gefluteten Durchgang.
+- Die Untotenarmee greift am **Haupttor (1)** an – in der Nacht, in der Drow- und Duergar-Einheiten auf Beschluss des Ethikrats in der **Kaserne (3)** eingesperrt sind.
+- Verzweifelte Duergar-Soldaten, der Bleiche Hund und beherrschte Lehrlinge wollen das **Torhaus** übernehmen und das Fallgitter öffnen.
+- Die Spieler müssen die Eingesperrten befreien, den Beschluss verkünden und das Torhaus halten. Am Ende stehen alle Völker gemeinsam auf dem Wall – wie in Jahr 118, vor der **Mauer der Namen (5)**.
 
 ---
 
@@ -279,6 +279,8 @@ Das Geheimnis ist weit mehr wert als Gemüse. Folgende Mächte haben ein Interes
 | **Torags Esse** | Tempel des Torag mit einer ewigen Flamme, die mit Lava aus der Schmiede gespeist wird |
 | **Die Svirfneblin-Stollen** | Erzstollen im Osten der Höhle |
 | **Pfeilerwacht-Station** | Munavri-Magier, die den Pfeiler der Drudanst-Höhle warten. Seit Jahr 169 „Große Pfeilerprüfung" – Lehrlinge gehen ein und aus |
+| **Der Zentralpfeiler** | Er steht nicht in der neuen Stadt, sondern einsam im **Bruch**: Die alte Siedlung war um ihn herum gebaut. Daneben die kleine **Pfeilerwacht-Station**. Seit der Großen Pfeilerprüfung steckt auch hier ein Lauschstein (Abenteuer 4) |
+| **Das Schwarzsteinlager** | Gewölbe direkt am Gedenktor, die Hintertür führt in den Bruch. Hier lagern fertige Barren aus der Lavaschmiede bis zur Abholung (Abenteuer 4) |
 | **Das Gedenktor** | Das Südtor der Stadt, mit Blick auf den Bruch. Hier stehen die Namen der Toten von Jahr 123 – und daneben eine leere Tafel für die, deren Leichen nie geborgen wurden |
 
 ### Der Bruch (Altdrudanst)
@@ -427,7 +429,7 @@ Der Stadtplan hat keine Nummern. Die Orte sind nach ihrer Lage beschrieben:
 
 **Der Urpfeiler (Jahr 127)**
 - Nach dem Einsturz in Drudanst wird in **der Svirfneblin-Höhle der erste Verstärkungszauber** gewirkt (deine Zeitlinie). Dazu wird eine Kammer in den Zentralpfeiler gegraben, der Dutzende Meter Durchmesser hat. Dieser **Urpfeiler** ist das Vorbild für alle anderen Pfeiler der Enklave – und der älteste, wichtigste und am besten bewachte.
-- *(Für die Kampagne:)* Wenn Drevans Gegenanker in Torstadt gelingt, wäre der Urpfeiler das nächste Ziel. Eine Fortsetzung kann hier ansetzen.
+- *(Für die Kampagne:)* Auch im Urpfeiler steckt seit der Großen Pfeilerprüfung ein Lauschstein. Tiefenburgs alte Feindschaft mit den Duergar ist für Drevan ein besonders dankbares Ziel.
 
 ### Die Stadt heute
 
