@@ -36,7 +36,7 @@ Die Truppe muss in **Grovaristadt** beweisen, dass alles inszeniert war, Vanthe 
 
 ---
 
-# Teil 1 – Grovaristadt
+## Teil 1 – Grovaristadt
 
 ## Szene 1 – Ankunft
 
@@ -188,7 +188,7 @@ Torstadt ist eine Tagesreise entfernt. Vanthe – wenn befreit – steht auf: *�
 
 ---
 
-# Teil 2 – Die Nacht am Tor
+## Teil 2 – Die Nacht am Tor
 
 ## Szene 5 – Torstadt brennt nicht
 
